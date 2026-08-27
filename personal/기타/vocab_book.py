@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """영어 단어·숙어장 만들기 — 이 파일 하나면 된다.
 
-굿노트(아이패드)용 A4 PDF와, presentations 사이트에 올릴 웹 페이지를 만든다.
+굿노트(아이패드)용 A4 PDF와, PersonalPages 사이트에 올릴 웹 페이지를 만든다.
 필요한 것: Python 3(표준 라이브러리만) + Chrome 또는 Edge. git은 게시할 때만.
 
 ━━ 사용법 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -455,7 +455,7 @@ def main_web():
 
 # ─────────────────────── 사이트에 게시 ───────────────────────
 
-DEFAULT_REPO = "https://github.com/GuitaruMan/presentations.git"
+DEFAULT_REPO = "https://github.com/GuitaruMan/PersonalPages.git"
 LIST_ANCHOR = '<div class="list">'
 
 
