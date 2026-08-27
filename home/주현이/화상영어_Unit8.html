@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>화상영어 Unit 8 단어 · 숙어장 - My Presentations</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #ffffff; --ink: #1c2230; --ink-soft: #5b6270;
+    --accent: #3a5ba0; --shadow: rgba(28, 34, 48, 0.10); --pink: #C9578B; --line: #ece7f2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14161c; --card: #1f232c; --ink: #eceef2; --ink-soft: #a3aab8; --accent: #7fa2e0;
+      --shadow: rgba(0,0,0,0.4); --pink: #F2A0C4; --line: #2c313c; }
+  }
+  :root[data-theme="dark"] { --bg: #14161c; --card: #1f232c; --ink: #eceef2; --ink-soft: #a3aab8;
+    --accent: #7fa2e0; --shadow: rgba(0,0,0,0.4); --pink: #F2A0C4; --line: #2c313c; }
+  :root[data-theme="light"] { --bg: #f5f6f8; --card: #ffffff; --ink: #1c2230; --ink-soft: #5b6270;
+    --accent: #3a5ba0; --shadow: rgba(28, 34, 48, 0.10); --pink: #C9578B; --line: #ece7f2; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
+    display: flex; flex-direction: column; align-items: center; padding: 6vh 5vw 6vh; }
+  .top { width: 100%; max-width: 860px; margin-bottom: 1.5rem; display: flex; justify-content: space-between; }
+  a.back { color: var(--ink-soft); text-decoration: none; font-size: 0.9rem; }
+  a.back:hover { color: var(--accent); }
+  .wrap { width: 100%; max-width: 860px; }
+  h1 { font-size: 1.6rem; margin: 0.5rem 0 0.4rem; }
+  .lead { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 1.6rem; line-height: 1.7; }
+  .bar { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.2rem; border-radius: 12px;
+    background: var(--card); color: var(--ink); text-decoration: none; font-size: 0.92rem; font-weight: 600;
+    box-shadow: 0 3px 12px var(--shadow); border: none; cursor: pointer; font-family: inherit; }
+  .btn.primary { background: var(--pink); color: #fff; }
+  .btn:hover { transform: translateY(-1px); }
+  section.day { background: var(--card); border-radius: 14px; box-shadow: 0 3px 12px var(--shadow);
+    padding: 1.3rem 1.5rem 0.6rem; margin-bottom: 1.2rem; }
+  section.day h2 { font-size: 1.05rem; margin: 0 0 1rem; display: flex; align-items: center; gap: 0.7rem; }
+  .chip { color: #fff; font-size: 0.8rem; padding: 0.25rem 0.8rem; border-radius: 20px; }
+  .row { display: grid; grid-template-columns: 1.9rem 12rem 9rem 1fr; gap: 0.8rem; align-items: baseline;
+    padding: 0.75rem 0; border-top: 1px solid var(--line); }
+  section.day .row:first-of-type { border-top: none; }
+  .num { color: #fff; font-size: 0.72rem; width: 1.5rem; height: 1.5rem; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center; }
+  .w b { font-size: 1.02rem; }
+  .w i { font-style: normal; color: var(--ink-soft); font-size: 0.75rem; margin-left: 0.35rem; }
+  .w em { font-style: normal; color: var(--accent); font-size: 0.7rem; margin-left: 0.35rem; }
+  .m { color: var(--pink); font-weight: 700; font-size: 0.92rem; }
+  .x { font-size: 0.83rem; color: var(--ink); line-height: 1.6; }
+  body.hide-mean .m { background: var(--line); color: transparent; border-radius: 6px; cursor: pointer; }
+  body.hide-mean .m:hover { color: var(--pink); background: transparent; }
+  @media (max-width: 700px) {
+    .row { grid-template-columns: 1.7rem 1fr; }
+    .m, .x { grid-column: 2; }
+  }
+</style>
+</head>
+<body>
+  <div class="top">
+    <a class="back" href="../주현이.html">&larr; 주현이</a>
+    <a class="back" href="../../index.html">홈으로</a>
+  </div>
+  <div class="wrap">
+    <h1>📰 화상영어 Unit 8 단어 · 숙어장</h1>
+    <div class="lead">That&#x27;s Exactly What I&#x27;m Trying to Say &nbsp;·&nbsp; 핵심 단어 24개 + 숙어 12개<br>꼭 필요한 것만 골랐어요. 3일이면 끝! 아이패드 굿노트에 넣어 쓸 수 있는 PDF도 함께 있어요.</div>
+    <div class="bar"><a class="btn primary" href="화상영어_Unit8_단어장.pdf" download>⬇ 단어장 PDF 내려받기 (6쪽)</a><button class="btn" id="toggle">🙈 뜻 가리고 외우기</button></div>
+    <section class="day"><h2><span class="chip" style="background:#F79FBF">Day 1</span>꼭 알아야 할 단어 ①</h2><div class="row"><span class="num" style="background:#F79FBF">1</span><div class="w"><b>subscribe</b><i>[섭스크라이브]</i><em>동사</em></div><div class="m">구독하다</div><div class="x">I know you subscribe to the magazine monthly.</div></div><div class="row"><span class="num" style="background:#F79FBF">2</span><div class="w"><b>monthly</b><i>[먼슬리]</i><em>부사</em></div><div class="m">한 달에 한 번, 매달</div><div class="x">She subscribes to the magazine monthly.</div></div><div class="row"><span class="num" style="background:#F79FBF">3</span><div class="w"><b>issue</b><i>[이슈]</i><em>명사</em></div><div class="m">(잡지의) 호</div><div class="x">Did this month&#x27;s issue come out already?</div></div><div class="row"><span class="num" style="background:#F79FBF">4</span><div class="w"><b>feature</b><i>[피처]</i><em>명사</em></div><div class="m">특집 (기사)</div><div class="x">There are a lot of interesting feature articles.</div></div><div class="row"><span class="num" style="background:#F79FBF">5</span><div class="w"><b>relieve</b><i>[릴리브]</i><em>동사</em></div><div class="m">(스트레스를) 풀어 주다</div><div class="x">It&#x27;s the best way to relieve my stress.</div></div><div class="row"><span class="num" style="background:#F79FBF">6</span><div class="w"><b>stress</b><i>[스트레스]</i><em>명사</em></div><div class="m">스트레스</div><div class="x">Reading magazines relieves Sophia&#x27;s stress.</div></div><div class="row"><span class="num" style="background:#F79FBF">7</span><div class="w"><b>mass media</b><i>[매스 미디어]</i><em>명사</em></div><div class="m">대중 매체</div><div class="x">The mass media makes it possible for us to learn about cultures.</div></div><div class="row"><span class="num" style="background:#F79FBF">8</span><div class="w"><b>overlook</b><i>[오버룩]</i><em>동사</em></div><div class="m">못 본 척 넘기다</div><div class="x">But we can&#x27;t overlook its negative effects.</div></div><div class="row"><span class="num" style="background:#F79FBF">9</span><div class="w"><b>negative</b><i>[네거티브]</i><em>형용사</em></div><div class="m">부정적인, 나쁜</div><div class="x">We can&#x27;t overlook its negative effects.</div></div><div class="row"><span class="num" style="background:#F79FBF">10</span><div class="w"><b>effect</b><i>[이펙트]</i><em>명사</em></div><div class="m">영향, 효과</div><div class="x">The mass media has negative effects, too.</div></div><div class="row"><span class="num" style="background:#F79FBF">11</span><div class="w"><b>exactly</b><i>[이그잭틀리]</i><em>부사</em></div><div class="m">바로, 정확히</div><div class="x">That&#x27;s exactly what I&#x27;m trying to say.</div></div><div class="row"><span class="num" style="background:#F79FBF">12</span><div class="w"><b>trend</b><i>[트렌드]</i><em>명사</em></div><div class="m">유행</div><div class="x">People tend to follow trends.</div></div></section><section class="day"><h2><span class="chip" style="background:#B9A7E0">Day 2</span>꼭 알아야 할 단어 ②</h2><div class="row"><span class="num" style="background:#B9A7E0">13</span><div class="w"><b>personality</b><i>[퍼스낼리티]</i><em>명사</em></div><div class="m">개성, 성격</div><div class="x">It&#x27;s hard to see people showing their own personalities.</div></div><div class="row"><span class="num" style="background:#B9A7E0">14</span><div class="w"><b>exaggerated</b><i>[이그재저레이티드]</i><em>형용사</em></div><div class="m">과장된</div><div class="x">We can see exaggerated advertisements.</div></div><div class="row"><span class="num" style="background:#B9A7E0">15</span><div class="w"><b>advertisement</b><i>[애드버타이즈먼트]</i><em>명사</em></div><div class="m">광고</div><div class="x">Exaggerated advertisements are on the mass media.</div></div><div class="row"><span class="num" style="background:#B9A7E0">16</span><div class="w"><b>influence</b><i>[인플루언스]</i><em>동사</em></div><div class="m">영향을 주다</div><div class="x">They tend to influence on our decision-making.</div></div><div class="row"><span class="num" style="background:#B9A7E0">17</span><div class="w"><b>product</b><i>[프로덕트]</i><em>명사</em></div><div class="m">제품, 상품</div><div class="x">We see ads when we buy products.</div></div><div class="row"><span class="num" style="background:#B9A7E0">18</span><div class="w"><b>consumer</b><i>[컨슈머]</i><em>명사</em></div><div class="m">소비자</div><div class="x">We should try to become wise consumers.</div></div><div class="row"><span class="num" style="background:#B9A7E0">19</span><div class="w"><b>wise</b><i>[와이즈]</i><em>형용사</em></div><div class="m">현명한</div><div class="x">We should try to become wise consumers.</div></div><div class="row"><span class="num" style="background:#B9A7E0">20</span><div class="w"><b>article</b><i>[아티클]</i><em>명사</em></div><div class="m">기사, 글</div><div class="x">I should write a special article about it.</div></div><div class="row"><span class="num" style="background:#B9A7E0">21</span><div class="w"><b>deserve</b><i>[디저브]</i><em>동사</em></div><div class="m">~할 자격이 있다</div><div class="x">Students deserve to know what is right or wrong.</div></div><div class="row"><span class="num" style="background:#B9A7E0">22</span><div class="w"><b>appreciate</b><i>[어프리시에이트]</i><em>동사</em></div><div class="m">고맙게 여기다</div><div class="x">I appreciate your opinion.</div></div><div class="row"><span class="num" style="background:#B9A7E0">23</span><div class="w"><b>opinion</b><i>[오피니언]</i><em>명사</em></div><div class="m">의견, 생각</div><div class="x">I appreciate your opinion. It will be a big help.</div></div><div class="row"><span class="num" style="background:#B9A7E0">24</span><div class="w"><b>advantage</b><i>[어드밴티지]</i><em>명사</em></div><div class="m">장점 (↔ disadvantage 단점)</div><div class="x">What are some advantages of the mass media?</div></div></section><section class="day"><h2><span class="chip" style="background:#7ECFC0">Day 3</span>꼭 외워야 할 숙어</h2><div class="row"><span class="num" style="background:#7ECFC0">25</span><div class="w"><b>subscribe to ~</b><i>[섭스크라이브 투]</i></div><div class="m">~을 구독하다</div><div class="x">I know you subscribe to the magazine monthly.</div></div><div class="row"><span class="num" style="background:#7ECFC0">26</span><div class="w"><b>come out</b><i>[컴 아웃]</i></div><div class="m">(잡지·책이) 나오다</div><div class="x">Did this month&#x27;s issue come out already?</div></div><div class="row"><span class="num" style="background:#7ECFC0">27</span><div class="w"><b>come up with ~</b><i>[컴 업 위드]</i></div><div class="m">(생각을) 떠올리다</div><div class="x">It helps me come up with new ideas.</div></div><div class="row"><span class="num" style="background:#7ECFC0">28</span><div class="w"><b>make it possible for A to ~</b><i>[메이크 잇 파서블 포]</i></div><div class="m">A가 ~할 수 있게 해 주다</div><div class="x">The mass media makes it possible for us to learn about cultures.</div></div><div class="row"><span class="num" style="background:#7ECFC0">29</span><div class="w"><b>tend to ~</b><i>[텐드 투]</i></div><div class="m">~하는 경향이 있다</div><div class="x">People tend to follow trends.</div></div><div class="row"><span class="num" style="background:#7ECFC0">30</span><div class="w"><b>point of view</b><i>[포인트 오브 뷰]</i></div><div class="m">관점, 보는 시각</div><div class="x">Everyone seems to have the same points of view.</div></div><div class="row"><span class="num" style="background:#7ECFC0">31</span><div class="w"><b>try to ~</b><i>[트라이 투]</i></div><div class="m">~하려고 애쓰다</div><div class="x">We should try to become wise consumers.</div></div><div class="row"><span class="num" style="background:#7ECFC0">32</span><div class="w"><b>That&#x27;s exactly what I&#x27;m trying to say.</b><i>[댓츠 이그잭틀리 왓 아임 트라잉 투 세이]</i></div><div class="m">그게 바로 내가 하려던 말이야.</div><div class="x">You&#x27;re right. That&#x27;s exactly what I&#x27;m trying to say.</div></div><div class="row"><span class="num" style="background:#7ECFC0">33</span><div class="w"><b>That&#x27;s a good point.</b><i>[댓츠 어 굿 포인트]</i></div><div class="m">좋은 지적이야.</div><div class="x">That&#x27;s a good point. I&#x27;m with you on that.</div></div><div class="row"><span class="num" style="background:#7ECFC0">34</span><div class="w"><b>speaking of ~</b><i>[스피킹 오브]</i></div><div class="m">~ 얘기가 나와서 말인데</div><div class="x">Speaking of the mass media, I&#x27;ll write an article about it.</div></div><div class="row"><span class="num" style="background:#7ECFC0">35</span><div class="w"><b>give it a try</b><i>[기브 잇 어 트라이]</i></div><div class="m">한번 해 보다</div><div class="x">Give it a try! You can do it.</div></div><div class="row"><span class="num" style="background:#7ECFC0">36</span><div class="w"><b>in advance</b><i>[인 어드밴스]</i></div><div class="m">미리, 사전에</div><div class="x">OK. I&#x27;ll try to study in advance.</div></div></section>
+  </div>
+<script>
+  const btn = document.getElementById('toggle');
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('hide-mean');
+    btn.textContent = document.body.classList.contains('hide-mean') ? '👀 뜻 다시 보기' : '🙈 뜻 가리고 외우기';
+  });
+</script>
+</body>
+</html>

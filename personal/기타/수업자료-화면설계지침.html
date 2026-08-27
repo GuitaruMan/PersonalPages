@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>수업자료 화면 설계 지침 - My Presentations</title>
+<style>
+  :root { --bg: #f5f6f8; --card: #ffffff; --ink: #1c2230; --ink-soft: #5b6270; --ink-faint: #8b93a3;
+          --accent: #3a5ba0; --rule: #dfe3ea; --code-bg: #f0f2f6; --shadow: rgba(28,34,48,0.10);
+          --mark-bg: #eef2fa; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #14161c; --card: #1f232c; --ink: #eceef2; --ink-soft: #a3aab8;
+          --ink-faint: #7d8492; --accent: #7fa2e0; --rule: #333944; --code-bg: #171a21; --shadow: rgba(0,0,0,0.4);
+          --mark-bg: #1c2430; } }
+  :root[data-theme="dark"] { --bg: #14161c; --card: #1f232c; --ink: #eceef2; --ink-soft: #a3aab8;
+          --ink-faint: #7d8492; --accent: #7fa2e0; --rule: #333944; --code-bg: #171a21; --shadow: rgba(0,0,0,0.4);
+          --mark-bg: #1c2430; }
+  :root[data-theme="light"] { --bg: #f5f6f8; --card: #ffffff; --ink: #1c2230; --ink-soft: #5b6270;
+          --ink-faint: #8b93a3; --accent: #3a5ba0; --rule: #dfe3ea; --code-bg: #f0f2f6;
+          --shadow: rgba(28,34,48,0.10); --mark-bg: #eef2fa; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
+    display: flex; flex-direction: column; align-items: center; padding: 5vh 5vw 8vh;
+    word-break: keep-all; overflow-wrap: break-word; text-wrap: pretty; line-height: 1.75; }
+  .wrap { width: 100%; max-width: 820px; }
+  .top { display: flex; justify-content: space-between; margin-bottom: 1.6rem; }
+  a.back { color: var(--ink-soft); text-decoration: none; font-size: 0.9rem; }
+  a.back:hover { color: var(--accent); }
+
+  h1 { font-size: 1.85rem; margin: 0.4rem 0 0.5rem; line-height: 1.3; }
+  .subtitle { color: var(--ink-soft); font-size: 1rem; margin-bottom: 0.4rem; }
+  .meta { color: var(--ink-faint); font-size: 0.85rem; margin-bottom: 2.4rem;
+    padding-bottom: 1.4rem; border-bottom: 1px solid var(--rule); }
+
+  h2 { font-size: 1.3rem; margin: 3rem 0 0.4rem; padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent); display: inline-block; line-height: 1.35; }
+  h2 .n { color: var(--accent); margin-right: 0.5rem; }
+  h3 { font-size: 1.05rem; margin: 2rem 0 0.6rem; color: var(--ink); }
+  p { margin: 0.9rem 0; color: var(--ink-soft); }
+  p.lead { color: var(--ink); }
+  ul, ol { margin: 0.9rem 0; padding-left: 1.3rem; color: var(--ink-soft); }
+  li { margin: 0.45rem 0; }
+  strong { color: var(--ink); }
+  code { background: var(--code-bg); padding: 0.12em 0.4em; border-radius: 4px;
+    font-family: "Consolas", "D2Coding", ui-monospace, monospace; font-size: 0.9em; color: var(--ink); }
+  pre { background: var(--code-bg); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 1rem 1.15rem; overflow-x: auto; margin: 1.1rem 0; }
+  pre code { background: none; padding: 0; font-size: 0.83rem; line-height: 1.65; display: block; }
+
+  .why { background: var(--card); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem; margin: 1.2rem 0; box-shadow: 0 2px 8px var(--shadow); }
+  .why .t { font-weight: 700; font-size: 0.9rem; color: var(--accent); margin-bottom: 0.35rem;
+    letter-spacing: 0.02em; }
+  .why p { margin: 0; font-size: 0.95rem; }
+
+  table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.92rem; }
+  th, td { text-align: left; vertical-align: top; padding: 0.7rem 0.6rem; border-bottom: 1px solid var(--rule); }
+  thead th { color: var(--accent); border-bottom: 2px solid var(--accent); white-space: nowrap; }
+  tbody th { color: var(--ink); white-space: nowrap; font-weight: 600; }
+  td { color: var(--ink-soft); }
+  .swatch { display: inline-block; width: 0.85em; height: 0.85em; border-radius: 3px;
+    margin-right: 0.4em; vertical-align: -0.08em; border: 1px solid var(--rule); }
+
+  .check { list-style: none; padding-left: 0; }
+  .check li { padding-left: 1.9rem; position: relative; margin: 0.6rem 0; }
+  .check li::before { content: "☐"; position: absolute; left: 0.3rem; color: var(--accent);
+    font-size: 1.1em; top: -0.05em; }
+
+  .toc { background: var(--card); border-radius: 10px; padding: 1.2rem 1.5rem;
+    box-shadow: 0 2px 10px var(--shadow); margin-bottom: 1rem; }
+  .toc ol { margin: 0; padding-left: 1.2rem; }
+  .toc li { margin: 0.3rem 0; }
+  .toc a { color: var(--ink-soft); text-decoration: none; }
+  .toc a:hover { color: var(--accent); }
+
+  .foot { margin-top: 4rem; padding-top: 1.4rem; border-top: 1px solid var(--rule);
+    color: var(--ink-faint); font-size: 0.85rem; }
+  .foot a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="../기타.html">&larr; 기타</a>
+    <a class="back" href="../../index.html">홈으로</a>
+  </div>
+
+  <h1>수업자료 화면 설계 지침</h1>
+  <div class="subtitle">국어 수업용 HTML 슬라이드 덱을 화면에서 어떻게 짜는가</div>
+  <div class="meta">
+    2026-08-26 정리 · 대상: <code>work/수업/</code>의 고전·현대 문학 덱 8종<br>
+    내용·문체·게시 절차는 같은 폴더의 <a href="수업자료-작업지침.md" style="color:var(--accent);">수업자료 작업지침</a>을 따른다.
+  </div>
+
+  <div class="toc">
+    <ol>
+      <li><a href="#s1">무대와 여백</a></li>
+      <li><a href="#s2">글자 크기 — 슬라이드마다 다르게</a></li>
+      <li><a href="#s3">여백은 글자를 따라간다</a></li>
+      <li><a href="#s4">내용 사이 경계</a></li>
+      <li><a href="#s5">쪽번호</a></li>
+      <li><a href="#s6">색 — 구조와 강조를 가른다</a></li>
+      <li><a href="#s7">단계 공개 — 확인 문제</a></li>
+      <li><a href="#s8">검증</a></li>
+      <li><a href="#s9">작업 순서와 체크리스트</a></li>
+    </ol>
+  </div>
+
+  <p class="lead">이 문서는 슬라이드를 <strong>화면에서 어떻게 짜는가</strong>만 다룬다.
+  무엇을 쓸 것인가(내용 선정·문체·인용 검증)는 작업지침 쪽에 있다.
+  아래 규칙은 모두 실제로 문제가 생겨 고친 것들이고, 고친 이유를 함께 적어 둔다.</p>
+
+  <h2 id="s1"><span class="n">1</span>무대와 여백</h2>
+
+  <p>슬라이드 한 장은 <code>.stage</code> 하나다. 16:9를 유지하고, 안쪽 치수는 모두
+  <code>cqw</code>(컨테이너 너비의 1%) 기준으로 잡는다. <code>px</code>는 쓰지 않는다.</p>
+
+<pre><code>.stage {
+  container-type: inline-size;
+  --stage-w: min(100%, 1180px, (100vh - 8.5rem) * 16 / 9);
+  width: var(--stage-w);
+  aspect-ratio: 16 / 9;
+  padding: calc(var(--stage-w) * 0.042) calc(var(--stage-w) * 0.05);
+}
+body:fullscreen .stage {
+  --stage-w: min(100vw, calc(100vh * 16 / 9));
+  width: var(--stage-w);
+  height: min(100vh, calc(100vw * 9 / 16));
+}</code></pre>
+
+  <div class="why">
+    <div class="t">왜 이렇게 쓰는가</div>
+    <p><code>padding: 4.2% 5.4%</code>처럼 %로 두면 안 된다. padding의 %는 <code>.stage</code>가 아니라
+    <strong>body 너비</strong>를 기준으로 계산된다. 창이 넓을수록 여백만 커지고 <code>cqw</code> 기준 본문은
+    작아진다. 1920 창모드에서 1cqw가 11.78px이어야 하는데 9.94px이 되던 문제였다.
+    <code>--stage-w</code>를 정의해 padding을 무대 너비로 묶으면 어떤 해상도에서도 안쪽이
+    100cqw × 52.64cqw로 고정된다. <strong>전체화면 규칙에도 <code>--stage-w</code>를 다시 정의해야 한다.</strong></p>
+  </div>
+
+  <p><code>max-width: 1180px</code>만 주는 것도 안 된다. 화면이 낮을 때 body의 세로 중앙 정렬 때문에
+  슬라이드 위아래가 동시에 잘리고 스크롤로도 볼 수 없다. 위 <code>min()</code> 식이 그것까지 막는다.</p>
+
+  <h2 id="s2"><span class="n">2</span>글자 크기 — 슬라이드마다 다르게</h2>
+
+  <p>슬라이드마다 내용의 양이 다르므로 글자 크기도 달라야 한다. 덱 전체에 한 크기를 쓰면
+  내용이 적은 장은 휑하고 많은 장은 넘친다. <code>--fs</code> 배율을 두고 슬라이드마다 지정한다.</p>
+
+<pre><code>:root { --fs: 1; }
+
+/* 본문은 배율을 탄다 */
+.emotion li { font-size: clamp(0.82rem, calc(1.82cqw * var(--fs)), calc(2.18rem * var(--fs))); }
+
+/* 제목·표지·쪽번호는 배율에서 뺀다 */
+h2.slide-title { font-size: clamp(1.45rem, 3.85cqw, 4.62rem); }</code></pre>
+
+<pre><code>&lt;section class="slide" style="--fs:1.32;"&gt;</code></pre>
+
+  <div class="why">
+    <div class="t">제목을 배율에서 빼는 이유</div>
+    <p>제목이 함께 커지면 본문이 쓸 자리를 먹는다. 배율 탐색이 제목까지 키우려 들어
+    정작 본문은 덜 커진다. 제목은 덱 전체에서 <code>3.85cqw</code>로 고정해 두면 자료끼리도 통일된다.</p>
+  </div>
+
+  <h3>배율은 눈대중이 아니라 실측한다</h3>
+
+  <p>슬라이드마다 이분 탐색으로 <strong>넘치지 않는 최대값</strong>을 찾는다. 안전계수 0.96을 곱하고
+  상한은 1.45로 둔다. 상한이 없으면 내용이 적은 장의 글자가 우스꽝스럽게 커진다.</p>
+
+<pre><code>let lo = 0.8, hi = 1.46;
+for (let k = 0; k &lt; 18; k++) {
+  const mid = (lo + hi) / 2;
+  if (fits(mid)) lo = mid; else hi = mid;
+}
+const scale = Math.min(1.45, +(lo * 0.96).toFixed(2));</code></pre>
+
+  <p><code>fits()</code>가 확인할 네 가지는 8장의 검증 항목과 같다. 측정은
+  <strong>1920×1080과 1366×768 두 해상도에서 각각 재고 작은 쪽을 쓴다.</strong></p>
+
+  <p>측정값이 안전계수 때문에 1.0 아래로 내려가면 <strong>1.0으로 되돌린다.</strong>
+  그건 “지금 크기가 이미 딱 맞다”는 뜻이지 줄이라는 뜻이 아니다.</p>
+
+  <h2 id="s3"><span class="n">3</span>여백은 글자를 따라간다</h2>
+
+  <p>글자만 키우고 여백을 <code>cqw</code>·<code>rem</code>으로 두면, 커진 글자끼리 서로 붙어
+  오히려 읽기 나빠진다. 요소 사이 여백은 <strong><code>em</code>으로 잡는다.</strong>
+  <code>em</code>은 그 요소의 글자 크기를 기준으로 하므로 배율을 자동으로 따라간다.</p>
+
+<pre><code>.emotion li + li  { margin-top: 0.55em; }
+.c3 p + p         { margin-top: 0.72em; }
+.word-note        { margin-top: 0.9em; padding-top: 0.8em; }
+.num-list li      { margin-bottom: 0.75em; }
+.info-table th,
+.info-table td    { padding: 0.62em 0.5em; }</code></pre>
+
+  <p>바깥 치수(무대 여백, 칸 사이 간격)는 <code>cqw</code>로 두어 화면 비율을 따르게 하고,
+  <strong>글자 사이 여백만 <code>em</code>으로</strong> 둔다. 이 둘을 섞지 않는다.</p>
+
+  <h3>자리가 빠듯한 슬라이드는 예외로 둔다</h3>
+
+  <p>여백을 넉넉히 주면, 원래도 꽉 차 있던 슬라이드는 오히려 글자를 줄여야 들어간다.
+  그런 장에는 <code>.tight</code>를 붙여 <strong>여백만 줄이고 글자 크기는 지킨다.</strong>
+  머리말을 가르는 선은 그대로 둔다.</p>
+
+<pre><code>.slide.tight .emotion li + li { margin-top: 0.34em; }
+.slide.tight .word-note       { margin-top: 0.6em; padding-top: 0.5em; }
+.slide.tight .info-table th,
+.slide.tight .info-table td   { padding: 0.45em 0.45em; }</code></pre>
+
+  <p>그러고도 배율이 1.0에 못 미치면 그때는 <strong>내용을 덜어낸다.</strong>
+  대개 오른쪽 시어 풀이와 아래 해설이 같은 말을 두 번 하고 있다.</p>
+
+  <h2 id="s4"><span class="n">4</span>내용 사이 경계</h2>
+
+  <h3>상자의 머리말과 본문을 선으로 가른다</h3>
+
+  <p>제목과 내용이 여백만으로 구분되면, 글자가 커질수록 한 덩어리로 보인다.</p>
+
+<pre><code>.def-box .dt,
+.emotion .etag {
+  margin-bottom: 0.62em;
+  padding-bottom: 0.42em;
+  border-bottom: 1px solid var(--rule);
+}</code></pre>
+
+  <h3>작품의 말과 해설을 가른다</h3>
+
+  <p>카드 안에서 <strong>원문을 옮겨 적은 줄</strong>과 <strong>그에 대한 해설</strong>이 같은 모양이면
+  어느 쪽이 작품의 말인지 알 수 없다. 인용 줄에 <code>.cite</code>를 준다.</p>
+
+<pre><code>.c3 p.cite {
+  font-family: "Gowun Batang", "Noto Serif KR", serif;   /* 본문 글꼴로 */
+  background: rgba(0,0,0,0.04);                          /* 옅은 바탕 */
+  border-left: 0.28em solid var(--rule);                 /* 왼쪽 선 */
+  padding: 0.5em 0.72em;
+  margin-bottom: 0.8em;
+  color: var(--ink);
+}
+.c3 p.cite + p { margin-top: 0; }</code></pre>
+
+  <div class="why">
+    <div class="t">색이 아니라 바탕과 선으로 가른다</div>
+    <p>인용을 강조색으로 칠하면, 제목·라벨도 같은 색이라 화면에 강조색이 넘쳐 오히려 구분이 흐려진다.
+    바탕·선·글꼴로 가르면 색을 쓰지 않고도 층이 생긴다.</p>
+  </div>
+
+  <p>연별 정밀 분석 슬라이드는 이미 <code>.cols</code>로 <strong>왼쪽 원문 · 오른쪽 시어 풀이</strong>가
+  갈려 있고 각 칸에 <code>.col-head</code>가 붙는다. 이 구조를 흩뜨리지 않는다.</p>
+
+  <h2 id="s5"><span class="n">5</span>쪽번호</h2>
+
+  <p>쪽번호는 <strong>본문칸 밖, 무대 여백에</strong> 둔다.</p>
+
+<pre><code>.page-num { position: absolute; right: 0; bottom: -3.1cqw; }
+.cover .page-num { display: none; }</code></pre>
+
+  <div class="why">
+    <div class="t">왜 밖으로 내보내는가</div>
+    <p>본문칸 안쪽 아래에 두면 본문이 아래까지 찼을 때 글자를 덮는다. 그걸 피하려고
+    상자마다 <code>margin-bottom</code>을 억지로 두게 되고, 그만큼 본문이 쓸 자리가 준다.
+    쪽번호를 무대 여백으로 내리면 본문이 칸을 온전히 쓰고 회피용 여백도 필요 없어진다.</p>
+  </div>
+
+  <h2 id="s6"><span class="n">6</span>색 — 구조와 강조를 가른다</h2>
+
+  <p>덱마다 작품 분위기에 맞는 강조색을 하나 정하고, CSS 변수만 바꾼다.</p>
+
+  <table>
+    <thead><tr><th>작품</th><th>강조색</th><th>바탕</th></tr></thead>
+    <tbody>
+      <tr><th>가시리</th><td><span class="swatch" style="background:#a8322a"></span>단청 붉은색 <code>#a8322a</code></td><td>한지</td></tr>
+      <tr><th>묏버들</th><td><span class="swatch" style="background:#3f7048"></span>버들 초록 <code>#3f7048</code></td><td>한지</td></tr>
+      <tr><th>개여울</th><td><span class="swatch" style="background:#2f6b8f"></span>물빛 <code>#2f6b8f</code></td><td>한지</td></tr>
+      <tr><th>춘향전</th><td><span class="swatch" style="background:#8a2b52"></span>자주 <code>#8a2b52</code></td><td>한지</td></tr>
+      <tr><th>폭포</th><td><span class="swatch" style="background:#0d6a82"></span>물빛 청록 <code>#0d6a82</code></td><td>찬 색지 <code>#eef4f7</code></td></tr>
+    </tbody>
+  </table>
+
+  <p>강조색은 <strong>화면의 구조</strong>에 쓴다. 슬라이드 제목, 칸 머리말, 항목 번호,
+  화살표, 상자의 왼쪽 선. 여기까지다.</p>
+
+  <div class="why">
+    <div class="t">본문 강조는 색을 바꾸지 않는다</div>
+    <p>원문에서 짚는 시어를 강조색으로 칠했더니, 바탕도 청록 계열이고 제목도 같은 색이라
+    강조한 티가 나지 않았다. 그렇다고 보색(호박빛)으로 바꾸니 자료 분위기에서 겉돌았다.
+    결론은 <strong>같은 강조색을 쓰되 획을 조금 두껍게</strong> 하는 것이다.</p>
+  </div>
+
+<pre><code>/* Gowun Batang은 400·700 두 굵기뿐이라 font-weight로는 더 굵어지지 않는다.
+   획 두께를 직접 더한다. 글자 폭은 그대로여서 줄바꿈에 영향이 없다. */
+.verse .hl {
+  color: var(--fall); font-weight: 700;
+  -webkit-text-stroke: 0.022em currentColor;
+}</code></pre>
+
+  <p>본문 속 일반 강조는 <code>&lt;strong&gt;</code>으로 굵게만 한다. 색을 더하지 않는다.</p>
+
+  <h3>바탕과 모티프</h3>
+
+  <p>무대 바탕에 작품 모티프를 <code>opacity 0.13~0.16</code>으로 옅게 깐다.
+  제목 아래에서 시작하도록 <code>top</code>을 잡아야 제목 밑줄과 겹쳐 보이지 않는다.
+  <strong>SVG data URI는 반드시 한 줄로 쓴다.</strong> 줄바꿈으로 이어 쓰면 공백이 섞여 깨진다.</p>
+
+  <h2 id="s7"><span class="n">7</span>단계 공개 — 확인 문제</h2>
+
+  <p>확인 문제는 <strong>문항과 정답을 한 화면에 미리 다 보여 주지 않는다.</strong>
+  학생이 답한 뒤 바로 확인시켜야 하므로, 스페이스·클릭·좌우 방향키로
+  문항 → 정답 → 다음 문항 → 정답 순서로 하나씩 드러낸다.</p>
+
+<pre><code>.reveal { opacity: 0; transition: opacity .25s ease; }
+.reveal.shown { opacity: 1; }</code></pre>
+
+  <div class="why">
+    <div class="t"><code>display</code>가 아니라 <code>opacity</code>로 숨기는 이유</div>
+    <p><code>opacity</code>는 자리를 미리 차지한 채 숨는다. 답이 나타날 때 아래 내용이 밀리거나
+    화면이 튀지 않는다. 수업 중에는 이 안정감이 중요하다.</p>
+  </div>
+
+<pre><code>function revealsOf(i) { return Array.from(slides[i].querySelectorAll('.reveal')); }
+
+function next() {
+  const hidden = revealsOf(idx).find(el =&gt; !el.classList.contains('shown'));
+  if (hidden) { hidden.classList.add('shown'); updateButtons(); return; }
+  if (idx &lt; slides.length - 1) show(idx + 1);
+}
+
+function prev() {
+  const shown = revealsOf(idx).filter(el =&gt; el.classList.contains('shown'));
+  if (shown.length) { shown[shown.length - 1].classList.remove('shown'); updateButtons(); return; }
+  if (idx &gt; 0) show(idx - 1, true);   // 뒤로 갈 때는 그 장의 단계를 모두 펼친 상태로
+}</code></pre>
+
+  <ul>
+    <li><strong>스페이스 · ← → · 클릭</strong> — 한 단계씩</li>
+    <li><strong>↑ ↓</strong> — 단계를 건너뛰고 장 단위로 이동 (수업 중 급히 넘길 때)</li>
+    <li>한 장에 <strong>두 문항</strong>까지. 자리가 남으므로 문제 글자는 원문만큼 크게 잡는다</li>
+  </ul>
+
+  <h2 id="s8"><span class="n">8</span>검증</h2>
+
+  <p><code>python -m http.server</code>로 띄우고 확인한다. <code>file://</code>은 열리지 않는다.
+  <strong>Playwright는 토큰을 많이 쓰므로 <code>browser_evaluate</code> 한 번으로 전 덱·전 슬라이드를
+  한꺼번에 검사하고 문제 목록만 받는다.</strong> 스크린샷은 정말 눈으로 봐야 할 때 한두 장만.</p>
+
+  <p>덱을 <code>iframe</code>에 <code>srcdoc</code>으로 띄우고 1920×1080 / 1600×900 / 1366×768 / 1280×720을
+  순회한다. 단계 공개가 있는 덱은 <strong>검사 전에 <code>.reveal</code>을 모두 펼친다.</strong></p>
+
+  <table>
+    <thead><tr><th>항목</th><th>무엇을 재는가</th><th>왜 필요한가</th></tr></thead>
+    <tbody>
+      <tr><th>잘림</th><td><code>.body-area</code>의 <code>scrollHeight &gt; clientHeight</code></td>
+          <td>본문칸 안에서 내용이 잘림</td></tr>
+      <tr><th>무대 밖</th><td>슬라이드의 모든 요소가 <code>.stage</code> 밖으로 나가는지</td>
+          <td>아래위가 화면을 벗어남</td></tr>
+      <tr><th>겹침</th><td><code>.cols</code>·<code>.cards*</code> 안 요소의 아래쪽이 뒤따르는 <code>.emotion</code> 위를 넘는지</td>
+          <td><strong>잘림 검사로는 못 잡는다.</strong> 칸 안 내용이 넘쳐 아래 상자에 가려도
+              <code>.body-area</code>의 높이는 그대로다</td></tr>
+      <tr><th>쪽번호</th><td><code>Range.selectNodeContents</code>로 잰 <strong>실제 글자 사각형</strong>이
+              <code>.page-num</code>과 겹치는지</td>
+          <td>요소 사각형으로 재면 전폭 블록이 모두 오탐이 된다</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>통과 기준은 네 항목 모두 0이다.</strong></p>
+
+  <div class="why">
+    <div class="t">겹침 검사를 빠뜨리지 말 것</div>
+    <p><code>.cols &gt; div</code>는 그리드 항목이라 칸 높이에 맞춰 늘어난다. 그 안에서 내용이 넘쳐도
+    바깥 <code>.body-area</code>는 아무 변화가 없어서, 잘림 검사만 돌리면 “이상 없음”이 나온다.
+    실제로는 시어 풀이 마지막 항목이 해설 상자에 36px 가려져 있었다.</p>
+  </div>
+
+  <h2 id="s9"><span class="n">9</span>작업 순서와 체크리스트</h2>
+
+  <ol>
+    <li>기준 파일을 복제한다. 골격을 새로 짜지 않는다
+      <ul><li>고전·현대 문학: <code>work/수업/폭포_1학년_1차시.html</code></li>
+          <li>수능 독서: <code>work/수업/수능국어_1회_1-3번.html</code></li></ul></li>
+    <li>색 변수와 바탕 모티프만 작품에 맞게 바꾼다</li>
+    <li>내용을 채운다. 배율은 아직 넣지 않는다(모두 <code>--fs</code> 없이 1.0)</li>
+    <li>검증 스크립트로 넘침이 없는지 먼저 확인한다</li>
+    <li>배율을 실측해 슬라이드마다 <code>style="--fs:…"</code>로 적는다</li>
+    <li>1.0 미만이 나온 장에 <code>.tight</code>를 붙이고 다시 잰다</li>
+    <li>그래도 1.0 미만이면 그 장의 내용을 덜어낸다</li>
+    <li>네 해상도로 최종 검증 → 학년 목록에 카드 추가 → <code>main</code>에 푸시</li>
+  </ol>
+
+  <ul class="check">
+    <li><code>--stage-w</code>가 <code>.stage</code>와 전체화면 규칙 <strong>양쪽에</strong> 정의되어 있는가</li>
+    <li>본문 <code>font-size</code>가 모두 <code>--fs</code> 배율을 타는가 (제목·표지·쪽번호는 제외)</li>
+    <li>요소 사이 여백이 <code>em</code>인가</li>
+    <li>상자 머리말 아래에 구분선이 있는가</li>
+    <li>원문 인용 줄과 해설이 갈려 보이는가</li>
+    <li>쪽번호가 본문칸 밖에 있는가</li>
+    <li>강조색이 화면 구조에만 쓰였는가 (본문 강조는 굵기로)</li>
+    <li>확인 문제가 단계 공개로 되어 있는가 (한 장에 두 문항까지)</li>
+    <li><code>.page-num</code>과 하단 <code>#counter</code>의 총 장수가 실제 슬라이드 수와 맞는가</li>
+    <li>네 해상도에서 잘림·무대 밖·겹침·쪽번호가 모두 0인가</li>
+  </ul>
+
+  <div class="foot">
+    이 문서는 <code>work/수업/</code>의 8종(가시리·묏버들·개여울·춘향전 1~3차시·폭포 1~2차시)에
+    실제로 적용된 규칙을 정리한 것이다.
+    내용 선정·문체·원문 검증·게시 절차는 <a href="수업자료-작업지침.md">수업자료 작업지침</a>에 있다.
+  </div>
+</div>
+</body>
+</html>
