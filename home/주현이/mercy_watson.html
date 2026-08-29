@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercy Watson - 주현이</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #ffffff; --ink: #1c2230; --ink-soft: #5b6270;
+    --accent: #3a5ba0; --shadow: rgba(28, 34, 48, 0.10); --line: #e3e6ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14161c; --card: #1f232c; --ink: #eceef2; --ink-soft: #a3aab8; --accent: #7fa2e0; --shadow: rgba(0,0,0,0.4); --line: #2c313c; }
+  }
+  :root[data-theme="dark"] { --bg: #14161c; --card: #1f232c; --ink: #eceef2; --ink-soft: #a3aab8; --accent: #7fa2e0; --shadow: rgba(0,0,0,0.4); --line: #2c313c; }
+  :root[data-theme="light"] { --bg: #f5f6f8; --card: #ffffff; --ink: #1c2230; --ink-soft: #5b6270; --accent: #3a5ba0; --shadow: rgba(28, 34, 48, 0.10); --line: #e3e6ec; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
+    display: flex; flex-direction: column; align-items: center; padding: 6vh 5vw 6vh;
+  }
+  .top { width: 100%; max-width: 760px; margin-bottom: 1.5rem; display: flex; justify-content: space-between; gap: 1rem; }
+  a.back { color: var(--ink-soft); text-decoration: none; font-size: 0.9rem; }
+  a.back:hover { color: var(--accent); }
+  header { width: 100%; max-width: 760px; margin-bottom: 2.2rem; }
+  h1 { font-size: 1.7rem; margin: 0.5rem 0 0.6rem; }
+  .lead { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.7; margin: 0; }
+  .updated { display: block; margin-top: 0.9rem; font-size: 0.78rem; color: var(--ink-soft); }
+  .list { width: 100%; max-width: 760px; display: flex; flex-direction: column; gap: 1rem; }
+  a.item {
+    background: var(--card); border-radius: 14px; padding: 1.3rem 1.5rem;
+    text-decoration: none; color: var(--ink); box-shadow: 0 3px 12px var(--shadow);
+    display: flex; align-items: center; gap: 1.1rem; transition: transform 0.15s ease;
+  }
+  a.item:hover { transform: translateX(4px); }
+  .doc-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .item-text { display: flex; flex-direction: column; gap: 0.3rem; flex: 1; min-width: 0; }
+  .item-title { font-weight: 600; }
+  .item-desc { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.55; }
+  .meta { font-size: 0.76rem; color: var(--ink-soft); }
+  .dl { font-size: 0.85rem; color: var(--accent); flex-shrink: 0; }
+  .note {
+    width: 100%; max-width: 760px; margin-top: 2rem; padding-top: 1.2rem;
+    border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--ink-soft); line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+  <div class="top">
+    <a class="back" href="../주현이.html">&larr; 주현이</a>
+    <a class="back" href="../../index.html">홈으로</a>
+  </div>
+  <header>
+    <h1>🐷 Mercy Watson</h1>
+    <p class="lead">
+      Kate DiCamillo의 <i>Mercy Watson</i> 읽기 자료 모음입니다.
+      아래 파일을 눌러 내려받으세요. 다른 컴퓨터나 태블릿에서도 그대로 열립니다.
+    </p>
+    <span class="updated" id="updated"></span>
+  </header>
+
+  <div class="list">
+    <a class="item" href="mercy_watson/메르시_왓슨_한글판.pdf" download>
+      <span class="doc-icon">📕</span>
+      <span class="item-text">
+        <span class="item-title">메르시 왓슨 한글판</span>
+        <span class="item-desc">한글 번역본만 실린 판본. 이야기를 우리말로 먼저 편하게 읽을 때.</span>
+        <span class="meta">PDF · 70쪽 · 13.3MB</span>
+      </span>
+      <span class="dl">⬇</span>
+    </a>
+
+    <a class="item" href="mercy_watson/원문_번역_번갈아보기.pdf" download>
+      <span class="doc-icon">📗</span>
+      <span class="item-text">
+        <span class="item-title">원문 · 번역 번갈아보기</span>
+        <span class="item-desc">영어 원문 쪽과 우리말 번역 쪽이 번갈아 나옵니다. 원문을 먼저 읽고 바로 뜻을 확인할 때.</span>
+        <span class="meta">PDF · 140쪽 · 29.4MB</span>
+      </span>
+      <span class="dl">⬇</span>
+    </a>
+
+    <a class="item" href="mercy_watson/원문_단어숙어_번갈아보기.pdf" download>
+      <span class="doc-icon">📘</span>
+      <span class="item-text">
+        <span class="item-title">원문 · 단어 · 숙어 번갈아보기</span>
+        <span class="item-desc">영어 원문 쪽과 그 쪽에 나온 단어 · 숙어 정리가 번갈아 나옵니다. 모르는 낱말을 짚어가며 읽을 때.</span>
+        <span class="meta">PDF · 140쪽 · 30.0MB</span>
+      </span>
+      <span class="dl">⬇</span>
+    </a>
+  </div>
+
+  <p class="note">
+    파일이 큰 편이라 휴대폰에서는 내려받는 데 시간이 조금 걸릴 수 있습니다.
+    아이패드에서는 내려받은 뒤 굿노트 같은 앱으로 열면 바로 필기할 수 있습니다.
+  </p>
+
+  <script>
+    document.getElementById('updated').textContent = '업데이트: 2026-08-29';
+  </script>
+</body>
+</html>
