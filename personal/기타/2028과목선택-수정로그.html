@@ -113,8 +113,8 @@
   <h1>2028 과목 선택 안내 — 수정 로그</h1>
   <p class="subtitle">무엇을 왜 고쳤는지 날짜순으로 쌓는다. 새 항목은 맨 위에 넣는다.</p>
   <p class="meta">
-    대상 사이트 <code>work/교육과정/2028과목선택/</code> ·
-    저장소 <code>GuitaruMan/presentations</code> (로컬 <code>E:\ForClaude\ForWeb</code> · <code>C:\ForClaude\presentations</code>) ·
+    사이트 <code>gyeongsang.pages.dev</code> (폰 <code>/m/</code>) ·
+    저장소 <code>GuitaruMan/gyeongsang-curriculum</code> (비공개, 로컬 <code>C:\ForClaude\gyeongsang-curriculum</code>) ·
     마지막 갱신 2026-09-21
   </p>
 
@@ -122,9 +122,101 @@
     <h3>이 문서를 쓰는 법</h3>
     <ul>
       <li>컴퓨터를 옮겨 다니며 작업하므로, <strong>무엇을 고쳤는지보다 왜 그랬는지</strong>를 남긴다. 코드만 보면 알 수 없는 것이 여기 있어야 한다.</li>
-      <li>같은 내용이 저장소 안 <code>work/교육과정/2028과목선택/작업로그.md</code> 에도 있다. 그쪽이 원본이고 이 페이지는 읽기 편하게 옮긴 것이다.</li>
+      <li>같은 내용이 저장소 안 <code>작업로그.md</code> 에도 있다. 그쪽이 원본이고 이 페이지는 읽기 편하게 옮긴 것이다.
+        (2026-09-21 오후까지는 <code>presentations</code> 저장소의 <code>work/교육과정/2028과목선택/</code> 에 있었다.)</li>
       <li>날짜 묶음 아래에 커밋 해시를 적어 두었다. <code>git show &lt;해시&gt;</code> 로 실제 변경을 볼 수 있다.</li>
     </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="day">
+    <div class="day-h">
+      <span class="d">2026-09-21 (2)</span>
+      <span class="s">폰 전용 화면 · 과목 누르면 뜨는 정보 창 · Cloudflare 로 이사</span>
+    </div>
+    <p class="commits">
+      <span>gyeongsang-curriculum d67ac74 옮기기</span>
+      <span>3f67bd9 캐시 버전</span>
+      <span>presentations b0f4638 옛 폴더 정리</span>
+    </p>
+
+    <p class="lead">폰에서 쓰기 불편하다는 지적에서 시작해 <strong>폰 전용 화면</strong>을 새로 만들고,
+      GitHub 이 드러나는 것이 싫다는 말에 <strong>사이트를 통째로 Cloudflare 로 옮겼다.</strong></p>
+
+    <h3>① 폰 전용 화면 — <code>gyeongsang.pages.dev/m/</code></h3>
+
+    <div class="entry add">
+      <h4><span class="tag add">새 화면</span>네이버의 m 페이지처럼 폰 화면을 따로 둔다</h4>
+      <div class="sym">
+        <div class="t">담당 교사</div>
+        <p>"전체적으로 그냥 웹페이지 형태일 뿐 스마트폰에 어울리지 않아. … 지금의 '웹/태블릿'과 '스마트폰용'을 구분할 필요가 있어."</p>
+      </div>
+      <p>폰에서 재 보니 머리말 버튼이 넘쳐 화면이 옆으로 밀리고, '내 과목 담기' 탭이 화면 밖에 숨어 있었다.
+        웹·태블릿 화면은 그대로 두고 폰 화면을 따로 만들었다.</p>
+      <ul>
+        <li><strong>아래 탭 넷</strong> — 학과 찾기 · 편성표 · 내 과목 · 더보기. 기능이 숨지 않는다.</li>
+        <li>권역·대학 고르기, 과목 설명, 설명서는 <strong>아래서 올라오는 창</strong>. 안드로이드 뒤로 가기로 닫힌다.</li>
+        <li>학과 카드의 '편성표에서 보기'를 누르면 그 학과 권장과목이 편성표 위에 색으로 표시된다.</li>
+        <li>대학은 가나다순, 제시 강도는 '평가 반영/긍정 고려/참고/학습 가이드'로 풀어 쓴다.</li>
+      </ul>
+    </div>
+
+    <div class="entry add">
+      <h4><span class="tag add">디자인</span>새하얀 바탕을 걷고 카드로 구역을 나눈다 · 학교 이름</h4>
+      <div class="sym">
+        <div class="t">담당 교사</div>
+        <p>"배경이 그냥 새하얘서 눈아파. 너무 하얗다보니 항목별로 구분지점도 명확하지 않고 그리고 우리 학교 이름 '대구 경상고등학교'야."</p>
+      </div>
+      <p>바탕은 옅은 초록빛 회색, 구역은 미색 둥근 카드. 새하얀 면은 누르는 것(과목·입력칸)에만 쓴다.
+        위쪽 막대와 첫 화면에 <strong>대구 경상고등학교</strong>를 넣었다.</p>
+    </div>
+
+    <div class="entry add">
+      <h4><span class="tag add">개선</span>과목을 누르면 조건을 얼마나 채웠는지 창이 뜬다</h4>
+      <div class="sym">
+        <div class="t">담당 교사</div>
+        <p>"조건을 얼마나 채웠는지 화면 위로 올라가서 봐야하잖아. … 과목을 누르면 조건을 얼만큼 채웠는지 잠깐 떴다 없어지는 정보 창을 … 조건을 어기면 없어지지 않고 '확인'을 눌러야 없어지고."</p>
+      </div>
+      <ul>
+        <li>보통은 잠깐 떴다 사라진다(조건 4개 약 1.8초, 8개 약 2.4초 — "너무 길어 절반으로" 줄였다).</li>
+        <li><strong>어기면 [확인]을 눌러야 닫힌다</strong> — 담을 수 없는 과목(Ⅰ 없이 Ⅱ·폐강·정원 초과·같은 과목 두 번),
+          새 선수과목 경고, 합계 상한 넘김.</li>
+        <li>조건마다 <strong>"7/14과목"처럼 숫자</strong>를 붙였다. 담당 교사 — "현재 몇 과목 선택인지도 숫자로 보여줘야지."
+          넘으면 빨갛게 "15/14과목 · 1과목 넘음".</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <div class="t">규칙은 한 곳 — core.js</div>
+      <p>웹과 폰이 규칙을 따로 들고 있으면 언젠가 어긋난다. 자료 읽기·이수 조건·선수과목·폐강·담기·저장을
+        <code>core.js</code> 하나로 모아 두 화면이 함께 쓴다. <strong>규칙을 고칠 때는 이 파일만 고친다.</strong>
+        옮긴 뒤 원래 코드와 줄 단위로 대조해 빠진 줄이 없는 것을 확인했다.</p>
+    </div>
+
+    <h3>② GitHub Pages 에서 Cloudflare Pages 로</h3>
+
+    <div class="entry add">
+      <h4><span class="tag add">이사</span>주소 <code>gyeongsang.pages.dev</code> · 비공개 저장소</h4>
+      <div class="sym">
+        <div class="t">담당 교사</div>
+        <p>"깃헙 말고 supabase에서 돌아가게 할 수는 없는가? 깃헙은 내 깃헙이 모두 노출이라 좀 싫은데."</p>
+      </div>
+      <p>Supabase 는 HTML 을 페이지로 띄우지 않아(글자로 내보낸다) 화면은 다른 곳에 둬야 한다.
+        화면은 <strong>Cloudflare Pages</strong>, 자료는 그대로 <strong>Supabase</strong>.</p>
+      <ul>
+        <li>이 프로그램만 <strong>비공개 저장소 <code>gyeongsang-curriculum</code></strong> 으로 옮겼다. 주소에 GitHub 아이디가 보이지 않는다.</li>
+        <li>저장소에 올리면 Cloudflare 가 <strong>20초쯤 뒤 알아서 반영</strong>한다. Cloudflare 가 볼 수 있는 저장소는 이것 하나로 제한했다.</li>
+        <li>사이트에 나가는 것은 <code>site/</code> 폴더뿐. 작업로그·자료 빌더·DB 스크립트는 주소로 열어도 나오지 않는다.</li>
+        <li><code>presentations</code> 에서는 폴더를 뺐고, 교육과정 페이지의 두 카드는 새 주소를 가리킨다.</li>
+        <li>바탕화면 'Git Pull 전체'에 새 저장소를 더했다. 폴더가 없으면 새로 받는다.</li>
+      </ul>
+    </div>
+
+    <div class="entry bug">
+      <h4><span class="tag bug">버그</span>학년을 바꿨다 돌아오면 담아 둔 과목이 사라졌다</h4>
+      <p>주소에 실린 담은 과목이 학년도를 바꾼 뒤에도 남아 다른 학년도 것으로 읽혔다. 학년도가 바뀌면 떼어 낸다.
+        웹 화면에도 같은 문제가 있어 함께 고쳤다.</p>
+    </div>
   </div>
 
   <!-- ══════════════════════════════════════════════ -->
@@ -555,13 +647,16 @@
       <li><strong>남은 정적 JSON 정리.</strong> 데이터베이스로 옮겨 쓰이지 않게 된 파일 6개
         (<code>recommendations.json</code> 576KB 등). 며칠 써 보고 판단하기로 보류.
         <code>help_content.json</code>·<code>rec_meta.json</code> 은 계속 쓴다.</li>
+      <li><strong>폰으로 웹 주소에 들어오면 폰 화면(<code>/m/</code>)으로 보내기</strong>,
+        홈 화면 앱 설치(아이콘), 카카오톡 안에서 열었을 때 안내. <span class="note">(2026-09-21)</span></li>
+      <li><strong>내년 자료로 바꾸기</strong> — 대학 권장과목 새로 넣기, '새 학년도 만들기', 화면의 '2028' 연도 표기. <span class="note">(2026-09-21)</span></li>
       <li><strong>2025학년도 입학생의 고급 대수·고급 미적분 미개설</strong>이 의도한 편성인지 확인.
         <span class="note">(2026-09-21 검토)</span></li>
     </ul>
   </div>
 
   <p class="foot">
-    원본 로그는 저장소의 <code>work/교육과정/2028과목선택/작업로그.md</code> 에 있다.
+    원본 로그는 비공개 저장소 <code>gyeongsang-curriculum</code> 의 <code>작업로그.md</code> 에 있다.
     설계 문서는 <code>docs/superpowers/specs/</code> 아래.
   </p>
 
