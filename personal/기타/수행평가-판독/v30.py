@@ -27,10 +27,30 @@ def cells(t):
     """
     t = t.replace(L, '').replace(R, '')
     out = []
+    pend = ''
+    join = False
     for ch in t:
         o = ord(ch)
+        # U+200D(보이지 않는 결합 문자): 앞뒤 글자를 한 칸으로 센다 (예: 한 칸에 쓴 '13')
+        if ch == '‍':
+            join = True
+            continue
+        if join and out:
+            out[-1] += ch
+            join = False
+            continue
         if ch in PUNCT and out and out[-1][-1] != ' ':
             continue
+        # 글자와 같은 칸에 쓴 괄호·따옴표는 전각 괄호（ ）·둥근 따옴표 ‘ ’ “ ” 로 적는다.
+        # 여는 것은 뒤 글자에, 닫는 것은 앞 글자에 붙인다. 일반 ( ) ' " 는 따로 한 칸.
+        if ch in '）’”」' and out and out[-1][-1] != ' ':
+            out[-1] += ch
+            continue
+        if ch in '（‘“「':
+            pend += ch
+            continue
+        if pend:
+            ch, pend = pend + ch, ''
         # 중성(1160~11A7)·종성(11A8~11FF) 낱자는 앞 칸에 붙는다
         if 0x1160 <= o <= 0x11FF and out:
             out[-1] += ch
