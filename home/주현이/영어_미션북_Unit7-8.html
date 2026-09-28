@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학교 영어 미션북 Unit 7·8 - My Presentations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Jua&family=Noto+Sans+KR:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+:root{--ink:#22304a;--sub:#55617f;--line:#d5dcec}
+html,body{background:#fff}
+body{font-family:'Nunito','Noto Sans KR','Malgun Gothic',sans-serif;color:var(--ink);font-size:11pt;line-height:1.45}
+.page{width:210mm;height:297mm;padding:11mm 13mm 15mm;position:relative;overflow:hidden;break-after:page;background:#fff}
+.in{height:100%;position:relative}
+.s1{--c:#FF6B4A;--cl:#FFF1EC;--cd:#C03F1F}
+.s2{--c:#12A594;--cl:#E5F7F4;--cd:#0A7568}
+.s3{--c:#7C5CFC;--cl:#F2EEFF;--cd:#5034C4}
+.s4{--c:#2D7FF9;--cl:#EAF2FF;--cd:#1A57B8}
+.s5{--c:#F09A00;--cl:#FFF6DF;--cd:#A96A00}
+.s6{--c:#6B7896;--cl:#F1F3F8;--cd:#404B66}
+.en,.f{font-family:'Fredoka','Jua',sans-serif}
+
+/* header / footer */
+.hd{display:flex;align-items:center;gap:3.5mm;padding-bottom:3mm;border-bottom:1.1mm solid var(--c);margin-bottom:4mm}
+.hd .bd{background:var(--c);color:#fff;font-family:'Fredoka';font-weight:700;font-size:10pt;padding:1.3mm 3.5mm;border-radius:99px;letter-spacing:.4px;white-space:nowrap}
+.hd h2{font-family:'Jua','Malgun Gothic';font-weight:400;font-size:21pt;line-height:1.1}
+.hd h2 em{font-family:'Fredoka';font-style:normal;font-weight:600;font-size:12pt;color:var(--c);margin-left:2mm}
+.hd .un{margin-left:auto;font-family:'Fredoka','Jua';font-weight:600;font-size:10pt;color:var(--cd);background:var(--cl);padding:1.3mm 4mm;border-radius:3mm;border:.4mm solid var(--c);white-space:nowrap}
+.ft{position:absolute;left:13mm;right:13mm;bottom:5.5mm;display:flex;align-items:center;justify-content:space-between;font-size:8pt;color:#8a94ad}
+.ft .pg{font-family:'Fredoka';font-weight:600;background:var(--c);color:#fff;width:8mm;height:8mm;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10pt}
+
+/* tip bubble */
+.tip{display:flex;align-items:center;gap:3mm;margin-bottom:4mm}
+.tip svg{width:12mm;height:14.4mm;flex:none}
+.tip p{background:var(--cl);border:.4mm solid var(--c);border-radius:4mm 4mm 4mm 1mm;padding:2mm 4mm;font-size:10pt;flex:1}
+.tip p b{color:var(--cd)}
+
+/* activity box */
+.bx{border:.5mm solid var(--c);border-radius:4mm;padding:3.5mm 4.5mm 4mm;margin-bottom:4mm;background:#fff}
+.bx>h3,.h3{font-family:'Jua','Malgun Gothic';font-weight:400;font-size:13pt;margin-bottom:2.5mm;display:flex;align-items:center;gap:2mm;flex-wrap:wrap}
+.tg{font-family:'Fredoka','Jua';font-weight:700;font-size:8.5pt;background:var(--c);color:#fff;border-radius:99px;padding:.7mm 3mm;white-space:nowrap}
+h3 small{font-family:'Noto Sans KR','Malgun Gothic';font-size:8.5pt;color:var(--sub);font-weight:400}
+.bx.fill{background:var(--cl)}
+.bl{display:inline-block;min-width:22mm;border-bottom:.4mm solid #6f7c9b;height:1.15em;vertical-align:baseline;margin:0 .8mm}
+.n{font-family:'Fredoka';font-weight:700;font-size:9pt;background:var(--c);color:#fff;border-radius:50%;width:5.2mm;height:5.2mm;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.w4{height:10mm;background:linear-gradient(#a9b9d6,#a9b9d6) 0 0/100% .25mm no-repeat,linear-gradient(#d3dcee,#d3dcee) 0 34%/100% .25mm no-repeat,linear-gradient(#ee6a7c,#ee6a7c) 0 69%/100% .3mm no-repeat,linear-gradient(#a9b9d6,#a9b9d6) 0 100%/100% .25mm no-repeat}
+.ck{display:inline-block;width:3.6mm;height:3.6mm;border:.35mm solid var(--c);border-radius:.9mm;vertical-align:-0.5mm;margin-right:1.2mm;background:#fff}
+
+/* word cards */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:3.5mm;margin-bottom:4mm}
+.wc{border:.5mm solid var(--c);border-radius:4mm;overflow:hidden;background:#fff;display:grid;grid-template-columns:46mm 1fr;align-items:center}
+.pic{position:relative;overflow:hidden;background:#eee}
+.pic img{width:100%;height:100%;display:block;object-fit:cover;object-position:50% 6%;transform:scale(1.03)}
+.wc .pic{height:36mm}
+.wc .tx{padding:1.5mm 3mm;text-align:center}
+.wc .w{font-family:'Fredoka';font-weight:600;font-size:17pt;color:var(--cd);line-height:1.15}
+.wc .m{font-size:10pt;font-weight:700;line-height:1.3}
+.wc .ch{font-size:9.5pt;color:var(--sub);background:var(--cl);border-radius:2mm;padding:.8mm 2mm;margin-top:1.2mm;line-height:1.3}
+.wc .ch b{color:var(--cd);font-weight:800;font-size:10.5pt}
+.rd{display:flex;gap:1.5mm;justify-content:center;margin-top:1.6mm}
+.rd span{width:5mm;height:5mm;border:.4mm solid var(--c);border-radius:50%;font:600 7pt 'Fredoka';color:var(--c);display:flex;align-items:center;justify-content:center}
+.vl{display:grid;grid-template-columns:1fr 1fr;column-gap:7mm}
+.vl div{display:flex;align-items:baseline;gap:2mm;padding:1.5mm 0;border-bottom:.25mm dashed var(--line);font-size:10.5pt}
+.vl div::before{content:"";width:3.2mm;height:3.2mm;border:.35mm solid var(--c);border-radius:.8mm;flex:none;transform:translateY(.4mm)}
+.vl b{font-family:'Fredoka';font-weight:500;font-size:12pt;min-width:26mm}
+.vl span{color:#3d4a68}
+.opp{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
+.opp div{background:var(--cl);border-radius:3mm;padding:2mm;text-align:center;font-size:9.5pt;line-height:1.3}
+.opp b{font-family:'Fredoka';font-weight:600;font-size:13pt;color:var(--cd)}
+.opp i{font-style:normal;color:var(--c);font-weight:800;margin:0 1.5mm}
+
+/* past tense */
+.pt .g{background:var(--cl);border-radius:3mm;padding:2.5mm 3mm 3mm;margin-bottom:2.5mm}
+.pt .g:last-child{margin-bottom:0}
+.pt h4{font-family:'Jua';font-weight:400;font-size:11.5pt;color:var(--cd);margin-bottom:1.5mm}
+.pt .rw{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8mm 3mm}
+.pt .r{display:flex;align-items:center;gap:1.2mm;font-size:9.2pt;white-space:nowrap}
+.pt .r b{font-family:'Fredoka';font-weight:500;font-size:12.5pt;background:#fff;border:.35mm solid var(--c);border-radius:2mm;padding:0 1.5mm;min-width:13.5mm;text-align:center}
+.pt .r b.p{background:var(--c);color:#fff}
+.pt .r i{font-style:normal;color:var(--c);font-weight:800}
+.ql{display:flex;flex-direction:column;gap:1.6mm}
+.ql .q{display:flex;align-items:baseline;gap:2.2mm;font-size:12pt;font-weight:600}
+.ql .q .n{transform:translateY(-.3mm)}
+.ql .q em{font-style:normal;font-family:'Fredoka';font-weight:500;color:var(--cd);background:var(--cl);border-radius:2mm;padding:0 2mm;font-size:10.5pt}
+.ql .q small{font-family:'Noto Sans KR';font-weight:400;font-size:9pt;color:var(--sub)}
+.pq{display:grid;grid-template-columns:repeat(6,1fr);gap:3mm}
+.pq .pic{height:25mm;border-radius:3mm;border:.4mm solid var(--c)}
+.pq .pic img{object-position:50% 0;transform:none}
+.pq .pic::before{content:"?";position:absolute;z-index:2;left:0;top:0;width:76%;height:36%;background:var(--c);color:#fff;border-radius:0 0 4mm 0;font:700 13pt 'Fredoka';display:flex;align-items:center;justify-content:center}
+.pq .a{margin-top:1.5mm;border-bottom:.4mm solid #6f7c9b;height:7.5mm;font:500 12pt 'Fredoka';color:var(--cd);padding-left:1mm}
+
+/* games */
+.wsw{display:grid;grid-template-columns:auto 1fr;gap:5mm;align-items:start}
+table.ws{border-collapse:collapse;border:.6mm solid var(--c);border-radius:2mm}
+table.ws td{width:7.3mm;height:7.3mm;text-align:center;font:500 13pt 'Fredoka';border:.25mm solid #e1e6f2;color:#22304a}
+table.ws.ans td{width:3.9mm;height:3.9mm;font-size:7pt;color:#9aa4bd}
+table.ws.ans td.on{background:#FFD166;color:#22304a;font-weight:700}
+ul.wl{list-style:none;display:grid;grid-template-columns:1fr;row-gap:.7mm}
+ul.wl li{display:flex;align-items:center;gap:1.5mm;font-size:9pt}
+ul.wl .e{width:5.5mm;text-align:center;font-size:10.5pt}
+ul.wl .k{width:21mm;font-weight:500}
+ul.wl .lb{display:inline-flex;align-items:flex-end;gap:.9mm}
+ul.wl .lb b{font:600 11pt 'Fredoka';color:var(--cd);width:3.4mm;text-align:center}
+ul.wl .lb u{display:inline-block;width:3.4mm;height:4mm;border-bottom:.35mm solid #6f7c9b;text-decoration:none}
+ul.wl .lb i.sp{width:1.5mm}
+.scg{display:grid;grid-template-columns:1fr 1fr;column-gap:7mm;row-gap:2.2mm}
+.sc{display:flex;align-items:center;gap:2mm;font-size:10pt}
+.sc .mix{font:500 12pt 'Fredoka';letter-spacing:.3mm;background:var(--cl);border-radius:2mm;padding:.3mm 2.5mm;min-width:35mm;text-align:center}
+.sc .ar{color:var(--c)}
+.sc .bl{flex:1;min-width:20mm}
+.sc em{font-style:normal;font-size:8pt;color:var(--sub)}
+.key{display:grid;grid-template-columns:repeat(13,1fr);gap:1mm;margin-bottom:3mm}
+.key span{background:var(--cl);border-radius:1.5mm;text-align:center;font:500 8.5pt 'Fredoka';color:var(--sub);padding:.5mm 0;line-height:1.2}
+.key b{display:block;font-size:11.5pt;color:var(--cd);font-weight:600}
+.cd{display:flex;align-items:center;gap:3mm;margin-top:2mm}
+.cd .cw{display:inline-flex;gap:1mm;margin-right:3.5mm}
+.cd .cw span{display:flex;flex-direction:column;align-items:center;font:500 8.5pt 'Fredoka';color:var(--sub)}
+.cd .cw u{display:block;width:7mm;height:8mm;border:.4mm solid var(--c);border-radius:1.5mm;margin-bottom:.4mm;text-decoration:none}
+
+/* idiom cards */
+.ids{display:grid;grid-template-columns:repeat(3,1fr);gap:3.5mm;margin-bottom:4mm}
+.ic{border:.5mm solid var(--c);border-radius:4mm;padding:2.6mm 3mm 2.8mm;position:relative;background:#fff}
+.ic .e{position:absolute;right:2.5mm;top:1.6mm;font-size:16pt;line-height:1}
+.ic .p{font-family:'Fredoka';font-weight:600;font-size:14pt;color:var(--cd);line-height:1.15;padding-right:9mm}
+.ic .m{font-size:10pt;font-weight:700;margin:.6mm 0 1.4mm}
+.ic .x{font-size:9.7pt;background:var(--cl);border-radius:2mm;padding:1.2mm 2mm;line-height:1.35;font-weight:600}
+.ic .x b{color:var(--cd);font-weight:800;text-decoration:underline;text-decoration-color:var(--c);text-underline-offset:.6mm}
+.ic .x span{display:block;font-family:'Noto Sans KR';font-weight:400;font-size:8.3pt;color:var(--sub)}
+.ids.sm .ic{padding:3.5mm 3.5mm 3.8mm}
+.ids.sm .ic .p{font-size:14.5pt}
+.ids.sm .ic .m{font-size:11pt;margin:.9mm 0 2mm}
+.ids.sm .ic .x{font-size:11pt;padding:1.9mm 2.4mm}
+.ids.sm .ic .x span{font-size:9pt}
+.ids.big .ic{padding:3.6mm 4mm 4mm}
+.ids.big .ic .p{font-size:15.5pt}
+.ids.big .ic .m{font-size:11pt;margin:1mm 0 2mm}
+.ids.big .ic .x{font-size:11pt;padding:2mm 2.5mm}
+.ids.big .ic .x span{font-size:9pt}
+.ids.big .ic .e{font-size:19pt}
+.eq{display:grid;grid-template-columns:repeat(3,1fr);gap:3.5mm 7mm}
+.eq div{display:flex;align-items:flex-end;gap:2mm}
+.eq i{font-style:normal;font-size:18pt;line-height:1}
+.eq .bl{flex:1;height:7mm}
+.sub{font-family:'Jua';font-size:12pt;color:var(--cd);margin:0 0 2.2mm;display:flex;align-items:center;gap:2mm}
+.sub::after{content:"";flex:1;border-bottom:.4mm dashed var(--c)}
+.wb{display:flex;flex-wrap:wrap;gap:1.5mm;margin-bottom:3mm}
+.wb span{font:500 10.5pt 'Fredoka';background:var(--cl);border:.35mm dashed var(--c);border-radius:99px;padding:.2mm 3mm;color:var(--cd)}
+.co{display:grid;grid-template-columns:1fr 1fr;column-gap:7mm;row-gap:1.8mm}
+.co div{display:flex;align-items:baseline;gap:1.8mm;font-size:12pt;font-weight:600}
+.co small{font-family:'Noto Sans KR';font-weight:400;font-size:8.8pt;color:var(--sub);margin-left:auto;white-space:nowrap}
+.co .bl{min-width:24mm}
+.mt{display:grid;grid-template-columns:1fr 26mm 1fr;row-gap:1.6mm;max-width:120mm;margin:0 auto}
+.mt .l,.mt .r{font:500 13pt 'Fredoka';background:var(--cl);border-radius:2.5mm;padding:.4mm 4mm;display:flex;align-items:center}
+.mt .l{justify-content:flex-end}
+.mt .l::after,.mt .r::before{content:"";width:2.6mm;height:2.6mm;border-radius:50%;background:var(--c);flex:none}
+.mt .l::after{margin-left:3mm}.mt .r::before{margin-right:3mm}
+
+/* patterns */
+.fm{display:flex;align-items:center;gap:2mm;flex-wrap:wrap;margin-bottom:3mm}
+.fm span{font:600 14pt 'Fredoka','Jua';color:#fff;border-radius:3mm;padding:1mm 4.5mm}
+.fm .b1{background:#7C5CFC}.fm .b2{background:#FF6B4A}.fm .b3{background:#12A594}.fm .b4{background:#2D7FF9}
+.fm i{font-style:normal;font-weight:800;color:var(--sub);font-size:13pt}
+.fm em{font-style:normal;font-family:'Jua';font-size:13pt;color:var(--cd);margin-left:3mm;background:var(--cl);padding:.6mm 4mm;border-radius:99px}
+.chat{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm 5mm}
+.chat .pr{display:flex;flex-direction:column;gap:1.2mm}
+.chat p{font-size:11.2pt;font-weight:700;border-radius:3.5mm;padding:1.1mm 3.5mm;max-width:92%;line-height:1.3}
+.chat p small{display:block;font-family:'Noto Sans KR';font-weight:400;font-size:8.3pt;color:var(--sub)}
+.chat .qq{background:#EAF2FF;border:.35mm solid #2D7FF9;align-self:flex-start;border-bottom-left-radius:.8mm}
+.chat .aa{background:#FFF1EC;border:.35mm solid #FF6B4A;align-self:flex-end;border-bottom-right-radius:.8mm}
+.warn{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.warn div{border-radius:3mm;padding:1.6mm 4mm;font-size:12pt;font-weight:700}
+.warn .no{background:#FFECEE;border:.4mm solid #E5484D;color:#B4232A}
+.warn .ok{background:#E6F7EC;border:.4mm solid #2BA45A;color:#1A7A3E}
+.warn small{display:block;font-family:'Noto Sans KR';font-weight:400;font-size:8.5pt;color:var(--sub)}
+.at{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm}
+.at div{background:var(--cl);border-radius:2.5mm;padding:1.4mm 2mm;text-align:center;font-size:10pt;font-weight:700;line-height:1.3}
+.at b{display:block;font-family:'Fredoka';font-weight:500;color:var(--cd)}
+.at small{font-family:'Noto Sans KR';font-weight:400;font-size:8pt;color:var(--sub)}
+.wr{display:flex;flex-direction:column;gap:2.4mm}
+.wr .it{display:grid;grid-template-columns:6mm 1fr;column-gap:2mm;align-items:start}
+.wr .it .n{margin-top:.6mm}
+.wr .src{font-size:11.5pt;font-weight:700}
+.wr .src small{font-family:'Noto Sans KR';font-weight:400;font-size:9pt;color:var(--sub);margin-left:2mm}
+.wr .w4{margin-top:1.6mm;position:relative}
+.wr .w4 span{position:absolute;left:1.5mm;bottom:2.1mm;font:500 13pt 'Fredoka';color:#b6c0d8}
+.dt{display:flex;flex-direction:column;gap:1.6mm}
+.dt div{display:flex;align-items:center;gap:2.2mm;font-size:12pt;font-weight:700;flex-wrap:wrap}
+.dt u{text-decoration:none;border:.4mm solid var(--c);border-radius:99px;padding:0 3mm;font-family:'Fredoka';font-weight:500;background:#fff}
+.blocks{display:flex;gap:2mm;flex-wrap:wrap;margin-bottom:1mm}
+.blocks span{font:500 11.5pt 'Fredoka';background:var(--cl);border:.35mm solid var(--c);border-radius:2mm;padding:.2mm 3mm}
+.signs{display:grid;grid-template-columns:repeat(5,1fr);gap:3mm}
+.sg{text-align:center;font-size:9.3pt;font-weight:800;line-height:1.3;white-space:nowrap}
+.sg small{display:block;font-family:'Noto Sans KR';font-weight:400;font-size:8.3pt;color:var(--sub)}
+.ring{width:22mm;height:22mm;border-radius:50%;border:2mm solid #E5484D;margin:0 auto 1.5mm;display:flex;align-items:center;justify-content:center;font-size:24pt;position:relative;background:#fff;line-height:1}
+.ring::after{content:"";position:absolute;left:50%;top:50%;width:21mm;height:2mm;background:#E5484D;transform:translate(-50%,-50%) rotate(45deg)}
+.ring.my{border-style:dashed;border-color:#c9cfde}.ring.my::after{background:#dfe3ee}
+.iv{display:flex;flex-direction:column;gap:2.6mm}
+.iv .q{font-size:12pt;font-weight:800;color:var(--cd);display:flex;gap:2mm;align-items:baseline}
+.iv .q small{font-family:'Noto Sans KR';font-weight:400;font-size:8.8pt;color:var(--sub)}
+.iv .ex{font-size:9.5pt;color:var(--sub);padding-left:7.2mm;margin-top:.3mm}
+.iv .ex b{font-family:'Nunito';color:#3d4a68;font-weight:700}
+.iv .w4{margin:1.4mm 0 0 7.2mm}
+
+/* passages */
+.ms{display:flex;gap:2.5mm;margin-bottom:3.5mm;flex-wrap:wrap}
+.ms span{flex:1;background:var(--cl);border:.35mm solid var(--c);border-radius:3mm;padding:1.2mm 2.5mm;font-size:9pt;white-space:nowrap;text-align:center}
+.ps{border:.5mm solid var(--c);border-radius:4mm;overflow:hidden;margin-bottom:3.5mm}
+.ps .t{display:grid;grid-template-columns:15mm 1fr 66mm;border-top:.3mm solid var(--line)}
+.ps .t:first-child{border-top:0}
+.ps .spk{display:flex;align-items:flex-start;justify-content:center;padding-top:2mm}
+.ps .spk b{font:600 9.5pt 'Fredoka';color:#fff;border-radius:99px;padding:.3mm 2.6mm}
+.ps .tom .spk b{background:#2D7FF9}.ps .dan .spk b{background:#FF6B4A}
+.ps .par .spk b{background:var(--c);width:7mm;height:7mm;padding:0;display:flex;align-items:center;justify-content:center;font-size:11pt}
+.ps .dan{background:#FFFAF7}
+.ps .ln{display:contents}
+.ps .e{grid-column:2;padding:2mm 3mm 2mm 0;font-size:13.6pt;font-weight:700;line-height:1.32}
+.ps .k{grid-column:3;padding:2.4mm 3mm 2mm 3mm;font-size:10pt;color:#3d4a68;border-left:.5mm dotted var(--c);font-family:'Noto Sans KR','Malgun Gothic';line-height:1.4;background:rgba(255,255,255,.6)}
+.ps .e i{font-style:normal;color:#b3bdd6;font-weight:400;margin:0 .6mm}
+.ps .e b{color:var(--cd);font-weight:800}
+.ps .e u{text-decoration:underline;text-decoration-color:#FFB020;text-decoration-thickness:.7mm;text-underline-offset:.8mm}
+.ps.dlg .t{grid-template-columns:15mm 1fr 66mm}
+.ps .t>div.c{grid-column:2/4;display:grid;grid-template-columns:1fr 66mm}
+.ps .t>div.c .e{grid-column:1}.ps .t>div.c .k{grid-column:2}
+.lg{display:flex;gap:5mm;font-size:8.8pt;color:var(--sub);align-items:center;flex-wrap:wrap}
+.lg b{color:var(--cd);font-weight:800}
+.lg u{text-decoration:underline;text-decoration-color:#FFB020;text-decoration-thickness:.7mm;text-underline-offset:.8mm}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.two .bx{margin-bottom:0}
+.od{display:flex;flex-direction:column;gap:1.5mm}
+.od div{display:flex;align-items:center;gap:2.2mm;font-size:11pt;font-weight:700;line-height:1.25}
+.od div::before{content:"";width:6.5mm;height:6.5mm;border:.45mm solid var(--c);border-radius:1.5mm;flex:none;background:#fff}
+.tf{display:flex;flex-direction:column;gap:1.5mm}
+.tf div{display:flex;align-items:center;gap:2mm;font-size:11pt;font-weight:700;line-height:1.25}
+.tf div span:nth-child(2){flex:1}
+.tf em{font:600 9pt 'Fredoka';font-style:normal;border:.4mm solid var(--c);border-radius:99px;padding:0 2.4mm;color:var(--cd);background:#fff}
+.qa{display:flex;flex-direction:column;gap:2.2mm}
+.qa .q{display:flex;gap:2mm;align-items:baseline;font-size:11.5pt;font-weight:800}
+.qa .a{display:flex;gap:2mm;align-items:baseline;margin:.8mm 0 0 7.2mm;font-size:11pt;font-weight:700;color:var(--sub)}
+.qa .a .bl{flex:1}
+.sm{font-size:11.8pt;font-weight:700;line-height:2.05}
+.sm .bl{min-width:24mm;position:relative}
+.sm .bl::before{content:attr(data-n);position:absolute;left:0;top:-.5mm;font:700 8pt 'Fredoka';color:var(--c)}
+.sj{display:grid;grid-template-columns:1fr 1fr;column-gap:6mm;row-gap:1.5mm}
+.sj div{display:flex;align-items:center;gap:2mm;font-size:11pt;font-weight:700;line-height:1.25}
+.sj div::before{content:"";width:6.5mm;height:6.5mm;border:.45mm solid var(--c);border-radius:50%;flex:none;background:#fff}
+.chk{display:flex;flex-wrap:wrap;gap:1.5mm 5mm;font-size:11.5pt;font-weight:700}
+
+.roomy .bx{padding:5mm 5.5mm 5.5mm;margin-bottom:5.5mm}
+.roomy .od,.roomy .tf{gap:2.8mm}
+.roomy .od div,.roomy .tf div,.roomy .sj div{font-size:11.6pt}
+.roomy .qa{gap:3mm}.roomy .qa .q{font-size:12.2pt}.roomy .qa .a{font-size:11.6pt;margin-top:1.6mm}
+.roomy .sm{font-size:12.4pt;line-height:2.1}
+.roomy .iv{gap:4.5mm}.roomy .iv .q{font-size:12.6pt}.roomy .iv .ex{font-size:10pt}.roomy .iv .w4{height:11mm;margin-top:2mm}
+.roomy .ring{width:25mm;height:25mm;font-size:27pt}.roomy .ring::after{width:24mm}
+.roomy .st{padding:3mm 2.5mm 3.5mm}.roomy .st .e{font-size:28pt}
+.roomy .st .kw{gap:1.5mm;margin-top:1.5mm}.roomy .st .kw span{font-size:11.2pt;padding:.3mm 1.5mm}
+.roomy .st h5{font-size:12pt}.roomy .lv{font-size:10pt;margin-top:1mm}
+.roomy .vs{padding:4mm 5mm}.roomy .vs p{font-size:12.4pt;margin-top:1.6mm}.roomy .vs p small{font-size:9pt}
+.roomy .ql{gap:2.8mm}
+.talk .bx{padding:4.5mm 5mm 5mm;margin-bottom:5mm}
+.talk .st{padding:2.6mm 2.2mm 3mm}.talk .st .e{font-size:27pt}
+.talk .st .kw{gap:1.4mm;margin-top:1.4mm}.talk .st .kw span{font-size:10pt;padding:.3mm 1mm}
+.talk .c3 .kw span{font-size:10.8pt}
+.talk .st h5{font-size:12pt}.talk .lv{font-size:9.5pt;gap:2mm;margin-top:1mm}
+.talk .iv .ex{font-size:10pt}.talk .iv .w4{height:11mm;margin-top:2mm}
+/* retell */
+.rt{display:grid;gap:2.5mm;margin-bottom:3mm}
+.rt.c5{grid-template-columns:repeat(5,1fr)}
+.rt.c3{grid-template-columns:repeat(3,1fr)}
+.st{border:.5mm solid var(--c);border-radius:4mm;padding:2mm 2mm 2.4mm;text-align:center;position:relative;background:#fff}
+.st .no{position:absolute;left:-1.2mm;top:-1.2mm}
+.st .e{font-size:22pt;line-height:1.2}
+.st .kw{display:flex;flex-direction:column;gap:.9mm;margin-top:1mm}
+.st .kw span{font:500 10pt 'Fredoka';background:var(--cl);border-radius:99px;padding:0 1.5mm;color:var(--cd)}
+.st h5{font-family:'Jua';font-weight:400;font-size:10.5pt;color:var(--ink);margin-top:.5mm}
+.lv{display:flex;gap:2.5mm;align-items:center;flex-wrap:wrap;font-size:9.5pt}
+.lv span{background:var(--cl);border-radius:99px;padding:.7mm 3.2mm;white-space:nowrap}
+.lv .tm{margin-left:auto;background:#fff;border:.35mm dashed var(--c)}
+
+/* song */
+.sg2{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-bottom:4mm}
+.vs{border-radius:4mm;padding:3mm 4mm;background:var(--cl);border:.4mm solid var(--c)}
+.vs.ch{background:#fff;border-style:dashed}
+.vs h4{font-family:'Fredoka','Jua';font-weight:600;font-size:10pt;color:var(--cd);margin-bottom:1mm}
+.vs p{font-size:11.6pt;font-weight:700;line-height:1.25;margin-top:1.1mm}
+.vs p small{display:block;font-family:'Noto Sans KR';font-weight:400;font-size:8.6pt;color:var(--sub)}
+.vs p b{color:var(--cd);font-weight:800}
+
+/* final */
+.self{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5mm}
+.self div{background:var(--cl);border-radius:3mm;padding:2mm;text-align:center;font-size:9.5pt;line-height:1.35}
+.self b{display:block;font-family:'Jua';font-weight:400;font-size:11.5pt;color:var(--cd)}
+.self i{font-style:normal;font-size:15pt;letter-spacing:1mm;color:#c3cadb}
+.cert{border:1mm solid var(--c);border-radius:5mm;padding:4mm 6mm;text-align:center;background:var(--cl);position:relative;outline:.4mm dashed var(--c);outline-offset:-2.6mm}
+.cert h3{font-family:'Fredoka';font-weight:700;font-size:20pt;color:var(--cd);letter-spacing:.5mm}
+.cert p{font-size:10.5pt;margin-top:1mm}
+.cert .sgn{display:flex;justify-content:center;gap:12mm;margin-top:2.5mm;font-size:10pt}
+
+/* answers */
+.rot{transform:rotate(180deg);height:100%}
+.ans{columns:2;column-gap:7mm;font-size:9.1pt;line-height:1.43}
+.ans section{break-inside:avoid;margin-bottom:2.6mm;border:.35mm solid var(--line);border-radius:3mm;padding:2mm 3mm}
+.ans h4{font-family:'Jua';font-weight:400;font-size:10.5pt;color:var(--cd);margin-bottom:.8mm}
+.ans h4 span{font:600 8pt 'Fredoka';color:#fff;background:var(--c);border-radius:99px;padding:.2mm 2.4mm;margin-right:1.5mm}
+.ans b{font-weight:800}
+.ans table.ws{margin:1mm 0}
+
+/* cover */
+.cover{padding:0}
+.cover .in{height:100%}
+.cv-top{background:linear-gradient(135deg,#2D7FF9 0%,#12A594 100%);color:#fff;padding:13mm 15mm 9mm;position:relative;overflow:hidden;height:103mm}
+.cv-top::before,.cv-top::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.12)}
+.cv-top::before{width:70mm;height:70mm;right:-18mm;top:-22mm}
+.cv-top::after{width:36mm;height:36mm;right:42mm;top:50mm}
+.cv-tag{display:flex;gap:2mm;align-items:center;font-size:10.5pt}
+.cv-tag b{font-family:'Fredoka';font-weight:600;background:rgba(255,255,255,.2);border:.35mm solid rgba(255,255,255,.7);border-radius:99px;padding:.4mm 3.5mm}
+.cv-tag span{font-family:'Jua';margin-left:1mm;font-size:12pt}
+.cv-who{font-family:'Jua';font-size:20pt;margin-top:7mm;line-height:1}
+.cv-top h1{font-family:'Fredoka';font-weight:700;font-size:50pt;line-height:1;letter-spacing:-.3mm;margin-top:2mm}
+.cv-top h1 span{color:#FFE066}
+.cv-units{display:flex;gap:3mm;margin-top:6mm;position:relative;z-index:2}
+.cv-units div{background:#fff;color:var(--ink);border-radius:3mm;padding:1.2mm 4mm;font-family:'Fredoka';font-weight:500;font-size:12pt}
+.cv-units b{font-weight:700;color:#2D7FF9;margin-right:2mm}
+.cv-masc{position:absolute;right:16mm;top:30mm;width:42mm;z-index:2}
+.cv-body{padding:7mm 15mm 0}
+.cv-pics{display:flex;gap:3.5mm;justify-content:center;margin-top:-17mm;position:relative;z-index:3}
+.cv-pics .pic{width:24mm;height:24mm;border-radius:50%;border:1.1mm solid #fff;box-shadow:0 .6mm 2mm rgba(20,40,80,.25)}
+.cv-pics .pic img{object-position:50% 50%;transform:scale(1.7);transform-origin:55% 50%}
+.cv-h{font-family:'Jua';font-size:16pt;text-align:center;margin:6mm 0 4.5mm}
+.cv-h span{color:#2D7FF9}
+.map{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm}
+.mp{border:.6mm solid var(--c);border-radius:4.5mm;padding:3mm 2.5mm 3mm;text-align:center;position:relative;background:#fff}
+.mp:not(:last-child)::after{content:"➜";position:absolute;right:-4.6mm;top:42%;color:#9aa4bd;font-size:11pt;z-index:2}
+.mp .ico{width:15mm;height:15mm;border-radius:50%;background:var(--cl);margin:0 auto 1.5mm;display:flex;align-items:center;justify-content:center;font-size:20pt;line-height:1}
+.mp .sn{font:700 8.5pt 'Fredoka';color:#fff;background:var(--c);border-radius:99px;padding:.3mm 3mm;display:inline-block}
+.mp h3{font-family:'Jua';font-weight:400;font-size:16pt;line-height:1.2;margin-top:1mm}
+.mp .nk{font:600 10pt 'Fredoka';color:var(--c)}
+.mp p{font-size:9pt;color:var(--sub);line-height:1.45;margin:1.5mm 0 2mm;min-height:13mm}
+.mp .pp{font:500 8.5pt 'Fredoka';color:var(--cd);background:var(--cl);border-radius:99px;padding:.2mm 0}
+.mp .stars{font-size:15pt;letter-spacing:.8mm;color:#c3cadb;line-height:1.2}
+.mp .dt2{font-size:8.5pt;color:var(--sub);margin-top:.5mm}
+.fin{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm;margin-top:5mm}
+.fin div{border-radius:4mm;padding:2.2mm 3mm;font-size:9pt;line-height:1.4;display:flex;gap:2.5mm;align-items:center}
+.fin div i{font-style:normal;font-size:17pt;line-height:1}
+.fin b{font-family:'Jua';font-weight:400;font-size:11pt;display:block}
+.how{margin-top:5.5mm;background:#F4F7FD;border-radius:4mm;padding:3.5mm 5mm;display:grid;grid-template-columns:1fr 1fr;gap:1.2mm 6mm;font-size:9.6pt}
+.how h4{grid-column:1/3;font-family:'Jua';font-weight:400;font-size:12pt;color:#2D7FF9;margin-bottom:.5mm}
+.how div{display:flex;gap:2mm;align-items:baseline}
+.how .n{background:#2D7FF9;transform:translateY(-.2mm)}
+.cv-name{display:flex;gap:8mm;justify-content:center;margin-top:8mm;font-family:'Jua';font-size:12.5pt;align-items:baseline}
+.cv-name .bl{min-width:34mm}
+
+/* ---------- web only ---------- */
+:root{--site-bg:#f5f6f8;--site-card:#ffffff;--site-ink:#1c2230;--site-soft:#5b6270;--site-accent:#3a5ba0;--site-shadow:rgba(28,34,48,.10)}
+@media (prefers-color-scheme:dark){:root{--site-bg:#14161c;--site-card:#1f232c;--site-ink:#eceef2;--site-soft:#a3aab8;--site-accent:#7fa2e0;--site-shadow:rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--site-bg:#14161c;--site-card:#1f232c;--site-ink:#eceef2;--site-soft:#a3aab8;--site-accent:#7fa2e0;--site-shadow:rgba(0,0,0,.4)}
+:root[data-theme="light"]{--site-bg:#f5f6f8;--site-card:#ffffff;--site-ink:#1c2230;--site-soft:#5b6270;--site-accent:#3a5ba0;--site-shadow:rgba(28,34,48,.10)}
+@media screen{
+  html,body{background:var(--site-bg)}
+  body{padding:5vh 12px 8vh}
+  .webui{max-width:794px;margin:0 auto 22px;color:var(--site-ink);font-size:16px;line-height:1.5;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic",sans-serif}
+  .webui .top{display:flex;justify-content:space-between;margin-bottom:24px}
+  .webui a.back{color:var(--site-soft);text-decoration:none;font-size:.9rem}
+  .webui a.back:hover{color:var(--site-accent)}
+  .webui h1{font-size:1.6rem;margin:8px 0 6px;line-height:1.3}
+  .webui .lead{color:var(--site-soft);font-size:.95rem;line-height:1.7;margin-bottom:20px}
+  .webui .bar{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:14px}
+  .webui .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.2rem;border-radius:12px;background:var(--site-card);
+    color:var(--site-ink);text-decoration:none;font-size:.92rem;font-weight:600;box-shadow:0 3px 12px var(--site-shadow);
+    border:none;cursor:pointer;font-family:inherit}
+  .webui .btn.primary{background:#2D7FF9;color:#fff}
+  .webui .btn:hover{transform:translateY(-1px)}
+  .webui .jump{display:flex;gap:.45rem;flex-wrap:wrap}
+  .webui .jump a{font-size:.82rem;text-decoration:none;color:var(--site-ink);background:var(--site-card);border-radius:99px;
+    padding:.35rem .9rem;box-shadow:0 2px 8px var(--site-shadow);border-left:4px solid var(--jc)}
+  #book{display:flex;flex-direction:column;align-items:center;gap:18px}
+  #book .page{box-shadow:0 4px 18px var(--site-shadow);border-radius:6px;flex:none;scroll-margin-top:12px}
+  #book .page.s6{display:none}
+  body.show-ans #book .page.s6{display:block}
+  #book .rot{transform:none}
+}
+@media print{.webui{display:none!important}#book{zoom:1!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="drop" viewBox="0 0 100 120">
+    <path d="M50 5C50 5 12 52 12 78a38 38 0 0 0 76 0C88 52 50 5 50 5Z" fill="#4CC9F0" stroke="#1B6CA8" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M30 47q-8 12-8 24" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".75"/>
+    <circle cx="38" cy="74" r="6.5" fill="#1b2a49"/><circle cx="64" cy="74" r="6.5" fill="#1b2a49"/>
+    <circle cx="40.3" cy="71.8" r="2.2" fill="#fff"/><circle cx="66.3" cy="71.8" r="2.2" fill="#fff"/>
+    <path d="M39 90q12 12 24 0" fill="none" stroke="#1b2a49" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="27" cy="87" rx="5.5" ry="3.2" fill="#ff9fb2"/><ellipse cx="75" cy="87" rx="5.5" ry="3.2" fill="#ff9fb2"/>
+  </symbol>
+</svg>
+
+<div class="webui">
+  <div class="top"><a class="back" href="../주현이.html">&larr; 주현이</a><a class="back" href="../../index.html">홈으로</a></div>
+  <h1>💧 학교 영어 미션북 Unit 7 · 8</h1>
+  <p class="lead">Unit 7 Have Fun Downtown · Unit 8 Cleaning Our School 시험 대비 (스피킹 · 리딩 · 라이팅).<br>단어 → 숙어 → 표현 → 문장 이해 순서로 공부해요. 직접 쓰면서 풀 때는 PDF를 내려받아 인쇄하세요.</p>
+  <div class="bar">
+    <a class="btn primary" href="영어_미션북_Unit7-8/주현_영어_미션북_Unit7-8.pdf" download>⬇ PDF 내려받기 (19쪽 · 15MB)</a>
+    <button class="btn" id="ansBtn" type="button">🙃 정답 보기</button>
+  </div>
+  <nav class="jump">
+    <a href="#p2" style="--jc:#FF6B4A">1 단어</a>
+    <a href="#p6" style="--jc:#12A594">2 숙어</a>
+    <a href="#p9" style="--jc:#7C5CFC">3 표현</a>
+    <a href="#p12" style="--jc:#2D7FF9">4 문장 이해</a>
+    <a href="#p16" style="--jc:#2D7FF9">생각하고 말하기</a>
+    <a href="#p17" style="--jc:#F09A00">노래</a>
+    <a href="#p18" style="--jc:#F09A00">실전 쓰기</a>
+  </nav>
+</div>
+<main id="book">
+<!-- ===================== 1. COVER ===================== -->
+<section class="page cover" data-p="1" id="p1">
+<div class="in">
+  <div class="cv-top">
+    <div class="cv-tag"><b>Speaking</b><b>Reading</b><b>Writing</b><span>시험 대비</span></div>
+    <div class="cv-who">주현이의</div>
+    <h1>English<br><span>Mission Book</span></h1>
+    <div class="cv-units"><div><b>Unit 7</b>Have Fun Downtown</div><div><b>Unit 8</b>Cleaning Our School</div></div>
+    <svg class="cv-masc" viewBox="0 0 100 120"><use href="#drop"/></svg>
+  </div>
+  <div class="cv-body">
+    <div class="cv-pics">
+      <div class="pic"><img src="영어_미션북_Unit7-8/raw_downtown.jpg" alt=""></div>
+      <div class="pic"><img src="영어_미션북_Unit7-8/raw_fountain.jpg" alt=""></div>
+      <div class="pic"><img src="영어_미션북_Unit7-8/raw_sign.jpg" alt=""></div>
+      <div class="pic"><img src="영어_미션북_Unit7-8/raw_clean.jpg" alt=""></div>
+      <div class="pic"><img src="영어_미션북_Unit7-8/raw_pickup.jpg" alt=""></div>
+      <div class="pic"><img src="영어_미션북_Unit7-8/raw_garbage.jpg" alt=""></div>
+    </div>
+    <div class="cv-h">스테이지 4개를 깨고 <span>Mission Clear!</span> 🏆</div>
+    <div class="map">
+      <div class="mp s1"><div class="ico">🔎</div><span class="sn">STAGE 1</span><h3>단어</h3><div class="nk">Word Hunter</div>
+        <p>사진 카드로 단어 익히고 단어 찾기·암호 풀기 게임!</p><div class="pp">p. 2 – 5</div><div class="stars">☆☆☆</div><div class="dt2">____월 ____일</div></div>
+      <div class="mp s2"><div class="ico">🧩</div><span class="sn">STAGE 2</span><h3>숙어</h3><div class="nk">Chunk Master</div>
+        <p>단어끼리 짝을 이룬 덩어리 표현을 통째로 외우기!</p><div class="pp">p. 6 – 8</div><div class="stars">☆☆☆</div><div class="dt2">____월 ____일</div></div>
+      <div class="mp s3"><div class="ico">💬</div><span class="sn">STAGE 3</span><h3>표현</h3><div class="nk">Talk Star</div>
+        <p>Did you ~? / be going to로 묻고 답하고 써 보기!</p><div class="pp">p. 9 – 11</div><div class="stars">☆☆☆</div><div class="dt2">____월 ____일</div></div>
+      <div class="mp s4"><div class="ico">🕵️</div><span class="sn">STAGE 4</span><h3>문장 이해</h3><div class="nk">Story Detective</div>
+        <p>본문을 읽고, 풀고, 생각해서 말하기까지!</p><div class="pp">p. 12 – 16</div><div class="stars">☆☆☆</div><div class="dt2">____월 ____일</div></div>
+    </div>
+    <div class="fin">
+      <div style="background:#FFF6DF"><i>🎵</i><span><b>BONUS · p. 17</b>Keep It Clean 노래</span></div>
+      <div style="background:#FFF6DF"><i>🏁</i><span><b>FINAL · p. 18</b>실전 쓰기 + 상장</span></div>
+      <div style="background:#F1F3F8"><i>🙃</i><span><b>정답 · p. 19</b>거꾸로 적혀 있어요</span></div>
+    </div>
+    <div class="how">
+      <h4>이렇게 공부해요</h4>
+      <div><span class="n">1</span><span>하루에 <b>한 스테이지</b>씩, 순서대로!</span></div>
+      <div><span class="n">2</span><span>소리 내어 읽을 때마다 <b>① ② ③</b>에 색칠</span></div>
+      <div><span class="n">3</span><span>스테이지를 끝내면 <b>별 3개</b> 색칠 ⭐</span></div>
+      <div><span class="n">4</span><span>다 풀고 나서 정답 확인 (책을 돌려서!)</span></div>
+    </div>
+    <div class="cv-name"><span>이름 <span class="bl"></span></span><span>시험 보는 날 <span class="bl" style="min-width:14mm"></span>월 <span class="bl" style="min-width:14mm"></span>일</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 2. STAGE 1 : Unit 7 words ===================== -->
+<section class="page s1" data-p="2" id="p2"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 1 · 단어</span><span class="pg">2</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 1</span><h2>단어<em>Word Hunter</em></h2><span class="un">Unit 7 · Have Fun Downtown</span></header>
+  <div class="tip"><svg viewBox="0 0 100 120"><use href="#drop"/></svg><p>사진을 보고 단어를 <b>큰 소리로 3번</b> 읽어요. 읽을 때마다 ① ② ③에 색칠! 아래 덩어리 표현도 같이 읽으면 더 잘 외워져요.</p></div>
+  <div class="cards">
+    <div class="wc"><div class="pic"><img src="영어_미션북_Unit7-8/raw_downtown.jpg" alt=""></div><div class="tx"><div class="w">downtown</div><div class="m">시내, 번화가</div><div class="ch">a busy <b>downtown</b><br>붐비는 시내</div><div class="rd"><span>1</span><span>2</span><span>3</span></div></div></div>
+    <div class="wc"><div class="pic"><img src="영어_미션북_Unit7-8/raw_fountain.jpg" alt=""></div><div class="tx"><div class="w">fountain</div><div class="m">분수</div><div class="ch">a water <b>fountain</b><br>물 분수</div><div class="rd"><span>1</span><span>2</span><span>3</span></div></div></div>
+    <div class="wc"><div class="pic"><img src="영어_미션북_Unit7-8/raw_trashcan.jpg" alt=""></div><div class="tx"><div class="w">trash can</div><div class="m">쓰레기통</div><div class="ch">a blue <b>trash can</b><br>파란 쓰레기통</div><div class="rd"><span>1</span><span>2</span><span>3</span></div></div></div>
+    <div class="wc"><div class="pic"><img src="영어_미션북_Unit7-8/raw_sign.jpg" alt=""></div><div class="tx"><div class="w">sign</div><div class="m">표지판</div><div class="ch">a stop <b>sign</b><br>정지 표지판</div><div class="rd"><span>1</span><span>2</span><span>3</span></div></div></div>
+    <div class="wc"><div class="pic"><img src="영어_미션북_Unit7-8/raw_sidewalk.jpg" alt=""></div><div class="tx"><div class="w">sidewalk</div><div class="m">인도 (사람이 걷는 길)</div><div class="ch">a paved <b>sidewalk</b><br>포장된 인도</div><div class="rd"><span>1</span><span>2</span><span>3</span></div></div></div>
+    <div class="wc"><div class="pic"><img src="영어_미션북_Unit7-8/raw_walk.jpg" alt=""></div><div class="tx"><div class="w">walk</div><div class="m">걷다</div><div class="ch"><b>walk</b> on the street<br>길을 걷다</div><div class="rd"><span>1</span><span>2</span><span>3</span></div></div></div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">STORY WORDS</span>본문 속 단어 <small>아는 단어는 □에 체크 ✔</small></h3>
+    <div class="vl">
+      <div><b>yesterday</b><span>어제</span></div>
+      <div><b>trash</b><span>쓰레기</span></div>
+      <div><b>visit</b><span>방문하다, 찾아가다</span></div>
+      <div><b>everywhere</b><span>어디에나, 곳곳에</span></div>
+      <div><b>new</b><span>새로운</span></div>
+      <div><b>miss</b><span>놓치다</span></div>
+      <div><b>really</b><span>정말, 아주</span></div>
+      <div><b>ride</b><span>타다</span></div>
+      <div><b>wet</b><span>젖은</span></div>
+      <div><b>law</b><span>법</span></div>
+      <div><b>drink</b><span>음료, 마실 것</span></div>
+      <div><b>instead</b><span>대신에</span></div>
+      <div><b>snack</b><span>간식</span></div>
+      <div><b>splash pad</b><span>물놀이터 (바닥 분수)</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 3. STAGE 1 : Unit 8 words ===================== -->
+<section class="page s1" data-p="3" id="p3"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 1 · 단어</span><span class="pg">3</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 1</span><h2>단어<em>Word Hunter</em></h2><span class="un">Unit 8 · Cleaning Our School</span></header>
+  <div class="cards">
+    <div class="wc"><div class="pic"><img src="영어_미션북_Unit7-8/raw_litter.jpg" alt=""></div><div class="tx"><div class="w">litter</div><div class="m">(쓰레기를) 함부로 버리다</div><div class="ch"><b>litter</b> on the street<br>길에 쓰레기를 버리다</div><div class="rd"><span>1</span><span>2</span><span>3</span></div></div></div>
+    <div class="wc"><div class="pic"><img src="영어_미션북_Unit7-8/raw_dirty.jpg" alt=""></div><div class="tx"><div class="w">dirty</div><div class="m">더러운</div><div class="ch"><b>dirty</b> hands<br>더러운 손</div><div class="rd"><span>1</span><span>2</span><span>3</span></div></div></div>
+    <div class="wc"><div class="pic"><img src="영어_미션북_Unit7-8/raw_clean.jpg" alt=""></div><div class="tx"><div class="w">clean</div><div class="m">청소하다 / 깨끗한</div><div class="ch"><b>clean</b> the house<br>집을 청소하다</div><div class="rd"><span>1</span><span>2</span><span>3</span></div></div></div>
+    <div class="wc"><div class="pic"><img src="영어_미션북_Unit7-8/raw_pickup.jpg" alt=""></div><div class="tx"><div class="w">pick up</div><div class="m">줍다</div><div class="ch"><b>pick up</b> the trash<br>쓰레기를 줍다</div><div class="rd"><span>1</span><span>2</span><span>3</span></div></div></div>
+    <div class="wc"><div class="pic"><img src="영어_미션북_Unit7-8/raw_garbage.jpg" alt=""></div><div class="tx"><div class="w">garbage</div><div class="m">쓰레기</div><div class="ch">a <b>garbage</b> bag<br>쓰레기봉투</div><div class="rd"><span>1</span><span>2</span><span>3</span></div></div></div>
+    <div class="wc"><div class="pic"><img src="영어_미션북_Unit7-8/raw_toilet.jpg" alt=""></div><div class="tx"><div class="w">toilet</div><div class="m">변기</div><div class="ch">a white <b>toilet</b><br>하얀 변기</div><div class="rd"><span>1</span><span>2</span><span>3</span></div></div></div>
+  </div>
+  <div class="bx fill" style="background:#fff">
+    <h3><span class="tg">MORE WORDS</span>반대말 짝꿍 <small>둘을 한 세트로 외워요</small></h3>
+    <div class="opp">
+      <div><b>dirty</b><i>↔</i><b>clean</b><br>더러운 ↔ 깨끗한</div>
+      <div><b>messy</b><i>↔</i><b>neat</b><br>지저분한 ↔ 깔끔한</div>
+      <div><b>drop</b><i>↔</i><b>pick up</b><br>떨어뜨리다 ↔ 줍다</div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">STORY WORDS</span>본문 속 단어 <small>아는 단어는 □에 체크 ✔</small></h3>
+    <div class="vl">
+      <div><b>leave</b><span>두고 가다, 남기다</span></div>
+      <div><b>floor</b><span>바닥</span></div>
+      <div><b>under</b><span>~ 아래에</span></div>
+      <div><b>even</b><span>심지어 ~까지도</span></div>
+      <div><b>cafeteria</b><span>급식실, 구내식당</span></div>
+      <div><b>themselves</b><span>그들 스스로, 직접</span></div>
+      <div><b>every day</b><span>매일</span></div>
+      <div><b>keep</b><span>(어떤 상태로) 유지하다</span></div>
+      <div><b>help</b><span>돕다</span></div>
+      <div><b>think</b><span>생각하다</span></div>
+      <div><b>window</b><span>창문</span></div>
+      <div><b>outside</b><span>~ 밖에서</span></div>
+      <div><b>board</b><span>칠판</span></div>
+      <div><b>uniform</b><span>교복</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 4. STAGE 1 : past tense + picture quiz ===================== -->
+<section class="page s1 roomy" data-p="4" id="p4"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 1 · 단어</span><span class="pg">4</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 1</span><h2>단어<em>변신! 과거형</em></h2><span class="un">Unit 7 · 8</span></header>
+  <div class="tip"><svg viewBox="0 0 100 120"><use href="#drop"/></svg><p><b>어제(yesterday)</b> 한 일을 말할 때는 동사가 <b>변신</b>해요! Unit 7 본문은 전부 어제 있었던 일이라서 변신한 모양이 나와요.</p></div>
+  <div class="bx">
+    <h3><span class="tg">CHECK</span>변신 카드 <small>왼쪽(지금) ➜ 오른쪽(어제)</small></h3>
+    <div class="pt">
+      <div class="g"><h4>🐾 꼬리 달기 변신 (+ed)</h4>
+        <div class="rw">
+          <div class="r"><b>play</b><i>➜</i><b class="p">played</b>놀았다</div>
+          <div class="r"><b>walk</b><i>➜</i><b class="p">walked</b>걸었다</div>
+          <div class="r"><b>visit</b><i>➜</i><b class="p">visited</b>방문했다</div>
+        </div>
+      </div>
+      <div class="g"><h4>🎩 깜짝 변신 (모양이 확 바뀜!)</h4>
+        <div class="rw">
+          <div class="r"><b>go</b><i>➜</i><b class="p">went</b>갔다</div>
+          <div class="r"><b>have</b><i>➜</i><b class="p">had</b>먹었다</div>
+          <div class="r"><b>get</b><i>➜</i><b class="p">got</b>~해졌다</div>
+          <div class="r"><b>throw</b><i>➜</i><b class="p">threw</b>버렸다</div>
+          <div class="r"><b>see</b><i>➜</i><b class="p">saw</b>봤다</div>
+          <div class="r"><b>do</b><i>➜</i><b class="p">did</b>했다</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">GAME 1</span>변신시켜라! <small>( ) 안의 동사를 어제 모양으로 바꿔 쓰기</small></h3>
+    <div class="ql">
+      <div class="q"><span class="n">1</span><span>John and I <span class="bl"></span> downtown yesterday.</span><em>go</em></div>
+      <div class="q"><span class="n">2</span><span>We <span class="bl"></span> in the fountain.</span><em>play</em></div>
+      <div class="q"><span class="n">3</span><span>We <span class="bl"></span> really wet!</span><em>get</em></div>
+      <div class="q"><span class="n">4</span><span>We <span class="bl"></span> some drinks and snacks.</span><em>have</em></div>
+      <div class="q"><span class="n">5</span><span>We <span class="bl"></span> our trash in the trash can.</span><em>throw</em></div>
+      <div class="q"><span class="n">6</span><span>We <span class="bl"></span> “Do Not Litter” signs everywhere.</span><em>see</em></div>
+      <div class="q"><span class="n">7</span><span>We <span class="bl"></span> instead.</span><em>walk</em></div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">GAME 2</span>그림 퀴즈 <small>이름표가 가려졌어요! 첫 글자를 보고 단어를 써 보세요</small></h3>
+    <div class="pq">
+      <div><div class="pic"><img src="영어_미션북_Unit7-8/raw_fountain.jpg" alt=""></div><div class="a">f</div></div>
+      <div><div class="pic"><img src="영어_미션북_Unit7-8/raw_trashcan.jpg" alt=""></div><div class="a">t</div></div>
+      <div><div class="pic"><img src="영어_미션북_Unit7-8/raw_walk.jpg" alt=""></div><div class="a">w</div></div>
+      <div><div class="pic"><img src="영어_미션북_Unit7-8/raw_dirty.jpg" alt=""></div><div class="a">d</div></div>
+      <div><div class="pic"><img src="영어_미션북_Unit7-8/raw_garbage.jpg" alt=""></div><div class="a">g</div></div>
+      <div><div class="pic"><img src="영어_미션북_Unit7-8/raw_pickup.jpg" alt=""></div><div class="a">p</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 5. STAGE 1 : games ===================== -->
+<section class="page s1" data-p="5" id="p5"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 1 · 단어</span><span class="pg">5</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 1</span><h2>단어<em>Game Zone</em></h2><span class="un">Unit 7 · 8</span></header>
+  <div class="bx">
+    <h3><span class="tg">GAME 3</span>단어 찾기 <small>가로 ➡ 세로 ⬇ 대각선 ↘ 으로 숨어 있어요. 찾으면 동그라미 치고 오른쪽 빈칸에 써 보기!</small></h3>
+    <div class="wsw">
+      <table class="ws"><tr><td class="">P</td><td class="">R</td><td class="">T</td><td class="">E</td><td class="">S</td><td class="">U</td><td class="">B</td><td class="">S</td><td class="">I</td><td class="">G</td><td class="">N</td><td class="">H</td></tr><tr><td class="">P</td><td class="">M</td><td class="">D</td><td class="">O</td><td class="">W</td><td class="">N</td><td class="">T</td><td class="">O</td><td class="">W</td><td class="">N</td><td class="">D</td><td class="">F</td></tr><tr><td class="">D</td><td class="">P</td><td class="">C</td><td class="">F</td><td class="">M</td><td class="">M</td><td class="">E</td><td class="">S</td><td class="">S</td><td class="">Y</td><td class="">G</td><td class="">B</td></tr><tr><td class="">L</td><td class="">I</td><td class="">I</td><td class="">S</td><td class="">O</td><td class="">W</td><td class="">G</td><td class="">O</td><td class="">G</td><td class="">U</td><td class="">A</td><td class="">L</td></tr><tr><td class="">T</td><td class="">C</td><td class="">R</td><td class="">C</td><td class="">I</td><td class="">U</td><td class="">S</td><td class="">M</td><td class="">P</td><td class="">R</td><td class="">R</td><td class="">N</td></tr><tr><td class="">C</td><td class="">T</td><td class="">L</td><td class="">T</td><td class="">K</td><td class="">D</td><td class="">N</td><td class="">S</td><td class="">O</td><td class="">S</td><td class="">B</td><td class="">U</td></tr><tr><td class="">E</td><td class="">O</td><td class="">I</td><td class="">E</td><td class="">Y</td><td class="">U</td><td class="">E</td><td class="">T</td><td class="">N</td><td class="">I</td><td class="">A</td><td class="">I</td></tr><tr><td class="">B</td><td class="">I</td><td class="">T</td><td class="">R</td><td class="">A</td><td class="">L</td><td class="">P</td><td class="">W</td><td class="">A</td><td class="">T</td><td class="">G</td><td class="">K</td></tr><tr><td class="">R</td><td class="">L</td><td class="">T</td><td class="">T</td><td class="">O</td><td class="">N</td><td class="">L</td><td class="">K</td><td class="">A</td><td class="">I</td><td class="">E</td><td class="">K</td></tr><tr><td class="">U</td><td class="">E</td><td class="">E</td><td class="">W</td><td class="">A</td><td class="">L</td><td class="">K</td><td class="">E</td><td class="">O</td><td class="">L</td><td class="">N</td><td class="">R</td></tr><tr><td class="">N</td><td class="">T</td><td class="">R</td><td class="">A</td><td class="">S</td><td class="">H</td><td class="">C</td><td class="">A</td><td class="">N</td><td class="">T</td><td class="">K</td><td class="">R</td></tr><tr><td class="">U</td><td class="">T</td><td class="">L</td><td class="">Y</td><td class="">E</td><td class="">C</td><td class="">C</td><td class="">N</td><td class="">E</td><td class="">A</td><td class="">T</td><td class="">U</td></tr></table>
+      <ul class="wl"><li><span class="e">🏙️</span><span class="k">시내</span><span class="lb"><b>d</b><u></u><u></u><u></u><u></u><u></u><u></u><u></u></span></li><li><span class="e">⛲</span><span class="k">분수</span><span class="lb"><b>f</b><u></u><u></u><u></u><u></u><u></u><u></u><u></u></span></li><li><span class="e">🗑️</span><span class="k">쓰레기통</span><span class="lb"><b>t</b><u></u><u></u><u></u><u></u><i class="sp"></i><u></u><u></u><u></u></span></li><li><span class="e">🚶</span><span class="k">인도</span><span class="lb"><b>s</b><u></u><u></u><u></u><u></u><u></u><u></u><u></u></span></li><li><span class="e">🛍️</span><span class="k">쓰레기</span><span class="lb"><b>g</b><u></u><u></u><u></u><u></u><u></u><u></u></span></li><li><span class="e">🚯</span><span class="k">함부로 버리다</span><span class="lb"><b>l</b><u></u><u></u><u></u><u></u><u></u></span></li><li><span class="e">🚽</span><span class="k">변기</span><span class="lb"><b>t</b><u></u><u></u><u></u><u></u><u></u></span></li><li><span class="e">🤲</span><span class="k">줍다</span><span class="lb"><b>p</b><u></u><u></u><u></u><i class="sp"></i><u></u><u></u></span></li><li><span class="e">😖</span><span class="k">더러운</span><span class="lb"><b>d</b><u></u><u></u><u></u><u></u></span></li><li><span class="e">✨</span><span class="k">깨끗한</span><span class="lb"><b>c</b><u></u><u></u><u></u><u></u></span></li><li><span class="e">🌪️</span><span class="k">지저분한</span><span class="lb"><b>m</b><u></u><u></u><u></u><u></u></span></li><li><span class="e">🛑</span><span class="k">표지판</span><span class="lb"><b>s</b><u></u><u></u><u></u></span></li><li><span class="e">👟</span><span class="k">걷다</span><span class="lb"><b>w</b><u></u><u></u><u></u></span></li><li><span class="e">👌</span><span class="k">깔끔한</span><span class="lb"><b>n</b><u></u><u></u><u></u></span></li></ul>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">GAME 4</span>뒤죽박죽 글자 <small>섞인 글자를 바르게 고쳐 쓰기</small></h3>
+    <div class="scg"><div class="sc"><span class="n">1</span><span class="mix">n t o n w o w d</span><span class="ar">➜</span><span class="bl"></span></div><div class="sc"><span class="n">2</span><span class="mix">n i t f u o n a</span><span class="ar">➜</span><span class="bl"></span></div><div class="sc"><span class="n">3</span><span class="mix">k s i e l w d a</span><span class="ar">➜</span><span class="bl"></span></div><div class="sc"><span class="n">4</span><span class="mix">h n a a r t s c</span><span class="ar">➜</span><span class="bl"></span><em>(두 단어)</em></div><div class="sc"><span class="n">5</span><span class="mix">g s n i</span><span class="ar">➜</span><span class="bl"></span></div><div class="sc"><span class="n">6</span><span class="mix">e b g r g a a</span><span class="ar">➜</span><span class="bl"></span></div><div class="sc"><span class="n">7</span><span class="mix">o t i e t l</span><span class="ar">➜</span><span class="bl"></span></div><div class="sc"><span class="n">8</span><span class="mix">s s m e y</span><span class="ar">➜</span><span class="bl"></span></div></div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">GAME 5</span>비밀 암호 <small>숫자를 글자로 바꾸면 비밀 메시지가 나타나요</small></h3>
+    <div class="key"><span><b>A</b>1</span><span><b>B</b>2</span><span><b>C</b>3</span><span><b>D</b>4</span><span><b>E</b>5</span><span><b>F</b>6</span><span><b>G</b>7</span><span><b>H</b>8</span><span><b>I</b>9</span><span><b>J</b>10</span><span><b>K</b>11</span><span><b>L</b>12</span><span><b>M</b>13</span><span><b>N</b>14</span><span><b>O</b>15</span><span><b>P</b>16</span><span><b>Q</b>17</span><span><b>R</b>18</span><span><b>S</b>19</span><span><b>T</b>20</span><span><b>U</b>21</span><span><b>V</b>22</span><span><b>W</b>23</span><span><b>X</b>24</span><span><b>Y</b>25</span><span><b>Z</b>26</span></div>
+    <div class="cd"><span class="n">1</span><span class="cw"><span><u></u>11</span><span><u></u>5</span><span><u></u>5</span><span><u></u>16</span></span><span class="cw"><span><u></u>9</span><span><u></u>20</span></span><span class="cw"><span><u></u>3</span><span><u></u>12</span><span><u></u>5</span><span><u></u>1</span><span><u></u>14</span></span></div><div class="cd"><span class="n">2</span><span class="cw"><span><u></u>4</span><span><u></u>15</span></span><span class="cw"><span><u></u>14</span><span><u></u>15</span><span><u></u>20</span></span><span class="cw"><span><u></u>12</span><span><u></u>9</span><span><u></u>20</span><span><u></u>20</span><span><u></u>5</span><span><u></u>18</span></span></div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 6. STAGE 2 : Unit 7 idioms ===================== -->
+<section class="page s2" data-p="6" id="p6"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 2 · 숙어</span><span class="pg">6</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 2</span><h2>숙어<em>Chunk Master</em></h2><span class="un">Unit 7 · Have Fun Downtown</span></header>
+  <div class="tip"><svg viewBox="0 0 100 120"><use href="#drop"/></svg><p>숙어는 단어들이 <b>손잡고 다니는 덩어리</b>예요. 하나씩 떼지 말고 <b>통째로</b> 읽고 외워요. 아래 문장은 모두 교과서 본문에 나온 문장!</p></div>
+  <div class="ids big">
+    <div class="ic"><span class="e">🎉</span><div class="p">have fun</div><div class="m">재미있게 놀다</div><div class="x">Did you <b>have fun</b>?<span>재미있었어?</span></div></div>
+    <div class="ic"><span class="e">😄</span><div class="p">have a good time</div><div class="m">즐거운 시간을 보내다</div><div class="x">We <b>had a good time</b>.<span>우리는 즐거운 시간을 보냈어.</span></div></div>
+    <div class="ic"><span class="e">🏙️</span><div class="p">go downtown</div><div class="m">시내에 가다</div><div class="x">John and I <b>went downtown</b> yesterday.<span>존과 나는 어제 시내에 갔어.</span></div></div>
+    <div class="ic"><span class="e">💦</span><div class="p">get wet</div><div class="m">(물에) 젖다</div><div class="x">We <b>got</b> really <b>wet</b>!<span>우리는 완전히 젖었어!</span></div></div>
+    <div class="ic"><span class="e">🗑️</span><div class="p">throw away</div><div class="m">버리다</div><div class="x">Did you <b>throw away</b> your trash?<span>쓰레기는 버렸어?</span></div></div>
+    <div class="ic"><span class="e">👍</span><div class="p">of course</div><div class="m">물론이지</div><div class="x"><b>Of course</b>!<span>물론이지!</span></div></div>
+    <div class="ic"><span class="e">👀</span><div class="p">can’t miss</div><div class="m">못 보고 지나칠 수 없다</div><div class="x">You <b>can’t miss</b> them.<span>(눈에 확 띄어서) 못 볼 수가 없어.</span></div></div>
+    <div class="ic"><span class="e">🚲</span><div class="p">ride a bike</div><div class="m">자전거를 타다</div><div class="x">Did you <b>ride</b> your <b>bikes</b> on the sidewalks?<span>인도에서 자전거를 탔어?</span></div></div>
+    <div class="ic"><span class="e">⚖️</span><div class="p">against the law</div><div class="m">법에 어긋나는</div><div class="x">Riding a bike on the sidewalks is <b>against the law</b>.<span>인도에서 자전거 타는 건 법에 어긋나.</span></div></div>
+  </div>
+  <div class="bx fill">
+    <h3><span class="tg">REAL MISSION</span>오늘의 생활 미션 <small>해냈으면 □에 체크 ✔</small></h3>
+    <div class="ql" style="gap:1.2mm">
+      <div class="q" style="font-size:11pt"><span class="ck"></span><span>가족에게 <b>“Did you have fun?”</b> 하고 물어보기</span></div>
+      <div class="q" style="font-size:11pt"><span class="ck"></span><span>누가 부탁하면 <b>“Of course!”</b> 라고 대답하기</span></div>
+      <div class="q" style="font-size:11pt"><span class="ck"></span><span>자기 전에 <b>“I had a good time today.”</b> 말하기</span></div>
+    </div>
+  </div>
+  <div class="bx" style="margin-bottom:0">
+    <h3><span class="tg">QUICK QUIZ</span>이모지 퀴즈 <small>위 카드를 손으로 가리고, 그림만 보고 숙어 쓰기</small></h3>
+    <div class="eq">
+      <div><i>💦</i><span class="bl"></span></div><div><i>🚲</i><span class="bl"></span></div><div><i>👍</i><span class="bl"></span></div>
+      <div><i>🗑️</i><span class="bl"></span></div><div><i>⚖️</i><span class="bl"></span></div><div><i>🎉</i><span class="bl"></span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 7. STAGE 2 : Unit 8 idioms ===================== -->
+<section class="page s2" data-p="7" id="p7"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 2 · 숙어</span><span class="pg">7</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 2</span><h2>숙어<em>Chunk Master</em></h2><span class="un">Unit 8 · Cleaning Our School</span></header>
+  <div class="sub">📖 본문에 나온 덩어리 표현</div>
+  <div class="ids sm">
+    <div class="ic"><span class="e">🤲</span><div class="p">pick up</div><div class="m">줍다</div><div class="x">They <b>pick up</b> the paper and other garbage.<span>종이와 다른 쓰레기를 주워요.</span></div></div>
+    <div class="ic"><span class="e">📅</span><div class="p">every day</div><div class="m">매일</div><div class="x">Students clean their schools <b>every day</b>.<span>학생들은 매일 학교를 청소해요.</span></div></div>
+    <div class="ic"><span class="e">😖</span><div class="p">make ~ dirty</div><div class="m">~을 더럽게 만들다</div><div class="x">This <b>makes</b> the school <b>dirty</b>.<span>이것이 학교를 더럽게 만들어요.</span></div></div>
+    <div class="ic"><span class="e">✨</span><div class="p">keep ~ neat</div><div class="m">~을 깔끔하게 유지하다</div><div class="x">They <b>keep</b> the school <b>neat</b>.<span>학교를 깔끔하게 유지해요.</span></div></div>
+    <div class="ic"><span class="e">🗑️</span><div class="p">throw ~ in the trash can</div><div class="m">~을 쓰레기통에 버리다</div><div class="x">They <b>throw</b> garbage <b>in the trash can</b>.<span>쓰레기를 쓰레기통에 버려요.</span></div></div>
+    <div class="ic"><span class="e">🧹</span><div class="p">clean it themselves</div><div class="m">그것을 직접 청소하다</div><div class="x">They’re going to <b>clean it themselves</b>!<span>자기들이 직접 청소하게 될 거예요!</span></div></div>
+  </div>
+  <div class="sub">🎵 노래(p.69)에 나온 덩어리 표현</div>
+  <div class="ids sm">
+    <div class="ic"><span class="e">👀</span><div class="p">look around</div><div class="m">주위를 둘러보다</div><div class="x"><b>Look</b> all <b>around</b>.<span>주위를 잘 둘러봐.</span></div></div>
+    <div class="ic"><span class="e">💡</span><div class="p">know what to do</div><div class="m">어떻게 할지 알다</div><div class="x">You <b>know what to do</b>!<span>어떻게 해야 할지 알지!</span></div></div>
+    <div class="ic"><span class="e">💪</span><div class="p">do our part</div><div class="m">우리 몫을 하다</div><div class="x">We want to <b>do our part</b>!<span>우리도 우리 몫을 하고 싶어!</span></div></div>
+    <div class="ic"><span class="e">☝️</span><div class="p">be sure to ~</div><div class="m">꼭 ~하다</div><div class="x"><b>Be sure to</b> bring it back.<span>꼭 다시 가져와.</span></div></div>
+    <div class="ic"><span class="e">↩️</span><div class="p">bring ~ back</div><div class="m">~을 다시 가져오다</div><div class="x">Be sure to <b>bring</b> it <b>back</b>.<span>꼭 다시 가져와.</span></div></div>
+    <div class="ic"><span class="e">🏠</span><div class="p">take ~ home</div><div class="m">~을 집에 가져가다</div><div class="x">When you <b>take</b> it <b>home</b>,<span>그걸 집에 가져가면</span></div></div>
+  </div>
+  <div class="tip" style="margin-bottom:0"><svg viewBox="0 0 100 120"><use href="#drop"/></svg><p><b>~</b> 자리에는 다른 말이 쏙 들어가요. keep <b>the school</b> neat, keep <b>my room</b> neat, keep <b>our town</b> clean 처럼 바꿔 말해 보세요!</p></div>
+</div>
+</section>
+
+<!-- ===================== 8. STAGE 2 : games ===================== -->
+<section class="page s2" data-p="8" id="p8"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 2 · 숙어</span><span class="pg">8</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 2</span><h2>숙어<em>Game Zone</em></h2><span class="un">Unit 7 · 8</span></header>
+  <div class="bx">
+    <h3><span class="tg">GAME 1</span>짝꿍 단어 찾기 <small>상자에서 알맞은 단어를 골라 덩어리를 완성하기</small></h3>
+    <div class="wb"><span>downtown</span><span>fountain</span><span>trash can</span><span>sign</span><span>sidewalk</span><span>walk</span><span>litter</span><span>dirty</span><span>clean</span><span>pick</span><span>garbage</span><span>toilet</span></div>
+    <div class="co">
+      <div><span class="n">1</span>a busy <span class="bl"></span><small>붐비는 시내</small></div>
+      <div><span class="n">7</span><span class="bl"></span> on the street<small>쓰레기를 버리다</small></div>
+      <div><span class="n">2</span>a water <span class="bl"></span><small>물 분수</small></div>
+      <div><span class="n">8</span><span class="bl"></span> hands<small>더러운 손</small></div>
+      <div><span class="n">3</span>a blue <span class="bl"></span><small>파란 쓰레기통</small></div>
+      <div><span class="n">9</span><span class="bl"></span> the house<small>집을 청소하다</small></div>
+      <div><span class="n">4</span>a stop <span class="bl"></span><small>정지 표지판</small></div>
+      <div><span class="n">10</span><span class="bl"></span> up the trash<small>쓰레기를 줍다</small></div>
+      <div><span class="n">5</span>a paved <span class="bl"></span><small>포장된 인도</small></div>
+      <div><span class="n">11</span>a <span class="bl"></span> bag<small>쓰레기봉투</small></div>
+      <div><span class="n">6</span><span class="bl"></span> on the street<small>길을 걷다</small></div>
+      <div><span class="n">12</span>a white <span class="bl"></span><small>하얀 변기</small></div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">GAME 2</span>반쪽 찾기 <small>점과 점을 선으로 이어 숙어를 완성하기</small></h3>
+    <div class="mt">
+      <div class="l">have</div><div></div><div class="r">away</div>
+      <div class="l">throw</div><div></div><div class="r">the law</div>
+      <div class="l">get</div><div></div><div class="r">day</div>
+      <div class="l">pick</div><div></div><div class="r">fun</div>
+      <div class="l">against</div><div></div><div class="r">course</div>
+      <div class="l">of</div><div></div><div class="r">wet</div>
+      <div class="l">every</div><div></div><div class="r">up</div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">GAME 3</span>빈칸 채우기 <small>우리말 뜻을 보고 숙어를 넣어 문장 완성하기</small></h3>
+    <div class="ql" style="gap:2mm">
+      <div class="q"><span class="n">1</span><span>We <span class="bl"></span> a good <span class="bl"></span>. <small>우리는 즐거운 시간을 보냈어.</small></span></div>
+      <div class="q"><span class="n">2</span><span>Did you <span class="bl"></span> <span class="bl"></span> your trash? <small>쓰레기는 버렸어?</small></span></div>
+      <div class="q"><span class="n">3</span><span>It is <span class="bl"></span> the <span class="bl"></span>. <small>그건 법에 어긋나.</small></span></div>
+      <div class="q"><span class="n">4</span><span>They <span class="bl"></span> <span class="bl"></span> the paper. <small>그들은 종이를 주워요.</small></span></div>
+      <div class="q"><span class="n">5</span><span>They <span class="bl"></span> the school <span class="bl"></span>. <small>학교를 깔끔하게 유지해요.</small></span></div>
+      <div class="q"><span class="n">6</span><span>We want to <span class="bl"></span> our <span class="bl"></span>! <small>우리 몫을 하고 싶어!</small></span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 9. STAGE 3 : Did you ===================== -->
+<section class="page s3" data-p="9" id="p9"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 3 · 표현</span><span class="pg">9</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 3</span><h2>표현<em>Did you ~ ?</em></h2><span class="un">Unit 7 핵심 표현</span></header>
+  <div class="bx fill">
+    <h3><span class="tg">PATTERN 1</span>지난 일을 물어볼 때</h3>
+    <div class="fm"><span class="b1">Did</span><i>+</i><span class="b2">you</span><i>+</i><span class="b3">동사 원래 모양</span><i>~ ?</i><em>너(희)는 ~했니?</em></div>
+    <div class="chat">
+      <div class="pr"><p class="qq">Did you have fun?<small>재미있었어?</small></p><p class="aa">Yes, we did.<small>응, 재미있었어.</small></p></div>
+      <div class="pr"><p class="qq">Did you visit the new fountain there?<small>거기 새 분수에 가 봤어?</small></p><p class="aa">Sure, we did.<small>물론 갔지.</small></p></div>
+      <div class="pr"><p class="qq">Did you throw away your trash?<small>쓰레기는 버렸어?</small></p><p class="aa">Of course!<small>물론이지!</small></p></div>
+      <div class="pr"><p class="qq">Did you ride your bikes on the sidewalks?<small>인도에서 자전거를 탔어?</small></p><p class="aa">No, we didn’t.<small>아니, 안 탔어.</small></p></div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">조심!</span>Did 뒤에는 변신 전 모양 <small>Did가 이미 “어제 일”이라고 알려 주니까 동사는 변신 안 해요</small></h3>
+    <div class="warn">
+      <div class="no">✗ Did you <u>had</u> fun?<small>had는 변신한 모양 → 틀려요</small></div>
+      <div class="ok">✓ Did you <u>have</u> fun?<small>have는 원래 모양 → 맞아요</small></div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">대답</span>누구에 대해 물었는지 보고 대답해요 <small>didn’t = did not</small></h3>
+    <div class="at">
+      <div><b>Did you ~?</b><small>(너는)</small><br>Yes, I did.<br>No, I didn’t.</div>
+      <div><b>Did you ~?</b><small>(너희는)</small><br>Yes, we did.<br>No, we didn’t.</div>
+      <div><b>Did Dan ~?</b><small>(남자 한 명)</small><br>Yes, he did.<br>No, he didn’t.</div>
+      <div><b>Did they ~?</b><small>(그들은)</small><br>Yes, they did.<br>No, they didn’t.</div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">WRITING</span>질문으로 바꿔 쓰기 <small>Did로 시작하고, 동사는 원래 모양으로!</small></h3>
+    <div class="wr">
+      <div class="it"><span class="n">1</span><div><div class="src">You visited the new fountain.<small>너는 새 분수에 갔다.</small></div><div class="w4"><span>Did</span></div></div></div>
+      <div class="it"><span class="n">2</span><div><div class="src">They threw away their trash.<small>그들은 쓰레기를 버렸다.</small></div><div class="w4"><span>Did</span></div></div></div>
+      <div class="it"><span class="n">3</span><div><div class="src">Dan had fun.<small>댄은 재미있게 놀았다.</small></div><div class="w4"><span>Did</span></div></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 10. STAGE 3 : be going to ===================== -->
+<section class="page s3" data-p="10" id="p10"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 3 · 표현</span><span class="pg">10</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 3</span><h2>표현<em>be going to</em></h2><span class="un">Unit 8 핵심 표현</span></header>
+  <div class="bx fill">
+    <h3><span class="tg">PATTERN 2</span>앞으로 할 일을 말할 때</h3>
+    <div class="fm"><span class="b2">They</span><i>+</i><span class="b1">are</span><i>+</i><span class="b4">going to</span><i>+</i><span class="b3">동사 원래 모양</span><em>~할 거야</em></div>
+    <div class="chat" style="grid-template-columns:1fr">
+      <div class="pr"><p class="qq" style="max-width:100%">They<b style="color:#5034C4">’re going to</b> clean it themselves!<small>그들은 그것을 직접 청소할 거예요!</small></p></div>
+      <div class="pr"><p class="qq" style="max-width:100%">Students <b style="color:#5034C4">are going to</b> be neat outside school.<small>학생들은 학교 밖에서도 깔끔할 거예요.</small></p></div>
+      <div class="pr"><p class="qq" style="max-width:100%">We<b style="color:#5034C4">’re going to</b> keep our town clean!<small>우리는 우리 동네를 깨끗하게 지킬 거예요!</small></p></div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">줄임말</span>짧게 줄여서 말해요</h3>
+    <div class="at">
+      <div><b>I am</b>➜ I’m<br><small>I’m going to ~</small></div>
+      <div><b>We are</b>➜ We’re<br><small>We’re going to ~</small></div>
+      <div><b>They are</b>➜ They’re<br><small>They’re going to ~</small></div>
+      <div><b>You are</b>➜ You’re<br><small>You’re going to ~</small></div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">GAME</span>문장 탐정 🕵️ <small>둘 중 맞는 것에 동그라미!</small></h3>
+    <div class="dt">
+      <div><span class="n">1</span>They’re <u>go</u> / <u>going</u> to clean it themselves!</div>
+      <div><span class="n">2</span>Students are going to <u>be</u> / <u>being</u> neat outside school.</div>
+      <div><span class="n">3</span><u>We’s</u> / <u>We’re</u> going to keep our town clean!</div>
+      <div><span class="n">4</span>They are going to <u>clean</u> / <u>cleaning</u> it themselves!</div>
+      <div><span class="n">5</span>Students <u>going</u> / <u>are going</u> to be neat outside school.</div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">WRITING</span>블록을 바르게 놓아 문장 쓰기</h3>
+    <div class="wr">
+      <div class="it"><span class="n">1</span><div><div class="blocks"><span>clean it themselves</span><span>They’re</span><span>going to</span><b style="font-family:Fredoka">!</b></div><div class="w4"></div></div></div>
+      <div class="it"><span class="n">2</span><div><div class="blocks"><span>be neat outside school</span><span>Students</span><span>are going to</span><b style="font-family:Fredoka">.</b></div><div class="w4"></div></div></div>
+      <div class="it"><span class="n">3</span><div><div class="src">나의 다짐 쓰기<small>예) clean my desk · pick up the garbage · keep my room neat</small></div><div class="w4"><span>I’m going to</span></div></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 11. STAGE 3 : signs + speaking ===================== -->
+<section class="page s3 roomy" data-p="11" id="p11"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 3 · 표현</span><span class="pg">11</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 3</span><h2>표현<em>Signs &amp; Speaking</em></h2><span class="un">Unit 7 · 8</span></header>
+  <div class="bx">
+    <h3><span class="tg">PATTERN 3</span>Do not ~ <small>“~하지 마시오” · 표지판에 쓰는 말 (Do not = Don’t)</small></h3>
+    <div class="signs">
+      <div class="sg"><div class="ring">🥤</div>Do not litter.<small>쓰레기를 버리지 마시오.</small></div>
+      <div class="sg"><div class="ring">🚲</div>Do not ride a bike.<small>자전거를 타지 마시오.</small></div>
+      <div class="sg"><div class="ring">🚶</div>Do not walk.<small>걸어가지 마시오.</small></div>
+      <div class="sg"><div class="ring">🏊</div>Do not swim.<small>수영하지 마시오.</small></div>
+      <div class="sg"><div class="ring my"></div>Do not <span class="bl" style="min-width:14mm"></span>.<small>나만의 표지판 그리기!</small></div>
+    </div>
+  </div>
+  <div class="bx fill">
+    <h3><span class="tg">REACTION</span>맞장구 표현 <small>대답할 때 쓰면 훨씬 자연스러워요</small></h3>
+    <div class="at" style="grid-template-columns:repeat(5,1fr)">
+      <div style="background:#fff"><b>Yes, we did.</b><small>응, 그랬어.</small></div>
+      <div style="background:#fff"><b>Sure, we did.</b><small>물론 그랬지.</small></div>
+      <div style="background:#fff"><b>Of course!</b><small>물론이지!</small></div>
+      <div style="background:#fff"><b>No, we didn’t.</b><small>아니, 안 그랬어.</small></div>
+      <div style="background:#fff"><b>You can’t miss them.</b><small>못 볼 수가 없어.</small></div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">SPEAKING</span>About You 인터뷰 🎤 <small>내 이야기로 대답을 쓰고, 안 보고 말해 보기</small></h3>
+    <div class="iv">
+      <div><div class="q"><span class="n">1</span><span>What did you do yesterday? <small>어제 뭐 했어?</small></span></div>
+        <div class="ex">예) <b>I went to the park.</b> · <b>I played soccer.</b> · <b>I visited my grandma.</b></div><div class="w4"></div></div>
+      <div><div class="q"><span class="n">2</span><span>Did you have fun? <small>재미있었어?</small></span></div>
+        <div class="ex">예) <b>Yes, I did. I had a good time.</b> · <b>No, I didn’t.</b></div><div class="w4"></div></div>
+      <div><div class="q"><span class="n">3</span><span>What do you do downtown? <small>시내에서 뭐 해?</small></span></div>
+        <div class="ex">예) <b>I have snacks.</b> · <b>I visit the fountain.</b> · <b>I walk on the street.</b></div><div class="w4"></div></div>
+      <div><div class="q"><span class="n">4</span><span>What do you do to keep your classroom clean? <small>교실을 깨끗이 하려고 뭘 해?</small></span></div>
+        <div class="ex">예) <b>I pick up the garbage.</b> · <b>I clean my desk.</b> · <b>I throw garbage in the trash can.</b></div><div class="w4"></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 12. STAGE 4 : Unit 7 passage ===================== -->
+<section class="page s4" data-p="12" id="p12"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 4 · 문장 이해</span><span class="pg">12</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 4</span><h2>문장 이해<em>Story Detective</em></h2><span class="un">Unit 7 · Have Fun Downtown</span></header>
+  <div class="ms"><span><i class="ck"></i>① 뜻 보며 읽기</span><span><i class="ck"></i>② 소리 내어 3번</span><span><i class="ck"></i>③ 역할극 Tom ↔ Dan</span><span><i class="ck"></i>④ 영어 가리고 말하기</span></div>
+  <div class="ps">
+    <div class="t tom"><div class="spk"><b>Tom</b></div><div class="c"><div class="e">What did you do <i>/</i> yesterday?</div><div class="k">어제 뭐 했어?</div></div></div>
+    <div class="t dan"><div class="spk"><b>Dan</b></div><div class="c"><div class="e">John and I <i>/</i> <u>went <b>downtown</b></u> <i>/</i> yesterday.</div><div class="k">존이랑 나는 어제 시내에 갔어.</div></div></div>
+    <div class="t tom"><div class="spk"><b>Tom</b></div><div class="c"><div class="e">Did you <u>have fun</u>?</div><div class="k">재미있었어?</div></div></div>
+    <div class="t dan"><div class="spk"><b>Dan</b></div><div class="c"><div class="e">Yes, we did. <i>/</i> We <u>had a good time</u>.</div><div class="k">응, 재미있었어. 우리는 즐거운 시간을 보냈어.</div></div></div>
+    <div class="t tom"><div class="spk"><b>Tom</b></div><div class="c"><div class="e">Did you visit <i>/</i> the new <b>fountain</b> <i>/</i> there?</div><div class="k">거기 새로 생긴 분수에 가 봤어?</div></div></div>
+    <div class="t dan"><div class="spk"><b>Dan</b></div><div class="c">
+      <div class="e">Sure, we did. <i>/</i> We played <i>/</i> in the <b>fountain</b>.</div><div class="k">물론 갔지. 우리는 분수에서 놀았어.</div>
+      <div class="e">We <u>got really wet</u>!</div><div class="k">우리는 완전히 젖었어!</div>
+      <div class="e">Then, <i>/</i> we had <i>/</i> some drinks and snacks.</div><div class="k">그러고 나서 음료수랑 간식을 먹었어.</div></div></div>
+    <div class="t tom"><div class="spk"><b>Tom</b></div><div class="c"><div class="e">Did you <u>throw away</u> <i>/</i> your trash?</div><div class="k">쓰레기는 버렸어?</div></div></div>
+    <div class="t dan"><div class="spk"><b>Dan</b></div><div class="c">
+      <div class="e"><u>Of course</u>! <i>/</i> We threw our trash <i>/</i> in the <b>trash can</b>.</div><div class="k">물론이지! 우리는 쓰레기를 쓰레기통에 버렸어.</div>
+      <div class="e">We saw <i>/</i> “Do Not Litter” <b>signs</b> <i>/</i> everywhere.</div><div class="k">“쓰레기를 버리지 마시오” 표지판을 곳곳에서 봤어.</div>
+      <div class="e">You <u>can’t miss</u> them.</div><div class="k">(눈에 띄어서) 못 볼 수가 없어.</div></div></div>
+    <div class="t tom"><div class="spk"><b>Tom</b></div><div class="c"><div class="e">Did you <u>ride your bikes</u> <i>/</i> on the <b>sidewalks</b>?</div><div class="k">인도에서 자전거를 탔어?</div></div></div>
+    <div class="t dan"><div class="spk"><b>Dan</b></div><div class="c">
+      <div class="e">No, we didn’t.</div><div class="k">아니, 안 탔어.</div>
+      <div class="e">Riding a bike on the <b>sidewalks</b> <i>/</i> is <u>against the law</u>, <i>/</i> so we <b>walked</b> instead.</div><div class="k">인도에서 자전거를 타는 건 법에 어긋나. 그래서 우리는 대신 걸어갔어.</div></div></div>
+  </div>
+  <div class="lg"><span><b>굵은 색 글씨</b> = New Words</span><span><u>노란 밑줄</u> = 숙어(덩어리 표현)</span><span><span style="color:#9aa4bd">/</span> = 끊어 읽는 곳</span><span>✋ 종이로 왼쪽을 가리고 우리말만 보고 영어로 말해 보기!</span></div>
+  <div class="bx fill" style="margin:4mm 0 0">
+    <h3><span class="tg">MAIN IDEA</span>What is the story about? <small>이 이야기는 무엇에 관한 이야기일까요? 하나만 ✔</small></h3>
+    <div class="chk"><span><i class="ck"></i>having fun downtown</span><span><i class="ck"></i>visiting the new fountain</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 13. STAGE 4 : Unit 7 comprehension ===================== -->
+<section class="page s4 roomy" data-p="13" id="p13"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 4 · 문장 이해</span><span class="pg">13</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 4</span><h2>문장 이해<em>Quiz Time</em></h2><span class="un">Unit 7 · Have Fun Downtown</span></header>
+  <div class="two" style="margin-bottom:4mm">
+    <div class="bx">
+      <h3><span class="tg">Q1</span>일어난 순서대로 1–4 쓰기</h3>
+      <div class="od">
+        <div>They had some drinks and snacks.</div>
+        <div>John and Dan went downtown.</div>
+        <div>They threw their trash in the trash can.</div>
+        <div>They played in the fountain and got really wet.</div>
+      </div>
+    </div>
+    <div class="bx">
+      <h3><span class="tg">Q2</span>True or False</h3>
+      <div class="tf">
+        <div><span class="n">1</span><span>Dan went downtown with Tom.</span><em>T</em><em>F</em></div>
+        <div><span class="n">2</span><span>Dan and John had a good time.</span><em>T</em><em>F</em></div>
+        <div><span class="n">3</span><span>They threw their trash on the sidewalk.</span><em>T</em><em>F</em></div>
+        <div><span class="n">4</span><span>Riding a bike on the sidewalks is against the law.</span><em>T</em><em>F</em></div>
+      </div>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">Q3</span>질문에 영어로 답하기 <small>본문에서 답을 찾아 빈칸을 채워요</small></h3>
+    <div class="qa">
+      <div><div class="q"><span class="n">1</span>Who went downtown yesterday?</div><div class="a"><span class="bl"></span> and <span class="bl"></span> went downtown.</div></div>
+      <div><div class="q"><span class="n">2</span>What did they do in the fountain?</div><div class="a">They <span class="bl"></span> in the fountain.</div></div>
+      <div><div class="q"><span class="n">3</span>What signs did they see?</div><div class="a">They saw “<span class="bl"></span>” signs.</div></div>
+      <div><div class="q"><span class="n">4</span>Why did they walk?</div><div class="a">Because riding a bike on the sidewalks is <span class="bl"></span>.</div></div>
+    </div>
+  </div>
+  <div class="bx fill">
+    <h3><span class="tg">Q4</span>요약문 완성하기 <small>상자에서 골라 쓰기</small></h3>
+    <div class="wb"><span>walked</span><span>signs</span><span>downtown</span><span>law</span><span>wet</span><span>trash can</span></div>
+    <p class="sm">John and Dan went <span class="bl" data-n="1"></span> yesterday. They played in the fountain and got really <span class="bl" data-n="2"></span>. Then, they had drinks and snacks. They threw their trash in the <span class="bl" data-n="3"></span>. They saw “Do Not Litter” <span class="bl" data-n="4"></span> everywhere. They didn’t ride their bikes on the sidewalks. It’s against the <span class="bl" data-n="5"></span>. So they <span class="bl" data-n="6"></span> instead.</p>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 14. STAGE 4 : Unit 8 passage ===================== -->
+<section class="page s4" data-p="14" id="p14"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 4 · 문장 이해</span><span class="pg">14</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 4</span><h2>문장 이해<em>Story Detective</em></h2><span class="un">Unit 8 · Cleaning Our School</span></header>
+  <div class="ms"><span><i class="ck"></i>① 뜻 보며 읽기</span><span><i class="ck"></i>② 소리 내어 3번</span><span><i class="ck"></i>③ 문단별로 외워 말하기</span><span><i class="ck"></i>④ 영어 가리고 말하기</span></div>
+  <div class="ps">
+    <div class="t par"><div class="spk"><b>1</b></div><div class="c">
+      <div class="e">In some schools, <i>/</i> students <b>litter</b> everywhere.</div><div class="k">어떤 학교에서는 학생들이 아무 데나 쓰레기를 버려요.</div>
+      <div class="e">They leave paper <i>/</i> under the desk.</div><div class="k">책상 밑에 종이를 두고 가요.</div>
+      <div class="e">They leave food or milk <i>/</i> on the tables <i>/</i> in the cafeteria.</div><div class="k">급식실 식탁 위에 음식이나 우유를 두고 가요.</div>
+      <div class="e">This <u>makes the school <b>dirty</b></u>.</div><div class="k">이것이 학교를 더럽게 만들어요.</div></div></div>
+    <div class="t par" style="background:#F7FAFF"><div class="spk"><b>2</b></div><div class="c">
+      <div class="e">In Japan, <i>/</i> schools aren’t <b>dirty</b>.</div><div class="k">일본에서는 학교가 더럽지 않아요.</div>
+      <div class="e">Students <b>clean</b> their schools <i>/</i> <u>every day</u>.</div><div class="k">학생들이 매일 자기 학교를 청소해요.</div>
+      <div class="e">Teachers help, too.</div><div class="k">선생님들도 도와요.</div>
+      <div class="e">They <u><b>pick up</b></u> <i>/</i> the paper and other <b>garbage</b>.</div><div class="k">종이와 다른 쓰레기를 주워요.</div>
+      <div class="e">They <b>clean</b> the windows, the desks, <i>/</i> the boards, and the floors.</div><div class="k">창문, 책상, 칠판, 그리고 바닥을 닦아요.</div>
+      <div class="e">They even <b>clean</b> the <b>toilets</b>!</div><div class="k">심지어 변기까지 청소해요!</div></div></div>
+    <div class="t par"><div class="spk"><b>3</b></div><div class="c">
+      <div class="e">Students in Japan <i>/</i> don’t make the school <i>/</i> messy and <b>dirty</b>.</div><div class="k">일본 학생들은 학교를 지저분하고 더럽게 만들지 않아요.</div>
+      <div class="e">If they do, <i>/</i> then they<u>’re going to</u> <i>/</i> <b>clean</b> it themselves!</div><div class="k">만약 그렇게 하면, 자기들이 직접 청소하게 될 테니까요!</div>
+      <div class="e">So, <i>/</i> they <u>throw <b>garbage</b> in the trash can</u>.</div><div class="k">그래서 쓰레기를 쓰레기통에 버려요.</div>
+      <div class="e">They <u>keep the school neat</u>.</div><div class="k">학교를 깔끔하게 유지해요.</div>
+      <div class="e">Teachers think <i>/</i> students <u>are going to</u> be neat <i>/</i> outside school, too.</div><div class="k">선생님들은 학생들이 학교 밖에서도 깔끔하게 지낼 거라고 생각해요.</div></div></div>
+  </div>
+  <div class="lg" style="margin-bottom:3mm"><span><b>굵은 색 글씨</b> = New Words</span><span><u>노란 밑줄</u> = 숙어·핵심 표현</span><span><span style="color:#9aa4bd">/</span> = 끊어 읽는 곳</span></div>
+  <div class="tip" style="margin-bottom:0"><svg viewBox="0 0 100 120"><use href="#drop"/></svg><p><b>문단 요약</b> ① 어떤 학교는 쓰레기 때문에 더러워요 ➜ ② 일본 학교는 학생들이 매일 청소해요 ➜ ③ 그래서 학교를 깔끔하게 써요</p></div>
+</div>
+</section>
+
+<!-- ===================== 15. STAGE 4 : Unit 8 comprehension ===================== -->
+<section class="page s4" data-p="15" id="p15"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 4 · 문장 이해</span><span class="pg">15</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 4</span><h2>문장 이해<em>Quiz Time</em></h2><span class="un">Unit 8 · Cleaning Our School</span></header>
+  <div class="bx">
+    <h3><span class="tg">Q1</span>어느 학교 이야기일까? <small>어떤 학교(Some schools)는 <b>S</b>, 일본 학교(Japan)는 <b>J</b> 를 ○ 안에 쓰기</small></h3>
+    <div class="sj">
+      <div>Students litter everywhere.</div>
+      <div>They even clean the toilets!</div>
+      <div>Students clean their schools every day.</div>
+      <div>They leave food or milk on the tables.</div>
+      <div>They leave paper under the desk.</div>
+      <div>Teachers help, too.</div>
+    </div>
+  </div>
+  <div class="two" style="margin-bottom:4mm">
+    <div class="bx">
+      <h3><span class="tg">Q2</span>True or False</h3>
+      <div class="tf">
+        <div><span class="n">1</span><span>In some schools, students leave milk on the tables.</span><em>T</em><em>F</em></div>
+        <div><span class="n">2</span><span>In Japan, teachers don’t help students.</span><em>T</em><em>F</em></div>
+        <div><span class="n">3</span><span>Students in Japan throw garbage on the floor.</span><em>T</em><em>F</em></div>
+        <div><span class="n">4</span><span>Students in Japan keep the school neat.</span><em>T</em><em>F</em></div>
+      </div>
+    </div>
+    <div class="bx">
+      <h3><span class="tg">Q3</span>일본 학생들이 청소하는 곳에 ✔</h3>
+      <div class="chk">
+        <span><i class="ck"></i>windows</span><span><i class="ck"></i>desks</span><span><i class="ck"></i>fountains</span><span><i class="ck"></i>boards</span><span><i class="ck"></i>floors</span><span><i class="ck"></i>cars</span><span><i class="ck"></i>toilets</span>
+      </div>
+      <p style="font-size:9pt;color:var(--sub);margin-top:2.5mm">힌트: 본문 ② 문단을 다시 읽어 보세요. 본문에 없는 것이 2개 섞여 있어요!</p>
+    </div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">Q4</span>질문에 영어로 답하기</h3>
+    <div class="qa">
+      <div><div class="q"><span class="n">1</span>How often do students in Japan clean their schools? <small style="font-family:'Noto Sans KR';font-weight:400;font-size:8.8pt;color:var(--sub)">얼마나 자주?</small></div><div class="a">They clean their schools <span class="bl"></span>.</div></div>
+      <div><div class="q"><span class="n">2</span>Where do they throw garbage?</div><div class="a">They throw garbage in the <span class="bl"></span>.</div></div>
+      <div><div class="q"><span class="n">3</span>What do teachers think?</div><div class="a">Students are going to be <span class="bl"></span> outside school, too.</div></div>
+    </div>
+  </div>
+  <div class="bx fill">
+    <h3><span class="tg">Q5</span>요약문 완성하기 <small>상자에서 골라 쓰기</small></h3>
+    <div class="wb"><span>neat</span><span>toilets</span><span>litter</span><span>messy</span><span>every day</span><span>dirty</span></div>
+    <p class="sm">In some schools, students <span class="bl" data-n="1"></span> everywhere. This makes the school <span class="bl" data-n="2"></span>. In Japan, schools aren’t dirty. Students clean their schools <span class="bl" data-n="3"></span>. They even clean the <span class="bl" data-n="4"></span>. Teachers help, too. Students in Japan don’t make their school <span class="bl" data-n="5"></span> and dirty. They keep the school <span class="bl" data-n="6"></span>.</p>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 16. STAGE 4 : think & speak ===================== -->
+<section class="page s4 talk" data-p="16" id="p16"><footer class="ft"><span>주현이의 English Mission Book</span><span>STAGE 4 · 문장 이해</span><span class="pg">16</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">STAGE 4</span><h2>문장 이해<em>생각하고 말하기</em></h2><span class="un">Speaking 실전</span></header>
+  <div class="tip"><svg viewBox="0 0 100 120"><use href="#drop"/></svg><p>본문을 <b>통째로 외우지 않아도</b> 괜찮아요. 그림과 힌트 단어를 보고 <b>내용을 떠올려서</b> 말하면 돼요. 크게 · 천천히 · 틀려도 멈추지 말기!</p></div>
+  <div class="bx">
+    <h3><span class="tg">STORY MAP 1</span>Have Fun Downtown <small>내가 Dan이 되어 “John and I ~ / We ~”로 말하기</small></h3>
+    <div class="rt c5">
+      <div class="st"><span class="n no">1</span><div class="e">🏙️</div><div class="kw"><span>went downtown</span><span>yesterday</span><span>a good time</span></div></div>
+      <div class="st"><span class="n no">2</span><div class="e">⛲</div><div class="kw"><span>played</span><span>in the fountain</span><span>got really wet</span></div></div>
+      <div class="st"><span class="n no">3</span><div class="e">🥤</div><div class="kw"><span>had</span><span>drinks</span><span>and snacks</span></div></div>
+      <div class="st"><span class="n no">4</span><div class="e">🗑️</div><div class="kw"><span>threw our trash</span><span>in the trash can</span><span>saw signs</span></div></div>
+      <div class="st"><span class="n no">5</span><div class="e">🚶</div><div class="kw"><span>bikes · sidewalks</span><span>against the law</span><span>walked instead</span></div></div>
+    </div>
+    <div class="lv"><span><i class="ck"></i>Lv.1 힌트 보고 말하기</span><span><i class="ck"></i>Lv.2 그림만 보고 말하기</span><span><i class="ck"></i>Lv.3 아무것도 안 보고!</span><span class="tm">⏱ 내 기록 ______ 초</span></div>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">STORY MAP 2</span>Cleaning Our School <small>문단 3개를 차례로 떠올리며 말하기</small></h3>
+    <div class="rt c3">
+      <div class="st"><span class="n no">1</span><div class="e">😖</div><h5>어떤 학교</h5><div class="kw"><span>In some schools</span><span>litter everywhere</span><span>leave paper · food · milk</span><span>makes the school dirty</span></div></div>
+      <div class="st"><span class="n no">2</span><div class="e">🧹</div><h5>일본 학교</h5><div class="kw"><span>clean · every day</span><span>Teachers help, too</span><span>pick up · garbage</span><span>windows · desks · boards · floors</span><span>even · toilets!</span></div></div>
+      <div class="st"><span class="n no">3</span><div class="e">✨</div><h5>깔끔한 습관</h5><div class="kw"><span>don’t make · messy and dirty</span><span>going to clean it themselves</span><span>throw · in the trash can</span><span>keep the school neat</span><span>neat outside school, too</span></div></div>
+    </div>
+    <div class="lv"><span><i class="ck"></i>Lv.1 힌트 보고 말하기</span><span><i class="ck"></i>Lv.2 그림만 보고 말하기</span><span><i class="ck"></i>Lv.3 아무것도 안 보고!</span><span class="tm">⏱ 내 기록 ______ 초</span></div>
+  </div>
+  <div class="bx fill" style="margin-bottom:0">
+    <h3><span class="tg">MY OPINION</span>내 생각 한 문장 더하기 <small>말하기 끝에 붙이면 멋져요</small></h3>
+    <div class="iv">
+      <div><div class="ex" style="padding-left:0">예) <b>I’m going to keep my school clean, too.</b> · <b>I’m going to throw garbage in the trash can.</b></div><div class="w4" style="margin-left:0;background-color:#fff"></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 17. BONUS : song ===================== -->
+<section class="page s5 roomy" data-p="17" id="p17"><footer class="ft"><span>주현이의 English Mission Book</span><span>BONUS · FINAL</span><span class="pg">17</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">BONUS</span><h2>노래로 외우기<em>Keep It Clean!</em></h2><span class="un">Unit 8 · p.69 · TR 20</span></header>
+  <div class="tip"><svg viewBox="0 0 100 120"><use href="#drop"/></svg><p>교재 음원(TR 20)을 틀고 <b>따라 불러요</b>. 노래 속에 Stage 1–3에서 배운 단어·숙어·표현이 다 들어 있어요. 몇 개나 찾을 수 있을까요?</p></div>
+  <div class="sg2">
+    <div class="vs"><h4>♪ VERSE 1</h4>
+      <p>When you’re walking on the <b>sidewalk</b>,<small>인도를 걸을 때는</small></p>
+      <p><b>Look</b> all <b>around</b>.<small>주위를 잘 둘러봐.</small></p>
+      <p>Is <b>garbage</b> all inside the <b>trash can</b>?<small>쓰레기가 모두 쓰레기통 안에 있니?</small></p>
+      <p>Or is some on the ground?<small>아니면 땅에 떨어져 있니?</small></p>
+      <p>If it’s on the ground,<small>땅에 떨어져 있다면</small></p>
+      <p>You <b>know what to do</b>!<small>어떻게 해야 할지 알지!</small></p>
+      <p>Just <b>pick</b> it <b>up</b>!<small>그냥 주우면 돼!</small></p>
+    </div>
+    <div class="vs"><h4>♪ VERSE 2</h4>
+      <p>When you’re riding in the car,<small>차를 타고 갈 때</small></p>
+      <p>Having a snack.<small>간식을 먹고 있다면</small></p>
+      <p>Don’t throw the bag out of the window!<small>봉지를 창밖으로 던지지 마!</small></p>
+      <p><b>Be sure to bring</b> it <b>back</b>.<small>꼭 다시 가져와.</small></p>
+      <p>When you <b>take</b> it <b>home</b>,<small>집에 가져가면</small></p>
+      <p>You <b>know what to do</b>!<small>어떻게 해야 할지 알지!</small></p>
+      <p>Put it in the <b>trash can</b>!<small>쓰레기통에 넣어!</small></p>
+    </div>
+  </div>
+  <div class="vs ch" style="margin-bottom:4mm;text-align:center"><h4>♪ CHORUS (후렴)</h4>
+    <p>Keep it <b>clean</b>! Keep it <b>clean</b>!<small>깨끗하게 지키자! 깨끗하게 지키자!</small></p>
+    <p>We want to <b>do our part</b>!<small>우리도 우리 몫을 하고 싶어!</small></p>
+    <p>So now, let’s start!<small>자, 이제 시작하자!</small></p>
+    <p>We<b>’re going to</b> keep our town <b>clean</b>!<small>우리는 우리 동네를 깨끗하게 지킬 거야!</small></p>
+  </div>
+  <div class="bx">
+    <h3><span class="tg">GAME</span>가사 빈칸 채우기 <small>위 가사를 가리고 도전!</small></h3>
+    <div class="ql" style="gap:2mm">
+      <div class="q"><span class="n">1</span><span>Just <span class="bl"></span> it <span class="bl"></span>!</span></div>
+      <div class="q"><span class="n">2</span><span>Put it in the <span class="bl"></span> <span class="bl"></span>!</span></div>
+      <div class="q"><span class="n">3</span><span>We want to do our <span class="bl"></span>!</span></div>
+      <div class="q"><span class="n">4</span><span>We’re <span class="bl"></span> <span class="bl"></span> keep our town clean!</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 18. FINAL ===================== -->
+<section class="page s5" data-p="18" id="p18"><footer class="ft"><span>주현이의 English Mission Book</span><span>BONUS · FINAL</span><span class="pg">18</span></footer>
+<div class="in">
+  <header class="hd"><span class="bd">FINAL</span><h2>실전 쓰기<em>Final Mission</em></h2><span class="un">Writing 실전</span></header>
+  <div class="bx">
+    <h3><span class="tg">WRITING TEST</span>우리말을 보고 영어 문장 쓰기 <small>첫 단어는 힌트! 대문자로 시작하고 끝에 . ? ! 잊지 않기</small></h3>
+    <div class="wr" style="gap:2.2mm">
+      <div class="it"><span class="n">1</span><div><div class="src" style="font-family:'Noto Sans KR';font-size:10.5pt;font-weight:500">재미있었니?</div><div class="w4"><span>Did</span></div></div></div>
+      <div class="it"><span class="n">2</span><div><div class="src" style="font-family:'Noto Sans KR';font-size:10.5pt;font-weight:500">너희는 인도에서 자전거를 탔니?</div><div class="w4"><span>Did</span></div></div></div>
+      <div class="it"><span class="n">3</span><div><div class="src" style="font-family:'Noto Sans KR';font-size:10.5pt;font-weight:500">우리는 즐거운 시간을 보냈어.</div><div class="w4"><span>We</span></div></div></div>
+      <div class="it"><span class="n">4</span><div><div class="src" style="font-family:'Noto Sans KR';font-size:10.5pt;font-weight:500">우리는 쓰레기를 쓰레기통에 버렸어.</div><div class="w4"><span>We</span></div></div></div>
+      <div class="it"><span class="n">5</span><div><div class="src" style="font-family:'Noto Sans KR';font-size:10.5pt;font-weight:500">그들은 그것을 직접 청소할 거야!</div><div class="w4"><span>They’re</span></div></div></div>
+      <div class="it"><span class="n">6</span><div><div class="src" style="font-family:'Noto Sans KR';font-size:10.5pt;font-weight:500">학생들은 학교 밖에서도 깔끔할 거야.</div><div class="w4"><span>Students</span></div></div></div>
+      <div class="it"><span class="n">7</span><div><div class="src" style="font-family:'Noto Sans KR';font-size:10.5pt;font-weight:500">학생들은 매일 자기 학교를 청소해요.</div><div class="w4"><span>Students</span></div></div></div>
+      <div class="it"><span class="n">8</span><div><div class="src" style="font-family:'Noto Sans KR';font-size:10.5pt;font-weight:500">그들은 학교를 깔끔하게 유지해요.</div><div class="w4"><span>They</span></div></div></div>
+    </div>
+  </div>
+  <div class="bx fill">
+    <h3><span class="tg">SELF CHECK</span>나에게 별점 주기 <small>잘한 만큼 별에 색칠</small></h3>
+    <div class="self">
+      <div class="s1" style="background:#fff"><b style="color:#C03F1F">단어</b>뜻을 보고 쓸 수 있다<br><i>☆☆☆</i></div>
+      <div class="s2" style="background:#fff"><b style="color:#0A7568">숙어</b>덩어리로 말할 수 있다<br><i>☆☆☆</i></div>
+      <div class="s3" style="background:#fff"><b style="color:#5034C4">표현</b>묻고 답할 수 있다<br><i>☆☆☆</i></div>
+      <div class="s4" style="background:#fff"><b style="color:#1A57B8">문장 이해</b>본문을 말할 수 있다<br><i>☆☆☆</i></div>
+    </div>
+  </div>
+  <div class="cert">
+    <h3>🏆 MISSION CLEAR 🏆</h3>
+    <p><span class="bl" style="min-width:32mm"></span> 은(는) Unit 7·8의 모든 미션을 끝까지 해냈으므로 이 상장을 드립니다.</p>
+    <div class="sgn"><span><span class="bl" style="min-width:12mm"></span>월 <span class="bl" style="min-width:12mm"></span>일</span><span>확인 (엄마·아빠) <span class="bl" style="min-width:28mm"></span></span></div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 19. ANSWERS ===================== -->
+<section class="page s6" data-p="19" id="p19"><footer class="ft"><span>주현이의 English Mission Book</span><span>정답</span><span class="pg">19</span></footer>
+<div class="in"><div class="rot">
+  <header class="hd"><span class="bd">ANSWER</span><h2>정답<em>다 풀고 나서 확인해요 🙃</em></h2><span class="un">Unit 7 · 8</span></header>
+  <div class="ans">
+    <section><h4><span>p.4</span>변신시켜라!</h4>1. went 2. played 3. got 4. had 5. threw 6. saw 7. walked</section>
+    <section><h4><span>p.4</span>그림 퀴즈</h4>fountain · trash can · walk · dirty · garbage · pick up</section>
+    <section><h4><span>p.5</span>단어 찾기</h4><table class="ws ans"><tr><td class="">P</td><td class="">R</td><td class="">T</td><td class="">E</td><td class="">S</td><td class="">U</td><td class="">B</td><td class="on">S</td><td class="on">I</td><td class="on">G</td><td class="on">N</td><td class="">H</td></tr><tr><td class="">P</td><td class="">M</td><td class="on">D</td><td class="on">O</td><td class="on">W</td><td class="on">N</td><td class="on">T</td><td class="on">O</td><td class="on">W</td><td class="on">N</td><td class="">D</td><td class="">F</td></tr><tr><td class="on">D</td><td class="on">P</td><td class="">C</td><td class="on">F</td><td class="">M</td><td class="on">M</td><td class="on">E</td><td class="on">S</td><td class="on">S</td><td class="on">Y</td><td class="on">G</td><td class="">B</td></tr><tr><td class="">L</td><td class="on">I</td><td class="on">I</td><td class="on">S</td><td class="on">O</td><td class="">W</td><td class="">G</td><td class="">O</td><td class="">G</td><td class="">U</td><td class="on">A</td><td class="">L</td></tr><tr><td class="">T</td><td class="on">C</td><td class="on">R</td><td class="on">C</td><td class="on">I</td><td class="on">U</td><td class="">S</td><td class="">M</td><td class="">P</td><td class="">R</td><td class="on">R</td><td class="">N</td></tr><tr><td class="">C</td><td class="on">T</td><td class="on">L</td><td class="on">T</td><td class="on">K</td><td class="on">D</td><td class="on">N</td><td class="">S</td><td class="">O</td><td class="">S</td><td class="on">B</td><td class="">U</td></tr><tr><td class="">E</td><td class="on">O</td><td class="on">I</td><td class="on">E</td><td class="on">Y</td><td class="on">U</td><td class="on">E</td><td class="on">T</td><td class="">N</td><td class="">I</td><td class="on">A</td><td class="">I</td></tr><tr><td class="">B</td><td class="on">I</td><td class="on">T</td><td class="">R</td><td class="on">A</td><td class="">L</td><td class="on">P</td><td class="on">W</td><td class="on">A</td><td class="">T</td><td class="on">G</td><td class="">K</td></tr><tr><td class="">R</td><td class="on">L</td><td class="on">T</td><td class="">T</td><td class="">O</td><td class="on">N</td><td class="">L</td><td class="">K</td><td class="on">A</td><td class="on">I</td><td class="on">E</td><td class="">K</td></tr><tr><td class="">U</td><td class="on">E</td><td class="on">E</td><td class="on">W</td><td class="on">A</td><td class="on">L</td><td class="on">K</td><td class="">E</td><td class="">O</td><td class="on">L</td><td class="on">N</td><td class="">R</td></tr><tr><td class="">N</td><td class="on">T</td><td class="on">R</td><td class="on">A</td><td class="on">S</td><td class="on">H</td><td class="on">C</td><td class="on">A</td><td class="on">N</td><td class="">T</td><td class="on">K</td><td class="">R</td></tr><tr><td class="">U</td><td class="">T</td><td class="">L</td><td class="">Y</td><td class="">E</td><td class="">C</td><td class="">C</td><td class="on">N</td><td class="on">E</td><td class="on">A</td><td class="on">T</td><td class="">U</td></tr></table>노란 칸이 정답 (walk는 sidewalk 안에도 숨어 있어요)</section>
+    <section><h4><span>p.5</span>뒤죽박죽 글자</h4>1. downtown · 2. fountain · 3. sidewalk · 4. trash can · 5. sign · 6. garbage · 7. toilet · 8. messy</section>
+    <section><h4><span>p.5</span>비밀 암호</h4>KEEP IT CLEAN / DO NOT LITTER</section>
+    <section><h4><span>p.6</span>이모지 퀴즈</h4>get wet · ride a bike · of course · throw away · against the law · have fun</section>
+    <section><h4><span>p.8</span>짝꿍 단어 찾기</h4>1. downtown 2. fountain 3. trash can 4. sign 5. sidewalk 6. walk 7. litter 8. dirty 9. clean 10. pick 11. garbage 12. toilet</section>
+    <section><h4><span>p.8</span>반쪽 찾기</h4>have fun · throw away · get wet · pick up · against the law · of course · every day</section>
+    <section><h4><span>p.8</span>빈칸 채우기</h4>1. had, time 2. throw away 3. against, law 4. pick up 5. keep, neat 6. do, part</section>
+    <section><h4><span>p.9</span>질문으로 바꿔 쓰기</h4>1. Did you visit the new fountain?<br>2. Did they throw away their trash?<br>3. Did Dan have fun?</section>
+    <section><h4><span>p.10</span>문장 탐정</h4>1. going 2. be 3. We’re 4. clean 5. are going</section>
+    <section><h4><span>p.10</span>블록 문장 쓰기</h4>1. They’re going to clean it themselves!<br>2. Students are going to be neat outside school.<br>3. 예) I’m going to clean my desk.</section>
+    <section><h4><span>p.12</span>Main Idea</h4>having fun downtown (분수는 시내에서 한 일 중 하나예요)</section>
+    <section><h4><span>p.13</span>Unit 7 Quiz</h4><b>Q1</b> 위에서부터 3 – 1 – 4 – 2<br><b>Q2</b> 1. F (John과 갔어요) 2. T 3. F (in the trash can) 4. T<br><b>Q3</b> 1. John, Dan 2. played 3. Do Not Litter 4. against the law<br><b>Q4</b> 1. downtown 2. wet 3. trash can 4. signs 5. law 6. walked</section>
+    <section><h4><span>p.15</span>Unit 8 Quiz</h4><b>Q1</b> 왼쪽 줄 S – J – S / 오른쪽 줄 J – S – J<br><b>Q2</b> 1. T 2. F (Teachers help, too.) 3. F (in the trash can) 4. T<br><b>Q3</b> windows, desks, boards, floors, toilets (fountains, cars는 ✗)<br><b>Q4</b> 1. every day 2. trash can 3. neat<br><b>Q5</b> 1. litter 2. dirty 3. every day 4. toilets 5. messy 6. neat</section>
+    <section><h4><span>p.17</span>가사 빈칸 채우기</h4>1. pick, up 2. trash can 3. part 4. going to</section>
+    <section><h4><span>p.18</span>실전 쓰기</h4>1. Did you have fun?<br>2. Did you ride your bikes on the sidewalks?<br>3. We had a good time.<br>4. We threw our trash in the trash can.<br>5. They’re going to clean it themselves!<br>6. Students are going to be neat outside school.<br>7. Students clean their schools every day.<br>8. They keep the school neat.</section>
+  </div>
+</div></div>
+</section>
+
+
+</main>
+<script>
+(function(){
+  var book=document.getElementById('book'),pw=210/25.4*96;
+  function fit(){book.style.zoom=Math.min(1,(document.documentElement.clientWidth-24)/pw);}
+  fit();addEventListener('resize',fit);
+  var btn=document.getElementById('ansBtn');
+  btn.addEventListener('click',function(){
+    var on=document.body.classList.toggle('show-ans');
+    btn.textContent=on?'🙈 정답 숨기기':'🙃 정답 보기';
+    if(on)document.getElementById('p19').scrollIntoView({behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
