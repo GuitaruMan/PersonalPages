@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS progress (
+  key TEXT PRIMARY KEY,
+  data TEXT NOT NULL,
+  updated INTEGER NOT NULL
+);

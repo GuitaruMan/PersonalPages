@@ -1,0 +1,12 @@
+{
+  "name": "kids-progress",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "observability": { "enabled": true },
+  "vars": {
+    "ALLOWED_ORIGIN": "https://guitaruman.github.io,http://localhost:5500,http://127.0.0.1:5500"
+  },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "kids-progress", "database_id": "71f1737a-4263-4947-bb7f-69706ed9f685" }
+  ]
+}
