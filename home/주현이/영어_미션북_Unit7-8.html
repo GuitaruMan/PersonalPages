@@ -610,9 +610,7 @@ const STAGES = [
       { t: "They {pick} {up} the paper and other garbage.", ko: "종이와 다른 쓰레기를 주워요.", x: ["away", "throw"] },
       { t: "They {keep} the school {neat}.", ko: "학교를 깔끔하게 유지해요.", x: ["make", "messy"] },
       { t: "This {makes} the school {dirty}.", ko: "이것이 학교를 더럽게 만들어요.", x: ["keeps", "clean"] },
-      { t: "We want to {do} our {part}!", ko: "우리도 우리 몫을 하고 싶어!", x: ["have", "time"] }] }] },
-    { id: "s2f", title: "카드 뒤집기", kind: "게임", e: "🎴", d: "숙어와 뜻이 짝이 되는 카드 두 장 찾기", steps: [{ type: "memory", guide: "카드 두 장을 뒤집어 <b>숙어</b>와 <b>뜻</b>이 짝이 되면 성공! 적게 뒤집을수록 별이 많아요.", pairs: [
-      ["have fun", "재미있게 놀다"], ["throw away", "버리다"], ["get wet", "젖다"], ["pick up", "줍다"], ["of course", "물론이지"], ["against the law", "법에 어긋나는"], ["every day", "매일"], ["look around", "주위를 둘러보다"]] }] }
+      { t: "We want to {do} our {part}!", ko: "우리도 우리 몫을 하고 싶어!", x: ["have", "time"] }] }] }
   ] },
   { id: "s3", no: "STAGE 3", name: "표현", en: "Talk Star", icon: "💬", c: "#7C5CFC", cl: "#F2EEFF", cd: "#5034C4", desc: "Did you ~? · be going to 로 묻고 답하기!", acts: [
     { id: "s3a", title: "패턴 익히기", kind: "학습", e: "📘", d: "Did you ~? · be going to · Do not ~", steps: [{ type: "info", html: `
@@ -1278,36 +1276,6 @@ ENG.wordsearch = (host, cfg, done) => {
     grid.append(b);
   }
   host.append(h("div", { class: "wsw" }, grid, h("div", null, list, msg)));
-};
-
-ENG.memory = (host, cfg, done) => {
-  const n = cfg.pairs.length;
-  const cards = shuffle(cfg.pairs.flatMap((p, k) => [{ k, t: p[0], en: true }, { k, t: p[1] }]));
-  let open = [], left = n, tries = 0, lock = false;
-  const tryEl = h("div", { class: "mtry" }, "뒤집은 횟수 0번");
-  const grid = h("div", { class: "mem" });
-  cards.forEach(c => {
-    const b = h("button", { class: "mm", type: "button" }, "?");
-    b.onclick = () => {
-      if (lock || b.classList.contains("up")) return;
-      b.classList.add("up"); if (c.en) b.classList.add("en");
-      b.textContent = c.t; sfx.tap();
-      open.push({ c, b });
-      if (open.length < 2) return;
-      tries++; tryEl.textContent = `뒤집은 횟수 ${tries}번`;
-      const [a, d] = open;
-      open = [];
-      if (a.c.k === d.c.k && a.c.en !== d.c.en) {
-        [a.b, d.b].forEach(x => x.classList.add("ok")); sfx.ok(); left--;
-        if (!left) later(() => done(tries <= n + 5 ? 0 : tries <= n + 10 ? 1 : 99, n), 900);
-      } else {
-        lock = true;
-        later(() => { [a.b, d.b].forEach(x => { x.classList.remove("up", "en"); x.textContent = "?"; }); lock = false; }, 1100);
-      }
-    };
-    grid.append(b);
-  });
-  host.append(grid, tryEl);
 };
 
 /* ================= screens ================= */

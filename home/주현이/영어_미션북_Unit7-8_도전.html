@@ -1336,36 +1336,6 @@ ENG.wordsearch = (host, cfg, done) => {
   host.append(h("div", { class: "wsw" }, grid, h("div", null, list, msg)));
 };
 
-ENG.memory = (host, cfg, done) => {
-  const n = cfg.pairs.length;
-  const cards = shuffle(cfg.pairs.flatMap((p, k) => [{ k, t: p[0], en: true }, { k, t: p[1] }]));
-  let open = [], left = n, tries = 0, lock = false;
-  const tryEl = h("div", { class: "mtry" }, "뒤집은 횟수 0번");
-  const grid = h("div", { class: "mem" });
-  cards.forEach(c => {
-    const b = h("button", { class: "mm", type: "button" }, "?");
-    b.onclick = () => {
-      if (lock || b.classList.contains("up")) return;
-      b.classList.add("up"); if (c.en) b.classList.add("en");
-      b.textContent = c.t; sfx.tap();
-      open.push({ c, b });
-      if (open.length < 2) return;
-      tries++; tryEl.textContent = `뒤집은 횟수 ${tries}번`;
-      const [a, d] = open;
-      open = [];
-      if (a.c.k === d.c.k && a.c.en !== d.c.en) {
-        [a.b, d.b].forEach(x => x.classList.add("ok")); sfx.ok(); left--;
-        if (!left) later(() => done(tries <= n + 5 ? 0 : tries <= n + 10 ? 1 : 99, n), 900);
-      } else {
-        lock = true;
-        later(() => { [a.b, d.b].forEach(x => { x.classList.remove("up", "en"); x.textContent = "?"; }); lock = false; }, 1100);
-      }
-    };
-    grid.append(b);
-  });
-  host.append(grid, tryEl);
-};
-
 /* ================= screens ================= */
 const app = document.getElementById("app");
 function theme(st) {
