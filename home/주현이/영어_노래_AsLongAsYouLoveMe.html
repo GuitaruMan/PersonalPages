@@ -524,16 +524,16 @@ const SPELL = WORDS.map(w => ({ answer: w[0], ko: w[2], e: w[5] }));
 const WRITE_WORDS = WORDS.map(w => ({ ko: w[2], e: w[5], answer: w[0] }));
 const WRITE_CHUNKS = CHUNKS.filter(c => !c[0].includes("~")).map(c => ({ ko: c[1], e: c[4], answer: c[0] }));
 
-// 노래 따라가기: 부분별 해설(가사를 흉내 낸 문장이 아니라 ‘이런 뜻이에요’ 식의 설명)과, 그 부분의 핵심 구절·정확한 뜻
+// 노래 따라가기: 부분별 뜻(노래하는 사람의 말투로 줄여 쓴 것 — 줄별 번역은 아님)과, 그 부분의 핵심 구절·뜻
 const PARTS = [
-  { t: "1절", e: "🌙", ko: "노래하는 사람은 외로움이 ‘늘 친구였다’고 할 만큼 오래 혼자였어요. 그런 사람이 이제 자기 삶을 상대에게 맡기겠다고 해요. 사람들은 한눈에 반해 모든 것을 거는 모습을 보고 엉뚱하다, 앞을 못 본다고 하지만, 상대 생각이 머리에서 떠나지 않는대요. 상대의 지난 일이 어땠든, 곁에 있어 주기만 하면 된다고 해요.",
-    ph: [["loneliness has always been a friend of mine", "외로움은 늘 내 친구였어"], ["I’m leaving my life in your hands", "내 삶을 네 손에 맡길게"], ["I can’t get you out of my head", "네 생각이 머리에서 떠나지 않아"]] },
-  { t: "후렴", e: "💗", ko: "이 노래에서 가장 중요한 부분이고, 세 번 나와요. 네가 누구인지, 어디서 왔는지, 무슨 일을 했는지는 상관없고, 나를 사랑해 주기만 하면 된다는 뜻이에요.",
-    ph: [["I don’t care who you are", "네가 누구인지 상관없어"], ["Where you’re from", "네가 어디서 왔는지"], ["What you did", "네가 무슨 일을 했는지"], ["As long as you love me", "네가 나를 사랑하기만 하면"]] },
-  { t: "2절", e: "💞", ko: "상대가 한 말과 행동 하나하나가 마음 깊은 곳에 남아 있다고 해요. 상대가 쫓기는 처지여도 정말 상관없고, 두 사람은 만날 운명인 것 같다고 말해요.",
-    ph: [["deep within me", "내 마음 깊은 곳에"], ["on the run", "쫓기는, 도망 다니는"], ["we’re meant to be", "우리는 운명이야"]] },
-  { t: "브리지", e: "👁️", ko: "아무도 모르게 마음을 숨기려고 해 봤지만, 상대가 눈을 들여다보면 티가 나는 것 같다고 해요. 그리고 다시 한번, 무슨 일을 했든 어디서 왔든 상관없다고 말해요.",
-    ph: [["so that no one knows", "아무도 모르게"], ["I guess it shows", "티가 나는 것 같아"], ["look into my eyes", "내 눈을 들여다보다"]] }
+  { t: "1절", e: "🌙", ko: "외로움을 친구 삼아 지내 온 나지만, 이젠 내 삶을 그대에게 맡기려 해요. 사람들은 첫눈에 반해 모든 걸 거는 나를 보고 콩깍지가 씌었다고 하지만, 그대를 머릿속에서 지울 수가 없어요. 그대의 지난날이 어땠든, 내 곁에만 있어 준다면 상관없어요.",
+    ph: [["loneliness has always been a friend of mine", "외로움은 늘 내 친구였어요"], ["I’m leaving my life in your hands", "내 삶을 그대 손에 맡길게요"], ["I can’t get you out of my head", "그대를 머릿속에서 지울 수가 없어요"]] },
+  { t: "후렴", e: "💗", ko: "그대가 누구든, 어디서 왔든, 무슨 일을 했든 상관없어요. 그대가 날 사랑해 주기만 한다면요. (이 부분이 세 번 나와요!)",
+    ph: [["I don’t care who you are", "그대가 누구든 상관없어요"], ["Where you’re from", "어디서 왔든"], ["What you did", "무슨 일을 했든"], ["As long as you love me", "그대가 날 사랑해 주기만 한다면"]] },
+  { t: "2절", e: "💞", ko: "그대가 했던 사소한 말과 행동 하나하나가 내 마음 깊이 스며들어요. 그대가 쫓기는 몸이라 해도 정말 상관없어요. 우리는 만날 운명이었던 것 같으니까요.",
+    ph: [["deep within me", "내 마음 깊은 곳에"], ["on the run", "쫓기는 몸"], ["we’re meant to be", "우리는 운명이에요"]] },
+  { t: "브리지", e: "👁️", ko: "아무도 모르게 이 마음을 숨겨 보려 했지만, 그대가 내 눈을 들여다보면 다 드러나나 봐요. 그대가 무슨 일을 했든 어디서 왔든 상관없어요. 날 사랑해 주기만 한다면요.",
+    ph: [["so that no one knows", "아무도 모르게"], ["I guess it shows", "다 드러나나 봐요"], ["look into my eyes", "내 눈을 들여다보다"]] }
 ];
 const BINGO = ["loneliness", "friend", "crazy", "blind", "glance", "mystery", "head", "history", "matter", "run", "hide", "guess", "eyes", "baby", "love", "care"];
 
@@ -633,7 +633,7 @@ const STAGES = [
     { id: "s5b", title: "듣기 빙고", kind: "게임", e: "👂", d: "노래에서 단어가 들릴 때마다 누르기", steps: [{ type: "bingo", words: BINGO, need: 12, guide: "위 영상에서 ▶ 를 눌러 노래를 틀고, 단어가 <b>들릴 때마다</b> 눌러요. 12개 이상 찾으면 성공!" }] },
     { id: "s5c", title: "노래 내용 퀴즈", kind: "게임", e: "❓", d: "노래가 무슨 이야기인지 맞히기", steps: [{ type: "mcq", cols: 1, keep: true, items: [
       { q: "노래하는 사람은 예전에 어떻게 지냈나요?", opts: ["늘 외로웠다", "친구가 아주 많았다", "늘 바빴다"], why: "loneliness(외로움)가 늘 친구였다고 해요." },
-      { q: "사람들은 노래하는 사람을 뭐라고 하나요?", opts: ["crazy, blind", "happy, kind", "tall, strong"], why: "crazy(엉뚱한), blind(앞을 못 보는) — 한눈에 반해 버려서 그렇게 말해요." },
+      { q: "사람들은 노래하는 사람을 뭐라고 하나요?", opts: ["crazy, blind", "happy, kind", "tall, strong"], why: "첫눈에 반해 모든 걸 거니까, 콩깍지가 씌었다고 하는 거예요." },
       { q: "노래하는 사람이 상관없다고 한 것이 <b>아닌</b> 것은?", opts: ["네가 나를 사랑하는지", "네가 누구인지", "네가 어디서 왔는지", "네가 무슨 일을 했는지"], why: "사랑해 주는 것만은 꼭 필요해요. As long as you love me!" },
       { q: "“As long as you love me” 의 뜻은?", opts: ["네가 나를 사랑하기만 하면", "네가 나를 오래 사랑했기 때문에", "네가 나를 사랑하지 않더라도"], why: "as long as = ~하기만 하면" },
       { q: "“I can’t get you out of my head” 는 어떤 마음일까요?", opts: ["네 생각이 계속 나", "너를 잊어버렸어", "머리가 아파"], why: "머릿속에서 떨쳐 낼 수 없다는 뜻이에요." },
