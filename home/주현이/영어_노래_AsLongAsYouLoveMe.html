@@ -524,16 +524,16 @@ const SPELL = WORDS.map(w => ({ answer: w[0], ko: w[2], e: w[5] }));
 const WRITE_WORDS = WORDS.map(w => ({ ko: w[2], e: w[5], answer: w[0] }));
 const WRITE_CHUNKS = CHUNKS.filter(c => !c[0].includes("~")).map(c => ({ ko: c[1], e: c[4], answer: c[0] }));
 
-// 노래 따라가기: 부분별 뜻 설명(가사 번역이 아니라 내용 요약)과 그 부분에서 들리는 핵심 구절
+// 노래 따라가기: 부분별 해설(가사를 흉내 낸 문장이 아니라 ‘이런 뜻이에요’ 식의 설명)과, 그 부분의 핵심 구절·정확한 뜻
 const PARTS = [
-  { t: "1절", e: "🌙", ko: "늘 외롭게 지내던 내가 이제 너에게 내 삶을 맡기기로 했어. 사람들은 한눈에 반해 버린 나를 보고 엉뚱하다고 하지만, 네 생각이 머리에서 떠나지 않아. 네 과거가 어땠는지는 상관없어. 내 곁에 있어 주기만 하면 돼.",
-    ph: [["a friend of mine", "내 친구"], ["in your hands", "네 손에"], ["I can’t get you out of my head", "네 생각이 머리에서 떠나지 않아"]] },
-  { t: "후렴", e: "💗", ko: "네가 누구인지, 어디서 왔는지, 무슨 일을 했는지는 상관없어. 네가 나를 사랑하기만 하면 돼. (이 부분이 세 번 나와요!)",
+  { t: "1절", e: "🌙", ko: "노래하는 사람은 외로움이 ‘늘 친구였다’고 할 만큼 오래 혼자였어요. 그런 사람이 이제 자기 삶을 상대에게 맡기겠다고 해요. 사람들은 한눈에 반해 모든 것을 거는 모습을 보고 엉뚱하다, 앞을 못 본다고 하지만, 상대 생각이 머리에서 떠나지 않는대요. 상대의 지난 일이 어땠든, 곁에 있어 주기만 하면 된다고 해요.",
+    ph: [["loneliness has always been a friend of mine", "외로움은 늘 내 친구였어"], ["I’m leaving my life in your hands", "내 삶을 네 손에 맡길게"], ["I can’t get you out of my head", "네 생각이 머리에서 떠나지 않아"]] },
+  { t: "후렴", e: "💗", ko: "이 노래에서 가장 중요한 부분이고, 세 번 나와요. 네가 누구인지, 어디서 왔는지, 무슨 일을 했는지는 상관없고, 나를 사랑해 주기만 하면 된다는 뜻이에요.",
     ph: [["I don’t care who you are", "네가 누구인지 상관없어"], ["Where you’re from", "네가 어디서 왔는지"], ["What you did", "네가 무슨 일을 했는지"], ["As long as you love me", "네가 나를 사랑하기만 하면"]] },
-  { t: "2절", e: "💞", ko: "네가 한 말과 행동 하나하나가 내 마음 깊이 남아 있어. 네가 어떤 처지에 있어도 괜찮아. 우리는 만날 운명인 것 같아.",
-    ph: [["deep within me", "내 마음 깊은 곳에"], ["on the run", "도망 다니는"], ["meant to be", "그렇게 될 운명"]] },
-  { t: "브리지", e: "👁️", ko: "아무도 모르게 내 마음을 숨기려고 했어. 그런데 네가 내 눈을 들여다보면 다 티가 나는 것 같아. 네가 무슨 일을 했든, 어디서 왔든 나는 상관없어.",
-    ph: [["no one knows", "아무도 모른다"], ["I guess it shows", "티가 나는 것 같아"], ["look into my eyes", "내 눈을 들여다보다"]] }
+  { t: "2절", e: "💞", ko: "상대가 한 말과 행동 하나하나가 마음 깊은 곳에 남아 있다고 해요. 상대가 쫓기는 처지여도 정말 상관없고, 두 사람은 만날 운명인 것 같다고 말해요.",
+    ph: [["deep within me", "내 마음 깊은 곳에"], ["on the run", "쫓기는, 도망 다니는"], ["we’re meant to be", "우리는 운명이야"]] },
+  { t: "브리지", e: "👁️", ko: "아무도 모르게 마음을 숨기려고 해 봤지만, 상대가 눈을 들여다보면 티가 나는 것 같다고 해요. 그리고 다시 한번, 무슨 일을 했든 어디서 왔든 상관없다고 말해요.",
+    ph: [["so that no one knows", "아무도 모르게"], ["I guess it shows", "티가 나는 것 같아"], ["look into my eyes", "내 눈을 들여다보다"]] }
 ];
 const BINGO = ["loneliness", "friend", "crazy", "blind", "glance", "mystery", "head", "history", "matter", "run", "hide", "guess", "eyes", "baby", "love", "care"];
 
