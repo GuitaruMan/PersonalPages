@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학교 영어 미션북 Unit 7·8 도전판 - My Presentations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Jua&family=Noto+Sans+KR:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#22304a;--sub:#55617f;--line:#d5dcec;--bg1:#DDEEFF;--bg2:#F6FAFF;--c:#2D7FF9;--cl:#EAF2FF;--cd:#1A57B8;
+  --ok:#1FA65A;--okl:#E3F7EB;--no:#E5484D;--nol:#FFECEE;--gold:#FFB020}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:17px}
+body{font-family:'Nunito','Noto Sans KR','Malgun Gothic',sans-serif;color:var(--ink);min-height:100vh;line-height:1.5;
+  background:linear-gradient(180deg,var(--bg1),var(--bg2) 420px) no-repeat,var(--bg2);-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
+input,textarea{font:inherit;color:inherit}
+#app{max-width:1060px;margin:0 auto;padding:0 22px 70px}
+.f{font-family:'Fredoka','Jua',sans-serif}.j{font-family:'Jua','Malgun Gothic',sans-serif}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 17px;border-radius:14px;background:#fff;font-weight:800;font-size:.95rem;
+  border:2px solid #c3cfe8;box-shadow:0 4px 0 #c3cfe8;transition:transform .08s,box-shadow .08s;text-decoration:none;color:var(--ink);white-space:nowrap}
+.btn:hover{filter:brightness(1.03)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #c3cfe8}
+.btn.pri{background:var(--c);border-color:var(--cd);color:#fff;box-shadow:0 4px 0 var(--cd)}
+.btn.pri:active{box-shadow:0 1px 0 var(--cd)}
+.btn.big{font-size:1.1rem;padding:13px 26px;border-radius:18px}
+.btn.ghost{background:transparent;border-color:transparent;box-shadow:none;color:var(--sub);font-weight:700}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.tg{font-family:'Fredoka','Jua';font-weight:700;font-size:.75rem;background:var(--c);color:#fff;border-radius:99px;padding:2px 11px;white-space:nowrap}
+
+/* top bar */
+.bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:30;padding:12px 0 10px;
+  background:linear-gradient(var(--bg1) 78%,rgba(221,238,255,0))}
+.bar .home{background:#22304a;border-color:#0f1a30;color:#fff;box-shadow:0 4px 0 #0f1a30}
+.bar .home:active{box-shadow:0 1px 0 #0f1a30}
+.bar .nav{display:flex;gap:6px;flex-wrap:wrap}
+.bar .nav a{display:inline-flex;align-items:center;gap:5px;text-decoration:none;color:var(--ink);font-weight:800;font-size:.85rem;padding:7px 12px;border-radius:12px;
+  background:#fff;border:2px solid var(--nc);box-shadow:0 3px 0 var(--nc)}
+.bar .nav a.on{background:var(--nc);color:#fff}
+.bar .nav a:active{transform:translateY(2px);box-shadow:0 1px 0 var(--nc)}
+.bar .sp{flex:1}
+.bar .tot{font-family:'Fredoka';font-weight:700;background:#fff;border-radius:99px;padding:6px 14px;border:2px solid var(--gold);color:#8a5a00;font-size:.9rem;white-space:nowrap}
+.bar .snd{width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid #c3cfe8;font-size:1.05rem}
+
+/* home */
+.hero{background:linear-gradient(135deg,#5B3FD6,#E0457B);color:#fff;border-radius:28px;padding:30px 36px 34px;position:relative;overflow:hidden;margin-top:18px;
+  box-shadow:0 8px 0 #7A2A78}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero::before{width:260px;height:260px;right:-60px;top:-90px}.hero::after{width:130px;height:130px;right:170px;bottom:-50px}
+.hero .tags{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:.85rem}
+.hero .tags b{font-family:'Fredoka';font-weight:600;background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.7);border-radius:99px;padding:1px 13px}
+.hero .who{font-family:'Jua';font-size:1.5rem;margin-top:16px;line-height:1}
+.hero h1{font-family:'Fredoka';font-weight:700;font-size:3.3rem;line-height:1.02;letter-spacing:-1px;margin-top:6px}
+.hero h1 span{color:#FFE066}
+.hero .units{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap;position:relative;z-index:2}
+.hero .units div{background:#fff;color:var(--ink);border-radius:11px;padding:3px 14px;font-family:'Fredoka';font-weight:500}
+.hero .units b{color:#5B3FD6;margin-right:6px}
+.hero svg{position:absolute;right:44px;top:34px;width:150px;z-index:2;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(3deg)}}
+.meter{display:flex;align-items:center;gap:14px;background:#fff;border-radius:20px;padding:14px 22px;margin-top:20px;border:2px solid #e2e9f6}
+.meter .lab{font-family:'Jua';font-size:1.1rem;white-space:nowrap}
+.meter .track{flex:1;height:18px;border-radius:99px;background:#EEF2FA;overflow:hidden}
+.meter .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#FFD166,#FFB020);transition:width .6s}
+.meter .num{font-family:'Fredoka';font-weight:700;color:#8a5a00;white-space:nowrap}
+.clear{background:#FFF6DF;border:3px solid var(--gold);border-radius:22px;padding:18px;text-align:center;margin-top:18px}
+.clear h2{font-family:'Fredoka';font-weight:700;font-size:1.9rem;color:#A96A00;letter-spacing:1px}
+.map{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+.mp{display:block;text-decoration:none;color:var(--ink);background:#fff;border:3px solid var(--c);border-radius:24px;padding:20px 18px 16px;text-align:center;
+  box-shadow:0 7px 0 var(--cd);transition:transform .1s,box-shadow .1s;position:relative}
+.mp:hover{transform:translateY(-3px);box-shadow:0 10px 0 var(--cd)}
+.mp:active{transform:translateY(4px);box-shadow:0 3px 0 var(--cd)}
+.mp .ico{width:68px;height:68px;border-radius:50%;background:var(--cl);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:2rem}
+.mp h3{font-family:'Jua';font-weight:400;font-size:1.55rem;line-height:1.2;margin-top:6px}
+.mp .nk{font-family:'Fredoka';font-weight:600;color:var(--c);font-size:.95rem}
+.mp p{font-size:.82rem;color:var(--sub);margin:6px 0 10px;min-height:2.6em;line-height:1.4}
+.mp .pg{height:10px;border-radius:99px;background:var(--cl);overflow:hidden}
+.mp .pg i{display:block;height:100%;background:var(--c);border-radius:99px}
+.mp .cnt{font-family:'Fredoka';font-weight:600;font-size:.85rem;color:var(--cd);margin-top:5px}
+.mp .done{position:absolute;right:-8px;top:-10px;background:var(--gold);color:#fff;font-family:'Fredoka';font-weight:700;border-radius:99px;padding:3px 12px;font-size:.8rem;transform:rotate(8deg);box-shadow:0 3px 0 #b97f00}
+.foot{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:26px}
+.foot .sp{flex:1}
+
+/* stage list */
+.sth{display:flex;align-items:center;gap:14px;margin:10px 0 18px}
+.sth .ico{width:64px;height:64px;border-radius:50%;background:#fff;border:3px solid var(--c);display:flex;align-items:center;justify-content:center;font-size:1.9rem;flex:none}
+.sth h1{font-family:'Jua';font-weight:400;font-size:2rem;line-height:1.1}
+.sth h1 em{font-family:'Fredoka';font-style:normal;font-weight:600;font-size:1.1rem;color:var(--c);margin-left:8px}
+.sth p{color:var(--sub);font-size:.9rem}
+.acts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.ac{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);background:#fff;border:3px solid var(--c);border-radius:20px;padding:14px 18px;
+  box-shadow:0 6px 0 var(--cd);transition:transform .1s,box-shadow .1s}
+.ac:hover{transform:translateY(-2px);box-shadow:0 8px 0 var(--cd)}
+.ac:active{transform:translateY(4px);box-shadow:0 2px 0 var(--cd)}
+.ac .no{font-family:'Fredoka';font-weight:700;color:#fff;background:var(--c);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+.ac .e{font-size:1.9rem;flex:none}
+.ac .t{flex:1;min-width:0}
+.ac .t b{font-family:'Jua';font-weight:400;font-size:1.15rem;display:block;line-height:1.25}
+.ac .t span{font-size:.8rem;color:var(--sub)}
+.ac .k{font-family:'Fredoka','Jua';font-size:.7rem;font-weight:700;border-radius:99px;padding:1px 9px;background:var(--cl);color:var(--cd);margin-left:6px;vertical-align:2px}
+.stars{font-size:1.25rem;letter-spacing:2px;white-space:nowrap;color:#d3d9e8}
+.stars b{color:var(--gold);font-weight:400}
+
+/* activity */
+.crumb{display:flex;align-items:center;gap:12px;margin:6px 0 14px;flex-wrap:wrap}
+.crumb h1{font-family:'Jua';font-weight:400;font-size:1.55rem;line-height:1.2;flex:1;min-width:200px}
+.play{background:#fff;border:3px solid var(--c);border-radius:26px;padding:24px 28px 28px;box-shadow:0 7px 0 var(--cd);min-height:420px}
+.step-h{display:flex;align-items:center;gap:10px;font-family:'Jua';font-size:1.2rem;margin-bottom:6px}
+.guide{color:var(--sub);font-size:.9rem;margin-bottom:14px}
+.guide b{color:var(--cd)}
+.prog-wrap{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.prog{flex:1;height:12px;border-radius:99px;background:var(--cl);overflow:hidden}
+.prog-in{height:100%;width:0;background:var(--c);border-radius:99px;transition:width .35s}
+.prog-lab{font-family:'Fredoka';font-weight:600;color:var(--cd);font-size:.9rem;white-space:nowrap}
+.shake{animation:shake .35s}
+@keyframes shake{20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.pop{animation:pop .3s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.fb{margin-top:16px;border-radius:16px;padding:12px 18px;font-weight:700;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fb.ok{background:var(--okl);color:#14703d;border:2px solid var(--ok)}
+.fb.no{background:var(--nol);color:#a52328;border:2px solid var(--no)}
+.fb .sp{flex:1}
+.donebar{display:flex;justify-content:center;margin-top:24px}
+
+/* mcq */
+.q{text-align:center}
+.q .qt{font-size:1.5rem;font-weight:800;line-height:1.4}
+.q .qt .gap{display:inline-block;min-width:90px;border-bottom:4px solid var(--c);margin:0 4px;color:var(--c)}
+.q .qs{color:var(--sub);font-size:.95rem;margin-top:4px}
+.q .qe{font-size:4rem;line-height:1.1}
+.q .hintv{display:inline-block;font-family:'Fredoka';font-weight:600;background:var(--cl);color:var(--cd);border-radius:10px;padding:1px 12px;margin-left:8px;font-size:1.1rem}
+.picq{position:relative;width:290px;height:262px;border-radius:20px;overflow:hidden;margin:0 auto 10px;border:3px solid var(--c)}
+.picq img{width:100%;height:100%;object-fit:cover;object-position:50% 0;display:block}
+.picq::before{content:"?";position:absolute;z-index:2;left:0;top:0;width:76%;height:36%;background:var(--c);color:#fff;border-radius:0 0 22px 0;
+  font:700 2rem 'Fredoka';display:flex;align-items:center;justify-content:center}
+.ring{width:130px;height:130px;border-radius:50%;border:12px solid #E5484D;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:3.6rem;position:relative;background:#fff;line-height:1}
+.ring::after{content:"";position:absolute;left:50%;top:50%;width:120px;height:12px;background:#E5484D;transform:translate(-50%,-50%) rotate(45deg)}
+.opts{display:grid;gap:12px;margin-top:20px}
+.opts.c2{grid-template-columns:1fr 1fr}.opts.c1{grid-template-columns:1fr;max-width:640px;margin-left:auto;margin-right:auto}
+.opt{background:#fff;border:3px solid #c3cfe8;border-radius:18px;padding:14px 16px;font-size:1.15rem;font-weight:800;box-shadow:0 5px 0 #c3cfe8;transition:transform .08s;line-height:1.3}
+.opt:hover{border-color:var(--c)}
+.opt:active{transform:translateY(3px);box-shadow:0 2px 0 #c3cfe8}
+.opt.sel{border-color:var(--c);background:var(--cl);box-shadow:0 5px 0 var(--c)}
+.opt.ok{border-color:var(--ok);background:var(--okl);box-shadow:0 5px 0 var(--ok);color:#14703d}
+.opt.no{border-color:var(--no);background:var(--nol);box-shadow:0 5px 0 var(--no);color:#a52328;opacity:.75}
+.opt[disabled]{pointer-events:none}
+
+/* match */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}
+.match .col{display:flex;flex-direction:column;gap:10px}
+.mcard{background:#fff;border:3px solid #c3cfe8;border-radius:16px;padding:10px 14px;font-weight:800;font-size:1.1rem;box-shadow:0 4px 0 #c3cfe8;min-height:58px;line-height:1.25}
+.mcard small{display:block;font-family:'Noto Sans KR';font-weight:400;font-size:.78rem;color:var(--sub)}
+.mcard.l{font-family:'Fredoka';font-weight:500;font-size:1.2rem}
+.mcard.sel{border-color:var(--c);background:var(--cl);box-shadow:0 4px 0 var(--c)}
+.mcard.ok{border-color:var(--ok);background:var(--okl);box-shadow:none;color:#14703d;transform:translateY(4px);pointer-events:none}
+.mcard.no{border-color:var(--no);background:var(--nol)}
+
+/* build */
+.bd{text-align:center}
+.bd .pe{font-size:3.2rem;line-height:1.1}
+.bd .pk{font-family:'Jua';font-size:1.5rem}
+.bd .ps{color:var(--sub);font-size:.9rem}
+.slots{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:20px 0 22px;min-height:58px}
+.slot{min-width:46px;height:54px;border-bottom:4px solid #c3cfe8;border-radius:10px 10px 0 0;background:#F4F7FD;font:600 1.6rem 'Fredoka';display:flex;align-items:center;justify-content:center;padding:0 10px}
+.slot.w{min-width:70px;font-family:'Nunito';font-weight:800;font-size:1.25rem}
+.slot.fill{background:var(--okl);border-color:var(--ok);color:#14703d}
+.slot.cur{border-color:var(--c);background:var(--cl)}
+.slot.gap{background:none;border:none;min-width:18px}
+.pool{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tok{background:#fff;border:3px solid var(--c);border-radius:14px;min-width:54px;height:56px;padding:0 14px;font:600 1.6rem 'Fredoka';box-shadow:0 5px 0 var(--cd);transition:transform .08s}
+.tok.w{font-family:'Nunito';font-weight:800;font-size:1.2rem}
+.tok:active{transform:translateY(3px);box-shadow:0 2px 0 var(--cd)}
+.tok.used{visibility:hidden}
+
+/* order */
+.ord{display:flex;flex-direction:column;gap:12px;max-width:760px;margin:0 auto}
+.ord button{display:flex;align-items:center;gap:14px;text-align:left;background:#fff;border:3px solid #c3cfe8;border-radius:18px;padding:12px 16px;font-size:1.15rem;font-weight:800;box-shadow:0 5px 0 #c3cfe8}
+.ord button i{font:700 1.3rem 'Fredoka';font-style:normal;width:44px;height:44px;border-radius:12px;border:3px dashed #c3cfe8;display:flex;align-items:center;justify-content:center;flex:none;color:#fff}
+.ord button.on{border-color:var(--c);background:var(--cl);box-shadow:0 5px 0 var(--c)}
+.ord button.on i{background:var(--c);border:3px solid var(--c)}
+.ord button.ok{border-color:var(--ok);background:var(--okl);box-shadow:0 5px 0 var(--ok)}.ord button.ok i{background:var(--ok);border-color:var(--ok)}
+.ord button.no{border-color:var(--no);background:var(--nol);box-shadow:0 5px 0 var(--no)}.ord button.no i{background:var(--no);border-color:var(--no)}
+
+/* cloze */
+.cz{font-size:1.3rem;font-weight:700;line-height:2.5;text-align:left}
+.cz.one{text-align:center;font-size:1.5rem;font-weight:800}
+.czko{text-align:center;color:var(--sub);font-size:.95rem;margin-top:2px}
+.blk{display:inline-flex;align-items:center;justify-content:center;min-width:110px;height:44px;border-radius:12px;border:3px dashed #c3cfe8;background:#F4F7FD;margin:0 5px;
+  vertical-align:middle;font:600 1.15rem 'Fredoka';padding:0 12px;color:#9aa4bd}
+.blk.cur{border-color:var(--c);border-style:solid;background:var(--cl)}
+.blk.fill{border:3px solid var(--ok);background:var(--okl);color:#14703d}
+.bank{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px;padding-top:18px;border-top:3px dashed var(--cl)}
+.bank .tok{font-size:1.2rem;height:50px}
+
+/* type */
+.ty{max-width:820px;margin:0 auto;text-align:center}
+.ty .ko{font-family:'Jua';font-size:1.6rem;line-height:1.35}
+.ty .hint{color:var(--sub);font-size:.9rem;margin-top:6px;min-height:1.5em}
+.ty .hint b{font-family:'Fredoka';font-weight:600;color:var(--cd);letter-spacing:1px}
+.ty input{width:100%;margin-top:16px;border:3px solid #c3cfe8;border-radius:18px;padding:14px 20px;font-size:1.4rem;font-weight:700;text-align:center;outline:none;background:#FAFCFF}
+.ty input:focus{border-color:var(--c)}
+.ty input.ok{border-color:var(--ok);background:var(--okl)}.ty input.no{border-color:var(--no);background:var(--nol)}
+.ty .row{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+
+/* cards */
+.grp{font-family:'Jua';font-size:1.15rem;color:var(--cd);margin:22px 0 12px;display:flex;align-items:center;gap:10px}
+.grp:first-child{margin-top:0}
+.grp::after{content:"";flex:1;border-bottom:2px dashed var(--c);opacity:.5}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cg.mini{grid-template-columns:repeat(4,1fr);gap:10px}
+.cd{background:#fff;border:3px solid var(--c);border-radius:20px;overflow:hidden;text-align:center;box-shadow:0 5px 0 var(--cd);display:flex;flex-direction:column;cursor:pointer;position:relative}
+.cd .im{height:228px;overflow:hidden;background:#eee}
+.cd .im img{width:100%;height:100%;object-fit:cover;object-position:50% 6%;display:block}
+.cd .em{font-size:2.6rem;line-height:1;padding-top:14px}
+.cd .w{font-family:'Fredoka';font-weight:600;font-size:1.5rem;color:var(--cd);line-height:1.2;padding:10px 12px 0}
+.cd .pr{font-family:'Noto Sans KR','Malgun Gothic';font-weight:500;font-size:.85rem;color:var(--c);line-height:1.3}
+.cd .bk{padding:4px 12px 14px;min-height:74px;display:flex;flex-direction:column;justify-content:center}
+.cd .bk .tap{color:#aab3c9;font-size:.85rem}
+.cd .bk .m{font-weight:700;font-size:1.05rem;font-family:'Noto Sans KR'}
+.cd .bk .x{font-size:.9rem;color:var(--sub);margin-top:3px;line-height:1.35;padding:0 8px}
+.cd .bk .x b{color:var(--cd)}
+.cd .bk .m,.cd .bk .x{display:none}
+.cd.open .bk .m,.cd.open .bk .x{display:block}.cd.open .bk .tap{display:none}
+.cd.open{background:var(--cl)}
+.cg.mini .cd{border-width:2px;border-radius:14px;box-shadow:0 4px 0 var(--cd)}
+.cg.mini .cd .w{font-size:1.15rem;padding:10px 8px 0}
+.cg.mini .cd .bk{min-height:48px;padding:2px 8px 10px}
+.cg.mini .cd .bk .m{font-size:.92rem}
+.cg.mini .cd .pr{font-size:.78rem}
+.cnt-line{text-align:center;color:var(--sub);font-size:.9rem;margin-top:18px}
+
+/* info */
+.info h3{font-family:'Jua';font-weight:400;font-size:1.25rem;display:flex;align-items:center;gap:10px;margin:26px 0 12px}
+.info h3:first-child{margin-top:0}
+.fm{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.fm span{font:600 1.25rem 'Fredoka','Jua';color:#fff;border-radius:12px;padding:3px 18px}
+.fm .b1{background:#7C5CFC}.fm .b2{background:#FF6B4A}.fm .b3{background:#12A594}.fm .b4{background:#2D7FF9}
+.fm i{font-style:normal;font-weight:800;color:var(--sub);font-size:1.2rem}
+.fm em{font-style:normal;font-family:'Jua';font-size:1.15rem;color:var(--cd);margin-left:10px;background:var(--cl);padding:2px 16px;border-radius:99px}
+.exs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ex{display:flex;align-items:center;gap:10px;background:var(--cl);border-radius:16px;padding:10px 14px;font-weight:800;font-size:1.05rem;line-height:1.3}
+.ex small{display:block;font-family:'Noto Sans KR';font-weight:400;font-size:.8rem;color:var(--sub)}
+.ex b{color:var(--cd)}
+.warn{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.warn div{border-radius:14px;padding:8px 16px;font-weight:800;font-size:1.05rem}
+.warn .x{background:var(--nol);border:2px solid var(--no);color:#a52328}
+.warn .o{background:var(--okl);border:2px solid var(--ok);color:#14703d}
+.warn small{display:block;font-family:'Noto Sans KR';font-weight:400;font-size:.8rem;color:var(--sub)}
+.tb{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tb div{background:var(--cl);border-radius:12px;padding:8px;text-align:center;font-size:.9rem;display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap}
+.tb b{font-family:'Fredoka';font-weight:500;font-size:1.15rem;background:#fff;border:2px solid var(--c);border-radius:9px;padding:0 10px}
+.tb b.p{background:var(--c);color:#fff}
+.tb small{display:block;width:100%;font-size:.8rem;color:var(--sub);line-height:1.2}
+.tb small i{font-style:normal;color:var(--c);font-weight:500}
+
+/* read */
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.rd{border:2px solid var(--line);border-radius:18px;overflow:hidden}
+.ln{display:grid;grid-template-columns:70px 1fr 330px;align-items:center;border-top:1.5px solid var(--line);padding:4px 10px 4px 0}
+.ln:first-child{border-top:0}
+.ln.dan{background:#FFFAF7}.ln.alt{background:#F7FAFF}
+.ln .spk{text-align:center}
+.ln .spk b{font:600 .8rem 'Fredoka';color:#fff;border-radius:99px;padding:2px 11px}
+.ln .spk b.t{background:#2D7FF9}.ln .spk b.d{background:#FF6B4A}.ln .spk b.p{background:var(--c);display:inline-flex;width:30px;height:30px;padding:0;align-items:center;justify-content:center;font-size:1rem}
+.ln .spk span{font-family:'Jua';font-size:.78rem;color:var(--cd);display:block;line-height:1.2;margin-top:2px}
+.ln .e{font-size:1.2rem;font-weight:700;line-height:1.35;padding:7px 12px 7px 8px}
+.ln .e i{font-style:normal;color:#b3bdd6;font-weight:400;margin:0 2px}
+.ln .e b{color:var(--cd);font-weight:800}
+.ln .e u{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:3px;text-underline-offset:4px}
+.ln .k{font-family:'Noto Sans KR','Malgun Gothic';font-size:.9rem;color:#3d4a68;border-left:2px dotted var(--c);padding:7px 0 7px 14px;line-height:1.45}
+.hide-k .ln .k span,.hide-e .ln .e span{filter:blur(7px);cursor:pointer;user-select:none;transition:filter .15s}
+.hide-k .ln .k span.peek,.hide-e .ln .e span.peek{filter:none}
+.lg{display:flex;gap:18px;font-size:.8rem;color:var(--sub);flex-wrap:wrap;margin-top:12px}
+.lg b{color:var(--cd)}.lg u{text-decoration-color:var(--gold);text-decoration-thickness:3px;text-underline-offset:3px}
+
+/* talk */
+.tk{border:2px solid var(--line);border-radius:20px;padding:16px 18px;margin-bottom:18px}
+.tk h3{font-family:'Jua';font-weight:400;font-size:1.25rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tk h3 small{font-family:'Noto Sans KR';font-size:.8rem;color:var(--sub)}
+.tk .lv{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.tk .lv .btn.on{background:var(--c);border-color:var(--cd);color:#fff;box-shadow:0 4px 0 var(--cd)}
+.sm{display:grid;gap:10px}
+.sm.c5{grid-template-columns:repeat(5,1fr)}.sm.c3{grid-template-columns:repeat(3,1fr)}
+.st{border:3px solid var(--c);border-radius:18px;padding:10px 8px 12px;text-align:center;position:relative;background:#fff}
+.st .n{position:absolute;left:-6px;top:-8px;background:var(--c);color:#fff;font:700 .8rem 'Fredoka';width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.st .e{font-size:2.3rem;line-height:1.2}
+.st h5{font-family:'Jua';font-weight:400;font-size:1rem}
+.st .kw{display:flex;flex-direction:column;gap:5px;margin-top:6px}
+.st .kw span{font:500 .92rem 'Fredoka';background:var(--cl);border-radius:99px;padding:1px 8px;color:var(--cd)}
+.lv2 .st .kw,.lv3 .st .kw,.lv3 .st h5{visibility:hidden}
+.lv3 .st .e{filter:grayscale(1) opacity(.15)}
+.tk .ctl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.tk .watch{font:700 1.5rem 'Fredoka';background:#22304a;color:#FFE066;border-radius:12px;padding:2px 16px;min-width:110px;text-align:center}
+.tk .best{font-size:.85rem;color:var(--sub)}
+.tk .sp{flex:1}
+.tk.ok{border-color:var(--ok);background:#FAFFFC}
+
+/* interview */
+.iv{display:flex;flex-direction:column;gap:18px}
+.iv .qq{display:flex;align-items:center;gap:10px;font-size:1.25rem;font-weight:800;color:var(--cd)}
+.iv .qq .n{font:700 .85rem 'Fredoka';background:var(--c);color:#fff;border-radius:50%;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.iv .qq small{font-family:'Noto Sans KR';font-weight:400;font-size:.85rem;color:var(--sub)}
+.iv .sm2{font-size:.88rem;color:var(--sub);margin:4px 0 0 40px}
+.iv .sm2 button{font-weight:700;color:var(--ink);background:var(--cl);border-radius:99px;padding:1px 12px;margin:2px 3px 2px 0;font-size:.88rem}
+.iv input{width:calc(100% - 40px);margin:8px 0 0 40px;border:3px solid #c3cfe8;border-radius:14px;padding:10px 16px;font-size:1.15rem;font-weight:700;outline:none;background:#FAFCFF}
+.iv input:focus{border-color:var(--c)}
+
+/* crossword */
+.cww{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start}
+.cwg{display:grid;gap:0;width:max-content}
+.cwc{width:42px;height:42px;position:relative;box-shadow:inset 0 0 0 1.2px #22304a,0 0 0 1.2px #22304a;background:#fff}
+.cwc sup{position:absolute;left:3px;top:2px;font:600 .58rem 'Fredoka';color:var(--cd);line-height:1;pointer-events:none;z-index:2}
+.cwc input{width:100%;height:100%;border:none;background:transparent;text-align:center;font:600 1.35rem 'Fredoka';text-transform:uppercase;outline:none;padding:6px 0 0;caret-color:var(--c);border-radius:0}
+.cwc.hl{background:var(--cl)}
+.cwc.at{background:#FFE9A8}
+.cwc.ok{background:var(--okl)}.cwc.ok input{color:#14703d}
+.cwc.no{background:var(--nol)}
+.cwx{width:42px;height:42px}
+.cl h4{font-family:'Jua';font-weight:400;font-size:1.05rem;color:var(--cd);margin:0 0 6px}
+.cl ol{list-style:none;margin-bottom:14px}
+.cl li{display:flex;gap:8px;font-size:.92rem;font-weight:700;line-height:1.3;padding:5px 8px;border-radius:10px;cursor:pointer}
+.cl li b{font-family:'Fredoka';font-weight:600;color:var(--cd);min-width:22px;text-align:right}
+.cl li i{font-style:normal;font-weight:400;color:var(--sub);font-size:.8rem}
+.cl li.hl{background:#FFE9A8}
+.cl li.ok{color:#14703d;text-decoration:line-through;text-decoration-color:rgba(31,166,90,.5);opacity:.7}
+
+/* wordsearch */
+.wsw{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start}
+.wsg{display:grid;grid-template-columns:repeat(12,44px);border:3px solid var(--c);border-radius:14px;overflow:hidden;width:max-content}
+.wsg button{width:44px;height:44px;font:500 1.3rem 'Fredoka';border:1px solid #e6ebf5;background:#fff}
+.wsg button.first{background:var(--c);color:#fff}
+.wsg button.fd{background:#FFE08A}
+.wsl{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
+.wsl li{display:flex;align-items:center;gap:7px;font-size:.92rem;padding:4px 8px;border-radius:10px}
+.wsl .e{width:26px;text-align:center}
+.wsl b{font-family:'Fredoka';font-weight:600;color:#aab3c9;margin-left:auto;letter-spacing:2px}
+.wsl li.ok{background:var(--okl)}.wsl li.ok b{color:#14703d;letter-spacing:0}
+
+/* memory */
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:820px;margin:0 auto}
+.mm{height:96px;border-radius:16px;border:3px solid var(--cd);background:var(--c);color:#fff;font-size:1.7rem;box-shadow:0 5px 0 var(--cd);font-weight:800;line-height:1.25;padding:4px 8px;transition:transform .12s}
+.mm.up{background:#fff;color:var(--ink);font-size:1.05rem}
+.mm.up.en{font-family:'Fredoka';font-weight:500;font-size:1.2rem;color:var(--cd)}
+.mm.ok{background:var(--okl);border-color:var(--ok);box-shadow:none;transform:translateY(5px);color:#14703d;pointer-events:none}
+.mtry{text-align:center;color:var(--sub);margin-top:14px;font-size:.9rem}
+
+/* 도전판: 직접 쓰기 */
+.ty .qe{font-size:3.4rem;line-height:1.1}
+.tbox{display:inline-block;font-size:1.35rem;font-weight:800;background:var(--cl);border:3px solid var(--c);border-radius:16px;padding:8px 20px;margin-bottom:10px;line-height:1.4}
+.tbox.bad{background:var(--nol);border-color:var(--no);color:#a52328}
+.fin{border:3px solid #c3cfe8;border-radius:12px;background:#FAFCFF;font:600 1.15rem 'Fredoka','Nunito';text-align:center;padding:5px 6px;margin:0 5px;outline:none;vertical-align:middle;max-width:100%}
+.fin:focus{border-color:var(--c)}
+.fin.no{border-color:var(--no);background:var(--nol)}
+.fin.ok{border-color:var(--ok);background:var(--okl);color:#14703d}
+.spot{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.sw{background:#fff;border:3px solid #c3cfe8;border-radius:14px;padding:8px 14px;font-size:1.3rem;font-weight:800;box-shadow:0 4px 0 #c3cfe8}
+.sw:hover{border-color:var(--c)}
+.sw.no{border-color:var(--no);background:var(--nol);color:#a52328;box-shadow:0 4px 0 var(--no);opacity:.7}
+.sw.ok{border-color:var(--ok);background:var(--okl);color:#14703d;box-shadow:0 4px 0 var(--ok)}
+.sw.ok s{color:#a52328;opacity:.7}
+.sw[disabled]{pointer-events:none}
+
+/* result */
+#fx{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden}
+#fx i{position:absolute;top:-20px;width:11px;height:16px;border-radius:3px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.modal{position:fixed;inset:0;background:rgba(20,32,60,.55);z-index:80;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal .box{background:#fff;border-radius:30px;padding:30px 40px 32px;text-align:center;max-width:520px;width:100%;border:4px solid var(--c);box-shadow:0 10px 0 var(--cd);animation:pop .35s}
+.modal .big{font-size:3.4rem;letter-spacing:8px;color:#d3d9e8;line-height:1.2}
+.modal .big b{color:var(--gold);font-weight:400;display:inline-block;animation:pop .5s backwards}
+.modal h2{font-family:'Jua';font-weight:400;font-size:1.8rem;margin-top:4px}
+.modal p{color:var(--sub);margin-top:4px}
+.modal .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+@media (max-width:900px){
+  html{font-size:16px}.map{grid-template-columns:repeat(2,1fr)}.ln{grid-template-columns:62px 1fr 250px}
+  .cg{grid-template-columns:repeat(2,1fr)}.cg.mini{grid-template-columns:repeat(3,1fr)}
+  .cww,.wsw{grid-template-columns:1fr}.hero svg{width:110px;right:24px}.hero h1{font-size:2.7rem}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="drop" viewBox="0 0 100 120">
+    <path d="M50 5C50 5 12 52 12 78a38 38 0 0 0 76 0C88 52 50 5 50 5Z" fill="#4CC9F0" stroke="#1B6CA8" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M30 47q-8 12-8 24" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".75"/>
+    <circle cx="38" cy="74" r="6.5" fill="#1b2a49"/><circle cx="64" cy="74" r="6.5" fill="#1b2a49"/>
+    <circle cx="40.3" cy="71.8" r="2.2" fill="#fff"/><circle cx="66.3" cy="71.8" r="2.2" fill="#fff"/>
+    <path d="M39 90q12 12 24 0" fill="none" stroke="#1b2a49" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="27" cy="87" rx="5.5" ry="3.2" fill="#ff9fb2"/><ellipse cx="75" cy="87" rx="5.5" ry="3.2" fill="#ff9fb2"/>
+  </symbol>
+</svg>
+<div id="app"></div>
+<div id="fx"></div>
+<script src="../progress.js"></script>
+<script>
+"use strict";
+const IMG = "영어_미션북_Unit7-8/";
+const PUZ = {"A": {"w": 15, "h": 15, "words": [{"word": "EVERYWHERE", "y": 6, "x": 0, "d": "H", "clue": "In all places.", "num": 11}, {"word": "CAFETERIA", "y": 1, "x": 9, "d": "V", "clue": "A room at school where students eat.", "num": 4}, {"word": "YESTERDAY", "y": 6, "x": 4, "d": "V", "clue": "If today is Monday, it was Sunday.", "num": 12}, {"word": "SIDEWALK", "y": 3, "x": 7, "d": "V", "clue": "A path for people beside the road.", "num": 8}, {"word": "DOWNTOWN", "y": 12, "x": 4, "d": "H", "clue": "The busy center of a city with many shops.", "num": 17}, {"word": "TRASHCAN", "y": 5, "x": 11, "d": "V", "clue": "You throw garbage into it. (2 words)", "num": 10}, {"word": "GARBAGE", "y": 2, "x": 8, "d": "H", "clue": "Things you throw away because you don’t need them.", "num": 7}, {"word": "OUTSIDE", "y": 4, "x": 3, "d": "H", "clue": "Not in a building. The opposite of inside.", "num": 9}, {"word": "MESSY", "y": 8, "x": 1, "d": "H", "clue": "Not tidy. Things are all over the place.", "num": 14}, {"word": "TOILET", "y": 2, "x": 0, "d": "V", "clue": "You sit on it in the bathroom.", "num": 5}, {"word": "CLEAN", "y": 0, "x": 14, "d": "V", "clue": "To make something not dirty.", "num": 2}, {"word": "LITTER", "y": 10, "x": 0, "d": "H", "clue": "To drop trash on the ground in a public place.", "num": 16}, {"word": "FLOOR", "y": 2, "x": 3, "d": "V", "clue": "The part of a room you walk on.", "num": 6}, {"word": "NEAT", "y": 1, "x": 5, "d": "V", "clue": "Tidy and in good order.", "num": 3}, {"word": "DIRTY", "y": 14, "x": 0, "d": "H", "clue": "Covered with mud, dust, or stains.", "num": 19}, {"word": "SNACK", "y": 0, "x": 12, "d": "V", "clue": "A small amount of food between meals.", "num": 1}, {"word": "WET", "y": 12, "x": 10, "d": "V", "clue": "Covered with water. The opposite of dry.", "num": 18}, {"word": "SIGN", "y": 8, "x": 11, "d": "H", "clue": "A board with words or pictures that tells you a rule.", "num": 15}, {"word": "LAW", "y": 10, "x": 0, "d": "V", "clue": "A rule that everyone in a country must follow.", "num": 16}, {"word": "FOUNTAIN", "y": 14, "x": 6, "d": "H", "clue": "Water shoots up from it in a park or a square.", "num": 20}, {"word": "UNIFORM", "y": 7, "x": 14, "d": "V", "clue": "Special clothes that all students at a school wear.", "num": 13}]}, "B": {"w": 15, "h": 14, "words": [{"word": "AGAINST", "y": 7, "x": 8, "d": "H", "clue": "Riding a bike on the sidewalks is ____ the law.", "num": 18}, {"word": "LEAVE", "y": 5, "x": 8, "d": "V", "clue": "They ____ paper under the desk.", "num": 14}, {"word": "GOING", "y": 5, "x": 11, "d": "V", "clue": "They’re ____ to clean it themselves!", "num": 15}, {"word": "PLAYED", "y": 9, "x": 4, "d": "H", "clue": "We ____ in the fountain.", "num": 20}, {"word": "MAKES", "y": 3, "x": 13, "d": "V", "clue": "This ____ the school dirty.", "num": 10}, {"word": "THREW", "y": 7, "x": 14, "d": "V", "clue": "We ____ our trash in the trash can.", "num": 19}, {"word": "WALKED", "y": 7, "x": 5, "d": "V", "clue": "It’s against the law, so we ____ instead.", "num": 17}, {"word": "COURSE", "y": 11, "x": 0, "d": "H", "clue": "Did you throw away your trash? — Of ____!", "num": 22}, {"word": "HELP", "y": 5, "x": 6, "d": "H", "clue": "Teachers ____, too.", "num": 13}, {"word": "RIDE", "y": 2, "x": 7, "d": "V", "clue": "Did you ____ your bikes on the sidewalks?", "num": 7}, {"word": "THINK", "y": 3, "x": 5, "d": "H", "clue": "Teachers ____ students are going to be neat outside school, too.", "num": 8}, {"word": "TIME", "y": 3, "x": 11, "d": "H", "clue": "We had a good ____.", "num": 9}, {"word": "THROW", "y": 11, "x": 10, "d": "H", "clue": "So, they ____ garbage in the trash can.", "num": 23}, {"word": "PICK", "y": 0, "x": 9, "d": "V", "clue": "They ____ up the paper and other garbage.", "num": 4}, {"word": "HAD", "y": 11, "x": 11, "d": "V", "clue": "Then, we ____ some drinks and snacks.", "num": 24}, {"word": "WENT", "y": 0, "x": 5, "d": "V", "clue": "John and I ____ downtown yesterday.", "num": 3}, {"word": "SAW", "y": 7, "x": 3, "d": "H", "clue": "We ____ “Do Not Litter” signs everywhere.", "num": 16}, {"word": "FUN", "y": 10, "x": 2, "d": "V", "clue": "Did you have ____?", "num": 21}, {"word": "GOT", "y": 1, "x": 11, "d": "V", "clue": "We ____ really wet!", "num": 5}, {"word": "AWAY", "y": 0, "x": 4, "d": "H", "clue": "Did you throw ____ your trash?", "num": 2}, {"word": "MISS", "y": 4, "x": 3, "d": "V", "clue": "The signs are everywhere. You can’t ____ them.", "num": 11}, {"word": "EVEN", "y": 2, "x": 2, "d": "H", "clue": "They ____ clean the toilets!", "num": 6}, {"word": "KEEP", "y": 0, "x": 2, "d": "V", "clue": "They ____ the school neat.", "num": 1}, {"word": "VISIT", "y": 5, "x": 0, "d": "H", "clue": "Did you ____ the new fountain there?", "num": 12}]}};
+
+/* ================= helpers ================= */
+function h(tag, props, ...kids) {
+  const el = document.createElement(tag);
+  if (props) for (const k in props) {
+    const v = props[k];
+    if (v == null || v === false) continue;
+    if (k === "class") el.className = v;
+    else if (k === "html") el.innerHTML = v;
+    else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else if (k === "style" && typeof v === "object") { for (const s in v) s.startsWith("--") ? el.style.setProperty(s, v[s]) : (el.style[s] = v[s]); }
+    else el.setAttribute(k, v === true ? "" : v);
+  }
+  for (const c of kids.flat(9)) {
+    if (c == null || c === false) continue;
+    el.append(c.nodeType ? c : document.createTextNode(c));
+  }
+  return el;
+}
+function shuffle(a) {
+  a = a.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+function mixed(a) {            // 원래 순서와 다르게 섞기
+  if (a.length < 2) return a.slice();
+  for (let t = 0; t < 30; t++) { const s = shuffle(a); if (s.some((v, i) => v !== a[i])) return s; }
+  return a.slice().reverse();
+}
+const mark = s => s.replace(/\[\[/g, "<b>").replace(/\]\]/g, "</b>").replace(/\{\{/g, "<u>").replace(/\}\}/g, "</u>").replace(/ \/ /g, " <i>/</i> ");
+const plain = s => s.replace(/\[\[|\]\]|\{\{|\}\}/g, "").replace(/ \/ /g, " ");
+const gapHtml = s => s.replace(/____/g, '<span class="gap">&nbsp;</span>');
+const later = (fn, ms) => { const r = RUN; setTimeout(() => { if (r === RUN) fn(); }, ms); };
+
+/* ================= state ================= */
+const KEY = "jh-mission-u78-hard-v1";
+const S = { stars: {}, sound: true, notes: {}, best: {} };
+// 기기 + 서버 저장 (../progress.js). 다른 기기에서 별이 늘었으면 미션을 푸는 중이 아닐 때만 다시 그린다.
+const SYNC = KidsProgress("juhyun-mission-u78-hard", KEY, S, () => { if (!location.hash.includes("/")) render(); });
+function save() { SYNC.save(); }
+let RUN = 0;
+
+/* ================= sound & voice ================= */
+let AC = null;
+function tone(f, t0, d, type, g) {
+  if (!S.sound) return;
+  try {
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    const o = AC.createOscillator(), gn = AC.createGain();
+    o.type = type || "sine"; o.frequency.value = f; o.connect(gn); gn.connect(AC.destination);
+    const t = AC.currentTime + t0;
+    gn.gain.setValueAtTime(g || .12, t); gn.gain.exponentialRampToValueAtTime(.001, t + d);
+    o.start(t); o.stop(t + d);
+  } catch (e) {}
+}
+const sfx = {
+  ok() { tone(660, 0, .12); tone(880, .1, .2); },
+  no() { tone(190, 0, .22, "square", .05); },
+  tap() { tone(520, 0, .05, "sine", .06); },
+  win() { [523, 659, 784, 1047].forEach((f, i) => tone(f, i * .12, .3)); }
+};
+/* ================= content ================= */
+const W7 = [
+  { en: "downtown", pr: "다운타운", ko: "시내, 번화가", ch: "a busy <b>downtown</b>", chko: "붐비는 시내", img: "raw_downtown.jpg", e: "🏙️" },
+  { en: "fountain", pr: "파운틴", ko: "분수", ch: "a water <b>fountain</b>", chko: "물 분수", img: "raw_fountain.jpg", e: "⛲" },
+  { en: "trash can", pr: "트래시 캔", ko: "쓰레기통", ch: "a blue <b>trash can</b>", chko: "파란 쓰레기통", img: "raw_trashcan.jpg", e: "🗑️" },
+  { en: "sign", pr: "사인", ko: "표지판", ch: "a stop <b>sign</b>", chko: "정지 표지판", img: "raw_sign.jpg", e: "🛑" },
+  { en: "sidewalk", pr: "사이드워크", ko: "인도 (사람이 걷는 길)", ch: "a paved <b>sidewalk</b>", chko: "포장된 인도", img: "raw_sidewalk.jpg", e: "🛣️" },
+  { en: "walk", pr: "워크", ko: "걷다", ch: "<b>walk</b> on the street", chko: "길을 걷다", img: "raw_walk.jpg", e: "🚶" }
+];
+const W8 = [
+  { en: "litter", pr: "리터", ko: "(쓰레기를) 함부로 버리다", ch: "<b>litter</b> on the street", chko: "길에 쓰레기를 버리다", img: "raw_litter.jpg", e: "🚯" },
+  { en: "dirty", pr: "더티", ko: "더러운", ch: "<b>dirty</b> hands", chko: "더러운 손", img: "raw_dirty.jpg", e: "😖" },
+  { en: "clean", pr: "클린", ko: "청소하다 / 깨끗한", ch: "<b>clean</b> the house", chko: "집을 청소하다", img: "raw_clean.jpg", e: "🧹" },
+  { en: "pick up", pr: "픽 업", ko: "줍다", ch: "<b>pick up</b> the trash", chko: "쓰레기를 줍다", img: "raw_pickup.jpg", e: "🤲" },
+  { en: "garbage", pr: "가비지", ko: "쓰레기", ch: "a <b>garbage</b> bag", chko: "쓰레기봉투", img: "raw_garbage.jpg", e: "🛍️" },
+  { en: "toilet", pr: "토일렛", ko: "변기", ch: "a white <b>toilet</b>", chko: "하얀 변기", img: "raw_toilet.jpg", e: "🚽" }
+];
+const OPP = [["dirty ↔ clean", "더러운 ↔ 깨끗한", "더티 ↔ 클린"], ["messy ↔ neat", "지저분한 ↔ 깔끔한", "메시 ↔ 니트"], ["drop ↔ pick up", "떨어뜨리다 ↔ 줍다", "드롭 ↔ 픽 업"]];
+const SW7 = [["yesterday", "어제", "예스터데이"], ["visit", "방문하다, 찾아가다", "비짓"], ["new", "새로운", "뉴"], ["really", "정말, 아주", "리얼리"], ["wet", "젖은", "웻"], ["drink", "음료, 마실 것", "드링크"], ["snack", "간식", "스낵"],
+  ["trash", "쓰레기", "트래시"], ["everywhere", "어디에나, 곳곳에", "에브리웨어"], ["miss", "놓치다", "미스"], ["ride", "타다", "라이드"], ["law", "법", "로"], ["instead", "대신에", "인스테드"], ["splash pad", "물놀이터 (바닥 분수)", "스플래시 패드"]];
+const SW8 = [["leave", "두고 가다, 남기다", "리브"], ["under", "~ 아래에", "언더"], ["cafeteria", "급식실, 구내식당", "카페테리아"], ["every day", "매일", "에브리 데이"], ["help", "돕다", "헬프"], ["window", "창문", "윈도"], ["board", "칠판", "보드"],
+  ["floor", "바닥", "플로어"], ["even", "심지어 ~까지도", "이븐"], ["themselves", "그들 스스로, 직접", "뎀셀브즈"], ["keep", "(어떤 상태로) 유지하다", "킵"], ["think", "생각하다", "싱크"], ["outside", "~ 밖에서", "아웃사이드"], ["uniform", "교복", "유니폼"]];
+const ID7 = [
+  ["have fun", "재미있게 놀다", "Did you <b>have fun</b>?", "재미있었어?", "🎉", "해브 펀"],
+  ["have a good time", "즐거운 시간을 보내다", "We <b>had a good time</b>.", "우리는 즐거운 시간을 보냈어.", "😄", "해브 어 굿 타임"],
+  ["go downtown", "시내에 가다", "John and I <b>went downtown</b> yesterday.", "존과 나는 어제 시내에 갔어.", "🏙️", "고 다운타운"],
+  ["get wet", "(물에) 젖다", "We <b>got</b> really <b>wet</b>!", "우리는 완전히 젖었어!", "💦", "겟 웻"],
+  ["throw away", "버리다", "Did you <b>throw away</b> your trash?", "쓰레기는 버렸어?", "🗑️", "스로 어웨이"],
+  ["of course", "물론이지", "<b>Of course</b>!", "물론이지!", "👍", "오브 코스"],
+  ["can’t miss", "못 보고 지나칠 수 없다", "You <b>can’t miss</b> them.", "(눈에 확 띄어서) 못 볼 수가 없어.", "👀", "캔트 미스"],
+  ["ride a bike", "자전거를 타다", "Did you <b>ride</b> your <b>bikes</b> on the sidewalks?", "인도에서 자전거를 탔어?", "🚲", "라이드 어 바이크"],
+  ["against the law", "법에 어긋나는", "Riding a bike on the sidewalks is <b>against the law</b>.", "인도에서 자전거 타는 건 법에 어긋나.", "⚖️", "어게인스트 더 로"]
+];
+const ID8 = [
+  ["pick up", "줍다", "They <b>pick up</b> the paper and other garbage.", "종이와 다른 쓰레기를 주워요.", "🤲", "픽 업"],
+  ["every day", "매일", "Students clean their schools <b>every day</b>.", "학생들은 매일 학교를 청소해요.", "📅", "에브리 데이"],
+  ["make ~ dirty", "~을 더럽게 만들다", "This <b>makes</b> the school <b>dirty</b>.", "이것이 학교를 더럽게 만들어요.", "😖", "메이크 ~ 더티"],
+  ["keep ~ neat", "~을 깔끔하게 유지하다", "They <b>keep</b> the school <b>neat</b>.", "학교를 깔끔하게 유지해요.", "✨", "킵 ~ 니트"],
+  ["throw ~ in the trash can", "~을 쓰레기통에 버리다", "They <b>throw</b> garbage <b>in the trash can</b>.", "쓰레기를 쓰레기통에 버려요.", "🗑️", "스로 ~ 인 더 트래시 캔"],
+  ["clean it themselves", "그것을 직접 청소하다", "They’re going to <b>clean it themselves</b>!", "자기들이 직접 청소하게 될 거예요!", "🧹", "클린 잇 뎀셀브즈"]
+];
+const IDS = [
+  ["look around", "주위를 둘러보다", "<b>Look</b> all <b>around</b>.", "주위를 잘 둘러봐.", "👀", "룩 어라운드"],
+  ["know what to do", "어떻게 할지 알다", "You <b>know what to do</b>!", "어떻게 해야 할지 알지!", "💡", "노 왓 투 두"],
+  ["do our part", "우리 몫을 하다", "We want to <b>do our part</b>!", "우리도 우리 몫을 하고 싶어!", "💪", "두 아워 파트"],
+  ["be sure to ~", "꼭 ~하다", "<b>Be sure to</b> bring it back.", "꼭 다시 가져와.", "☝️", "비 슈어 투 ~"],
+  ["bring ~ back", "~을 다시 가져오다", "Be sure to <b>bring</b> it <b>back</b>.", "꼭 다시 가져와.", "↩️", "브링 ~ 백"],
+  ["take ~ home", "~을 집에 가져가다", "When you <b>take</b> it <b>home</b>,", "그걸 집에 가져가면", "🏠", "테이크 ~ 홈"]
+];
+const wordCard = w => ({ img: w.img, en: w.en, pr: w.pr, ko: w.ko, x: w.ch + " · " + w.chko });
+const idiomCard = a => ({ em: a[4], en: a[0], pr: a[5], ko: a[1], x: a[2] + "<br>" + a[3] });
+const miniCard = a => ({ en: a[0], ko: a[1], pr: a[2] });
+
+const P7 = [
+  ["Tom", "What did you do / yesterday?", "어제 뭐 했어?"],
+  ["Dan", "John and I / {{went [[downtown]]}} / yesterday.", "존이랑 나는 어제 시내에 갔어."],
+  ["Tom", "Did you {{have fun}}?", "재미있었어?"],
+  ["Dan", "Yes, we did. / We {{had a good time}}.", "응, 재미있었어. 우리는 즐거운 시간을 보냈어."],
+  ["Tom", "Did you visit / the new [[fountain]] / there?", "거기 새로 생긴 분수에 가 봤어?"],
+  ["Dan", "Sure, we did. / We played / in the [[fountain]].", "물론 갔지. 우리는 분수에서 놀았어."],
+  ["", "We {{got really wet}}!", "우리는 완전히 젖었어!"],
+  ["", "Then, / we had / some drinks and snacks.", "그러고 나서 음료수랑 간식을 먹었어."],
+  ["Tom", "Did you {{throw away}} / your trash?", "쓰레기는 버렸어?"],
+  ["Dan", "{{Of course}}! / We threw our trash / in the [[trash can]].", "물론이지! 우리는 쓰레기를 쓰레기통에 버렸어."],
+  ["", "We saw / “Do Not Litter” [[signs]] / everywhere.", "“쓰레기를 버리지 마시오” 표지판을 곳곳에서 봤어."],
+  ["", "You {{can’t miss}} them.", "(눈에 띄어서) 못 볼 수가 없어."],
+  ["Tom", "Did you {{ride your bikes}} / on the [[sidewalks]]?", "인도에서 자전거를 탔어?"],
+  ["Dan", "No, we didn’t.", "아니, 안 탔어."],
+  ["", "Riding a bike on the [[sidewalks]] / is {{against the law}}, / so we [[walked]] instead.", "인도에서 자전거를 타는 건 법에 어긋나. 그래서 우리는 대신 걸어갔어."]
+];
+const P8 = [
+  ["1|어떤 학교", "In some schools, / students [[litter]] everywhere.", "어떤 학교에서는 학생들이 아무 데나 쓰레기를 버려요."],
+  ["", "They leave paper / under the desk.", "책상 밑에 종이를 두고 가요."],
+  ["", "They leave food or milk / on the tables / in the cafeteria.", "급식실 식탁 위에 음식이나 우유를 두고 가요."],
+  ["", "This {{makes the school [[dirty]]}}.", "이것이 학교를 더럽게 만들어요."],
+  ["2|일본 학교", "In Japan, / schools aren’t [[dirty]].", "일본에서는 학교가 더럽지 않아요."],
+  ["", "Students [[clean]] their schools / {{every day}}.", "학생들이 매일 자기 학교를 청소해요."],
+  ["", "Teachers help, too.", "선생님들도 도와요."],
+  ["", "They {{[[pick up]]}} / the paper and other [[garbage]].", "종이와 다른 쓰레기를 주워요."],
+  ["", "They [[clean]] the windows, the desks, / the boards, and the floors.", "창문, 책상, 칠판, 그리고 바닥을 닦아요."],
+  ["", "They even [[clean]] the [[toilets]]!", "심지어 변기까지 청소해요!"],
+  ["3|깔끔한 습관", "Students in Japan / don’t make the school / messy and [[dirty]].", "일본 학생들은 학교를 지저분하고 더럽게 만들지 않아요."],
+  ["", "If they do, / then they{{’re going to}} / [[clean]] it themselves!", "만약 그렇게 하면, 자기들이 직접 청소하게 될 테니까요!"],
+  ["", "So, / they {{throw [[garbage]] in the trash can}}.", "그래서 쓰레기를 쓰레기통에 버려요."],
+  ["", "They {{keep the school neat}}.", "학교를 깔끔하게 유지해요."],
+  ["", "Teachers think / students {{are going to}} be neat / outside school, too.", "선생님들은 학생들이 학교 밖에서도 깔끔하게 지낼 거라고 생각해요."]
+];
+const SONG = [
+  ["V1|Verse 1", "When you’re walking on the [[sidewalk]],", "인도를 걸을 때는"],
+  ["", "{{Look all around}}.", "주위를 잘 둘러봐."],
+  ["", "Is [[garbage]] all inside the [[trash can]]?", "쓰레기가 모두 쓰레기통 안에 있니?"],
+  ["", "Or is some on the ground?", "아니면 땅에 떨어져 있니?"],
+  ["", "If it’s on the ground,", "땅에 떨어져 있다면"],
+  ["", "You {{know what to do}}!", "어떻게 해야 할지 알지!"],
+  ["", "Just {{[[pick]] it [[up]]}}!", "그냥 주우면 돼!"],
+  ["♪|후렴", "Keep it [[clean]]! Keep it [[clean]]!", "깨끗하게 지키자! 깨끗하게 지키자!"],
+  ["", "We want to {{do our part}}!", "우리도 우리 몫을 하고 싶어!"],
+  ["", "So now, let’s start!", "자, 이제 시작하자!"],
+  ["", "We{{’re going to}} keep our town [[clean]]!", "우리는 우리 동네를 깨끗하게 지킬 거야!"],
+  ["V2|Verse 2", "When you’re riding in the car,", "차를 타고 갈 때"],
+  ["", "Having a snack.", "간식을 먹고 있다면"],
+  ["", "Don’t throw the bag out of the window!", "봉지를 창밖으로 던지지 마!"],
+  ["", "{{Be sure to bring it back}}.", "꼭 다시 가져와."],
+  ["", "When you {{take it home}},", "집에 가져가면"],
+  ["", "You {{know what to do}}!", "어떻게 해야 할지 알지!"],
+  ["", "Put it in the [[trash can]]!", "쓰레기통에 넣어!"]
+];
+
+const ALL12 = W7.concat(W8);
+function picQuiz() {
+  return ALL12.map(w => ({ pic: w.img, q: "이 사진의 단어는?", opts: [w.en].concat(shuffle(ALL12.filter(o => o.en !== w.en)).slice(0, 3).map(o => o.en)) }));
+}
+function colloQuiz() {
+  const rows = [["a busy ____", "붐비는 시내", "downtown"], ["a water ____", "물 분수", "fountain"], ["a blue ____", "파란 쓰레기통", "trash can"], ["a stop ____", "정지 표지판", "sign"],
+    ["a paved ____", "포장된 인도", "sidewalk"], ["____ on the street", "길을 걷다", "walk"], ["____ on the street", "길에 쓰레기를 버리다", "litter"], ["____ hands", "더러운 손", "dirty"],
+    ["____ the house", "집을 청소하다", "clean"], ["____ up the trash", "쓰레기를 줍다", "pick"], ["a ____ bag", "쓰레기봉투", "garbage"], ["a white ____", "하얀 변기", "toilet"]];
+  const all = rows.map(r => r[2]);
+  return rows.map(r => ({ q: r[0], sub: r[1], opts: [r[2]].concat(shuffle(all.filter(w => w !== r[2])).slice(0, 3)) }));
+}
+const SPELL = ALL12.map(w => ({ answer: w.en, ko: w.ko, e: w.e })).concat([{ answer: "messy", ko: "지저분한", e: "🌪️" }, { answer: "neat", ko: "깔끔한", e: "👌" }, { answer: "yesterday", ko: "어제", e: "📆" }, { answer: "everywhere", ko: "어디에나", e: "🌍" }]);
+const tf = (q, a, why) => ({ q, opts: ["True ⭕", "False ❌"], a: a ? 0 : 1, fixed: true, why });
+
+/* ---- 도전판 문제 ---- */
+const CWNAME = { TRASHCAN: "trash can" };
+function defQuiz() {                    // 영어 뜻풀이 → 단어 (크로스워드 1의 힌트와 같은 뜻풀이)
+  const ws = PUZ.A.words.map(w => ({ en: CWNAME[w.word] || w.word.toLowerCase(), clue: w.clue.replace(" (2 words)", "") }));
+  return shuffle(ws).slice(0, 12).map(w => ({ q: w.clue, opts: [w.en].concat(shuffle(ws.filter(o => o.en !== w.en)).slice(0, 3).map(o => o.en)) }));
+}
+const WRITE_WORDS = SW7.concat(SW8).concat([["messy", "지저분한"], ["neat", "깔끔한"], ["drop", "떨어뜨리다"]]).map(a => ({ ko: a[1], answer: a[0] }));
+const WRITE_IDIOMS = ID7.concat(ID8, IDS).filter(a => !a[0].includes("~")).map(a => ({ ko: a[1], e: a[4], answer: a[0] }));
+
+const STAGES = [
+  { id: "s1", no: "STAGE 1", name: "단어", en: "Word Master", icon: "🔎", c: "#FF6B4A", cl: "#FFF1EC", cd: "#C03F1F", desc: "보기 없이 직접 쓰고, 크로스워드 2개에 도전!", acts: [
+    { id: "s1a", title: "사진 보고 쓰기", kind: "게임", e: "📸", d: "이름표가 가려진 사진을 보고 단어를 직접 쓰기", steps: [{ type: "type", mode: "word", shuffle: true, guide: "사진을 보고 단어를 <b>직접 써요</b>. 틀리면 힌트가 조금씩 나와요.", items: ALL12.map(w => ({ pic: w.img, ko: "이 사진의 단어는?", answer: w.en })) }] },
+    { id: "s1b", title: "영어 뜻풀이 퀴즈", kind: "게임", e: "📚", d: "영어로 된 설명을 읽고 단어 고르기", steps: [{ type: "mcq", gen: defQuiz, cols: 2 }] },
+    { id: "s1c", title: "뜻 보고 쓰기", kind: "게임", e: "🔤", d: "우리말 뜻을 보고 본문 속 단어를 직접 쓰기", steps: [{ type: "type", mode: "word", shuffle: true, pick: 12, guide: "우리말 뜻을 보고 영어 단어를 <b>직접 써요</b>.", items: WRITE_WORDS }] },
+    { id: "s1d", title: "크로스워드 1 · 뜻풀이", kind: "게임", e: "🧩", d: "영어 뜻풀이를 읽고 단어 21개 채우기", steps: [{ type: "crossword", puz: "A", guide: "힌트를 누르면 그 칸으로 이동해요. 한 단어를 다 쓰면 바로 채점돼요." }] },
+    { id: "s1e", title: "크로스워드 2 · 문장 빈칸", kind: "게임", e: "🧩", d: "본문 문장의 빈칸에 들어갈 단어 24개 채우기", steps: [{ type: "crossword", puz: "B", guide: "힌트는 <b>본문 문장</b>이에요. 빈칸(____)에 들어갈 단어를 떠올려 채워요." }] }
+  ] },
+  { id: "s2", no: "STAGE 2", name: "숙어", en: "Chunk Pro", icon: "🧩", c: "#12A594", cl: "#E5F7F4", cd: "#0A7568", desc: "보기 없이 덩어리 표현을 통째로 쓰기!", acts: [
+    { id: "s2a", title: "빈칸 직접 쓰기", kind: "게임", e: "✏️", d: "보기 없이 문장 속 숙어를 직접 쓰기", steps: [{ type: "fill", guide: "우리말 뜻에 맞게 빈칸을 <b>직접 써요</b>. 다 쓰고 ‘확인’을 눌러요.", items: [
+      { t: "We {had} a good {time}.", ko: "우리는 즐거운 시간을 보냈어." },
+      { t: "Did you {throw} {away} your trash?", ko: "쓰레기는 버렸어?" },
+      { t: "We {got} really {wet}!", ko: "우리는 완전히 젖었어!" },
+      { t: "Riding a bike on the sidewalks is {against} the {law}.", ko: "인도에서 자전거를 타는 건 법에 어긋나." },
+      { t: "They {pick} {up} the paper and other garbage.", ko: "종이와 다른 쓰레기를 주워요." },
+      { t: "They {keep} the school {neat}.", ko: "학교를 깔끔하게 유지해요." },
+      { t: "This {makes} the school {dirty}.", ko: "이것이 학교를 더럽게 만들어요." },
+      { t: "We want to {do} our {part}!", ko: "우리도 우리 몫을 하고 싶어!" },
+      { t: "{Of} {course}!", ko: "물론이지!" },
+      { t: "Be {sure} to {bring} it {back}.", ko: "꼭 다시 가져와." }] }] },
+    { id: "s2b", title: "틀린 단어 찾기", kind: "게임", e: "🕵️", d: "문장에서 잘못 쓰인 단어 하나를 찾아 누르기", steps: [{ type: "spot", guide: "우리말 뜻과 맞지 않게 <b>잘못 쓰인 단어 하나</b>를 찾아 눌러요.", items: [
+      { s: "We had a good day.", wrong: "day", fix: "time", ko: "우리는 즐거운 시간을 보냈어." },
+      { s: "Did you throw up your trash?", wrong: "up", fix: "away", ko: "쓰레기는 버렸어?" },
+      { s: "We got really water!", wrong: "water", fix: "wet", ko: "우리는 완전히 젖었어!" },
+      { s: "Riding a bike on the sidewalks is under the law.", wrong: "under", fix: "against", ko: "인도에서 자전거를 타는 건 법에 어긋나." },
+      { s: "They pick down the paper and other garbage.", wrong: "down", fix: "up", ko: "종이와 다른 쓰레기를 주워요." },
+      { s: "They make the school neat.", wrong: "make", fix: "keep", ko: "학교를 깔끔하게 유지해요." },
+      { s: "Of cause!", wrong: "cause", fix: "course", ko: "물론이지!" },
+      { s: "We want to do our party!", wrong: "party", fix: "part", ko: "우리도 우리 몫을 하고 싶어!" },
+      { s: "Students clean their schools all day.", wrong: "all", fix: "every", ko: "학생들은 매일 학교를 청소해요." }] }] },
+    { id: "s2c", title: "숙어 쓰기", kind: "게임", e: "🧠", d: "우리말 뜻을 보고 숙어를 통째로 쓰기", steps: [{ type: "type", mode: "word", shuffle: true, pick: 10, guide: "우리말 뜻을 보고 숙어를 <b>통째로 써요</b>.", items: WRITE_IDIOMS }] }
+  ] },
+  { id: "s3", no: "STAGE 3", name: "표현", en: "Grammar Star", icon: "💬", c: "#7C5CFC", cl: "#F2EEFF", cd: "#5034C4", desc: "함정을 피하고, 틀린 문장을 고치고, 질문으로 바꾸기!", acts: [
+    { id: "s3a", title: "함정 블록 문장 만들기", kind: "게임", e: "🧱", d: "쓰지 않는 함정 블록을 피해 문장 쌓기", steps: [{ type: "build", mode: "words", guide: "우리말 뜻을 보고 블록을 <b>순서대로</b> 눌러요. 쓰지 않는 <b>함정 블록</b>이 2개 섞여 있어요!", items: [
+      { answer: "Did you have fun?", ko: "재미있었니?", x: ["had", "Do"] },
+      { answer: "Did you visit the new fountain?", ko: "너희는 새 분수에 가 봤니?", x: ["visited", "Does"] },
+      { answer: "Did you throw away your trash?", ko: "너희는 쓰레기를 버렸니?", x: ["threw", "up"] },
+      { answer: "Did you ride your bikes on the sidewalks?", ko: "너희는 인도에서 자전거를 탔니?", x: ["rode", "in"] },
+      { answer: "They’re going to clean it themselves!", ko: "그들은 그것을 직접 청소할 거야!", x: ["go", "cleaning"] },
+      { answer: "Students are going to be neat outside school.", ko: "학생들은 학교 밖에서도 깔끔할 거야.", x: ["is", "being"] },
+      { answer: "We’re going to keep our town clean!", ko: "우리는 우리 동네를 깨끗하게 지킬 거야!", x: ["keeping", "go"] },
+      { answer: "Riding a bike on the sidewalks is against the law.", ko: "인도에서 자전거를 타는 건 법에 어긋나.", x: ["are", "under"] }] }] },
+    { id: "s3b", title: "틀린 문장 고쳐 쓰기", kind: "게임", e: "🩹", d: "잘못된 문장을 바르게 고쳐서 다시 쓰기", steps: [{ type: "type", guide: "빨간 문장에는 <b>틀린 곳이 한 군데</b> 있어요. 바르게 고쳐서 문장 전체를 다시 써요.", items: [
+      { box: "✗ Did you had fun?", ko: "재미있었니?", answer: "Did you have fun?" },
+      { box: "✗ We goed downtown yesterday.", ko: "우리는 어제 시내에 갔어.", answer: "We went downtown yesterday." },
+      { box: "✗ Did you threw away your trash?", ko: "쓰레기는 버렸어?", answer: "Did you throw away your trash?" },
+      { box: "✗ We throwed our trash in the trash can.", ko: "우리는 쓰레기를 쓰레기통에 버렸어.", answer: "We threw our trash in the trash can." },
+      { box: "✗ We getted really wet!", ko: "우리는 완전히 젖었어!", answer: "We got really wet!" },
+      { box: "✗ They’re go to clean it themselves!", ko: "그들은 그것을 직접 청소할 거야!", answer: "They’re going to clean it themselves!", alt: ["They are going to clean it themselves!"] },
+      { box: "✗ Students are going to being neat outside school.", ko: "학생들은 학교 밖에서도 깔끔할 거야.", answer: "Students are going to be neat outside school." },
+      { box: "✗ Do not littering.", ko: "쓰레기를 버리지 마시오.", answer: "Do not litter." }] }] },
+    { id: "s3c", title: "문장 바꿔 쓰기", kind: "게임", e: "🔁", d: "Did 질문 · be going to 문장으로 바꿔 쓰기", steps: [
+      { type: "type", title: "Did you ~? 질문으로 바꾸기", guide: "상자 속 문장이 대답이 되도록 <b>Did you ~?</b> 질문을 써요.", items: [
+        { box: "Yes, we had fun.", ko: "➜ Did you ~ ?", answer: "Did you have fun?" },
+        { box: "Yes, we visited the new fountain.", ko: "➜ Did you ~ ?", answer: "Did you visit the new fountain?" },
+        { box: "Yes, we threw away our trash.", ko: "➜ Did you ~ ?", answer: "Did you throw away your trash?" },
+        { box: "Yes, we played in the fountain.", ko: "➜ Did you ~ ?", answer: "Did you play in the fountain?" },
+        { box: "Yes, we went downtown yesterday.", ko: "➜ Did you ~ ?", answer: "Did you go downtown yesterday?" },
+        { box: "No, we didn’t ride our bikes on the sidewalks.", ko: "➜ Did you ~ ?", answer: "Did you ride your bikes on the sidewalks?" }] },
+      { type: "type", title: "be going to 문장으로 바꾸기", guide: "상자 속 문장을 <b>are going to</b>를 넣어 ‘~할 거야’로 바꿔 써요.", items: [
+        { box: "They keep the school neat.", ko: "➜ They are going to ~ .", answer: "They are going to keep the school neat.", alt: ["They’re going to keep the school neat."] },
+        { box: "We keep our town clean.", ko: "➜ We are going to ~ .", answer: "We are going to keep our town clean.", alt: ["We’re going to keep our town clean."] },
+        { box: "Students clean their schools.", ko: "➜ Students are going to ~ .", answer: "Students are going to clean their schools." },
+        { box: "They throw garbage in the trash can.", ko: "➜ They are going to ~ .", answer: "They are going to throw garbage in the trash can.", alt: ["They’re going to throw garbage in the trash can."] }] }] }
+  ] },
+  { id: "s4", no: "STAGE 4", name: "문장 이해", en: "Story Master", icon: "🕵️", c: "#2D7FF9", cl: "#EAF2FF", cd: "#1A57B8", desc: "본문을 안 보고 순서 맞추고, 문장으로 답하기!", acts: [
+    { id: "s4a", title: "Unit 7 깊이 읽기", kind: "게임", e: "🏙️", d: "순서 6개 · 문장으로 답하기 · 요약 직접 쓰기", steps: [
+      { type: "order", title: "Dan이 말한 순서대로 누르기", guide: "본문을 떠올리며 <b>먼저 나온 일부터</b> 차례대로 눌러요.", items: [
+        ["They threw their trash in the trash can.", 4], ["John and Dan went downtown.", 1], ["They walked instead of riding their bikes.", 6],
+        ["They had some drinks and snacks.", 3], ["They saw “Do Not Litter” signs everywhere.", 5], ["They played in the fountain and got really wet.", 2]] },
+      { type: "type", title: "질문에 문장으로 답하기", guide: "질문을 읽고 <b>영어 문장</b>으로 답해요. 대문자로 시작하고 마침표를 찍어요.", items: [
+        { box: "Who went downtown yesterday?", ko: "누가 어제 시내에 갔나요?", answer: "John and Dan went downtown.", alt: ["John and Dan went downtown yesterday.", "John and Dan did.", "Dan and John went downtown.", "Dan and John went downtown yesterday.", "Dan and John did."] },
+        { box: "What did they do in the fountain?", ko: "분수에서 무엇을 했나요?", answer: "They played in the fountain.", alt: ["They played.", "They played in it."] },
+        { box: "Where did they throw their trash?", ko: "쓰레기를 어디에 버렸나요?", answer: "They threw their trash in the trash can.", alt: ["They threw it in the trash can.", "In the trash can."] },
+        { box: "What did they have after playing?", ko: "놀고 나서 무엇을 먹었나요?", answer: "They had some drinks and snacks.", alt: ["They had drinks and snacks.", "Some drinks and snacks.", "Drinks and snacks."] },
+        { box: "Why did they walk?", ko: "왜 걸어갔나요?", answer: "Riding a bike on the sidewalks is against the law.", alt: ["Because riding a bike on the sidewalks is against the law.", "It is against the law.", "It’s against the law."] }] },
+      { type: "fill", title: "요약문 직접 쓰기", guide: "보기 없이 빈칸을 <b>직접 써요</b>. 다 쓰고 ‘확인’을 눌러요.", text: "John and Dan went {downtown} yesterday. They played in the fountain and got really {wet}. Then, they had drinks and snacks. They threw their trash in the {trash can}. They saw “Do Not Litter” {signs} everywhere. They didn’t ride their bikes on the sidewalks. It’s against the {law}. So they {walked} instead." }] },
+    { id: "s4b", title: "Unit 8 깊이 읽기", kind: "게임", e: "🏫", d: "순서 6개 · 문장으로 답하기 · 요약 직접 쓰기", steps: [
+      { type: "order", title: "본문에 나온 순서대로 누르기", guide: "본문을 떠올리며 <b>먼저 나온 문장부터</b> 차례대로 눌러요.", items: [
+        ["They even clean the toilets!", 4], ["In some schools, students litter everywhere.", 1], ["Teachers think students are going to be neat outside school, too.", 6],
+        ["In Japan, students clean their schools every day.", 3], ["This makes the school dirty.", 2], ["So, they throw garbage in the trash can.", 5]] },
+      { type: "type", title: "질문에 문장으로 답하기", guide: "질문을 읽고 <b>영어 문장</b>으로 답해요. 대문자로 시작하고 마침표를 찍어요.", items: [
+        { box: "How often do students in Japan clean their schools?", ko: "일본 학생들은 얼마나 자주 학교를 청소하나요?", answer: "They clean their schools every day.", alt: ["Every day.", "They clean every day.", "Students clean their schools every day.", "They clean them every day."] },
+        { box: "Who helps the students?", ko: "누가 학생들을 돕나요?", answer: "Teachers help the students.", alt: ["Teachers help.", "Teachers help, too.", "Teachers do.", "Teachers.", "Teachers help them."] },
+        { box: "What do students leave under the desk?", ko: "학생들은 책상 밑에 무엇을 두고 가나요?", answer: "They leave paper under the desk.", alt: ["They leave paper.", "Paper."] },
+        { box: "Where do students in Japan throw garbage?", ko: "일본 학생들은 쓰레기를 어디에 버리나요?", answer: "They throw garbage in the trash can.", alt: ["In the trash can.", "They throw it in the trash can."] },
+        { box: "What do teachers think?", ko: "선생님들은 어떻게 생각하나요?", answer: "Students are going to be neat outside school, too.", alt: ["They think students are going to be neat outside school, too.", "Teachers think students are going to be neat outside school, too.", "Students are going to be neat outside school."] }] },
+      { type: "fill", title: "요약문 직접 쓰기", guide: "보기 없이 빈칸을 <b>직접 써요</b>. 다 쓰고 ‘확인’을 눌러요.", text: "In some schools, students {litter} everywhere. This makes the school {dirty}. In Japan, schools aren’t dirty. Students clean their schools {every day}. They even clean the {toilets}. Teachers help, too. Students in Japan don’t make their school {messy} and dirty. They keep the school {neat}." }] }
+  ] },
+  { id: "s5", no: "FINAL", name: "실전 쓰기", en: "Final Mission", icon: "🏁", c: "#E0457B", cl: "#FFEEF4", cd: "#A3224F", desc: "핵심 문장 15개를 힌트 없이 쓰기!", acts: [
+    { id: "s5a", title: "실전 쓰기 15문장", kind: "게임", e: "✍️", d: "힌트는 틀린 뒤에만 · 대문자와 문장 부호까지 정확하게", steps: [{ type: "type", guide: "우리말을 보고 영어 문장을 써요. <b>대문자</b>로 시작하고 끝에 <b>. ? !</b> 를 잊지 않기! 힌트는 틀린 뒤에만 나와요.", items: [
+      { ko: "어제 뭐 했어?", answer: "What did you do yesterday?" },
+      { ko: "존과 나는 어제 시내에 갔어.", answer: "John and I went downtown yesterday." },
+      { ko: "재미있었니?", answer: "Did you have fun?" },
+      { ko: "우리는 즐거운 시간을 보냈어.", answer: "We had a good time." },
+      { ko: "우리는 완전히 젖었어!", answer: "We got really wet!" },
+      { ko: "너희는 쓰레기를 버렸니?", answer: "Did you throw away your trash?" },
+      { ko: "우리는 쓰레기를 쓰레기통에 버렸어.", answer: "We threw our trash in the trash can." },
+      { ko: "너희는 인도에서 자전거를 탔니?", answer: "Did you ride your bikes on the sidewalks?" },
+      { ko: "인도에서 자전거를 타는 것은 법에 어긋나.", answer: "Riding a bike on the sidewalks is against the law." },
+      { ko: "학생들은 매일 자기 학교를 청소해요.", answer: "Students clean their schools every day." },
+      { ko: "그들은 심지어 변기까지 청소해요!", answer: "They even clean the toilets!" },
+      { ko: "그들은 그것을 직접 청소할 거야!", answer: "They’re going to clean it themselves!", alt: ["They are going to clean it themselves!"] },
+      { ko: "그들은 쓰레기를 쓰레기통에 버려요.", answer: "They throw garbage in the trash can." },
+      { ko: "그들은 학교를 깔끔하게 유지해요.", answer: "They keep the school neat." },
+      { ko: "학생들은 학교 밖에서도 깔끔할 거야.", answer: "Students are going to be neat outside school." }] }] }
+  ] }
+];
+const ALLACTS = STAGES.flatMap(s => s.acts);
+const MAXSTARS = ALLACTS.length * 3;
+const starsOf = st => st.acts.reduce((n, a) => n + (S.stars[a.id] || 0), 0);
+const totalStars = () => STAGES.reduce((n, s) => n + starsOf(s), 0);
+const starRow = n => h("span", { class: "stars", html: "<b>★</b>".repeat(n) + "★".repeat(3 - n) });
+
+/* ================= engines ================= */
+const ENG = {};
+function progress(host, n) {
+  const fill = h("div", { class: "prog-in" }), lab = h("span", { class: "prog-lab" });
+  host.append(h("div", { class: "prog-wrap" }, h("div", { class: "prog" }, fill), lab));
+  return { set(i) { fill.style.width = (i / n * 100) + "%"; lab.textContent = Math.min(i + 1, n) + " / " + n; } };
+}
+function doneBar(host, label, fn) {
+  host.append(h("div", { class: "donebar" }, h("button", { class: "btn pri big", type: "button", onclick: fn }, label)));
+}
+
+ENG.mcq = (host, cfg, done) => {
+  let items = cfg.gen ? cfg.gen() : cfg.items.slice();
+  if (!cfg.keep) items = shuffle(items);
+  if (cfg.pick) items = items.slice(0, cfg.pick);
+  let i = 0, miss = 0;
+  const bar = progress(host, items.length), box = h("div", { class: "q" });
+  host.append(box);
+  function show() {
+    if (i >= items.length) return done(miss, items.length);
+    bar.set(i);
+    const it = items[i];
+    box.innerHTML = "";
+    if (it.pic) box.append(h("div", { class: "picq" }, h("img", { src: IMG + it.pic, alt: "" })));
+    if (it.ring) box.append(h("div", { class: "ring" }, it.ring));
+    const qt = h("div", { class: "qt", html: gapHtml(it.q) });
+    if (it.hint) qt.append(h("span", { class: "hintv" }, it.hint));
+    box.append(qt);
+    if (it.sub) box.append(h("div", { class: "qs", html: it.sub }));
+    const right = it.a == null ? [0] : [].concat(it.a);
+    let opts = it.opts.map((t, k) => ({ t, k }));
+    if (!it.fixed) opts = shuffle(opts);
+    const cols = it.cols || cfg.cols || 2;
+    const grid = h("div", { class: "opts", style: { gridTemplateColumns: `repeat(${cols},1fr)`, maxWidth: cols === 1 ? "680px" : "", margin: cols === 1 ? "20px auto 0" : "" } });
+    const fb = h("div");
+    const win = () => {
+      grid.querySelectorAll(".opt").forEach(b => b.disabled = true);
+      sfx.ok();
+      fb.innerHTML = "";
+      const next = () => { i++; show(); };
+      if (it.why) fb.append(h("div", { class: "fb ok" }, "정답! ", it.why, h("span", { class: "sp" }), h("button", { class: "btn pri", type: "button", onclick: next }, "다음 ▶")));
+      else { fb.append(h("div", { class: "fb ok" }, "정답! 🎉")); later(next, 950); }
+    };
+    if (it.multi) {
+      const picked = new Set();
+      opts.forEach(o => {
+        const b = h("button", { class: "opt", type: "button", html: o.t, onclick: () => { b.classList.remove("no"); picked.has(o.k) ? picked.delete(o.k) : picked.add(o.k); b.classList.toggle("sel", picked.has(o.k)); sfx.tap(); } });
+        b.dataset.k = o.k;
+        grid.append(b);
+      });
+      box.append(grid, h("div", { class: "donebar" }, h("button", { class: "btn pri big", type: "button", onclick: () => {
+        const okAll = right.length === picked.size && right.every(k => picked.has(k));
+        if (okAll) { grid.querySelectorAll(".opt").forEach(b => { b.classList.remove("sel"); if (picked.has(+b.dataset.k)) b.classList.add("ok"); }); win(); }
+        else {
+          miss++; sfx.no();
+          const wrong = [...picked].filter(k => !right.includes(k)).length, lack = right.filter(k => !picked.has(k)).length;
+          grid.classList.remove("shake"); void grid.offsetWidth; grid.classList.add("shake");
+          fb.innerHTML = "";
+          fb.append(h("div", { class: "fb no" }, (wrong ? `본문에 없는 것을 ${wrong}개 골랐어요. ` : "") + (lack ? `아직 ${lack}개를 더 찾아야 해요.` : "")));
+        }
+      } }, "확인")), fb);
+    } else {
+      opts.forEach(o => {
+        const b = h("button", { class: "opt", type: "button", html: o.t, onclick: () => {
+          if (right.includes(o.k)) { b.classList.add("ok", "pop"); win(); }
+          else { b.classList.add("no", "shake"); b.disabled = true; miss++; sfx.no(); }
+        } });
+        grid.append(b);
+      });
+      box.append(grid, fb);
+    }
+  }
+  show();
+};
+
+ENG.match = (host, cfg, done) => {
+  const per = cfg.per || 6;
+  let pairs = shuffle(cfg.pairs);
+  if (cfg.pick) pairs = pairs.slice(0, cfg.pick);
+  const rounds = [];
+  for (let k = 0; k < pairs.length; k += per) rounds.push(pairs.slice(k, k + per));
+  let r = 0, miss = 0;
+  const bar = progress(host, rounds.length), box = h("div", { class: "match" });
+  host.append(box);
+  function round() {
+    if (r >= rounds.length) return done(miss, pairs.length);
+    bar.set(r);
+    box.innerHTML = "";
+    const sel = { l: null, r: null };
+    let left = rounds[r].length;
+    const cols = { l: h("div", { class: "col" }), r: h("div", { class: "col" }) };
+    const mk = (o, side) => {
+      const b = h("button", { class: "mcard " + side, type: "button", html: o.t });
+      b.onclick = () => {
+        if (sel[side]) sel[side].b.classList.remove("sel");
+        sel[side] = { o, b }; b.classList.add("sel"); sfx.tap();
+        if (!sel.l || !sel.r) return;
+        const a = sel.l, c = sel.r;
+        sel.l = sel.r = null;
+        [a.b, c.b].forEach(x => x.classList.remove("sel"));
+        if (a.o.k === c.o.k) {
+          [a.b, c.b].forEach(x => x.classList.add("ok"));
+          sfx.ok(); left--;
+          if (!left) later(() => { r++; round(); }, 750);
+        } else {
+          miss++; sfx.no();
+          [a.b, c.b].forEach(x => { x.classList.add("no", "shake"); setTimeout(() => x.classList.remove("no", "shake"), 450); });
+        }
+      };
+      return b;
+    };
+    rounds[r].map((p, k) => ({ k, t: p[0] })).forEach(o => cols.l.append(mk(o, "l")));
+    mixed(rounds[r].map((p, k) => ({ k, t: p[1] }))).forEach(o => cols.r.append(mk(o, "r")));
+    box.append(cols.l, cols.r);
+  }
+  round();
+};
+
+ENG.build = (host, cfg, done) => {
+  let items = shuffle(cfg.items);
+  if (cfg.mode === "words") items = cfg.items.slice();
+  if (cfg.pick) items = items.slice(0, cfg.pick);
+  const words = cfg.mode === "words";
+  let i = 0, miss = 0;
+  const bar = progress(host, items.length), box = h("div", { class: "bd" });
+  host.append(box);
+  function show() {
+    if (i >= items.length) return done(miss, items.length * 3);
+    bar.set(i);
+    const it = items[i];
+    const toks = words ? it.answer.split(" ") : it.answer.replace(/ /g, "").split("");
+    const gapAt = words ? -1 : it.answer.indexOf(" ");
+    let pos = 0;
+    box.innerHTML = "";
+    if (it.e) box.append(h("div", { class: "pe" }, it.e));
+    box.append(h("div", { class: "pk" }, it.ko));
+    if (gapAt > 0) box.append(h("div", { class: "ps" }, "두 단어예요"));
+    const slots = toks.map(() => h("span", { class: "slot" + (words ? " w" : "") }));
+    const row = h("div", { class: "slots" });
+    slots.forEach((s, k) => { if (k === gapAt) row.append(h("span", { class: "slot gap" })); row.append(s); });
+    slots[0].classList.add("cur");
+    const pool = h("div", { class: "pool" });
+    mixed(toks.concat(it.x || []).map((t, k) => ({ t, k }))).forEach(o => {   // it.x: 함정 블록
+      const b = h("button", { class: "tok" + (words ? " w" : ""), type: "button" }, o.t);
+      b.onclick = () => {
+        if (o.t !== toks[pos]) {
+          miss++; sfx.no();
+          b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake");
+          return;
+        }
+        slots[pos].textContent = o.t; slots[pos].classList.remove("cur"); slots[pos].classList.add("fill");
+        b.classList.add("used"); b.disabled = true; pos++;
+        if (pos < toks.length) { slots[pos].classList.add("cur"); sfx.tap(); return; }
+        sfx.ok();
+        row.classList.add("pop");
+        later(() => { i++; show(); }, words ? 1900 : 1300);
+      };
+      pool.append(b);
+    });
+    box.append(row, pool);
+  }
+  show();
+};
+
+ENG.order = (host, cfg, done) => {
+  let miss = 0, seq = [];
+  const list = h("div", { class: "ord" }), fb = h("div");
+  const btns = cfg.items.map((it, k) => {
+    const n = h("i"), b = h("button", { type: "button" }, n, h("span", null, it[0]));
+    b.onclick = () => {
+      if (seq.includes(k)) return;
+      seq.push(k); n.textContent = seq.length; b.classList.add("on"); sfx.tap();
+      if (seq.length < cfg.items.length) return;
+      const good = seq.every((kk, idx) => cfg.items[kk][1] === idx + 1);
+      btns.forEach((x, kk) => x.classList.add(cfg.items[kk][1] === seq.indexOf(kk) + 1 ? "ok" : "no"));
+      fb.innerHTML = "";
+      if (good) { sfx.ok(); fb.append(h("div", { class: "fb ok" }, "순서를 정확히 맞혔어요! 🎉")); later(() => done(miss, 2), 1300); }
+      else {
+        miss++; sfx.no();
+        fb.append(h("div", { class: "fb no" }, "빨간 칸의 순서가 달라요. 본문을 떠올리며 다시 해 봐요!"));
+        later(reset, 1700);
+      }
+    };
+    return b;
+  });
+  function reset() { seq = []; fb.innerHTML = ""; btns.forEach(b => { b.className = ""; b.firstChild.textContent = ""; }); }
+  btns.forEach(b => list.append(b));
+  host.append(list, fb, h("div", { class: "donebar" }, h("button", { class: "btn", type: "button", onclick: reset }, "↺ 처음부터 다시 누르기")));
+};
+
+function clozeBox(box, text, extra, onDone, onMiss, one) {
+  const blanks = [];
+  const p = h("div", { class: "cz" + (one ? " one" : "") });
+  text.split(/\{([^}]+)\}/).forEach((part, idx) => {
+    if (idx % 2 === 0) { p.append(part); return; }
+    const el = h("button", { class: "blk", type: "button" }, String(blanks.length + 1));
+    const bl = { ans: part, el, done: false };
+    el.onclick = () => { if (!bl.done) setCur(blanks.indexOf(bl)); };
+    blanks.push(bl); p.append(el);
+  });
+  let cur = 0;
+  function setCur(k) { cur = k; blanks.forEach((b, n) => b.el.classList.toggle("cur", n === k && !b.done)); }
+  const bank = h("div", { class: "bank" });
+  shuffle(blanks.map(b => b.ans).concat(extra || [])).forEach(t => {
+    const b = h("button", { class: "tok w", type: "button" }, t);
+    b.onclick = () => {
+      const bl = blanks[cur];
+      if (!bl || bl.done) return;
+      if (t !== bl.ans) { onMiss(); sfx.no(); b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake"); return; }
+      bl.done = true; bl.el.textContent = t; bl.el.classList.add("fill"); bl.el.classList.remove("cur");
+      b.classList.add("used"); b.disabled = true;
+      const nx = blanks.findIndex(x => !x.done);
+      if (nx < 0) { sfx.ok(); onDone(); } else { sfx.tap(); setCur(nx); }
+    };
+    bank.append(b);
+  });
+  setCur(0);
+  box.append(p, bank);
+  return blanks.length;
+}
+ENG.cloze = (host, cfg, done) => {
+  let miss = 0;
+  if (cfg.text) {
+    const box = h("div");
+    host.append(box);
+    const n = clozeBox(box, cfg.text, cfg.x, () => later(() => done(miss, n), 1200), () => miss++, false);
+    return;
+  }
+  const items = cfg.items.slice();
+  let i = 0, total = 0;
+  const bar = progress(host, items.length), box = h("div");
+  host.append(box);
+  function show() {
+    if (i >= items.length) return done(miss, total);
+    bar.set(i);
+    const it = items[i];
+    box.innerHTML = "";
+    box.append(h("div", { class: "czko", style: { fontSize: "1.15rem", marginBottom: "10px" } }, "“" + it.ko + "”"));
+    total += clozeBox(box, it.t, it.x, () => later(() => { i++; show(); }, 1500), () => miss++, true);
+  }
+  show();
+};
+
+const norm = s => s.trim().replace(/[’‘`´]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, " ");
+const loose = s => norm(s).toLowerCase().replace(/[.?!,"]/g, "").trim();
+// 직접 쓰기. 힌트는 틀린 뒤에만 조금씩: 1번 틀리면 첫 글자(첫 단어), 2번이면 글자 수, 3번이면 정답 따라 쓰기.
+// mode "word": 단어·숙어 쓰기(대소문자·문장 부호는 보지 않음) / 기본: 문장 쓰기(대문자·문장 부호까지 정확히)
+ENG.type = (host, cfg, done) => {
+  let items = cfg.shuffle ? shuffle(cfg.items) : cfg.items.slice();
+  if (cfg.pick) items = items.slice(0, cfg.pick);
+  const word = cfg.mode === "word";
+  let i = 0, miss = 0;
+  const bar = progress(host, items.length), box = h("div", { class: "ty" });
+  host.append(box);
+  function show() {
+    if (i >= items.length) return done(miss, items.length);
+    bar.set(i);
+    const it = items[i], answers = [it.answer].concat(it.alt || []);
+    let tries = 0;
+    box.innerHTML = "";
+    const n = it.answer.split(" ").length;
+    const hint = h("div", { class: "hint", html: word ? `글자 ${it.answer.replace(/ /g, "").length}개` + (n > 1 ? ` · 단어 ${n}개` : "") : (it.alt ? "" : `단어 ${n}개`) });
+    const inp = h("input", { type: "text", autocomplete: "off", autocapitalize: "off", autocorrect: "off", spellcheck: "false", placeholder: word ? "여기에 영어로 써요" : "여기에 영어 문장을 써요" });
+    const fb = h("div");
+    const check = () => {
+      const v = inp.value;
+      if (!v.trim()) { inp.focus(); return; }
+      fb.innerHTML = "";
+      const hit = answers.find(a => word ? loose(a) === loose(v) : norm(a) === norm(v));
+      if (hit) {
+        inp.className = "ok"; inp.disabled = true; sfx.ok();
+        fb.append(h("div", { class: "fb ok" }, "완벽해요! ", h("b", null, hit), h("span", { class: "sp" }), h("button", { class: "btn pri", type: "button", onclick: () => { i++; show(); } }, "다음 ▶")));
+        return;
+      }
+      miss++; tries++; sfx.no(); inp.className = "no shake"; setTimeout(() => inp.classList.remove("shake"), 400);
+      if (!word && answers.some(a => loose(a) === loose(v))) fb.append(h("div", { class: "fb no" }, "단어는 다 맞았어요! 대문자와 문장 부호( . ? ! ’ )를 확인해요."));
+      else if (word) fb.append(h("div", { class: "fb no" }, "철자를 다시 확인해 봐요."));
+      else {
+        const a = loose(it.answer).split(" "), b = loose(v).split(" ");
+        let k = 0;
+        while (k < a.length && a[k] === b[k]) k++;
+        fb.append(h("div", { class: "fb no" }, k ? `앞에서 ${k}번째 단어까지는 맞았어요. 그 다음을 다시 봐요.` : "첫 단어부터 다시 확인해 봐요."));
+      }
+      const pattern = it.answer.split(" ").map(w => w[0] + "_".repeat(Math.max(0, w.replace(/[.?!,]/g, "").length - 1))).join(" ");
+      if (tries >= 3) hint.innerHTML = `정답을 보고 똑같이 따라 써 봐요: <b>${it.answer}</b>`;
+      else if (tries === 2) hint.innerHTML = "힌트: <b>" + pattern + "</b>";
+      else hint.innerHTML = word ? `첫 글자 힌트: <b>${it.answer[0]}</b>` : `첫 단어 힌트: <b>${it.answer.split(" ")[0]}</b>`;
+      inp.focus();
+    };
+    inp.addEventListener("keydown", e => { if (e.key === "Enter") check(); });
+    inp.addEventListener("input", () => inp.className = "");
+    box.append(...[
+      it.pic && h("div", { class: "picq" }, h("img", { src: IMG + it.pic, alt: "" })),
+      it.e && h("div", { class: "qe" }, it.e),
+      it.box && h("div", { class: "tbox" + (it.box.startsWith("✗") ? " bad" : "") }, it.box),
+      h("div", { class: "ko" }, it.ko), hint, inp,
+      h("div", { class: "row" }, h("button", { class: "btn pri big", type: "button", onclick: check }, "확인")), fb].filter(Boolean));
+    inp.focus();
+  }
+  show();
+};
+
+// 보기 없이 빈칸 직접 쓰기. 문장 여러 개(items) 또는 긴 글 하나(text).
+ENG.fill = (host, cfg, done) => {
+  const items = cfg.text ? [{ t: cfg.text }] : cfg.items.slice();
+  let i = 0, miss = 0, total = 0;
+  const bar = items.length > 1 ? progress(host, items.length) : null, box = h("div");
+  host.append(box);
+  function show() {
+    if (i >= items.length) return done(miss, total);
+    if (bar) bar.set(i);
+    const it = items[i], blanks = [];
+    box.innerHTML = "";
+    if (it.ko) box.append(h("div", { class: "czko", style: { fontSize: "1.15rem", marginBottom: "10px" } }, "“" + it.ko + "”"));
+    const p = h("div", { class: "cz" + (cfg.text ? "" : " one") });
+    it.t.split(/\{([^}]+)\}/).forEach((part, idx) => {
+      if (idx % 2 === 0) { p.append(part); return; }
+      const inp = h("input", { class: "fin", type: "text", autocomplete: "off", autocapitalize: "off", autocorrect: "off", spellcheck: "false", size: Math.max(5, part.length + 2) });
+      inp.addEventListener("keydown", e => { if (e.key === "Enter") check(); });
+      inp.addEventListener("input", () => inp.classList.remove("no"));
+      blanks.push({ ans: part, inp, tries: 0 }); p.append(inp);
+    });
+    total += blanks.length;
+    const fb = h("div");
+    function check() {
+      let bad = 0, empty = 0;
+      fb.innerHTML = "";
+      blanks.forEach(b => {
+        if (b.inp.disabled) return;
+        if (!b.inp.value.trim()) { empty++; return; }
+        if (loose(b.inp.value) === loose(b.ans)) { b.inp.value = b.ans; b.inp.disabled = true; b.inp.className = "fin ok"; return; }
+        bad++; b.tries++; b.inp.classList.add("no");
+        if (b.tries >= 2) { b.inp.value = ""; b.inp.placeholder = b.tries >= 3 ? b.ans : b.ans[0] + "…"; }   // 2번 틀리면 첫 글자, 3번이면 정답
+      });
+      miss += bad;
+      if (bad || empty) {
+        if (bad) sfx.no();
+        fb.append(h("div", { class: "fb no" }, bad ? `빨간 칸 ${bad}개를 다시 확인해 봐요.` : "빈칸을 모두 채워요."));
+        const first = blanks.find(b => !b.inp.disabled && (!b.inp.value.trim() || b.inp.classList.contains("no")));
+        if (first) first.inp.focus();
+        return;
+      }
+      sfx.ok();
+      fb.append(h("div", { class: "fb ok" }, "모두 맞았어요! 🎉"));
+      later(() => { i++; show(); }, 1400);
+    }
+    box.append(p, h("div", { class: "donebar" }, h("button", { class: "btn pri big", type: "button", onclick: check }, "확인")), fb);
+    blanks[0].inp.focus();
+  }
+  show();
+};
+
+// 문장에서 잘못 쓰인 단어 하나 찾기
+ENG.spot = (host, cfg, done) => {
+  const items = shuffle(cfg.items);
+  let i = 0, miss = 0;
+  const bar = progress(host, items.length), box = h("div", { class: "q" });
+  host.append(box);
+  function show() {
+    if (i >= items.length) return done(miss, items.length);
+    bar.set(i);
+    const it = items[i];
+    box.innerHTML = "";
+    const row = h("div", { class: "spot" }), fb = h("div");
+    it.s.split(" ").forEach(tok => {
+      const clean = tok.replace(/[.?!,]/g, "");
+      const b = h("button", { class: "sw", type: "button" }, tok);
+      b.onclick = () => {
+        if (clean !== it.wrong) { b.classList.add("no", "shake"); b.disabled = true; miss++; sfx.no(); return; }
+        row.querySelectorAll(".sw").forEach(x => x.disabled = true);
+        b.classList.add("ok"); b.innerHTML = `<s>${clean}</s> ${it.fix}${tok.slice(clean.length)}`;
+        sfx.ok();
+        fb.append(h("div", { class: "fb ok" }, `정답! ${it.wrong} ➜ ${it.fix}`, h("span", { class: "sp" }), h("button", { class: "btn pri", type: "button", onclick: () => { i++; show(); } }, "다음 ▶")));
+      };
+      row.append(b);
+    });
+    box.append(h("div", { class: "qs", style: { fontSize: "1.1rem", marginBottom: "14px" } }, "“" + it.ko + "”"), row, fb);
+  }
+  show();
+};
+
+ENG.cards = (host, cfg, done) => {
+  let total = 0;
+  const seen = new Set(), line = h("div", { class: "cnt-line" });
+  const upd = () => line.textContent = `뜻을 확인한 카드 ${seen.size} / ${total}`;
+  cfg.groups.forEach(g => {
+    host.append(h("div", { class: "grp" }, g.title));
+    const grid = h("div", { class: "cg" + (g.mini ? " mini" : "") });
+    g.items.forEach(it => {
+      const id = total++;
+      const card = h("div", { class: "cd", role: "button", tabindex: "0" },
+        it.img && h("div", { class: "im" }, h("img", { src: IMG + it.img, alt: it.en, loading: "lazy" })),
+        it.em && h("div", { class: "em" }, it.em),
+        h("div", { class: "w" }, it.en),
+        it.pr && h("div", { class: "pr" }, "[" + it.pr + "]"),
+        h("div", { class: "bk" }, h("div", { class: "tap" }, "👆 눌러서 뜻 보기"), h("div", { class: "m" }, it.ko), it.x && h("div", { class: "x", html: it.x })));
+      const flip = () => { card.classList.toggle("open"); seen.add(id); upd(); sfx.tap(); };
+      card.addEventListener("click", flip);
+      card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); } });
+      grid.append(card);
+    });
+    host.append(grid);
+  });
+  upd();
+  host.append(line);
+  doneBar(host, "다 봤어요 ✓", () => done(0, 1));
+};
+
+ENG.info = (host, cfg, done) => {
+  const box = h("div", { class: "info", html: cfg.html });
+  host.append(box);
+  doneBar(host, cfg.btn || "다 읽었어요 ✓", () => done(0, 0));
+};
+
+ENG.read = (host, cfg, done) => {
+  const wrap = h("div"), list = h("div", { class: "rd" });
+  const rows = cfg.lines.map(l => {
+    const tag = l[0];
+    let spk = "";
+    if (tag === "Tom") spk = h("b", { class: "t" }, "Tom");
+    else if (tag === "Dan") spk = h("b", { class: "d" }, "Dan");
+    else if (tag) { const p = tag.split("|"); spk = [h("b", { class: "p" }, p[0]), h("span", null, p[1])]; }
+    const row = h("div", { class: "ln" }, h("div", { class: "spk" }, spk),
+      h("div", { class: "e" }, h("span", { html: mark(l[1]), onclick: e => e.currentTarget.classList.toggle("peek") })),
+      h("div", { class: "k" }, h("span", { onclick: e => e.currentTarget.classList.toggle("peek") }, l[2])));
+    list.append(row);
+    return row;
+  });
+  // 말하는 사람/문단별 배경
+  let who = "", alt = false;
+  cfg.lines.forEach((l, idx) => { if (l[0]) { who = l[0]; alt = !alt; } rows[idx].classList.toggle(cfg.dialog ? "dan" : "alt", cfg.dialog ? who === "Dan" : !alt); });
+  const tog = (cls, on, off) => {
+    const b = h("button", { class: "btn", type: "button" }, on);
+    b.onclick = () => { const v = wrap.classList.toggle(cls); b.textContent = v ? off : on; wrap.querySelectorAll(".peek").forEach(x => x.classList.remove("peek")); sfx.tap(); };
+    return b;
+  };
+  wrap.append(h("div", { class: "tools" }, tog("hide-k", "🙈 우리말 가리기", "👀 우리말 보기"), tog("hide-e", "🙈 영어 가리기", "👀 영어 보기")),
+    h("p", { class: "guide", html: cfg.song ? "노래는 <b>교재 음원(TR 20)</b>을 틀고 따라 불러요. 한쪽을 가리고 가사를 떠올려 본 다음, 가린 글자를 눌러 확인해요." :
+      "한 줄씩 <b>소리 내어 읽어요</b>. 한쪽을 가리고 말해 본 다음, 가린 글자를 눌러 확인해요." }), list,
+    h("div", { class: "lg", html: '<span><b>굵은 색 글씨</b> = New Words</span><span><u>노란 밑줄</u> = 숙어·핵심 표현</span><span>/ = 끊어 읽는 곳</span>' }));
+  host.append(wrap);
+  doneBar(host, "다 읽었어요 ✓", () => done(0, 0));
+};
+
+ENG.talk = (host, cfg, done) => {
+  const okSet = new Set();
+  const fin = h("button", { class: "btn pri big", type: "button", disabled: true }, "두 이야기 모두 말했어요 ✓");
+  fin.onclick = () => done(0, 0);
+  cfg.maps.forEach(m => {
+    const panel = h("div", { class: "tk lv1" });
+    const lvBtns = ["Lv.1 힌트 보고", "Lv.2 그림만 보고", "Lv.3 아무것도 안 보고"].map((t, k) => {
+      const b = h("button", { class: "btn" + (k === 0 ? " on" : ""), type: "button" }, t);
+      b.onclick = () => { panel.classList.remove("lv1", "lv2", "lv3"); panel.classList.add("lv" + (k + 1)); lvBtns.forEach(x => x.classList.remove("on")); b.classList.add("on"); sfx.tap(); };
+      return b;
+    });
+    const grid = h("div", { class: "sm c" + m.cols }, m.steps.map((s, k) =>
+      h("div", { class: "st" }, h("span", { class: "n" }, k + 1), h("div", { class: "e" }, s.e), s.t && h("h5", null, s.t), h("div", { class: "kw" }, s.kw.map(w => h("span", null, w))))));
+    let t0 = 0, timer = null;
+    const watch = h("span", { class: "watch" }, "0.0초"), best = h("span", { class: "best" });
+    const showBest = () => best.textContent = S.best[m.id] ? `내 최고 기록 ${S.best[m.id].toFixed(1)}초` : "";
+    const go = h("button", { class: "btn pri", type: "button" }, "⏱ 말하기 시작");
+    go.onclick = () => {
+      if (timer) {
+        clearInterval(timer); timer = null;
+        const sec = (performance.now() - t0) / 1000;
+        watch.textContent = sec.toFixed(1) + "초";
+        go.textContent = "⏱ 다시 도전";
+        if (sec >= 5) {
+          if (!S.best[m.id] || sec < S.best[m.id]) { S.best[m.id] = sec; save(); }
+          okSet.add(m.id); panel.classList.add("ok"); sfx.ok(); showBest();
+          fin.disabled = okSet.size < cfg.maps.length;
+        }
+        return;
+      }
+      t0 = performance.now(); go.textContent = "⏹ 다 말했어요!"; sfx.tap();
+      timer = setInterval(() => { if (!document.body.contains(watch)) { clearInterval(timer); return; } watch.textContent = ((performance.now() - t0) / 1000).toFixed(1) + "초"; }, 100);
+    };
+    showBest();
+    panel.append(h("h3", null, h("span", { class: "tg" }, "STORY MAP"), m.title, h("small", null, m.sub)), h("div", { class: "lv" }, lvBtns), grid,
+      h("div", { class: "ctl" }, go, watch, best));
+    host.append(panel);
+  });
+  host.append(h("div", { class: "donebar" }, fin));
+};
+
+ENG.interview = (host, cfg, done, act) => {
+  const box = h("div", { class: "iv" });
+  const fin = h("button", { class: "btn pri big", type: "button" }, "다 쓰고 말했어요 ✓");
+  const inputs = cfg.items.map((it, k) => {
+    const key = act.id + ":" + k;
+    const inp = h("input", { type: "text", autocomplete: "off", autocapitalize: "off", spellcheck: "false", placeholder: "내 대답을 영어로 써요", value: S.notes[key] || "" });
+    const upd = () => { S.notes[key] = inp.value; save(); fin.disabled = !inputs.every(x => x.value.trim().length > 2); };
+    inp.addEventListener("input", upd);
+    box.append(h("div", null,
+      h("div", { class: "qq" }, h("span", { class: "n" }, k + 1), h("span", null, it.q, " ", h("small", null, it.ko))),
+      h("div", { class: "sm2" }, "예시 ", it.ex.map(t => h("button", { type: "button", onclick: () => { inp.value = t; upd(); } }, t))),
+      inp));
+    return inp;
+  });
+  fin.disabled = !inputs.every(x => x.value.trim().length > 2);
+  fin.onclick = () => done(0, 0);
+  host.append(box, h("div", { class: "donebar" }, fin));
+};
+
+ENG.crossword = (host, cfg, done) => {
+  const cw = PUZ[cfg.puz], cell = {};
+  const keyOf = (y, x) => y + "," + x;
+  const cellsOf = w => Array.from(w.word, (ch, i) => cell[keyOf(w.y + (w.d === "V" ? i : 0), w.x + (w.d === "H" ? i : 0))]);
+  cw.words.forEach(w => {
+    w.okd = false;
+    Array.from(w.word).forEach((ch, i) => {
+      const y = w.y + (w.d === "V" ? i : 0), x = w.x + (w.d === "H" ? i : 0), k = keyOf(y, x);
+      (cell[k] = cell[k] || { ch, y, x, ws: [], lock: false }).ws.push(w);
+      if (i === 0) cell[k].num = w.num;
+    });
+  });
+  let cur = null, miss = 0, solved = 0;
+  const grid = h("div", { class: "cwg", style: { gridTemplateColumns: `repeat(${cw.w},42px)` } });
+  function paint(at) {
+    Object.values(cell).forEach(c => { c.el.classList.toggle("hl", !!cur && c.ws.includes(cur) && !c.lock); c.el.classList.toggle("at", c === at && !c.lock); });
+    cw.words.forEach(w => w.li.classList.toggle("hl", w === cur && !w.okd));
+  }
+  function focusCell(c) { if (c) { c.inp.focus(); paint(c); } }
+  function pick(w, c) {
+    cur = w;
+    const cs = cellsOf(w);
+    focusCell(c || cs.find(x => !x.inp.value) || cs[0]);
+  }
+  function judge(w) {
+    const cs = cellsOf(w);
+    if (w.okd || cs.some(c => !c.inp.value)) return;
+    if (cs.every(c => c.inp.value.toUpperCase() === c.ch)) {
+      w.okd = true; solved++;
+      cs.forEach(c => { c.lock = true; c.inp.readOnly = true; c.el.classList.remove("no", "hl", "at"); c.el.classList.add("ok"); });
+      w.li.classList.add("ok"); sfx.ok();
+      if (solved === cw.words.length) later(() => done(miss, cw.words.length), 900);
+    } else {
+      miss++; sfx.no();
+      cs.forEach(c => { if (!c.lock && c.inp.value.toUpperCase() !== c.ch) { c.el.classList.add("no", "shake"); setTimeout(() => c.el.classList.remove("shake"), 400); } });
+    }
+  }
+  for (let y = 0; y < cw.h; y++) for (let x = 0; x < cw.w; x++) {
+    const c = cell[keyOf(y, x)];
+    if (!c) { grid.append(h("div", { class: "cwx" })); continue; }
+    c.inp = h("input", { type: "text", maxlength: "2", autocomplete: "off", autocapitalize: "characters", autocorrect: "off", spellcheck: "false", inputmode: "text", "aria-label": `${y + 1}행 ${x + 1}열` });
+    c.el = h("div", { class: "cwc" }, c.num && h("sup", null, c.num), c.inp);
+    const step = d => {
+      if (!cur) return null;
+      const cs = cellsOf(cur), k = cs.indexOf(c);
+      for (let n = k + d; n >= 0 && n < cs.length; n += d) if (!cs[n].lock) return cs[n];
+      return null;
+    };
+    c.inp.addEventListener("focus", () => { if (!cur || !c.ws.includes(cur)) cur = c.ws.find(w => !w.okd) || c.ws[0]; paint(c); });
+    c.inp.addEventListener("mousedown", () => { if (document.activeElement === c.inp && c.ws.length > 1) { cur = c.ws.find(w => w !== cur) || cur; paint(c); } });
+    c.inp.addEventListener("input", () => {
+      if (c.lock) { c.inp.value = c.ch; return; }
+      const v = c.inp.value.replace(/[^a-zA-Z]/g, "").slice(-1).toUpperCase();
+      c.inp.value = v; c.el.classList.remove("no");
+      if (!v) return;
+      sfx.tap();
+      const words = c.ws.slice();
+      words.forEach(judge);
+      if (!cur || cur.okd) { const nw = c.ws.find(w => !w.okd) || cw.words.find(w => !w.okd); if (nw && nw !== cur) { if (c.ws.includes(nw)) cur = nw; else return pick(nw); } }
+      const nx = step(1);
+      if (nx) focusCell(nx); else paint(c);
+    });
+    c.inp.addEventListener("keydown", e => {
+      if (e.key === "Backspace" && !c.inp.value) { const pv = step(-1); if (pv) { pv.inp.value = ""; pv.el.classList.remove("no"); focusCell(pv); e.preventDefault(); } }
+      const mv = { ArrowLeft: [0, -1], ArrowRight: [0, 1], ArrowUp: [-1, 0], ArrowDown: [1, 0] }[e.key];
+      if (mv) { const t = cell[keyOf(c.y + mv[0], c.x + mv[1])]; if (t) { const want = mv[0] ? "V" : "H"; cur = t.ws.find(w => w.d === want) || t.ws[0]; focusCell(t); } e.preventDefault(); }
+    });
+    grid.append(c.el);
+  }
+  const lists = h("div", { class: "cl" });
+  [["H", "➡ Across (가로)"], ["V", "⬇ Down (세로)"]].forEach(([d, t]) => {
+    const ol = h("ol");
+    cw.words.filter(w => w.d === d).sort((a, b) => a.num - b.num).forEach(w => {
+      w.li = h("li", { onclick: () => { if (!w.okd) pick(w); } }, h("b", null, w.num), h("span", null, w.clue, " ", h("i", null, `(${w.word.length})`)));
+      ol.append(w.li);
+    });
+    lists.append(h("h4", null, t), ol);
+  });
+  const hintBtn = h("button", { class: "btn", type: "button", onclick: () => {
+    if (!cur || cur.okd) return;
+    const c = cellsOf(cur).find(x => !x.lock && x.inp.value.toUpperCase() !== x.ch);
+    if (!c) return;
+    miss++; c.inp.value = c.ch; c.el.classList.remove("no");
+    c.ws.slice().forEach(judge);
+    paint(c);
+  } }, "💡 글자 힌트 (별이 줄어요)");
+  host.append(h("div", { class: "cww" }, h("div", null, grid, h("div", { style: { marginTop: "14px" } }, hintBtn)), lists));
+};
+
+ENG.wordsearch = (host, cfg, done) => {
+  const G = PUZ.grid, N = G.length;
+  const words = PUZ.ws_list.map(w => Object.assign({ found: false }, w));
+  let first = null, left = words.length;
+  const btn = {}, grid = h("div", { class: "wsg", style: { gridTemplateColumns: `repeat(${N},44px)` } });
+  const list = h("ul", { class: "wsl" });
+  words.forEach(w => {
+    w.b = h("b", null, "_".repeat(w.real.replace(" ", "").length));
+    w.li = h("li", null, h("span", { class: "e" }, w.emoji), h("span", null, w.ko), w.b);
+    list.append(w.li);
+  });
+  const msg = h("p", { class: "guide", style: { marginTop: "12px" } }, `남은 단어 ${left}개`);
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+    const b = h("button", { type: "button" }, G[y][x]);
+    btn[y + "," + x] = b;
+    b.onclick = () => {
+      if (!first) { first = [y, x]; b.classList.add("first"); sfx.tap(); return; }
+      const [ay, ax] = first;
+      btn[ay + "," + ax].classList.remove("first");
+      first = null;
+      const dy = y - ay, dx = x - ax, len = Math.max(Math.abs(dy), Math.abs(dx)) + 1;
+      if (len < 2 || !(dy === 0 || dx === 0 || Math.abs(dy) === Math.abs(dx))) { sfx.no(); return; }
+      const sy = Math.sign(dy), sx = Math.sign(dx), cells = [];
+      for (let i = 0; i < len; i++) cells.push([ay + sy * i, ax + sx * i]);
+      const str = cells.map(c => G[c[0]][c[1]]).join(""), rev = str.split("").reverse().join("");
+      const w = words.find(w => !w.found && (w.w === str || w.w === rev));
+      if (!w) { sfx.no(); cells.forEach(c => { const e = btn[c.join(",")]; e.classList.add("shake"); setTimeout(() => e.classList.remove("shake"), 400); }); return; }
+      w.found = true; left--;
+      cells.forEach(c => btn[c.join(",")].classList.add("fd"));
+      w.li.classList.add("ok"); w.b.textContent = w.real + " ✓";
+      msg.textContent = left ? `남은 단어 ${left}개` : "모두 찾았어요!";
+      sfx.ok();
+      if (!left) later(() => done(0, words.length), 1100);
+    };
+    grid.append(b);
+  }
+  host.append(h("div", { class: "wsw" }, grid, h("div", null, list, msg)));
+};
+
+ENG.memory = (host, cfg, done) => {
+  const n = cfg.pairs.length;
+  const cards = shuffle(cfg.pairs.flatMap((p, k) => [{ k, t: p[0], en: true }, { k, t: p[1] }]));
+  let open = [], left = n, tries = 0, lock = false;
+  const tryEl = h("div", { class: "mtry" }, "뒤집은 횟수 0번");
+  const grid = h("div", { class: "mem" });
+  cards.forEach(c => {
+    const b = h("button", { class: "mm", type: "button" }, "?");
+    b.onclick = () => {
+      if (lock || b.classList.contains("up")) return;
+      b.classList.add("up"); if (c.en) b.classList.add("en");
+      b.textContent = c.t; sfx.tap();
+      open.push({ c, b });
+      if (open.length < 2) return;
+      tries++; tryEl.textContent = `뒤집은 횟수 ${tries}번`;
+      const [a, d] = open;
+      open = [];
+      if (a.c.k === d.c.k && a.c.en !== d.c.en) {
+        [a.b, d.b].forEach(x => x.classList.add("ok")); sfx.ok(); left--;
+        if (!left) later(() => done(tries <= n + 5 ? 0 : tries <= n + 10 ? 1 : 99, n), 900);
+      } else {
+        lock = true;
+        later(() => { [a.b, d.b].forEach(x => { x.classList.remove("up", "en"); x.textContent = "?"; }); lock = false; }, 1100);
+      }
+    };
+    grid.append(b);
+  });
+  host.append(grid, tryEl);
+};
+
+/* ================= screens ================= */
+const app = document.getElementById("app");
+function theme(st) {
+  const r = document.documentElement.style;
+  r.setProperty("--c", st ? st.c : "#2D7FF9"); r.setProperty("--cl", st ? st.cl : "#EAF2FF"); r.setProperty("--cd", st ? st.cd : "#1A57B8");
+}
+function topbar(st) {
+  const snd = h("button", { class: "snd", type: "button", title: "효과음 켜기/끄기", onclick: () => { S.sound = !S.sound; save(); snd.textContent = S.sound ? "🔔" : "🔕"; sfx.tap(); } }, S.sound ? "🔔" : "🔕");
+  return h("div", { class: "bar" },
+    h("a", { class: "btn home", href: "#" }, "🏠 미션 지도"),
+    h("div", { class: "nav" }, STAGES.map(s => h("a", { href: "#" + s.id, class: st && s.id === st.id ? "on" : "", style: { "--nc": s.c } }, s.icon, " ", s.name))),
+    h("span", { class: "sp" }), h("span", { class: "tot" }, `⭐ ${totalStars()} / ${MAXSTARS}`), snd);
+}
+function home() {
+  theme(null);
+  const tot = totalStars(), all = ALLACTS.every(a => S.stars[a.id]);
+  let armed = false;
+  const reset = h("button", { class: "btn ghost", type: "button" }, "↺ 별 초기화");
+  reset.onclick = () => {
+    if (!armed) { armed = true; reset.textContent = "정말 별을 지울까요? 한 번 더 누르면 지워져요"; setTimeout(() => { armed = false; reset.textContent = "↺ 별 초기화"; }, 4000); return; }
+    if (!confirm("별과 기록이 서버에서도 모두 지워져요. 정말 지울까요?")) return;
+    SYNC.reset().then(render, () => alert("인터넷에 연결된 상태에서만 지울 수 있어요."));
+  };
+  app.append(...[
+    h("div", { class: "hero" },
+      h("div", { class: "tags" }, h("b", null, "Speaking"), h("b", null, "Reading"), h("b", null, "Writing"), h("span", { class: "j" }, "도전판")),
+      h("div", { class: "who" }, "주현이의"),
+      h("h1", { html: "Mission Game<br><span>Challenge</span>" }),
+      h("div", { class: "units" }, h("div", { html: "<b>Unit 7</b>Have Fun Downtown" }), h("div", { html: "<b>Unit 8</b>Cleaning Our School" }), h("div", { html: "<b>HARD</b>보기 없이 직접 쓰기" })),
+      h("div", { html: '<svg viewBox="0 0 100 120"><use href="#drop"/></svg>' }).firstChild),
+    h("div", { class: "meter" }, h("span", { class: "lab" }, "모은 별"), h("div", { class: "track" }, h("div", { class: "fill", style: { width: (tot / MAXSTARS * 100) + "%" } })), h("span", { class: "num" }, `⭐ ${tot} / ${MAXSTARS}`)),
+    all && h("div", { class: "clear" }, h("h2", null, "🏆 MISSION CLEAR 🏆"), h("p", null, `모든 미션을 끝까지 해냈어요! 별 ${tot}개를 모았어요. 별 3개가 아닌 게임에 다시 도전해 볼까요?`)),
+    h("div", { class: "map" }, STAGES.map(s => {
+      const got = s.acts.filter(a => S.stars[a.id]).length;
+      return h("a", { class: "mp", href: "#" + s.id, style: { "--c": s.c, "--cl": s.cl, "--cd": s.cd } },
+        got === s.acts.length && h("span", { class: "done" }, "CLEAR!"),
+        h("div", { class: "ico" }, s.icon), h("span", { class: "tg" }, s.no), h("h3", null, s.name), h("div", { class: "nk" }, s.en), h("p", null, s.desc),
+        h("div", { class: "pg" }, h("i", { style: { width: (got / s.acts.length * 100) + "%" } })), h("div", { class: "cnt" }, `미션 ${got} / ${s.acts.length} · ⭐ ${starsOf(s)}`));
+    })),
+    h("div", { class: "foot" },
+      h("a", { class: "btn", href: "../주현이.html" }, "← 주현이 페이지"), h("a", { class: "btn ghost", href: "../../index.html" }, "사이트 홈"),
+      h("span", { class: "sp" }), reset)].filter(Boolean));
+}
+function stage(st) {
+  theme(st);
+  app.append(topbar(st),
+    h("div", { class: "sth" }, h("div", { class: "ico" }, st.icon), h("div", null, h("h1", null, st.no + " · " + st.name, h("em", null, st.en)), h("p", null, st.desc))),
+    h("div", { class: "acts" }, st.acts.map((a, k) =>
+      h("a", { class: "ac", href: `#${st.id}/${k + 1}` }, h("span", { class: "no" }, k + 1), h("span", { class: "e" }, a.e),
+        h("span", { class: "t" }, h("b", null, a.title, h("span", { class: "k" }, a.kind)), h("span", null, a.d)), starRow(S.stars[a.id] || 0)))),
+    h("div", { class: "foot" }, h("a", { class: "btn home", href: "#", style: { background: "#22304a", color: "#fff", borderColor: "#0f1a30", boxShadow: "0 4px 0 #0f1a30" } }, "🏠 미션 지도로 돌아가기")));
+}
+function confetti() {
+  const fx = document.getElementById("fx"), col = ["#FF6B4A", "#12A594", "#7C5CFC", "#2D7FF9", "#FFB020", "#E0457B"];
+  for (let i = 0; i < 70; i++) {
+    const p = h("i", { style: { left: Math.random() * 100 + "%", background: col[i % col.length], animationDuration: 1.6 + Math.random() * 1.8 + "s", animationDelay: Math.random() * .4 + "s", transform: `rotate(${Math.random() * 360}deg)` } });
+    fx.append(p);
+    setTimeout(() => p.remove(), 4200);
+  }
+}
+function activity(st, ai) {
+  theme(st);
+  const act = st.acts[ai], run = RUN;
+  const play = h("div", { class: "play" });
+  app.append(topbar(st),
+    h("div", { class: "crumb" }, h("a", { class: "btn", href: "#" + st.id }, `← ${st.no} ${st.name}`), h("h1", null, act.e + " " + act.title), h("span", { class: "tg" }, act.kind)),
+    play);
+  let miss = 0, total = 0, si = 0;
+  function step() {
+    if (run !== RUN) return;
+    if (si >= act.steps.length) return finish();
+    const sc = act.steps[si];
+    play.innerHTML = "";
+    if (act.steps.length > 1 || sc.title) play.append(h("div", { class: "step-h" }, act.steps.length > 1 && h("span", { class: "tg" }, `${si + 1} / ${act.steps.length}`), sc.title || ""));
+    if (sc.guide) play.append(h("p", { class: "guide", html: sc.guide }));
+    const body = h("div");
+    play.append(body);
+    if (si) window.scrollTo({ top: 0 });
+    ENG[sc.type](body, sc, (m, t) => { if (run !== RUN) return; miss += m || 0; total += t || 0; si++; step(); }, act);
+  }
+  function finish() {
+    const game = act.kind === "게임";
+    const stars = !game || miss === 0 ? 3 : miss <= Math.max(2, Math.round(total * .25)) ? 2 : 1;
+    S.stars[act.id] = Math.max(S.stars[act.id] || 0, stars);
+    save();
+    sfx.win(); confetti();
+    const last = ai === st.acts.length - 1;
+    const close = () => modal.remove();
+    const modal = h("div", { class: "modal" }, h("div", { class: "box", style: { "--c": st.c, "--cd": st.cd } },
+      h("div", { class: "big", html: Array.from({ length: 3 }, (_, k) => k < stars ? `<b style="animation-delay:${k * .18}s">★</b>` : "★").join("") }),
+      h("h2", null, stars === 3 ? "완벽해요!" : stars === 2 ? "잘했어요!" : "끝까지 해냈어요!"),
+      h("p", null, game ? (miss ? `실수 ${miss}번 · 다시 하면 별을 더 모을 수 있어요` : "한 번도 틀리지 않았어요") : "미션 완료"),
+      h("div", { class: "row" },
+        h("button", { class: "btn", type: "button", onclick: () => { close(); render(); } }, "↺ 다시 하기"),
+        last ? h("a", { class: "btn pri", href: "#" + st.id, onclick: close }, "스테이지 목록 ▶") : h("a", { class: "btn pri", href: `#${st.id}/${ai + 2}`, onclick: close }, "다음 미션 ▶"),
+        h("a", { class: "btn", href: "#", onclick: close }, "🏠 미션 지도"))));
+    document.body.append(modal);
+  }
+  step();
+}
+function render() {
+  RUN++;
+  document.querySelectorAll(".modal").forEach(m => m.remove());
+  app.innerHTML = "";
+  const m = location.hash.replace(/^#/, "").split("/");
+  const st = STAGES.find(s => s.id === m[0]);
+  if (!st) home();
+  else if (m[1] && st.acts[m[1] - 1]) activity(st, m[1] - 1);
+  else stage(st);
+  window.scrollTo({ top: 0 });
+}
+window.addEventListener("hashchange", render);
+window.MB = { STAGES, S, PUZ };
+render();
+</script>
+</body>
+</html>
