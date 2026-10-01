@@ -23,7 +23,12 @@
   .top { width: 100%; max-width: 700px; margin-bottom: 1.5rem; display: flex; justify-content: space-between; }
   a.back { color: var(--ink-soft); text-decoration: none; font-size: 0.9rem; }
   a.back:hover { color: var(--accent); }
-  h1 { font-size: 1.6rem; margin: 0.5rem 0 2.5rem; }
+  h1 { font-size: 1.6rem; margin: 0.5rem 0 1.6rem; }
+  .got { font-size: 0.85rem; font-weight: 700; color: var(--ink-soft); min-height: 1.2em; }
+  .got.some { color: #b97f00; }
+  .got.all { color: #14703d; }
+  .sec { width: 100%; max-width: 700px; font-size: 1.15rem; margin: 1.6rem 0 0.8rem; color: var(--ink-soft); }
+  h1 + .sec { margin-top: 0; }
   .list { width: 100%; max-width: 700px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
   a.item {
     background: var(--card); border-radius: 22px; padding: 1rem 0.8rem; aspect-ratio: 1;
@@ -48,28 +53,31 @@
     <a class="back" href="../index.html">홈으로</a>
   </div>
   <h1>👦 주현이</h1>
+  <h2 class="sec">🔤 영어</h2>
   <div class="list">
-    <a class="item" href="주현이/영어_미션북_Unit7-8_도전.html" data-file="home/주현이/영어_미션북_Unit7-8_도전.html">
-      <span class="doc-icon">🔥</span>
-      <span class="item-text">
-        <span class="t">학교 영어 미션북 Unit 7 · 8 도전판</span>
-        <span class="s">보기 없이 직접 쓰기 · 크로스워드 2개</span>
-        <span class="date"></span>
-      </span>
-    </a>
-    <a class="item" href="주현이/영어_미션북_Unit7-8.html" data-file="home/주현이/영어_미션북_Unit7-8.html">
+    <a class="item" href="주현이/영어_미션북_Unit7-8.html" data-key="juhyun-mission-u78" data-file="home/주현이/영어_미션북_Unit7-8.html">
       <span class="doc-icon">💧</span>
       <span class="item-text">
         <span class="t">학교 영어 미션북 Unit 7 · 8</span>
         <span class="s">단어 · 숙어 · 표현 · 문장 이해 (시험 대비)</span>
         <span class="date"></span>
+        <span class="got"></span>
       </span>
     </a>
-    <a class="item" href="주현이/mercy_watson.html" data-file="home/주현이/mercy_watson.html">
-      <span class="doc-icon">🐷</span>
+    <a class="item" href="주현이/영어_미션북_Unit7-8_도전.html" data-key="juhyun-mission-u78-hard" data-file="home/주현이/영어_미션북_Unit7-8_도전.html">
+      <span class="doc-icon">🔥</span>
       <span class="item-text">
-        <span class="t">Mercy Watson</span>
-        <span class="s">읽기 자료 (한글판 · 원문+번역 · 원문+단어숙어)</span>
+        <span class="t">학교 영어 미션북 Unit 7 · 8 도전판</span>
+        <span class="s">보기 없이 직접 쓰기 · 크로스워드 2개</span>
+        <span class="date"></span>
+        <span class="got"></span>
+      </span>
+    </a>
+    <a class="item" href="주현이/화상영어_Unit7.html" data-file="home/주현이/화상영어_Unit7.html">
+      <span class="doc-icon">📱</span>
+      <span class="item-text">
+        <span class="t">화상영어 Unit 7</span>
+        <span class="s">단어 · 숙어장 (My Favorite Gadget)</span>
         <span class="date"></span>
       </span>
     </a>
@@ -81,14 +89,17 @@
         <span class="date"></span>
       </span>
     </a>
-    <a class="item" href="주현이/화상영어_Unit7.html" data-file="home/주현이/화상영어_Unit7.html">
-      <span class="doc-icon">📱</span>
+    <a class="item" href="주현이/mercy_watson.html" data-file="home/주현이/mercy_watson.html">
+      <span class="doc-icon">🐷</span>
       <span class="item-text">
-        <span class="t">화상영어 Unit 7</span>
-        <span class="s">단어 · 숙어장 (My Favorite Gadget)</span>
+        <span class="t">Mercy Watson</span>
+        <span class="s">읽기 자료 (한글판 · 원문+번역 · 원문+단어숙어)</span>
         <span class="date"></span>
       </span>
     </a>
+  </div>
+  <h2 class="sec">📁 기타</h2>
+  <div class="list">
     <a class="item" href="../겨울방학_탐구보고서_지브리풍.html" data-file="겨울방학_탐구보고서_지브리풍.html">
       <span class="doc-icon">📄</span>
       <span class="item-text">
@@ -106,6 +117,21 @@
         if (d) el.querySelector('.date').textContent = '업데이트: ' + d;
       });
     }).catch(() => {});
+  </script>
+  <script src="progress.js"></script>
+  <script>
+    // 타일 아래에 딴 별 수를 보여 준다 (서버 기록의 요약 "딴 별/전체 별")
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const out = el.querySelector('.got');
+      KidsProgress.read(el.dataset.key).then(rec => {
+        const stars = rec ? Object.values(rec.stars || {}).reduce((a, b) => a + b, 0) : 0;
+        const sum = rec && rec.notes && rec.notes._sum ? rec.notes._sum.split("/").map(Number) : null;
+        if (sum && sum[0] >= sum[1]) { out.textContent = "🏆 " + sum[0] + " / " + sum[1]; out.classList.add("all"); }
+        else if (sum && sum[0] > 0) { out.textContent = "⭐ " + sum[0] + " / " + sum[1]; out.classList.add("some"); }
+        else if (!sum && stars > 0) { out.textContent = "⭐ " + stars; out.classList.add("some"); }
+        else out.textContent = "☆ 아직 안 했어요";
+      }).catch(() => {});
+    });
   </script>
 </body>
 </html>

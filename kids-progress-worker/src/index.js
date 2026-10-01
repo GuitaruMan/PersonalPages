@@ -4,7 +4,7 @@ const MAX_BODY = 32 * 1024;
 
 function corsHeaders(env, origin) {
   const ok = env.ALLOWED_ORIGIN.split(",").map(s => s.trim()).includes(origin);
-  return ok ? { "Access-Control-Allow-Origin": origin, "Access-Control-Allow-Methods": "POST, OPTIONS",
+  return ok ? { "Access-Control-Allow-Origin": origin, "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type", "Access-Control-Max-Age": "86400", "Vary": "Origin" } : null;
 }
 const json = (obj, status, cors) => new Response(JSON.stringify(obj), { status, headers: { "Content-Type": "application/json", ...cors } });
@@ -40,6 +40,11 @@ export default {
     const cors = corsHeaders(env, req.headers.get("Origin") || "");
     if (!cors) return new Response("forbidden", { status: 403 });
     if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
+    if (req.method === "GET") {                   // 읽기 전용: 목록 페이지가 별 개수를 보여 줄 때 쓴다 (없으면 null, 기록을 만들지 않는다)
+      const g = new URL(req.url).pathname.match(/^\/p\/([^/]+)$/);
+      if (!g || !KEY_RE.test(g[1])) return json({ error: "key" }, 404, cors);
+      return json(await load(env, g[1]), 200, cors);
+    }
     if (req.method !== "POST") return json({ error: "method" }, 405, cors);
 
     const m = new URL(req.url).pathname.match(/^\/(sync|reset)\/([^/]+)$/);
