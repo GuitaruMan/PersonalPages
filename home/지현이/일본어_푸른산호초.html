@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>영어 파닉스 2단계 - My Presentations</title>
+<title>노래로 만나는 일본어 · 푸른 산호초 - My Presentations</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Jua&family=Noto+Sans+KR:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#3a2236;--sub:#7a5f74;--line:#f0d5e0;--bg1:#FFE4EE;--bg2:#FFF8FB;--c:#F0508A;--cl:#FFEDF4;--cd:#B32A60;--gr:#EBC3D3;
+:root{--ink:#1f3440;--sub:#557078;--line:#d2e8ec;--bg1:#DDF4F8;--bg2:#F5FCFD;--c:#14A3B8;--cl:#E3F6F9;--cd:#0B7284;--gr:#B9DCE3;
   --ok:#1FA65A;--okl:#E3F7EB;--no:#E5484D;--nol:#FFECEE;--gold:#FFB020}
 *{box-sizing:border-box;margin:0;padding:0}
 html{font-size:17px}
@@ -31,9 +31,9 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
 
 /* top bar */
 .bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:30;padding:12px 0 10px;
-  background:linear-gradient(var(--bg1) 78%,rgba(255,228,238,0))}
-.bar .home,.foot .home{background:#4A2040;border-color:#2E0F28;color:#fff;box-shadow:0 4px 0 #2E0F28}
-.bar .home:active{box-shadow:0 1px 0 #2E0F28}
+  background:linear-gradient(var(--bg1) 78%,rgba(221,244,248,0))}
+.bar .home,.foot .home{background:#1f3440;border-color:#0f1f28;color:#fff;box-shadow:0 4px 0 #0f1f28}
+.bar .home:active{box-shadow:0 1px 0 #0f1f28}
 .bar .nav{display:flex;gap:6px;flex-wrap:wrap}
 .bar .nav a{display:inline-flex;align-items:center;gap:5px;text-decoration:none;color:var(--ink);font-weight:800;font-size:.85rem;padding:7px 12px;border-radius:12px;
   background:#fff;border:2px solid var(--nc);box-shadow:0 3px 0 var(--nc)}
@@ -44,23 +44,23 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
 .bar .snd{width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid var(--gr);font-size:1.05rem}
 
 /* home */
-.hero{background:linear-gradient(135deg,#F0508A,#FF8A5B);color:#fff;border-radius:28px;padding:30px 36px 34px;position:relative;overflow:hidden;margin-top:18px;
-  box-shadow:0 8px 0 #B8456A}
+.hero{background:linear-gradient(135deg,#14A3B8,#FF7E79);color:#fff;border-radius:28px;padding:30px 36px 34px;position:relative;overflow:hidden;margin-top:18px;
+  box-shadow:0 8px 0 #C75B4E}
 .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.12)}
 .hero::before{width:260px;height:260px;right:-60px;top:-90px}.hero::after{width:130px;height:130px;right:170px;bottom:-50px}
 .hero .tags{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:.85rem}
 .hero .tags b{font-family:'Fredoka';font-weight:600;background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.7);border-radius:99px;padding:1px 13px}
 .hero .who{font-family:'Jua';font-size:1.5rem;margin-top:16px;line-height:1}
-.hero h1{font-family:'Fredoka';font-weight:700;font-size:3.3rem;line-height:1.02;letter-spacing:-1px;margin-top:6px}
+.hero h1{font-family:'Jua','Fredoka';font-weight:700;font-size:3.3rem;line-height:1.02;letter-spacing:-1px;margin-top:6px}
 .hero h1 span{color:#FFF3A0}
 .hero .units{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap;position:relative;z-index:2}
 .hero .units div{background:#fff;color:var(--ink);border-radius:11px;padding:3px 14px;font-family:'Fredoka';font-weight:500}
-.hero .units b{color:#F0508A;margin-right:6px}
+.hero .units b{color:#14A3B8;margin-right:6px}
 .hero svg{position:absolute;right:44px;top:34px;width:150px;z-index:2;animation:bob 3s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-10px) rotate(3deg)}}
 .meter{display:flex;align-items:center;gap:14px;background:#fff;border-radius:20px;padding:14px 22px;margin-top:20px;border:2px solid var(--line)}
 .meter .lab{font-family:'Jua';font-size:1.1rem;white-space:nowrap}
-.meter .track{flex:1;height:18px;border-radius:99px;background:#FBEFF4;overflow:hidden}
+.meter .track{flex:1;height:18px;border-radius:99px;background:#ECF6F8;overflow:hidden}
 .meter .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#FFD166,#FFB020);transition:width .6s}
 .meter .num{font-family:'Fredoka';font-weight:700;color:#8a5a00;white-space:nowrap}
 .clear{background:#FFF6DF;border:3px solid var(--gold);border-radius:22px;padding:18px;text-align:center;margin-top:18px}
@@ -101,7 +101,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
 .ac .t b{font-family:'Jua';font-weight:400;font-size:1.15rem;display:block;line-height:1.25}
 .ac .t span{font-size:.8rem;color:var(--sub)}
 .ac .k{font-family:'Fredoka','Jua';font-size:.7rem;font-weight:700;border-radius:99px;padding:1px 9px;background:var(--cl);color:var(--cd);margin-left:6px;vertical-align:2px}
-.stars{font-size:1.25rem;letter-spacing:2px;white-space:nowrap;color:#e6d3dc}
+.stars{font-size:1.25rem;letter-spacing:2px;white-space:nowrap;color:#d0dde0}
 .stars b{color:var(--gold);font-weight:400}
 
 /* activity */
@@ -173,7 +173,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
 /* build */
 .bd{text-align:center}
 .slots{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:20px 0 22px;min-height:64px}
-.slot{min-width:62px;height:66px;border-bottom:4px solid var(--gr);border-radius:12px 12px 0 0;background:#FDF3F7;font:600 2.3rem 'Fredoka';display:flex;align-items:center;justify-content:center}
+.slot{min-width:62px;height:66px;border-bottom:4px solid var(--gr);border-radius:12px 12px 0 0;background:#F1F9FA;font:600 2.3rem 'Fredoka';display:flex;align-items:center;justify-content:center}
 .slot.fill{background:var(--okl);border-color:var(--ok);color:#14703d}
 .slot.cur{border-color:var(--c);background:var(--cl)}
 .pool{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
@@ -216,27 +216,64 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
 .lc .ko,.wc .ko{font:700 1rem 'Noto Sans KR';color:var(--sub);margin-top:4px}
 .opt .kox{display:block;font:700 1.05rem 'Noto Sans KR';font-style:normal;color:var(--sub);line-height:1.3}
 
-/* level 2 */
+/* 일본어 */
 .map{grid-template-columns:repeat(3,1fr)}
-.hid small{visibility:hidden}
-.hid.showhint small{visibility:visible}
-.wd small{display:block;font:700 1.4rem 'Noto Sans KR';letter-spacing:5px;color:var(--sub);margin-top:2px}
-.wg{grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
-.tl{width:46px}
-.tl.two{width:64px}
-.wc .ko{font:700 1.05rem 'Noto Sans KR';color:var(--sub);margin-top:8px}
-.kom{font:700 1.3rem 'Noto Sans KR';color:var(--sub);margin-top:2px;min-height:1.4em}
-.opt .kox{display:block;font:700 1.05rem 'Noto Sans KR';font-style:normal;color:var(--sub);line-height:1.3}
-.bl.wb{width:150px;height:92px;border-radius:46px;font-size:1.9rem}
-@media (max-width:600px){.map{grid-template-columns:1fr}}
+.jg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.jc{background:#fff;border:3px solid var(--c);border-radius:20px;box-shadow:0 5px 0 var(--cd);text-align:center;padding:12px 6px 10px}
+.jc:active{transform:translateY(3px);box-shadow:0 2px 0 var(--cd)}
+.jc .em{font-size:2.6rem;line-height:1.2}
+.jc .r{font:400 1.7rem/1.25 'Jua';color:var(--cd)}
+.jc .k{font-size:.72rem;color:var(--sub);opacity:.75}
+.jc .m{font:700 1.05rem 'Noto Sans KR';margin-top:4px;visibility:hidden}
+.jc.on{background:var(--cl)}
+.jc.on .m{visibility:visible}
+.tips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:14px}
+.tips div{background:var(--cl);border-radius:99px;padding:4px 16px;font-family:'Noto Sans KR';font-size:1rem}
+.tips b{font-family:'Jua';font-weight:400;color:var(--cd);font-size:1.2rem}
+.pg2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.pc2{border:3px solid var(--c);border-radius:20px;box-shadow:0 5px 0 var(--cd);padding:12px 10px;text-align:center;background:#fff}
+.pc2 .em{font-size:2.2rem;line-height:1.2}
+.pc2 .blocks{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:6px 0 2px}
+.pc2 .blocks span{font:400 1.45rem 'Jua';background:var(--cl);color:var(--cd);border-radius:12px;padding:2px 12px}
+.pc2 .blocks span.glue{background:var(--gold);color:#fff}
+.pc2 .k{font-size:.72rem;color:var(--sub);opacity:.75}
+.pc2 .m{font:700 1.1rem 'Noto Sans KR';margin-top:4px}
+.top{min-height:90px;display:flex;align-items:center;justify-content:center}
+.rd1{font:400 3.6rem/1.2 'Jua';color:var(--cd)}
+.rd1.sm{font-size:2.6rem}
+.pic1{font-size:5rem;line-height:1.1}
+.qsub{color:var(--sub);font:400 1.15rem 'Jua';margin-top:2px}
+.opt .pic2{display:block;font-size:3.2rem;line-height:1.2}
+.opt small{display:block;font:700 1.05rem 'Noto Sans KR';color:var(--sub)}
+.opt .rd2{display:block;font:400 2rem/1.3 'Jua'}
+.tok{font:400 2rem/1.2 'Jua';padding:10px 14px}
+.tok.w{font-size:1.6rem}
+.slot{font:400 2.2rem 'Jua'}
+.slot.w{min-width:96px;font-size:1.6rem;padding:0 10px}
+.yt{position:sticky;top:60px;z-index:20;display:flex;align-items:center;justify-content:center;gap:14px;margin:0 -28px 14px;padding:8px 12px;background:#fff;border-bottom:3px solid var(--cl)}
+.yt iframe{display:block;width:200px;height:113px;border:0;border-radius:12px;flex:none}
+.yt div{font-family:'Jua';font-size:1.05rem;line-height:1.4}
+.yt a{display:block;font:400 .75rem 'Noto Sans KR';color:var(--sub);text-decoration:none;margin-top:2px}
+.part{border:2px solid var(--line);border-radius:20px;padding:14px 18px;margin-bottom:14px}
+.part h3{font-family:'Jua';font-weight:400;font-size:1.3rem;display:flex;align-items:center;gap:10px}
+.part .pk{font-family:'Noto Sans KR','Malgun Gothic';font-size:1.1rem;line-height:1.75;margin:8px 0 12px}
+.phs{display:flex;flex-wrap:wrap;gap:8px}
+.ph{background:var(--cl);border-radius:12px;padding:6px 14px}
+.ph b{display:block;font-family:'Jua';font-weight:400;color:var(--cd);font-size:1.25rem}
+.ph small{font-size:.85rem;color:var(--sub)}
+.bingo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:720px;margin:0 auto}
+.bingo button{height:92px;border-radius:16px;background:#fff;border:3px solid var(--gr);box-shadow:0 4px 0 var(--gr);font:400 1.35rem 'Jua';display:flex;flex-direction:column;align-items:center;justify-content:center}
+.bingo button span{font-size:1.7rem;line-height:1.1}
+.bingo button.on{background:var(--c);border-color:var(--cd);color:#fff;box-shadow:0 4px 0 var(--cd)}
+@media (max-width:600px){.map{grid-template-columns:1fr}.jg{grid-template-columns:repeat(2,1fr)}.pg2{grid-template-columns:1fr}.bingo{grid-template-columns:repeat(3,1fr)}.rd1{font-size:2.6rem}.yt{margin:0 -14px 14px}}
 
 /* result */
 #fx{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden}
 #fx i{position:absolute;top:-20px;width:11px;height:16px;border-radius:3px;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
-.modal{position:fixed;inset:0;background:rgba(60,20,45,.55);z-index:80;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal{position:fixed;inset:0;background:rgba(15,40,50,.55);z-index:80;display:flex;align-items:center;justify-content:center;padding:20px}
 .modal .box{background:#fff;border-radius:30px;padding:30px 40px 32px;text-align:center;max-width:520px;width:100%;border:4px solid var(--c);box-shadow:0 10px 0 var(--cd);animation:pop .35s}
-.modal .big{font-size:3.4rem;letter-spacing:8px;color:#e6d3dc;line-height:1.2}
+.modal .big{font-size:3.4rem;letter-spacing:8px;color:#d0dde0;line-height:1.2}
 .modal .big b{color:var(--gold);font-weight:400;display:inline-block;animation:pop .5s backwards}
 .modal h2{font-family:'Jua';font-weight:400;font-size:1.8rem;margin-top:4px}
 .modal p{color:var(--sub);margin-top:4px}
@@ -254,12 +291,12 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="drop" viewBox="0 0 100 120">
-    <path d="M50 5C50 5 12 52 12 78a38 38 0 0 0 76 0C88 52 50 5 50 5Z" fill="#FF9CC4" stroke="#C23C74" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M50 5C50 5 12 52 12 78a38 38 0 0 0 76 0C88 52 50 5 50 5Z" fill="#7FDDEA" stroke="#0B7284" stroke-width="4" stroke-linejoin="round"/>
     <path d="M30 47q-8 12-8 24" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".75"/>
-    <circle cx="38" cy="74" r="6.5" fill="#3a2236"/><circle cx="64" cy="74" r="6.5" fill="#3a2236"/>
+    <circle cx="38" cy="74" r="6.5" fill="#1f3440"/><circle cx="64" cy="74" r="6.5" fill="#1f3440"/>
     <circle cx="40.3" cy="71.8" r="2.2" fill="#fff"/><circle cx="66.3" cy="71.8" r="2.2" fill="#fff"/>
-    <path d="M39 90q12 12 24 0" fill="none" stroke="#3a2236" stroke-width="4" stroke-linecap="round"/>
-    <ellipse cx="27" cy="87" rx="5.5" ry="3.2" fill="#ff6f96"/><ellipse cx="75" cy="87" rx="5.5" ry="3.2" fill="#ff6f96"/>
+    <path d="M39 90q12 12 24 0" fill="none" stroke="#1f3440" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="27" cy="87" rx="5.5" ry="3.2" fill="#ffb3c1"/><ellipse cx="75" cy="87" rx="5.5" ry="3.2" fill="#ffb3c1"/>
   </symbol>
 </svg>
 <div id="app"></div>
@@ -268,7 +305,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
 <script src="../cross.js"></script>
 <script>
 "use strict";
-const AUD = "영어_파닉스/audio/";
 
 /* ================= helpers ================= */
 function h(tag, props, ...kids) {
@@ -301,10 +337,10 @@ function mixed(a) {            // 원래 순서와 다르게 섞기
 const later = (fn, ms) => { const r = RUN; setTimeout(() => { if (r === RUN) fn(); }, ms); };
 
 /* ================= state ================= */
-const KEY = "jihyun-phonics2-v1";
+const KEY = "jihyun-jp-aoi-v1";
 const S = { stars: {}, sound: true };
 // 기기 + 서버 저장 (../progress.js). 다른 기기에서 별이 늘었으면 게임 중이 아닐 때만 다시 그린다.
-const SYNC = KidsProgress("jihyun-phonics2", KEY, S, () => { if (!location.hash.includes("/")) render(); }, () => totalStars() + "/" + MAXSTARS);
+const SYNC = KidsProgress("jihyun-jp-aoi", KEY, S, () => { if (!location.hash.includes("/")) render(); }, () => totalStars() + "/" + MAXSTARS);
 function save() { SYNC.save(); }
 let RUN = 0;
 
@@ -345,75 +381,63 @@ const sfx = {
   tap() { tone(520, 0, .05, "sine", .06); },
   win() { [523, 659, 784, 1047].forEach((f, i) => tone(f, i * .12, .3)); }
 };
-// 단어 발음: Wikimedia Commons 사람 녹음 (효과음 끄기와 상관없이 항상 들린다)
-const RAW = {};
-let voiceNow = null;
-const raw = w => RAW[w] || (RAW[w] = fetch(AUD + w + ".mp3").then(r => { if (!r.ok) throw r.status; return r.arrayBuffer(); }));
-function say(w) {
-  try {
-    const ac = ctx();
-    (BUF[w] = BUF[w] || raw(w).then(b => new Promise((ok, no) => ac.decodeAudioData(b.slice(0), ok, no))))
-      .then(buf => {
-        if (voiceNow) try { voiceNow.stop(); } catch (e) {}
-        voiceNow = ac.createBufferSource(); voiceNow.buffer = buf; voiceNow.connect(ac.destination); voiceNow.start();
-      })
-      .catch(() => { BUF[w] = null; RAW[w] = null; });
-  } catch (e) {}
-}
-
 /* ================= content ================= */
-// 한글 힌트 (1단계와 같은 규칙) + 두 글자가 한 소리인 것
-const HK = { a: "애", b: "ㅂ", c: "ㅋ", d: "ㄷ", e: "에", f: "ㅍ", g: "ㄱ", h: "ㅎ", i: "이", j: "ㅈ", k: "ㅋ", l: "ㄹ", m: "ㅁ", n: "ㄴ", o: "아", p: "ㅍ",
-  q: "ㅋ", r: "ㄹ", s: "ㅅ", t: "ㅌ", u: "어", v: "ㅂ", w: "ㅇ", x: "ㅋㅅ", y: "ㅇ", z: "ㅈ", sh: "쉬", ch: "ㅊ", th: "ㅆ", ck: "ㅋ", ng: "ㅇ", ll: "ㄹ", ss: "ㅅ" };
-const seg = w => w.match(/sh|ch|th|ck|ng|ll|ss|[a-z]/g);          // 소리 단위로 자르기: ship → sh·i·p
-const hintOf = w => seg(w).map(g => HK[g]).join(" ");
-const VOW = "aeiou";
+// 노래 〈푸른 산호초〉(마츠다 세이코)로 만나는 일본어 — 한글만 아는 아이의 흥미 유발용.
+// 일본어는 모두 한글 독음으로 보여 준다(일본 글자는 구경용으로 작게만). 가사 전체는 싣지 않고 아이에게 맞는 낱말·구절만 쓴다.
+const SONG_ID = "DVOgvzl395w";            // 유튜브 공식 채널 영상 (다른 사이트에 넣기 허용)
 
-const KO = {   // 단어 카드에 보여 줄 우리말 뜻
-  ham: "햄", rat: "쥐", dad: "아빠", sad: "슬픈", mad: "화난", gas: "기름", can: "캔", cab: "택시", van: "승합차", wet: "젖은", red: "빨간", men: "남자들", pet: "반려동물",
-  hit: "치다", sit: "앉다", bin: "쓰레기통", fin: "지느러미", dig: "파다", win: "이기다", hot: "뜨거운", hop: "깡충 뛰다", run: "달리다", cub: "새끼 곰", hug: "안다", cut: "자르다",
-  ship: "배", shop: "가게", fish: "물고기", dish: "접시", shell: "조개껍데기", cash: "돈", chip: "감자튀김", chick: "병아리", chat: "이야기하다", chess: "체스", check: "확인", lunch: "점심",
-  bath: "목욕", math: "수학", duck: "오리", sock: "양말", rock: "바위", lock: "자물쇠", sick: "아픈", king: "왕", ring: "반지", sing: "노래하다", song: "노래",
-  frog: "개구리", flag: "깃발", crab: "게", drum: "북", swim: "수영하다", stop: "멈추다", grass: "풀", dress: "원피스", plug: "플러그", plant: "식물", twin: "쌍둥이", drop: "물방울", grin: "활짝 웃다",
-  clock: "시계", truck: "트럭", brush: "칫솔", brick: "벽돌", hand: "손", lamp: "전등", milk: "우유", tent: "텐트", gift: "선물", sand: "모래", mask: "마스크", vest: "조끼", fist: "주먹",
-  bank: "은행", sink: "세면대", wink: "윙크", ant: "개미", elf: "요정", golf: "골프", camp: "캠핑", bell: "종", hill: "언덕", doll: "인형", kiss: "뽀뽀"
-};
-// 글자 소리대로 읽히는 단어만 (예외 발음·끝의 e는 넣지 않는다)
-const SETS = [
-  [ { t: "a 애", w: "ham🍖 rat🐀 dad👨 sad😢 mad😠 gas⛽ can🥫 cab🚕 van🚐" }, { t: "e 에", w: "wet💦 red🔴 men👬 pet🐕" },
-    { t: "i 이", w: "hit👊 sit🪑 bin🗑️ fin🦈 dig⛏️ win🏆" }, { t: "o 아", w: "hot🔥 hop🦘" }, { t: "u 어", w: "run🏃 cub🐻 hug🤗 cut✂️" } ],
-  [ { t: "sh 쉬", w: "ship🚢 shop🏪 fish🐟 dish🍽️ shell🐚 cash💵" }, { t: "ch ㅊ", w: "chip🍟 chick🐥 chat💬 chess♟️ check✅ lunch🍱" },
-    { t: "th ㅆ", w: "bath🛁 math🧮" }, { t: "ck ㅋ", w: "duck🦆 sock🧦 rock🪨 lock🔒 sick🤒" }, { t: "ng ㅇ", w: "king🤴 ring💍 sing🎤 song🎵" } ],
-  [ { t: "앞에 자음 둘", w: "frog🐸 flag🚩 crab🦀 drum🥁 swim🏊 stop🛑 grass🌱 dress👗 plug🔌 plant🪴 twin👯 drop💧 grin😁 clock🕐 truck🚚 brush🪥 brick🧱" },
-    { t: "끝에 자음 둘", w: "hand✋ lamp💡 milk🥛 tent⛺ gift🎁 sand🏖️ mask😷 vest🦺 fist✊ bank🏦 sink🚰 wink😉 ant🐜 elf🧝 golf⛳ camp🏕️" },
-    { t: "같은 글자 둘", w: "bell🔔 hill⛰️ doll🪆 kiss💋" } ]
-].map((groups, s) => groups.map(g => ({ t: g.t, words: g.w.split(" ").map(x => { const w = x.match(/^[a-z]+/)[0]; return { w, e: x.slice(w.length), s, g: seg(w), ko: KO[w] }; }) })));
-const WORDS = SETS.map(groups => groups.flatMap(g => g.words));
-const ALLW = WORDS.flat();
+// [한글 독음, 일본 글자, 뜻, 그림]
+const WORDS = [
+  ["아오이", "あおい", "푸른", "🔵"], ["카제", "かぜ", "바람", "🍃"], ["미나미", "みなみ", "남쪽", "🧭"], ["시마", "しま", "섬", "🏝️"],
+  ["와타시", "わたし", "나", "🙋"], ["아나타", "あなた", "너", "👉"], ["스키", "すき", "좋아해", "💗"], ["하시루", "はしる", "달리다", "🏃"],
+  ["나미다", "なみだ", "눈물", "💧"], ["상고쇼", "さんごしょう", "산호초", "🐠"], ["후타리", "ふたり", "두 사람", "👫"], ["메", "め", "눈", "👁️"],
+  ["키라키라", "きらきら", "반짝반짝", "✨"], ["나기사", "なぎさ", "바닷가", "🏖️"], ["코이", "こい", "사랑", "💞"], ["하나비라", "はなびら", "꽃잎", "🌸"]
+].map(([r, k, m, e]) => ({ r, k, m, e }));
+// 짧은 말: 낱말 블록을 이어 붙인 것 [블록들, 일본 글자, 뜻, 그림]
+const PHRASES = [
+  [["미나미", "노", "카제"], "みなみの かぜ", "남쪽의 바람", "🧭🍃"],
+  [["아오이", "카제"], "あおい かぜ", "푸른 바람", "🔵🍃"],
+  [["아노", "시마", "에"], "あの しまへ", "저 섬으로", "👉🏝️"],
+  [["아나타", "가", "스키"], "あなたが すき", "네가 좋아", "👉💗"],
+  [["와타시", "노", "코이"], "わたしの こい", "나의 사랑", "🙋💞"],
+  [["키라키라", "상고쇼"], "きらきら さんごしょう", "반짝반짝 산호초", "✨🐠"],
+  [["야사시이", "메"], "やさしい め", "다정한 눈", "😊👁️"]
+].map(([p, k, m, e]) => ({ p, r: p.join(" "), k, m, e }));
+// 노래 따라가기: 부분별 뜻(아이 눈높이로 줄여 쓴 것 — 줄별 번역은 아님)과 그 부분에서 들리는 말
+const PARTS = [
+  { t: "후렴", e: "🍃", ko: "아— 내 사랑은 남쪽 바람을 타고 달려요. 푸른 바람을 가르며 저 섬으로 달려가요! (노래의 처음, 가운데, 끝에 세 번 나와요)",
+    ph: [["와타시노 코이", "나의 사랑"], ["미나미노 카제", "남쪽의 바람"], ["아오이 카제", "푸른 바람"], ["아노 시마에", "저 섬으로"]] },
+  { t: "1절", e: "✨", ko: "너를 만나면 다른 건 모두 잊어버려요. 신이 나서 들뜬 나는 작은 소녀 같아요. 산호초가 반짝반짝 빛나요. 둘이서 멀리 떠내려가도 좋아요. 네가 좋아!",
+    ph: [["키라키라 상고쇼", "반짝반짝 산호초"], ["후타릿키리", "단둘이"], ["아나타가 스키", "네가 좋아"]] },
+  { t: "2절", e: "🌸", ko: "눈물이 흘러요. 그렇게 다정한 눈으로 보지 말아요. 나는 고개 숙인 작은 장미 같아요. 바닷가는 초록빛으로 물들고, 두 사람은 점점 가까워져요. 네가 좋아!",
+    ph: [["나미다", "눈물"], ["야사시이 메", "다정한 눈"], ["하나비라", "꽃잎"], ["나기사", "바닷가"]] }
+];
 
-// 비슷한 단어 고르기: 첫소리·끝소리·모음이 같은 단어를 먼저 (ship ↔ shop · chip · dish)
-function near(x, pool, n) {
-  const last = a => a[a.length - 1], vow = a => a.find(g => VOW.includes(g));
-  return pool.filter(o => o.w !== x.w)
-    .map(o => ({ o, sc: (o.g[0] === x.g[0]) + (last(o.g) === last(x.g)) + (vow(o.g) === vow(x.g)) + Math.random() * .9 }))
-    .sort((a, b) => b.sc - a.sc).slice(0, n).map(r => r.o);
-}
-const wordOpt = o => `<span class="lt">${o.w}</span><small>${hintOf(o.w)}</small>`;
-const listenWord = s => () => shuffle(WORDS[s]).slice(0, 10).map(x => ({ say: x.w, auto: true, cols: 2, ans: `${x.e} ${x.w} = ${x.ko}`, opts: [x].concat(near(x, WORDS[s], 3)).map(wordOpt) }));
-const readPic = s => () => shuffle(WORDS[s]).slice(0, 10).map(x => ({ say: x.w, word: x.w, hint: hintOf(x.w), pic: true, cols: 4, opts: [x].concat(near(x, WORDS[s], 3)).map(o => `${o.e}<em class="kox">${o.ko}</em>`) }));
+const others = (list, x, n) => shuffle(list.filter(o => o !== x)).slice(0, n);
+const picOpt = w => `<span class="pic2">${w.e}</span><small>${w.m}</small>`;
+const readOpt = w => `<span class="rd2">${w.r}</span>`;
+const toPic = () => shuffle(WORDS).slice(0, 10).map(x => ({ top: `<span class="rd1">${x.r}</span>`, sub: "무슨 뜻일까요?", cols: 4, opts: [x].concat(others(WORDS, x, 3)).map(picOpt) }));
+const toRead = () => shuffle(WORDS).slice(0, 10).map(x => ({ top: `<span class="pic1">${x.e}</span>`, sub: `‘${x.m}’ 은(는) 일본어로?`, cols: 2, opts: [x].concat(others(WORDS, x, 3)).map(readOpt) }));
+const phraseMean = () => shuffle(PHRASES).map(x => ({ top: `<span class="rd1 sm">${x.r}</span>`, sub: "무슨 뜻일까요?", cols: 1, opts: [x].concat(others(PHRASES, x, 2)).map(o => `<span class="rd2">${o.e} ${o.m}</span>`) }));
 
-const acts = s => [
-  { id: `s${s + 1}a`, title: "단어 카드", kind: "학습", e: "📖", d: "글자를 하나씩 누르고 단어 소리 듣기", steps: [{ type: "wcards", set: s, guide: "글자를 <b>왼쪽부터 하나씩</b> 누르며 소리를 이어 말해요. 다 누르면 단어 소리가 나와요." }] },
-  { id: `s${s + 1}b`, title: "듣고 단어 고르기", kind: "게임", e: "👂", d: "소리를 듣고 맞는 단어 고르기", steps: [{ type: "pick", gen: listenWord(s), guide: "🔊 소리를 듣고 맞는 <b>단어</b>를 골라요. 틀리면 한글 힌트가 나와요." }] },
-  { id: `s${s + 1}c`, title: "읽고 그림 고르기", kind: "게임", e: "🖼️", d: "단어를 혼자 읽고 맞는 그림 고르기", steps: [{ type: "pick", gen: readPic(s), guide: "단어를 <b>혼자 읽고</b> 맞는 그림을 골라요. 맞히면 소리가 나와요." }] },
-  { id: `s${s + 1}d`, title: "글자 조립", kind: "게임", e: "🔤", d: "함정 글자를 피해 순서대로 누르기", steps: [{ type: "build", set: s, guide: "🔊 소리를 듣고, 글자를 <b>순서대로</b> 눌러요. 쓰지 않는 <b>함정 글자</b>도 있어요!" }] },
-  s !== 1 && { id: `s${s + 1}e`, title: "단어 풍선 받기", kind: "게임", e: "🎈", d: "그림을 보고 맞는 단어 풍선 터뜨리기", steps: [{ type: "fall", set: s, guide: "아래 <b>그림</b>에 맞는 <b>단어 풍선</b>을 터뜨려요. 10점이면 성공!" }] },
-  { id: `s${s + 1}x`, title: "크로스워드", kind: "게임", e: "🧩", d: "그림을 보고 가로세로 칸에 글자 채우기", steps: [{ type: "cross", set: s, guide: "위의 <b>그림</b>을 누르면 🔊 소리가 나와요. 아래 글자를 눌러 <b>가로세로 칸</b>을 채워요." }] }
-].filter(Boolean);
+const BLUE = { c: "#2E8BF0", cl: "#E8F3FF", cd: "#1A5FB0" }, CORAL = { c: "#FF6F61", cl: "#FFEFEC", cd: "#C2412F" }, GOLD = { c: "#F09A00", cl: "#FFF6DF", cd: "#A96A00" };
 const STAGES = [
-  { id: "s1", no: "STAGE 1", name: "세 글자 단어", en: "Word Runner", icon: "🏃", c: "#FF7A45", cl: "#FFF1EA", cd: "#C24A17", desc: "새 단어 25개를 소리대로 읽어요!", acts: acts(0) },
-  { id: "s2", no: "STAGE 2", name: "두 글자 한 소리", en: "Sound Teams", icon: "🤝", c: "#12A594", cl: "#E5F7F4", cd: "#0A7568", desc: "sh · ch · th · ck · ng 는 둘이서 한 소리!", acts: acts(1) },
-  { id: "s3", no: "STAGE 3", name: "긴 단어", en: "Big Words", icon: "🚀", c: "#9B5DE5", cl: "#F4ECFD", cd: "#6A2FB3", desc: "자음이 둘 이어지는 네다섯 글자 단어!", acts: acts(2) }
+  { id: "s1", no: "STAGE 1", name: "낱말", en: "Word Island", icon: "🏝️", ...BLUE, desc: "노래에 나오는 일본어 낱말 16개!", acts: [
+    { id: "j1a", title: "낱말 카드", kind: "학습", e: "🃏", d: "소리 내어 읽고, 카드를 눌러 뜻 확인", steps: [{ type: "cards", guide: "큰 글자를 <b>소리 내어 읽고</b>, 카드를 눌러 뜻을 확인해요. 작은 글자는 일본 글자예요 (구경만!)." }] },
+    { id: "j1b", title: "뜻 고르기", kind: "게임", e: "🎯", d: "일본어 낱말을 보고 맞는 그림 고르기", steps: [{ type: "pick", gen: toPic, guide: "일본어 낱말을 읽고 맞는 <b>그림</b>을 골라요." }] },
+    { id: "j1c", title: "말 고르기", kind: "게임", e: "🗣️", d: "그림을 보고 맞는 일본어 낱말 고르기", steps: [{ type: "pick", gen: toRead, guide: "그림을 보고 맞는 <b>일본어 낱말</b>을 골라요." }] },
+    { id: "j1d", title: "글자 조립", kind: "게임", e: "🔤", d: "글자를 순서대로 눌러 낱말 만들기", steps: [{ type: "build", guide: "그림을 보고, 글자를 <b>순서대로</b> 눌러 일본어 낱말을 만들어요. <b>함정 글자</b>도 있어요!" }] },
+    { id: "j1e", title: "크로스워드", kind: "게임", e: "🧩", d: "그림을 보고 가로세로 칸에 글자 채우기", steps: [{ type: "cross", guide: "위의 <b>그림</b>을 보고, 아래 글자를 눌러 <b>가로세로 칸</b>을 채워요." }] }
+  ] },
+  { id: "s2", no: "STAGE 2", name: "짧은 말", en: "Phrase Beach", icon: "🏖️", ...CORAL, desc: "낱말을 이어 붙여 짧은 말 만들기!", acts: [
+    { id: "j2a", title: "짧은 말 카드", kind: "학습", e: "🃏", d: "낱말과 낱말을 잇는 작은 말 알아보기", steps: [{ type: "pcards", guide: "일본어도 우리말처럼 낱말을 <b>차례로 이어</b> 말해요. 소리 내어 읽어 봐요." }] },
+    { id: "j2b", title: "뜻 고르기", kind: "게임", e: "🎯", d: "짧은 말을 읽고 맞는 뜻 고르기", steps: [{ type: "pick", gen: phraseMean, guide: "짧은 말을 읽고 맞는 <b>뜻</b>을 골라요." }] },
+    { id: "j2c", title: "차례로 쌓기", kind: "게임", e: "🧱", d: "블록을 순서대로 눌러 짧은 말 만들기", steps: [{ type: "order", guide: "뜻을 보고, 블록을 <b>순서대로</b> 눌러 일본어로 말해요. <b>함정 블록</b>도 있어요!" }] }
+  ] },
+  { id: "s3", no: "REWARD", name: "노래 듣기", en: "Song Time", icon: "🎵", ...GOLD, desc: "낱말을 익혔으면 노래를 들으며 찾아봐요!", acts: [
+    { id: "j3a", title: "노래 따라가기", kind: "학습", e: "🎧", d: "노래를 틀어 놓고 부분마다 무슨 뜻인지 따라가기", steps: [{ type: "guide", guide: "위에서 ▶ 를 눌러 노래를 틀고, 부분이 바뀔 때마다 <b>무슨 내용인지</b> 읽어 봐요." }] },
+    { id: "j3b", title: "듣기 빙고", kind: "게임", e: "👂", d: "노래에서 낱말이 들릴 때마다 누르기", steps: [{ type: "bingo", need: 10, guide: "위에서 ▶ 를 눌러 노래를 틀고, 낱말이 <b>들릴 때마다</b> 눌러요. 10개 이상 찾으면 성공!" }] }
+  ] }
 ];
 const ALLACTS = STAGES.flatMap(s => s.acts);
 const MAXSTARS = ALLACTS.length * 3;
@@ -431,169 +455,164 @@ function progress(host, n) {
 function doneBar(host, label, fn) {
   host.append(h("div", { class: "donebar" }, h("button", { class: "btn pri big", type: "button", onclick: fn }, label)));
 }
-const speaker = w => h("button", { class: "spk", type: "button", "aria-label": "다시 듣기", onclick: () => say(w) }, "🔊");
 const shakeIt = el => { el.classList.remove("shake"); void el.offsetWidth; el.classList.add("shake"); setTimeout(() => el.classList.remove("shake"), 400); };
 
-ENG.wcards = (host, cfg, done) => {
-  SETS[cfg.set].forEach(grp => {
-    host.append(h("div", { class: "grp" }, h("span", { class: "vw" }, grp.t), " 단어"));
-    const grid = h("div", { class: "wg" });
-    grp.words.forEach(x => {
-      const tiles = x.g.map(g => h("button", { class: "tl" + (VOW.includes(g) ? " v" : "") + (g.length > 1 ? " two" : ""), type: "button" }, g, h("small", null, HK[g])));
-      const card = h("div", { class: "wc" }, h("button", { class: "pe", type: "button", onclick: () => say(x.w) }, x.e, h("span", null, "🔊")), h("div", { class: "tls" }, tiles), h("div", { class: "ko" }, x.ko));
-      tiles.forEach(t => t.onclick = () => {
-        t.classList.add("on"); sfx.tap();
-        if (tiles.every(o => o.classList.contains("on"))) { card.classList.add("done"); setTimeout(() => say(x.w), 250); }
-      });
-      grid.append(card);
-    });
-    host.append(grid);
+// 낱말 카드: 한글 독음을 크게, 일본 글자는 작게. 누르면 뜻이 나온다.
+ENG.cards = (host, cfg, done) => {
+  const seen = new Set(), line = h("div", { class: "cnt-line" });
+  const upd = () => line.textContent = `뜻을 확인한 카드 ${seen.size} / ${WORDS.length}`;
+  const grid = h("div", { class: "jg" });
+  WORDS.forEach(x => {
+    const c = h("button", { class: "jc", type: "button" }, h("div", { class: "em" }, x.e), h("div", { class: "r" }, x.r), h("div", { class: "k" }, x.k), h("div", { class: "m" }, x.m));
+    c.onclick = () => { c.classList.add("on"); seen.add(x.r); upd(); sfx.tap(); shakeless(c); };
+    grid.append(c);
   });
+  const shakeless = c => { c.classList.remove("pop"); void c.offsetWidth; c.classList.add("pop"); };
+  upd();
+  host.append(grid, line);
   doneBar(host, "다 봤어요 ✓", () => done(0, 1));
 };
 
-// 4개 중에 고르기. 한글 힌트는 숨겨 두었다가 한 번 틀리면 보여 준다.
+// 짧은 말 카드: 블록으로 나눠 보여 주고, 잇는 작은 말(노·가·에)을 알려 준다
+ENG.pcards = (host, cfg, done) => {
+  host.append(h("div", { class: "tips" },
+    h("div", null, h("b", null, "노"), " = ~의"), h("div", null, h("b", null, "가 스키"), " = ~가 좋아"), h("div", null, h("b", null, "에"), " = ~(으)로")));
+  const grid = h("div", { class: "pg2" });
+  PHRASES.forEach(x => grid.append(h("div", { class: "pc2" }, h("div", { class: "em" }, x.e),
+    h("div", { class: "blocks" }, x.p.map(b => h("span", { class: ["노", "가", "에"].includes(b) ? "glue" : "" }, b))), h("div", { class: "k" }, x.k), h("div", { class: "m" }, x.m))));
+  host.append(grid);
+  doneBar(host, "다 봤어요 ✓", () => done(0, 1));
+};
+
+// 4개(또는 3개) 중에 고르기
 ENG.pick = (host, cfg, done) => {
   const items = cfg.gen();
   let i = 0, miss = 0;
-  const bar = progress(host, items.length), box = h("div", { class: "lq hid" });
+  const bar = progress(host, items.length), box = h("div", { class: "lq" });
   host.append(box);
   function show() {
     if (i >= items.length) return done(miss, items.length);
     bar.set(i);
     const it = items[i];
-    box.innerHTML = ""; box.classList.remove("showhint");
-    if (it.auto) box.append(h("div", { class: "lqh" }, speaker(it.say)));
-    if (it.word) box.append(h("div", { class: "wd" }, it.word, h("small", null, it.hint)));
+    box.innerHTML = "";
     const grid = h("div", { class: "opts", style: { gridTemplateColumns: `repeat(${it.cols},1fr)` } });
     shuffle(it.opts.map((t, k) => ({ t, k }))).forEach(o => {
-      const b = h("button", { class: "opt" + (it.pic ? " pic" : ""), type: "button", html: o.t, onclick: () => {
-        if (o.k === 0) {
-          b.classList.add("ok", "pop"); grid.querySelectorAll(".opt").forEach(x => x.disabled = true);
-          box.classList.add("showhint"); sfx.ok(); note.textContent = it.ans || "";
-          later(() => say(it.say), 300); later(() => { i++; show(); }, 1700);
-        } else { b.classList.add("no", "shake"); b.disabled = true; miss++; sfx.no(); box.classList.add("showhint"); }
+      const b = h("button", { class: "opt", type: "button", html: o.t, onclick: () => {
+        if (o.k === 0) { b.classList.add("ok", "pop"); grid.querySelectorAll(".opt").forEach(x => x.disabled = true); sfx.ok(); later(() => { i++; show(); }, 1200); }
+        else { b.classList.add("no", "shake"); b.disabled = true; miss++; sfx.no(); }
       } });
       grid.append(b);
     });
-    const note = h("div", { class: "kom" });        // 맞힌 뒤 보여 주는 그림·뜻
-    box.append(grid, note);
-    if (it.auto) later(() => say(it.say), 400);
+    box.append(h("div", { class: "top", html: it.top }), h("div", { class: "qsub" }, it.sub), grid);
   }
   show();
 };
 
+// 글자 조립: 한글 독음을 한 글자씩 순서대로. 함정 글자 2개.
 ENG.build = (host, cfg, done) => {
-  const items = shuffle(WORDS[cfg.set]).slice(0, 8);
-  const allG = [...new Set(ALLW.flatMap(x => x.g))];
+  const items = shuffle(WORDS.filter(x => x.r.length > 1)).slice(0, 8), all = [...new Set(WORDS.flatMap(x => [...x.r]))];
   let i = 0, miss = 0;
-  const bar = progress(host, items.length), box = h("div", { class: "bd lq hid" });
+  const bar = progress(host, items.length), box = h("div", { class: "bd lq" });
   host.append(box);
   function show() {
     if (i >= items.length) return done(miss, items.length * 3);
     bar.set(i);
-    const it = items[i], toks = it.g;
+    const it = items[i], toks = [...it.r];
     let pos = 0;
-    box.innerHTML = ""; box.classList.remove("showhint");
-    box.append(h("div", { class: "lqh" }, h("div", { class: "pe" }, it.e), speaker(it.w)), h("div", { class: "kom" }, it.ko));
+    box.innerHTML = "";
     const slots = toks.map(() => h("span", { class: "slot" }));
     slots[0].classList.add("cur");
     const pool = h("div", { class: "pool" });
-    // 함정 글자 2개: 단어에 없고, 단어 속 글자와 한글 힌트(소리)가 겹치지 않는 것
-    const traps = shuffle(allG.filter(g => !toks.includes(g) && !toks.some(t => HK[t] === HK[g]))).slice(0, 2);
-    shuffle(toks.concat(traps)).forEach(t => {
-      const b = h("button", { class: "tok", type: "button" }, t, h("small", null, HK[t]));
+    shuffle(toks.concat(shuffle(all.filter(g => !toks.includes(g))).slice(0, 2))).forEach(t => {
+      const b = h("button", { class: "tok", type: "button" }, t);
       b.onclick = () => {
-        if (t !== toks[pos]) { miss++; sfx.no(); shakeIt(b); box.classList.add("showhint"); return; }
+        if (t !== toks[pos]) { miss++; sfx.no(); shakeIt(b); return; }
         slots[pos].textContent = t; slots[pos].classList.remove("cur"); slots[pos].classList.add("fill");
         b.classList.add("used"); b.disabled = true; pos++;
         if (pos < toks.length) { slots[pos].classList.add("cur"); sfx.tap(); return; }
-        sfx.ok(); later(() => say(it.w), 250);
-        later(() => { i++; show(); }, 1700);
+        sfx.ok(); later(() => { i++; show(); }, 1300);
       };
       pool.append(b);
     });
-    box.append(h("div", { class: "slots" }, slots), pool);
-    later(() => say(it.w), 400);
+    box.append(h("div", { class: "top" }, h("span", { class: "pic1" }, it.e)), h("div", { class: "qsub" }, `‘${it.m}’ 은(는) 일본어로?`), h("div", { class: "slots" }, slots), pool);
   }
   show();
 };
 
-// 크로스워드: 그림(누르면 소리)을 힌트로 단어를 가로세로 칸에 채운다 (../cross.js)
-ENG.cross = (host, cfg, done) => {
-  const byW = Object.fromEntries(ALLW.map(x => [x.w, x]));
-  let L, miss = 0;
-  for (let t = 0; t < 30; t++) { L = CrossPuzzle.layout(shuffle(WORDS[cfg.set]).slice(0, 7).map(x => x.w), 10, 10); if (L.entries.length >= 5) break; }
-  CrossPuzzle.mount(host, L, { size: 48, keys: shuffle([...new Set(L.entries.flatMap(e => [...e.word]))]), chip: e => byW[e.word].e + " " + byW[e.word].ko,     // 그림만으로는 뜻을 모를 수 있어 한글 뜻을 같이 보여 준다
-    onSelect: e => say(e.word), onTap: sfx.tap, onOk: e => { sfx.ok(); later(() => say(e.word), 250); }, onMiss: () => { miss++; sfx.no(); },
-    onDone: () => later(() => done(miss, L.entries.length), 1000) });
+// 차례로 쌓기: 짧은 말의 블록을 순서대로. 함정 블록 2개.
+ENG.order = (host, cfg, done) => {
+  const items = shuffle(PHRASES), all = [...new Set(PHRASES.flatMap(x => x.p))];
+  let i = 0, miss = 0;
+  const bar = progress(host, items.length), box = h("div", { class: "bd lq" });
+  host.append(box);
+  function show() {
+    if (i >= items.length) return done(miss, items.length * 2);
+    bar.set(i);
+    const it = items[i], toks = it.p;
+    let pos = 0;
+    box.innerHTML = "";
+    const slots = toks.map(() => h("span", { class: "slot w" }));
+    slots[0].classList.add("cur");
+    const pool = h("div", { class: "pool" });
+    shuffle(toks.concat(shuffle(all.filter(g => !toks.includes(g))).slice(0, 2))).forEach(t => {
+      const b = h("button", { class: "tok w", type: "button" }, t);
+      b.onclick = () => {
+        if (t !== toks[pos]) { miss++; sfx.no(); shakeIt(b); return; }
+        slots[pos].textContent = t; slots[pos].classList.remove("cur"); slots[pos].classList.add("fill");
+        b.classList.add("used"); b.disabled = true; pos++;
+        if (pos < toks.length) { slots[pos].classList.add("cur"); sfx.tap(); return; }
+        sfx.ok(); later(() => { i++; show(); }, 1500);
+      };
+      pool.append(b);
+    });
+    box.append(h("div", { class: "top" }, h("span", { class: "pic1" }, it.e)), h("div", { class: "qsub" }, `‘${it.m}’ 은(는) 일본어로?`), h("div", { class: "slots" }, slots), pool);
+  }
+  show();
 };
 
-// 내려오는 단어 풍선: 아래 그림에 맞는 단어를 터뜨린다. 정답 풍선은 화면에 하나만, 하나 맞히면 다음 그림.
-const COLORS = ["#FF6B8A", "#FFB020", "#4CC9F0", "#5CC98A", "#9B5DE5", "#FF7A45", "#F0508A", "#3FA7F5"];
-ENG.fall = (host, cfg, done) => {
-  const GOAL = 10, FALL_MS = 8000, BW = 150;
-  const run = RUN, words = WORDS[cfg.set], targets = shuffle(words);
-  let x = targets[0], ti = 0, score = 0, miss = 0, balls = [], stop = false, pauseUntil = 0, decoys = [];
-  const scoreEl = h("span", { class: "fs" }), field = h("div", { class: "field" }), base = h("div", { class: "base" });
-  host.append(h("div", { class: "fhead" }, scoreEl), field, base);
-  const setScore = () => scoreEl.textContent = `⭐ ${score} / ${GOAL}`;
-  function showTarget() {
-    base.innerHTML = "";
-    base.append(h("div", { class: "pe" }, x.e), h("div", { class: "kom" }, x.ko), speaker(x.w));
-    decoys = near(x, words, 6);
-    later(() => say(x.w), 300);
-  }
-  function nextTarget() {
-    x = targets[++ti % targets.length];
-    balls.forEach(b => { b.gone = true; b.el.style.transition = "opacity .3s"; b.el.style.opacity = "0"; setTimeout(() => b.el.remove(), 300); });
-    balls = []; pauseUntil = performance.now() + 1200;
-    showTarget();
-  }
-  function spawn() {
-    const W = field.clientWidth, lanes = Math.max(2, Math.floor(W / (BW + 16)));
-    const busy = new Set(balls.filter(b => b.y < 150).map(b => b.lane));
-    const free = [...Array(lanes).keys()].filter(l => !busy.has(l));
-    if (!free.length) return;
-    const lane = free[Math.random() * free.length | 0];
-    const ok = !balls.some(b => b.ok) && (balls.length > 0 || Math.random() < .4);
-    const o = ok ? x : shuffle(decoys.filter(d => !balls.some(b => b.o === d)))[0];
-    if (!o) return;
-    const el = h("button", { class: "bl wb", type: "button",
-      style: { "--bc": COLORS[Math.random() * COLORS.length | 0], left: ((lane + .5) * W / lanes - BW / 2) + "px", animationDelay: (-Math.random() * 3).toFixed(2) + "s" } }, o.w);
-    const b = { el, ok, o, lane, y: -120, gone: false };
-    el.onclick = () => {
-      if (b.gone || stop) return;
-      if (!b.ok) { miss++; sfx.no(); shakeIt(el); return; }
-      b.gone = true; balls = balls.filter(q => q !== b);
-      el.classList.add("pop"); setTimeout(() => el.remove(), 400);
-      sfx.ok(); score++; setScore(); pauseUntil = performance.now() + 2000;
-      if (score >= GOAL) { stop = true; later(() => done(miss, GOAL), 900); }
-      else later(nextTarget, 350);
-    };
-    field.append(el); balls.push(b);
-  }
-  let prev = performance.now(), nextSpawn = prev + 700;
-  function frame(now) {
-    if (run !== RUN || stop || !document.body.contains(field)) return;
-    const dt = Math.min(1000, now - prev), H = field.clientHeight;   // 화면 갱신이 느린 기기에서도 실제 시간만큼 내려온다
-    prev = now;
-    balls = balls.filter(b => {
-      b.y += (H + 120) / FALL_MS * dt; b.el.style.top = b.y + "px";
-      if (b.y > H) { b.el.remove(); return false; }
-      return true;
-    });
-    if (now >= nextSpawn && now >= pauseUntil) { spawn(); nextSpawn = now + 1700 + Math.random() * 700; }
-    requestAnimationFrame(frame);
-  }
-  setScore(); showTarget(); requestAnimationFrame(frame);
+// 크로스워드: 그림을 힌트로 한글 독음을 가로세로 칸에 채운다 (../cross.js)
+ENG.cross = (host, cfg, done) => {
+  const pool = WORDS.filter(x => x.r.length > 1), byR = Object.fromEntries(WORDS.map(x => [x.r, x]));
+  let L = null, miss = 0;                               // 한글 독음은 겹치는 글자가 드물어, 여러 번 배치해 가장 많이 들어간 것을 쓴다
+  for (let t = 0; t < 30 && (!L || L.entries.length < 7); t++) { const c = CrossPuzzle.layout(shuffle(pool).map(x => x.r), 9, 9, 40); if (!L || c.entries.length > L.entries.length) L = c; }
+  CrossPuzzle.mount(host, L, { size: 54, keys: shuffle([...new Set(L.entries.flatMap(e => [...e.word]))]), chip: e => byR[e.word].e + " " + byR[e.word].m,
+    onTap: sfx.tap, onOk: sfx.ok, onMiss: () => { miss++; sfx.no(); }, onDone: () => later(() => done(miss, L.entries.length), 1000) });
+};
+
+// 노래(유튜브 공식 채널 영상)를 페이지 안에서 튼다 — 같은 화면에서 들으면서 읽고 누를 수 있게. 소리가 목적이라 작게 둔다.
+const songPlayer = () => h("div", { class: "yt" },
+  h("iframe", { src: `https://www.youtube-nocookie.com/embed/${SONG_ID}?playsinline=1&rel=0`, title: "푸른 산호초", allow: "autoplay; encrypted-media; picture-in-picture", allowfullscreen: true }),
+  h("div", null, "🎵 ▶ 를 눌러 노래 틀기", h("a", { href: "https://www.youtube.com/watch?v=" + SONG_ID, target: "_blank", rel: "noopener" }, "안 나오면 유튜브에서 열기 ↗")));
+
+ENG.guide = (host, cfg, done) => {
+  host.append(songPlayer(), h("p", { class: "guide" }, "노래 순서: 후렴 → 1절 → 후렴 → 2절 → 후렴"));
+  PARTS.forEach(p => host.append(h("div", { class: "part" },
+    h("h3", null, h("span", { class: "tg" }, p.t), p.e),
+    h("p", { class: "pk" }, p.ko),
+    h("div", { class: "phs" }, p.ph.map(x => h("div", { class: "ph" }, h("b", null, "♪ " + x[0]), h("small", null, x[1])))))));
+  doneBar(host, "뜻을 알고 들었어요 ✓", () => done(0, 0));
+};
+
+// 듣기 빙고: 노래에서 낱말이 들릴 때마다 누른다 (스스로 확인하는 활동)
+ENG.bingo = (host, cfg, done) => {
+  const hit = new Set(), line = h("div", { class: "cnt-line" });
+  const fin = h("button", { class: "btn pri big", type: "button", disabled: true }, "다 들었어요 ✓");
+  const upd = () => { line.textContent = `찾은 낱말 ${hit.size} / ${WORDS.length}`; fin.disabled = hit.size < cfg.need; };
+  const grid = h("div", { class: "bingo" }, shuffle(WORDS).map(x => {
+    const b = h("button", { type: "button" }, h("span", null, x.e), x.r);
+    b.onclick = () => { b.classList.toggle("on") ? hit.add(x.r) : hit.delete(x.r); sfx.tap(); upd(); };
+    return b;
+  }));
+  fin.onclick = () => done(0, 0);
+  host.append(songPlayer(), grid, line, h("div", { class: "donebar" }, fin));
+  upd();
 };
 
 /* ================= screens ================= */
 const app = document.getElementById("app");
 function theme(st) {
   const r = document.documentElement.style;
-  r.setProperty("--c", st ? st.c : "#F0508A"); r.setProperty("--cl", st ? st.cl : "#FFEDF4"); r.setProperty("--cd", st ? st.cd : "#B32A60");
+  r.setProperty("--c", st ? st.c : "#14A3B8"); r.setProperty("--cl", st ? st.cl : "#E3F6F9"); r.setProperty("--cd", st ? st.cd : "#0B7284");
 }
 function topbar(st) {
   const snd = h("button", { class: "snd", type: "button", title: "효과음 켜기/끄기", onclick: () => { S.sound = !S.sound; save(); snd.textContent = S.sound ? "🔔" : "🔕"; sfx.tap(); } }, S.sound ? "🔔" : "🔕");
@@ -614,10 +633,10 @@ function home() {
   };
   app.append(...[
     h("div", { class: "hero" },
-      h("div", { class: "tags" }, h("b", null, "Phonics"), h("b", null, "Reading"), h("b", null, "Spelling"), h("span", { class: "j" }, "유치원")),
+      h("div", { class: "tags" }, h("b", null, "にほんご"), h("b", null, "낱말"), h("b", null, "노래"), h("span", { class: "j" }, "노래로 만나는 일본어")),
       h("div", { class: "who" }, "지현이의"),
-      h("h1", { html: "English<br><span>Phonics Level 2</span>" }),
-      h("div", { class: "units" }, h("div", { html: "<b>CVC</b>More Words" }), h("div", { html: "<b>sh ch th</b>Sound Teams" }), h("div", { html: "<b>fr nd</b>Big Words" })),
+      h("h1", { html: "푸른 산호초<br><span>아오이 상고쇼</span>" }),
+      h("div", { class: "units" }, h("div", { html: "<b>♪</b>마츠다 세이코" }), h("div", { html: "<b>GOAL</b>뜻을 알고 노래 듣기" })),
       h("div", { html: '<svg viewBox="0 0 100 120"><use href="#drop"/></svg>' }).firstChild),
     h("div", { class: "meter" }, h("span", { class: "lab" }, "모은 별"), h("div", { class: "track" }, h("div", { class: "fill", style: { width: (tot / MAXSTARS * 100) + "%" } })), h("span", { class: "num" }, `⭐ ${tot} / ${MAXSTARS}`)),
     all && h("div", { class: "clear" }, h("h2", null, "🏆 MISSION CLEAR 🏆"), h("p", null, `모든 게임을 끝까지 해냈어요! 별 ${tot}개를 모았어요. 별 3개가 아닌 게임에 다시 도전해 볼까요?`)),
@@ -630,17 +649,7 @@ function home() {
     })),
     h("div", { class: "foot" },
       h("a", { class: "btn", href: "../지현이.html" }, "← 지현이 페이지"), h("a", { class: "btn ghost", href: "../../index.html" }, "사이트 홈"),
-      h("span", { class: "sp" }), reset),
-    h("details", { class: "cred", html: `<summary>발음 녹음 출처</summary><p>단어 발음은 Wikimedia Commons의 미국 영어 녹음(En-us-단어.ogg)을 mp3로 받아 썼어요.<br>
-      ant · bank · bath · bell · brush · cab · camp · can · chat · check · chick · chip · clock · crab · cub · cut · dad · dig · dish · doll · dress · drop · drum · duck · frog · gift · grass · ham · hand · hill · hop · hot · hug · king · kiss · lamp · lock · lunch · mad · math · men · milk · plant · plug · rat · red · ring · rock · run · sad · sand · shell · ship · shop · sick · sing · sink · sit · sock · song · stop · swim · tent · truck · van · vest · wet · win — Dvortygirl, CC BY-SA 3.0<br>
-      bin · fin · fish · flag · hit — 퍼블릭 도메인<br>
-      cash · grin · wink — Neskaya, CC BY-SA 3.0<br>
-      gas · pet — CC BY-SA 3.0<br>
-      brick · fist — Dvortygirl, 퍼블릭 도메인<br>
-      golf · mask — Sylvanmoon, CC BY-SA 4.0<br>
-      chess — BirdHopper, CC BY-SA 4.0<br>
-      elf — Muke, 퍼블릭 도메인<br>
-      twin — DroEsperanto, 퍼블릭 도메인</p>` })
+      h("span", { class: "sp" }), reset)
   ].filter(Boolean));
 }
 function stage(st) {
@@ -653,7 +662,7 @@ function stage(st) {
     h("div", { class: "foot" }, h("a", { class: "btn home", href: "#" }, "🏠 처음 화면으로 돌아가기")));
 }
 function confetti() {
-  const fx = document.getElementById("fx"), col = ["#F0508A", "#FF7A45", "#9B5DE5", "#4CC9F0", "#FFB020", "#5CC98A"];
+  const fx = document.getElementById("fx"), col = ["#14A3B8", "#FF7A45", "#9B5DE5", "#4CC9F0", "#FFB020", "#5CC98A"];
   for (let i = 0; i < 70; i++) {
     const p = h("i", { style: { left: Math.random() * 100 + "%", background: col[i % col.length], animationDuration: 1.6 + Math.random() * 1.8 + "s", animationDelay: Math.random() * .4 + "s", transform: `rotate(${Math.random() * 360}deg)` } });
     fx.append(p);
@@ -710,9 +719,8 @@ function render() {
   window.scrollTo({ top: 0 });
 }
 window.addEventListener("hashchange", render);
-window.PH = { STAGES, S, WORDS, ALLW, HK, seg };
+window.PH = { STAGES, S, WORDS, PHRASES };
 render();
-setTimeout(() => ALLW.forEach(x => raw(x.w).catch(() => { RAW[x.w] = null; })), 1200);   // 녹음 미리 받기
 </script>
 </body>
 </html>
