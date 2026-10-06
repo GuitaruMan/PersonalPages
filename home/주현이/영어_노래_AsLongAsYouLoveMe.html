@@ -6,7 +6,7 @@
 <title>노래로 배우는 영어 · As Long As You Love Me - My Presentations</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Jua&family=Noto+Sans+KR:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Jua&family=Single+Day&family=Noto+Sans+KR:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#22304a;--sub:#55617f;--line:#d5dcec;--bg1:#DDEEFF;--bg2:#F6FAFF;--c:#2D7FF9;--cl:#EAF2FF;--cd:#1A57B8;
   --ok:#1FA65A;--okl:#E3F7EB;--no:#E5484D;--nol:#FFECEE;--gold:#FFB020}
@@ -393,6 +393,13 @@ input,textarea{font:inherit;color:inherit}
   .cg{grid-template-columns:repeat(2,1fr)}.cg.mini{grid-template-columns:repeat(3,1fr)}
   .cww,.wsw{grid-template-columns:1fr}.hero svg{width:110px;right:24px}.hero h1{font-size:2.7rem}
 }
+
+.lyr{display:none;margin-top:14px;border:2px solid var(--line);border-radius:18px;padding:10px 18px;columns:2;column-gap:28px}
+.lyr.show{display:block}
+.ll{break-inside:avoid;padding:5px 0;border-bottom:1px dashed var(--line)}
+.ll b{display:block;font-size:1.02rem;font-weight:800}
+.ll span{display:block;font-family:'Single Day','Jua','Malgun Gothic';font-size:1.1rem;color:#3d5a80;line-height:1.3}
+@media (max-width:760px){.lyr{columns:1}}
 </style>
 </head>
 <body>
@@ -476,7 +483,7 @@ const sfx = {
 };
 /* ================= content ================= */
 // 노래 〈As Long As You Love Me〉(Backstreet Boys)로 배우는 영어.
-// 가사 전체는 싣지 않는다(저작권). 단어·표현·패턴을 뽑아 쓰고, 가사는 핵심 구절만 짧게 인용한다. 그 밖의 예문은 새로 만든 것.
+// 가사 전체를 우리말과 함께 싣는다(학습용 사용 가능 — 사용자 확인). 단어·표현·패턴도 뽑아 쓰고, 그 밖의 예문은 새로 만든 것.
 const SONG_ID = "0Gl2QnHNpkA";            // 유튜브 공식 뮤직비디오 (BackstreetBoysVEVO, 다른 사이트에 넣기 허용)
 
 // [영어, 읽는 법, 뜻, 예문(영), 예문(한), 그림]
@@ -535,6 +542,8 @@ const PARTS = [
   { t: "브리지", e: "👁️", ko: "아무도 모르게 이 마음을 숨겨 보려 했지만, 그대가 내 눈을 들여다보면 다 드러나나 봐요. 그대가 무슨 일을 했든 어디서 왔든 상관없어요. 날 사랑해 주기만 한다면요.",
     ph: [["so that no one knows", "아무도 모르게"], ["I guess it shows", "다 드러나나 봐요"], ["look into my eyes", "내 눈을 들여다보다"]] }
 ];
+// 가사 전체 + 우리말 (학습용)
+const LYRICS = [["Although loneliness has always been a friend of mine", "외로움은 늘 내 친구였지만"], ["I’m leaving my life in your hands", "이제 내 삶을 네 손에 맡길게"], ["People say I’m crazy and that I am blind", "사람들은 내가 미쳤다고, 눈이 멀었다고 해"], ["Risking it all in a glance", "한눈에 모든 걸 걸다니"], ["And how you got me blind is still a mystery", "네가 어떻게 내 눈을 멀게 했는지는 아직도 수수께끼야"], ["I can’t get you out of my head", "네 생각이 머리에서 떠나지 않아"], ["Don’t care what is written in your history", "네가 지나온 날들에 무엇이 쓰여 있든 상관없어"], ["As long as you’re here with me", "네가 여기 내 곁에 있기만 하면"], ["I don’t care who you are", "네가 누구든 상관없어"], ["Where you’re from", "어디서 왔든"], ["What you did", "무슨 일을 했든"], ["As long as you love me", "네가 날 사랑하기만 하면"], ["Who you are", "네가 누구든"], ["Where you’re from", "어디서 왔든"], ["Don’t care what you did", "무슨 일을 했든 상관없어"], ["As long as you love me", "네가 날 사랑하기만 하면"], ["Every little thing that you have said and done", "네가 말하고 행동한 작은 것 하나하나가"], ["Feels like it’s deep within me", "내 마음 깊은 곳에 있는 것 같아"], ["Doesn’t really matter if you’re on the run", "네가 쫓기는 몸이라 해도 정말 상관없어"], ["It seems like we’re meant to be", "우린 만날 운명이었던 것 같아"], ["I don’t care who you are", "네가 누구든 상관없어"], ["Where you’re from", "어디서 왔든"], ["What you did", "무슨 일을 했든"], ["As long as you love me", "네가 날 사랑하기만 하면"], ["Who you are", "네가 누구든"], ["Where you’re from", "어디서 왔든"], ["Don’t care what you did", "무슨 일을 했든 상관없어"], ["As long as you love me", "네가 날 사랑하기만 하면"], ["I’ve tried to hide it so that no one knows", "아무도 모르게 숨기려고 했지만"], ["But I guess it shows", "다 드러나나 봐"], ["When you look into my eyes", "네가 내 눈을 들여다보면"], ["What you did and where you’re coming from", "네가 무슨 일을 했든, 어디서 왔든"], ["I don’t care, as long as you love me, baby", "상관없어, 네가 날 사랑하기만 하면"], ["I don’t care who you are", "네가 누구든 상관없어"], ["Where you’re from", "어디서 왔든"], ["What you did", "무슨 일을 했든"], ["As long as you love me", "네가 날 사랑하기만 하면"], ["Who you are", "네가 누구든"], ["Where you’re from", "어디서 왔든"], ["Don’t care what you did", "무슨 일을 했든 상관없어"], ["As long as you love me", "네가 날 사랑하기만 하면"], ["I don’t care who you are", "네가 누구든 상관없어"], ["Where you’re from", "어디서 왔든"], ["What you did", "무슨 일을 했든"], ["As long as you love me", "네가 날 사랑하기만 하면"], ["Who you are", "네가 누구든"], ["Where you’re from", "어디서 왔든"], ["Don’t care what you did", "무슨 일을 했든 상관없어"], ["As long as you love me", "네가 날 사랑하기만 하면"]];
 const BINGO = ["loneliness", "friend", "crazy", "blind", "glance", "mystery", "head", "history", "matter", "run", "hide", "guess", "eyes", "baby", "love", "care"];
 
 const STAGES = [
@@ -629,7 +638,7 @@ const STAGES = [
       { ko: "네가 여기 있는 한 나는 행복해.", answer: "I’m happy as long as you are here.", alt: ["I am happy as long as you are here.", "As long as you are here, I’m happy.", "As long as you are here, I am happy.", "I’m happy as long as you’re here.", "As long as you’re here, I’m happy."] }] }] }
   ] },
   { id: "s5", no: "REWARD", name: "노래 듣기", en: "Song Time", icon: "🎵", c: "#F09A00", cl: "#FFF6DF", cd: "#A96A00", desc: "공부를 마쳤으면 노래를 들으며 뜻을 따라가요!", acts: [
-    { id: "s5a", title: "노래 따라가기", kind: "학습", e: "🎧", d: "노래를 틀어 놓고 부분마다 무슨 뜻인지 따라가기", steps: [{ type: "guide", parts: PARTS, guide: "위 영상에서 ▶ 를 눌러 노래를 틀고, 부분이 바뀔 때마다 <b>무슨 내용인지</b> 읽어 봐요. 영상은 화면을 내려도 따라와요." }] },
+    { id: "s5a", title: "노래 따라가기", kind: "학습", e: "🎧", d: "노래를 틀어 놓고 부분마다 무슨 뜻인지 따라가기", steps: [{ type: "guide", parts: PARTS, lyrics: LYRICS, guide: "위 영상에서 ▶ 를 눌러 노래를 틀고, 부분이 바뀔 때마다 <b>무슨 내용인지</b> 읽어 봐요. 영상은 화면을 내려도 따라와요." }] },
     { id: "s5b", title: "듣기 빙고", kind: "게임", e: "👂", d: "노래에서 단어가 들릴 때마다 누르기", steps: [{ type: "bingo", words: BINGO, need: 12, guide: "위 영상에서 ▶ 를 눌러 노래를 틀고, 단어가 <b>들릴 때마다</b> 눌러요. 12개 이상 찾으면 성공!" }] },
     { id: "s5c", title: "노래 내용 퀴즈", kind: "게임", e: "❓", d: "노래가 무슨 이야기인지 맞히기", steps: [{ type: "mcq", cols: 1, keep: true, items: [
       { q: "노래하는 사람은 예전에 어떻게 지냈나요?", opts: ["늘 외로웠다", "친구가 아주 많았다", "늘 바빴다"], why: "loneliness(외로움)가 늘 친구였다고 해요." },
@@ -1040,6 +1049,12 @@ ENG.guide = (host, cfg, done) => {
     h("h3", null, h("span", { class: "tg" }, p.t), p.e),
     h("p", { class: "pk" }, p.ko),
     h("div", { class: "phs" }, p.ph.map(x => h("div", { class: "ph" }, h("b", null, "♪ " + x[0]), h("small", null, x[1])))))));
+  if (cfg.lyrics) {                      // 가사 전체: 한 줄씩 영어 + 우리말
+    const list = h("div", { class: "lyr" }, cfg.lyrics.map(l => h("div", { class: "ll" }, h("b", null, l[0]), h("span", null, l[1]))));
+    const btn = h("button", { class: "btn", type: "button" }, "📜 가사 전체 보기");
+    btn.onclick = () => { const on = list.classList.toggle("show"); btn.textContent = on ? "📜 가사 접기" : "📜 가사 전체 보기"; sfx.tap(); };
+    host.append(h("div", { class: "donebar", style: { marginTop: "8px" } }, btn), list);
+  }
   doneBar(host, "뜻을 알고 들었어요 ✓", () => done(0, 0));
 };
 
