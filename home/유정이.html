@@ -31,6 +31,25 @@
   .icon2 { font-size: 1.8rem; }
   .label { font-size: 1.05rem; font-weight: 600; }
   .updated { font-size: 0.78rem; color: var(--ink-soft); }
+  #content { display: none; }
+
+  #gate {
+    background: var(--card); border-radius: 16px; padding: 2.5rem 2rem;
+    box-shadow: 0 4px 16px var(--shadow); display: flex; flex-direction: column;
+    align-items: center; gap: 1rem; width: 100%; max-width: 320px; margin-top: 2rem;
+  }
+  #gate .icon { font-size: 2.2rem; }
+  #gate input {
+    width: 100%; padding: 0.7rem 1rem; font-size: 1rem; border-radius: 10px;
+    border: 1px solid var(--ink-soft); background: transparent; color: var(--ink);
+    text-align: center; letter-spacing: 0.2em;
+  }
+  #gate button {
+    width: 100%; padding: 0.7rem 1rem; font-size: 1rem; border-radius: 10px;
+    border: none; background: var(--accent); color: #fff; cursor: pointer; font-weight: 600;
+  }
+  #gate button:hover { opacity: 0.9; }
+  #error { color: #c0392b; font-size: 0.85rem; min-height: 1.2em; }
 </style>
 </head>
 <body>
@@ -39,7 +58,15 @@
     <a class="back" href="../index.html">홈으로</a>
   </div>
   <h1>🧒 유정이</h1>
-  <div class="grid">
+
+  <div id="gate">
+    <div class="icon">🔑</div>
+    <input type="password" id="pw" maxlength="10" placeholder="비밀번호" inputmode="numeric">
+    <button onclick="checkPw()">확인</button>
+    <div id="error"></div>
+  </div>
+
+  <div class="grid" id="content">
     <a class="card" href="유정이/별_모음판.html">
       <div class="icon2">⭐</div>
       <div class="label">주현이 · 지현이 별 모음판</div>
@@ -56,5 +83,24 @@
       <div class="updated">업데이트: 2026. 7. 16.</div>
     </a>
   </div>
+  <script>
+    const PW = "0102", FLAG = "yujeong-ok";
+    function open_() {
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('content').style.display = 'grid';
+    }
+    function checkPw() {
+      if (document.getElementById('pw').value === PW) {
+        try { sessionStorage.setItem(FLAG, "1"); } catch (e) {}
+        open_();
+      } else {
+        document.getElementById('error').textContent = '비밀번호가 틀렸습니다.';
+      }
+    }
+    document.getElementById('pw').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkPw();
+    });
+    try { if (sessionStorage.getItem(FLAG) === "1") open_(); } catch (e) {}
+  </script>
 </body>
 </html>
