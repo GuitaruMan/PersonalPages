@@ -45,6 +45,14 @@
   @media (max-width: 520px) { .list { grid-template-columns: repeat(2, 1fr); } .doc-icon { font-size: 2.6rem; } }
   .date { font-size: 0.7rem; color: var(--ink-soft); }
   .empty { color: var(--ink-soft); font-size: 0.95rem; margin-top: 2rem; }
+  .fold { width: 100%; max-width: 700px; }
+  body.js .fold, body.js.in #folders { display: none; }
+  body.js .fold.on { display: block; }
+  .fold .sec { margin-top: 0; }
+  a.item.folder { background: linear-gradient(160deg, var(--card), color-mix(in srgb, var(--accent) 12%, var(--card))); border: 2px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+  .cnt { font-size: 0.78rem; color: var(--ink-soft); }
+  a.up { display: none; align-self: flex-start; max-width: 700px; margin: 0 auto 1rem; width: 100%; color: var(--accent); text-decoration: none; font-weight: 700; }
+  body.in a.up { display: block; }
 </style>
 </head>
 <body>
@@ -53,17 +61,11 @@
     <a class="back" href="../index.html">홈으로</a>
   </div>
   <h1>👦 주현이</h1>
-  <h2 class="sec">🔤 영어</h2>
+  <a class="up" href="#">&larr; 주현이 폴더 목록</a>
+  <div class="list" id="folders"></div>
+  <section class="fold" id="f-rw" data-icon="📖" data-name="읽기쓰기" data-desc="학교 영어 미션북 Unit 7·8 · Unit 9~12">
+  <h2 class="sec">📖 읽기쓰기</h2>
   <div class="list">
-    <a class="item" href="주현이/영어_단어장_Unit6.html" data-key="juhyun-vocab-u6" data-file="home/주현이/영어_단어장_Unit6.html">
-      <span class="doc-icon">🎨</span>
-      <span class="item-text">
-        <span class="t">영어 단어장 Unit 6 Being Creative</span>
-        <span class="s">크로스워드 2개 · 숙어 암기 · 과거형 · 문장 (시험 대비)</span>
-        <span class="date"></span>
-        <span class="got"></span>
-      </span>
-    </a>
     <a class="item" href="주현이/영어_미션북_Unit7-8.html" data-key="juhyun-mission-u78" data-file="home/주현이/영어_미션북_Unit7-8.html">
       <span class="doc-icon">💧</span>
       <span class="item-text">
@@ -82,90 +84,6 @@
         <span class="got"></span>
       </span>
     </a>
-    <a class="item" href="주현이/영어_노래_MMMBop.html" data-key="juhyun-song-mmmbop" data-file="home/주현이/영어_노래_MMMBop.html">
-      <span class="doc-icon">🎶</span>
-      <span class="item-text">
-        <span class="t">노래로 배우는 영어 · MMMBop</span>
-        <span class="s">Hanson · 단어 · 표현 · 패턴 · 크로스워드 2개</span>
-        <span class="date"></span>
-        <span class="got"></span>
-      </span>
-    </a>
-    <a class="item" href="주현이/영어_노래_AsLongAsYouLoveMe.html" data-key="juhyun-song-alym" data-file="home/주현이/영어_노래_AsLongAsYouLoveMe.html">
-      <span class="doc-icon">🎵</span>
-      <span class="item-text">
-        <span class="t">노래로 배우는 영어</span>
-        <span class="s">As Long As You Love Me · 단어 · 표현 · 패턴 · 크로스워드 2개</span>
-        <span class="date"></span>
-        <span class="got"></span>
-      </span>
-    </a>
-    <a class="item" href="주현이/화상영어_Unit7.html" data-file="home/주현이/화상영어_Unit7.html">
-      <span class="doc-icon">📱</span>
-      <span class="item-text">
-        <span class="t">화상영어 Unit 7</span>
-        <span class="s">단어 · 숙어장 (My Favorite Gadget)</span>
-        <span class="date"></span>
-      </span>
-    </a>
-    <a class="item" href="주현이/화상영어_Unit8.html" data-file="home/주현이/화상영어_Unit8.html">
-      <span class="doc-icon">📰</span>
-      <span class="item-text">
-        <span class="t">화상영어 Unit 8</span>
-        <span class="s">단어 · 숙어장 (That's Exactly What I'm Trying to Say)</span>
-        <span class="date"></span>
-      </span>
-    </a>
-    <a class="item" href="주현이/mercy_watson.html" data-file="home/주현이/mercy_watson.html">
-      <span class="doc-icon">🐷</span>
-      <span class="item-text">
-        <span class="t">Mercy Watson</span>
-        <span class="s">읽기 자료 (한글판 · 원문+번역 · 원문+단어숙어)</span>
-        <span class="date"></span>
-      </span>
-    </a>
-  </div>
-  <h2 class="sec">🎧 영어 듣기말하기</h2>
-  <div class="list">
-    <a class="item" href="주현이/영어_듣기말하기_Unit5.html" data-key="juhyun-ls5" data-file="home/주현이/영어_듣기말하기_Unit5.html">
-      <span class="doc-icon">🍜</span>
-      <span class="item-text">
-        <span class="t">듣기말하기 Unit 5 A Day Out</span>
-        <span class="s">음식 · 나들이 · 공룡 · What did ~? (듣기·받아쓰기)</span>
-        <span class="date"></span>
-        <span class="got"></span>
-      </span>
-    </a>
-    <a class="item" href="주현이/영어_듣기말하기_Unit6.html" data-key="juhyun-ls6" data-file="home/주현이/영어_듣기말하기_Unit6.html">
-      <span class="doc-icon">🎨</span>
-      <span class="item-text">
-        <span class="t">듣기말하기 Unit 6 Being Creative</span>
-        <span class="s">여가 · 만들어 주기 · 미술 · like to ~ (듣기·받아쓰기)</span>
-        <span class="date"></span>
-        <span class="got"></span>
-      </span>
-    </a>
-    <a class="item" href="주현이/영어_듣기말하기_Unit7.html" data-key="juhyun-ls7" data-file="home/주현이/영어_듣기말하기_Unit7.html">
-      <span class="doc-icon">🚀</span>
-      <span class="item-text">
-        <span class="t">듣기말하기 Unit 7 Things to Be</span>
-        <span class="s">직업 · 미래 · 우주 · want to be ~ (듣기·받아쓰기)</span>
-        <span class="date"></span>
-        <span class="got"></span>
-      </span>
-    </a>
-    <a class="item" href="주현이/영어_듣기말하기_Unit8.html" data-key="juhyun-ls8" data-file="home/주현이/영어_듣기말하기_Unit8.html">
-      <span class="doc-icon">⛵</span>
-      <span class="item-text">
-        <span class="t">듣기말하기 Unit 8 On Vacation</span>
-        <span class="s">휴가 · 준비물 · 교통수단 · be going to (듣기·받아쓰기)</span>
-        <span class="date"></span>
-        <span class="got"></span>
-      </span>
-    </a>
-  </div>
-  <h2 class="sec">📖 영어 읽기쓰기</h2>
-  <div class="list">
     <a class="item" href="주현이/영어_읽기쓰기_Unit9.html" data-key="juhyun-rw9" data-file="home/주현이/영어_읽기쓰기_Unit9.html">
       <span class="doc-icon">🗺️</span>
       <span class="item-text">
@@ -203,8 +121,112 @@
       </span>
     </a>
   </div>
-  <h2 class="sec">📁 기타</h2>
+  </section>
+  <section class="fold" id="f-ls" data-icon="🎧" data-name="듣기말하기" data-desc="Unit 5~8 · 단어장 Unit 6">
+  <h2 class="sec">🎧 듣기말하기</h2>
   <div class="list">
+    <a class="item" href="주현이/영어_듣기말하기_Unit5.html" data-key="juhyun-ls5" data-file="home/주현이/영어_듣기말하기_Unit5.html">
+      <span class="doc-icon">🍜</span>
+      <span class="item-text">
+        <span class="t">듣기말하기 Unit 5 A Day Out</span>
+        <span class="s">음식 · 나들이 · 공룡 · What did ~? (듣기·받아쓰기)</span>
+        <span class="date"></span>
+        <span class="got"></span>
+      </span>
+    </a>
+    <a class="item" href="주현이/영어_단어장_Unit6.html" data-key="juhyun-vocab-u6" data-file="home/주현이/영어_단어장_Unit6.html">
+      <span class="doc-icon">🎨</span>
+      <span class="item-text">
+        <span class="t">영어 단어장 Unit 6 Being Creative</span>
+        <span class="s">크로스워드 2개 · 숙어 암기 · 과거형 · 문장 (시험 대비)</span>
+        <span class="date"></span>
+        <span class="got"></span>
+      </span>
+    </a>
+    <a class="item" href="주현이/영어_듣기말하기_Unit6.html" data-key="juhyun-ls6" data-file="home/주현이/영어_듣기말하기_Unit6.html">
+      <span class="doc-icon">🎨</span>
+      <span class="item-text">
+        <span class="t">듣기말하기 Unit 6 Being Creative</span>
+        <span class="s">여가 · 만들어 주기 · 미술 · like to ~ (듣기·받아쓰기)</span>
+        <span class="date"></span>
+        <span class="got"></span>
+      </span>
+    </a>
+    <a class="item" href="주현이/영어_듣기말하기_Unit7.html" data-key="juhyun-ls7" data-file="home/주현이/영어_듣기말하기_Unit7.html">
+      <span class="doc-icon">🚀</span>
+      <span class="item-text">
+        <span class="t">듣기말하기 Unit 7 Things to Be</span>
+        <span class="s">직업 · 미래 · 우주 · want to be ~ (듣기·받아쓰기)</span>
+        <span class="date"></span>
+        <span class="got"></span>
+      </span>
+    </a>
+    <a class="item" href="주현이/영어_듣기말하기_Unit8.html" data-key="juhyun-ls8" data-file="home/주현이/영어_듣기말하기_Unit8.html">
+      <span class="doc-icon">⛵</span>
+      <span class="item-text">
+        <span class="t">듣기말하기 Unit 8 On Vacation</span>
+        <span class="s">휴가 · 준비물 · 교통수단 · be going to (듣기·받아쓰기)</span>
+        <span class="date"></span>
+        <span class="got"></span>
+      </span>
+    </a>
+  </div>
+  </section>
+  <section class="fold" id="f-song" data-icon="🎵" data-name="노래로 배우는 영어" data-desc="MMMBop · As Long As You Love Me">
+  <h2 class="sec">🎵 노래로 배우는 영어</h2>
+  <div class="list">
+    <a class="item" href="주현이/영어_노래_MMMBop.html" data-key="juhyun-song-mmmbop" data-file="home/주현이/영어_노래_MMMBop.html">
+      <span class="doc-icon">🎶</span>
+      <span class="item-text">
+        <span class="t">노래로 배우는 영어 · MMMBop</span>
+        <span class="s">Hanson · 단어 · 표현 · 패턴 · 크로스워드 2개</span>
+        <span class="date"></span>
+        <span class="got"></span>
+      </span>
+    </a>
+    <a class="item" href="주현이/영어_노래_AsLongAsYouLoveMe.html" data-key="juhyun-song-alym" data-file="home/주현이/영어_노래_AsLongAsYouLoveMe.html">
+      <span class="doc-icon">🎵</span>
+      <span class="item-text">
+        <span class="t">노래로 배우는 영어</span>
+        <span class="s">As Long As You Love Me · 단어 · 표현 · 패턴 · 크로스워드 2개</span>
+        <span class="date"></span>
+        <span class="got"></span>
+      </span>
+    </a>
+  </div>
+  </section>
+  <section class="fold" id="f-video" data-icon="📱" data-name="화상영어" data-desc="Unit 7 · 8 단어 · 숙어장">
+  <h2 class="sec">📱 화상영어</h2>
+  <div class="list">
+    <a class="item" href="주현이/화상영어_Unit7.html" data-file="home/주현이/화상영어_Unit7.html">
+      <span class="doc-icon">📱</span>
+      <span class="item-text">
+        <span class="t">화상영어 Unit 7</span>
+        <span class="s">단어 · 숙어장 (My Favorite Gadget)</span>
+        <span class="date"></span>
+      </span>
+    </a>
+    <a class="item" href="주현이/화상영어_Unit8.html" data-file="home/주현이/화상영어_Unit8.html">
+      <span class="doc-icon">📰</span>
+      <span class="item-text">
+        <span class="t">화상영어 Unit 8</span>
+        <span class="s">단어 · 숙어장 (That's Exactly What I'm Trying to Say)</span>
+        <span class="date"></span>
+      </span>
+    </a>
+  </div>
+  </section>
+  <section class="fold" id="f-etc" data-icon="📁" data-name="책 · 기타" data-desc="Mercy Watson · 탐구 보고서">
+  <h2 class="sec">📁 책 · 기타</h2>
+  <div class="list">
+    <a class="item" href="주현이/mercy_watson.html" data-file="home/주현이/mercy_watson.html">
+      <span class="doc-icon">🐷</span>
+      <span class="item-text">
+        <span class="t">Mercy Watson</span>
+        <span class="s">읽기 자료 (한글판 · 원문+번역 · 원문+단어숙어)</span>
+        <span class="date"></span>
+      </span>
+    </a>
     <a class="item" href="../겨울방학_탐구보고서_지브리풍.html" data-file="겨울방학_탐구보고서_지브리풍.html">
       <span class="doc-icon">📄</span>
       <span class="item-text">
@@ -214,6 +236,7 @@
       </span>
     </a>
   </div>
+  </section>
   <script>
     fetch('../dates.json').then(r => r.json()).then(dates => {
       document.querySelectorAll('[data-file]').forEach(el => {
@@ -235,8 +258,35 @@
         else if (sum && sum[0] > 0) { out.textContent = "⭐ " + sum[0] + " / " + sum[1]; out.classList.add("some"); }
         else if (!sum && stars > 0) { out.textContent = "⭐ " + stars; out.classList.add("some"); }
         else out.textContent = "☆ 아직 안 했어요";
+        if (window.foldStars) foldStars();
       }).catch(() => {});
     });
+  </script>
+  <script>
+    // 폴더(세부 분류): 폴더 타일을 누르면 그 묶음만 보여 준다. 주소 뒤 #f-이름 으로 기억한다.
+    document.body.classList.add("js");
+    const folders = document.getElementById("folders"), folds = [...document.querySelectorAll(".fold")];
+    folds.forEach(f => {
+      const n = f.querySelectorAll("a.item").length, a = document.createElement("a");
+      a.className = "item folder"; a.href = "#" + f.id;
+      a.innerHTML = '<span class="doc-icon">' + f.dataset.icon + '</span><span class="item-text"><span class="t">' + f.dataset.name + '</span><span class="s">' + f.dataset.desc + '</span><span class="cnt">📂 ' + n + '개</span><span class="got"></span></span>';
+      folders.append(a); f.tile = a;
+    });
+    function showFold() {
+      const cur = folds.find(f => "#" + f.id === location.hash);
+      folds.forEach(f => f.classList.toggle("on", f === cur));
+      document.body.classList.toggle("in", !!cur); scrollTo(0, 0);
+    }
+    addEventListener("hashchange", showFold); showFold();
+    // 폴더 타일에 그 안의 별 합계를 보여 준다
+    function foldStars() {
+      folds.forEach(f => {
+        let got = 0, max = 0;
+        f.querySelectorAll(".got").forEach(g => { const m = g.textContent.match(/(\d+) \/ (\d+)/); if (m) { got += +m[1]; max += +m[2]; } });
+        const out = f.tile.querySelector(".got");
+        if (max) { out.textContent = (got >= max ? "🏆 " : "⭐ ") + got + " / " + max; out.className = "got " + (got >= max ? "all" : "some"); }
+      });
+    }
   </script>
 </body>
 </html>
