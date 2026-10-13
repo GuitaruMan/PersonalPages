@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>듣기말하기 Unit 6 Being Creative - My Presentations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Jua&family=Noto+Sans+KR:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#22304a;--sub:#55617f;--line:#d5dcec;--bg1:#DDEEFF;--bg2:#F6FAFF;--c:#2D7FF9;--cl:#EAF2FF;--cd:#1A57B8;
+  --ok:#1FA65A;--okl:#E3F7EB;--no:#E5484D;--nol:#FFECEE;--gold:#FFB020}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:17px}
+body{font-family:'Nunito','Noto Sans KR','Malgun Gothic',sans-serif;color:var(--ink);min-height:100vh;line-height:1.5;
+  background:linear-gradient(180deg,var(--bg1),var(--bg2) 420px) no-repeat,var(--bg2);-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
+input,textarea{font:inherit;color:inherit}
+#app{max-width:1060px;margin:0 auto;padding:0 22px 70px}
+.f{font-family:'Fredoka','Jua',sans-serif}.j{font-family:'Jua','Malgun Gothic',sans-serif}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 17px;border-radius:14px;background:#fff;font-weight:800;font-size:.95rem;
+  border:2px solid #c3cfe8;box-shadow:0 4px 0 #c3cfe8;transition:transform .08s,box-shadow .08s;text-decoration:none;color:var(--ink);white-space:nowrap}
+.btn:hover{filter:brightness(1.03)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #c3cfe8}
+.btn.pri{background:var(--c);border-color:var(--cd);color:#fff;box-shadow:0 4px 0 var(--cd)}
+.btn.pri:active{box-shadow:0 1px 0 var(--cd)}
+.btn.big{font-size:1.1rem;padding:13px 26px;border-radius:18px}
+.btn.ghost{background:transparent;border-color:transparent;box-shadow:none;color:var(--sub);font-weight:700}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.tg{font-family:'Fredoka','Jua';font-weight:700;font-size:.75rem;background:var(--c);color:#fff;border-radius:99px;padding:2px 11px;white-space:nowrap}
+
+/* top bar */
+.bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:30;padding:12px 0 10px;
+  background:linear-gradient(var(--bg1) 78%,rgba(221,238,255,0))}
+.bar .home{background:#22304a;border-color:#0f1a30;color:#fff;box-shadow:0 4px 0 #0f1a30}
+.bar .home:active{box-shadow:0 1px 0 #0f1a30}
+.bar .nav{display:flex;gap:6px;flex-wrap:wrap}
+.bar .nav a{display:inline-flex;align-items:center;gap:5px;text-decoration:none;color:var(--ink);font-weight:800;font-size:.85rem;padding:7px 12px;border-radius:12px;
+  background:#fff;border:2px solid var(--nc);box-shadow:0 3px 0 var(--nc)}
+.bar .nav a.on{background:var(--nc);color:#fff}
+.bar .nav a:active{transform:translateY(2px);box-shadow:0 1px 0 var(--nc)}
+.bar .sp{flex:1}
+.bar .tot{font-family:'Fredoka';font-weight:700;background:#fff;border-radius:99px;padding:6px 14px;border:2px solid var(--gold);color:#8a5a00;font-size:.9rem;white-space:nowrap}
+.bar .snd{width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid #c3cfe8;font-size:1.05rem}
+
+/* home */
+.hero{background:linear-gradient(135deg,#FF8A3D,#E0457B);color:#fff;border-radius:28px;padding:30px 36px 34px;position:relative;overflow:hidden;margin-top:18px;
+  box-shadow:0 8px 0 #A3224F}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero::before{width:260px;height:260px;right:-60px;top:-90px}.hero::after{width:130px;height:130px;right:170px;bottom:-50px}
+.hero .tags{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:.85rem}
+.hero .tags b{font-family:'Fredoka';font-weight:600;background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.7);border-radius:99px;padding:1px 13px}
+.hero .who{font-family:'Jua';font-size:1.5rem;margin-top:16px;line-height:1}
+.hero h1{font-family:'Fredoka';font-weight:700;font-size:3.3rem;line-height:1.02;letter-spacing:-1px;margin-top:6px}
+.hero h1 span{color:#FFE066}
+.hero .units{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap;position:relative;z-index:2}
+.hero .units div{background:#fff;color:var(--ink);border-radius:11px;padding:3px 14px;font-family:'Fredoka';font-weight:500}
+.hero .units b{color:#E0457B;margin-right:6px}
+.hero svg{position:absolute;right:44px;top:34px;width:150px;z-index:2;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(3deg)}}
+.meter{display:flex;align-items:center;gap:14px;background:#fff;border-radius:20px;padding:14px 22px;margin-top:20px;border:2px solid #e2e9f6}
+.meter .lab{font-family:'Jua';font-size:1.1rem;white-space:nowrap}
+.meter .track{flex:1;height:18px;border-radius:99px;background:#EEF2FA;overflow:hidden}
+.meter .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#FFD166,#FFB020);transition:width .6s}
+.meter .num{font-family:'Fredoka';font-weight:700;color:#8a5a00;white-space:nowrap}
+.clear{background:#FFF6DF;border:3px solid var(--gold);border-radius:22px;padding:18px;text-align:center;margin-top:18px}
+.clear h2{font-family:'Fredoka';font-weight:700;font-size:1.9rem;color:#A96A00;letter-spacing:1px}
+.map{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+.mp{display:block;text-decoration:none;color:var(--ink);background:#fff;border:3px solid var(--c);border-radius:24px;padding:20px 18px 16px;text-align:center;
+  box-shadow:0 7px 0 var(--cd);transition:transform .1s,box-shadow .1s;position:relative}
+.mp:hover{transform:translateY(-3px);box-shadow:0 10px 0 var(--cd)}
+.mp:active{transform:translateY(4px);box-shadow:0 3px 0 var(--cd)}
+.mp .ico{width:68px;height:68px;border-radius:50%;background:var(--cl);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:2rem}
+.mp h3{font-family:'Jua';font-weight:400;font-size:1.55rem;line-height:1.2;margin-top:6px}
+.mp .nk{font-family:'Fredoka';font-weight:600;color:var(--c);font-size:.95rem}
+.mp p{font-size:.82rem;color:var(--sub);margin:6px 0 10px;min-height:2.6em;line-height:1.4}
+.mp .pg{height:10px;border-radius:99px;background:var(--cl);overflow:hidden}
+.mp .pg i{display:block;height:100%;background:var(--c);border-radius:99px}
+.mp .cnt{font-family:'Fredoka';font-weight:600;font-size:.85rem;color:var(--cd);margin-top:5px}
+.mp .done{position:absolute;right:-8px;top:-10px;background:var(--gold);color:#fff;font-family:'Fredoka';font-weight:700;border-radius:99px;padding:3px 12px;font-size:.8rem;transform:rotate(8deg);box-shadow:0 3px 0 #b97f00}
+.foot{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:26px}
+.foot .sp{flex:1}
+
+/* stage list */
+.sth{display:flex;align-items:center;gap:14px;margin:10px 0 18px}
+.sth .ico{width:64px;height:64px;border-radius:50%;background:#fff;border:3px solid var(--c);display:flex;align-items:center;justify-content:center;font-size:1.9rem;flex:none}
+.sth h1{font-family:'Jua';font-weight:400;font-size:2rem;line-height:1.1}
+.sth h1 em{font-family:'Fredoka';font-style:normal;font-weight:600;font-size:1.1rem;color:var(--c);margin-left:8px}
+.sth p{color:var(--sub);font-size:.9rem}
+.acts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.ac{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);background:#fff;border:3px solid var(--c);border-radius:20px;padding:14px 18px;
+  box-shadow:0 6px 0 var(--cd);transition:transform .1s,box-shadow .1s}
+.ac:hover{transform:translateY(-2px);box-shadow:0 8px 0 var(--cd)}
+.ac:active{transform:translateY(4px);box-shadow:0 2px 0 var(--cd)}
+.ac .no{font-family:'Fredoka';font-weight:700;color:#fff;background:var(--c);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+.ac .e{font-size:1.9rem;flex:none}
+.ac .t{flex:1;min-width:0}
+.ac .t b{font-family:'Jua';font-weight:400;font-size:1.15rem;display:block;line-height:1.25}
+.ac .t span{font-size:.8rem;color:var(--sub)}
+.ac .k{font-family:'Fredoka','Jua';font-size:.7rem;font-weight:700;border-radius:99px;padding:1px 9px;background:var(--cl);color:var(--cd);margin-left:6px;vertical-align:2px}
+.stars{font-size:1.25rem;letter-spacing:2px;white-space:nowrap;color:#d3d9e8}
+.stars b{color:var(--gold);font-weight:400}
+
+/* activity */
+.crumb{display:flex;align-items:center;gap:12px;margin:6px 0 14px;flex-wrap:wrap}
+.crumb h1{font-family:'Jua';font-weight:400;font-size:1.55rem;line-height:1.2;flex:1;min-width:200px}
+.play{background:#fff;border:3px solid var(--c);border-radius:26px;padding:24px 28px 28px;box-shadow:0 7px 0 var(--cd);min-height:420px}
+.step-h{display:flex;align-items:center;gap:10px;font-family:'Jua';font-size:1.2rem;margin-bottom:6px}
+.guide{color:var(--sub);font-size:.9rem;margin-bottom:14px}
+.guide b{color:var(--cd)}
+.prog-wrap{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.prog{flex:1;height:12px;border-radius:99px;background:var(--cl);overflow:hidden}
+.prog-in{height:100%;width:0;background:var(--c);border-radius:99px;transition:width .35s}
+.prog-lab{font-family:'Fredoka';font-weight:600;color:var(--cd);font-size:.9rem;white-space:nowrap}
+.shake{animation:shake .35s}
+@keyframes shake{20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.pop{animation:pop .3s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.fb{margin-top:16px;border-radius:16px;padding:12px 18px;font-weight:700;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fb.ok{background:var(--okl);color:#14703d;border:2px solid var(--ok)}
+.fb.no{background:var(--nol);color:#a52328;border:2px solid var(--no)}
+.fb .sp{flex:1}
+.donebar{display:flex;justify-content:center;margin-top:24px}
+
+/* mcq */
+.q{text-align:center}
+.q .qt{font-size:1.5rem;font-weight:800;line-height:1.4}
+.q .qt .gap{display:inline-block;min-width:90px;border-bottom:4px solid var(--c);margin:0 4px;color:var(--c)}
+.q .qs{color:var(--sub);font-size:.95rem;margin-top:4px}
+.q .qe{font-size:4rem;line-height:1.1}
+.q .hintv{display:inline-block;font-family:'Fredoka';font-weight:600;background:var(--cl);color:var(--cd);border-radius:10px;padding:1px 12px;margin-left:8px;font-size:1.1rem}
+.picq{position:relative;width:290px;height:262px;border-radius:20px;overflow:hidden;margin:0 auto 10px;border:3px solid var(--c)}
+.picq img{width:100%;height:100%;object-fit:cover;object-position:50% 0;display:block}
+.picq::before{content:"?";position:absolute;z-index:2;left:0;top:0;width:76%;height:36%;background:var(--c);color:#fff;border-radius:0 0 22px 0;
+  font:700 2rem 'Fredoka';display:flex;align-items:center;justify-content:center}
+.ring{width:130px;height:130px;border-radius:50%;border:12px solid #E5484D;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:3.6rem;position:relative;background:#fff;line-height:1}
+.ring::after{content:"";position:absolute;left:50%;top:50%;width:120px;height:12px;background:#E5484D;transform:translate(-50%,-50%) rotate(45deg)}
+.opts{display:grid;gap:12px;margin-top:20px}
+.opts.c2{grid-template-columns:1fr 1fr}.opts.c1{grid-template-columns:1fr;max-width:640px;margin-left:auto;margin-right:auto}
+.opt{background:#fff;border:3px solid #c3cfe8;border-radius:18px;padding:14px 16px;font-size:1.15rem;font-weight:800;box-shadow:0 5px 0 #c3cfe8;transition:transform .08s;line-height:1.3}
+.opt:hover{border-color:var(--c)}
+.opt:active{transform:translateY(3px);box-shadow:0 2px 0 #c3cfe8}
+.opt.sel{border-color:var(--c);background:var(--cl);box-shadow:0 5px 0 var(--c)}
+.opt.ok{border-color:var(--ok);background:var(--okl);box-shadow:0 5px 0 var(--ok);color:#14703d}
+.opt.no{border-color:var(--no);background:var(--nol);box-shadow:0 5px 0 var(--no);color:#a52328;opacity:.75}
+.opt[disabled]{pointer-events:none}
+
+/* match */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}
+.match .col{display:flex;flex-direction:column;gap:10px}
+.mcard{background:#fff;border:3px solid #c3cfe8;border-radius:16px;padding:10px 14px;font-weight:800;font-size:1.1rem;box-shadow:0 4px 0 #c3cfe8;min-height:58px;line-height:1.25}
+.mcard small{display:block;font-family:'Noto Sans KR';font-weight:400;font-size:.78rem;color:var(--sub)}
+.mcard.l{font-family:'Fredoka';font-weight:500;font-size:1.2rem}
+.mcard.sel{border-color:var(--c);background:var(--cl);box-shadow:0 4px 0 var(--c)}
+.mcard.ok{border-color:var(--ok);background:var(--okl);box-shadow:none;color:#14703d;transform:translateY(4px);pointer-events:none}
+.mcard.no{border-color:var(--no);background:var(--nol)}
+
+/* build */
+.bd{text-align:center}
+.bd .pe{font-size:3.2rem;line-height:1.1}
+.bd .pk{font-family:'Jua';font-size:1.5rem}
+.bd .ps{color:var(--sub);font-size:.9rem}
+.slots{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:20px 0 22px;min-height:58px}
+.slot{min-width:46px;height:54px;border-bottom:4px solid #c3cfe8;border-radius:10px 10px 0 0;background:#F4F7FD;font:600 1.6rem 'Fredoka';display:flex;align-items:center;justify-content:center;padding:0 10px}
+.slot.w{min-width:70px;font-family:'Nunito';font-weight:800;font-size:1.25rem}
+.slot.fill{background:var(--okl);border-color:var(--ok);color:#14703d}
+.slot.cur{border-color:var(--c);background:var(--cl)}
+.slot.gap{background:none;border:none;min-width:18px}
+.pool{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tok{background:#fff;border:3px solid var(--c);border-radius:14px;min-width:54px;height:56px;padding:0 14px;font:600 1.6rem 'Fredoka';box-shadow:0 5px 0 var(--cd);transition:transform .08s}
+.tok.w{font-family:'Nunito';font-weight:800;font-size:1.2rem}
+.tok:active{transform:translateY(3px);box-shadow:0 2px 0 var(--cd)}
+.tok.used{visibility:hidden}
+
+/* order */
+.ord{display:flex;flex-direction:column;gap:12px;max-width:760px;margin:0 auto}
+.ord button{display:flex;align-items:center;gap:14px;text-align:left;background:#fff;border:3px solid #c3cfe8;border-radius:18px;padding:12px 16px;font-size:1.15rem;font-weight:800;box-shadow:0 5px 0 #c3cfe8}
+.ord button i{font:700 1.3rem 'Fredoka';font-style:normal;width:44px;height:44px;border-radius:12px;border:3px dashed #c3cfe8;display:flex;align-items:center;justify-content:center;flex:none;color:#fff}
+.ord button.on{border-color:var(--c);background:var(--cl);box-shadow:0 5px 0 var(--c)}
+.ord button.on i{background:var(--c);border:3px solid var(--c)}
+.ord button.ok{border-color:var(--ok);background:var(--okl);box-shadow:0 5px 0 var(--ok)}.ord button.ok i{background:var(--ok);border-color:var(--ok)}
+.ord button.no{border-color:var(--no);background:var(--nol);box-shadow:0 5px 0 var(--no)}.ord button.no i{background:var(--no);border-color:var(--no)}
+
+/* cloze */
+.cz{font-size:1.3rem;font-weight:700;line-height:2.5;text-align:left}
+.cz.one{text-align:center;font-size:1.5rem;font-weight:800}
+.czko{text-align:center;color:var(--sub);font-size:.95rem;margin-top:2px}
+.blk{display:inline-flex;align-items:center;justify-content:center;min-width:110px;height:44px;border-radius:12px;border:3px dashed #c3cfe8;background:#F4F7FD;margin:0 5px;
+  vertical-align:middle;font:600 1.15rem 'Fredoka';padding:0 12px;color:#9aa4bd}
+.blk.cur{border-color:var(--c);border-style:solid;background:var(--cl)}
+.blk.fill{border:3px solid var(--ok);background:var(--okl);color:#14703d}
+.bank{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px;padding-top:18px;border-top:3px dashed var(--cl)}
+.bank .tok{font-size:1.2rem;height:50px}
+
+/* type */
+.ty{max-width:820px;margin:0 auto;text-align:center}
+.ty .ko{font-family:'Jua';font-size:1.6rem;line-height:1.35}
+.ty .hint{color:var(--sub);font-size:.9rem;margin-top:6px;min-height:1.5em}
+.ty .hint b{font-family:'Fredoka';font-weight:600;color:var(--cd);letter-spacing:1px}
+.ty input{width:100%;margin-top:16px;border:3px solid #c3cfe8;border-radius:18px;padding:14px 20px;font-size:1.4rem;font-weight:700;text-align:center;outline:none;background:#FAFCFF}
+.ty input:focus{border-color:var(--c)}
+.ty input.ok{border-color:var(--ok);background:var(--okl)}.ty input.no{border-color:var(--no);background:var(--nol)}
+.ty .row{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+
+/* cards */
+.grp{font-family:'Jua';font-size:1.15rem;color:var(--cd);margin:22px 0 12px;display:flex;align-items:center;gap:10px}
+.grp:first-child{margin-top:0}
+.grp::after{content:"";flex:1;border-bottom:2px dashed var(--c);opacity:.5}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cg.mini{grid-template-columns:repeat(4,1fr);gap:10px}
+.cd{background:#fff;border:3px solid var(--c);border-radius:20px;overflow:hidden;text-align:center;box-shadow:0 5px 0 var(--cd);display:flex;flex-direction:column;cursor:pointer;position:relative}
+.cd .im{height:228px;overflow:hidden;background:#eee}
+.cd .im img{width:100%;height:100%;object-fit:cover;object-position:50% 6%;display:block}
+.cd .em{font-size:2.6rem;line-height:1;padding-top:14px}
+.cd .w{font-family:'Fredoka';font-weight:600;font-size:1.5rem;color:var(--cd);line-height:1.2;padding:10px 12px 0}
+.cd .pr{font-family:'Noto Sans KR','Malgun Gothic';font-weight:500;font-size:.85rem;color:var(--c);line-height:1.3}
+.cd .bk{padding:4px 12px 14px;min-height:74px;display:flex;flex-direction:column;justify-content:center}
+.cd .bk .tap{color:#aab3c9;font-size:.85rem}
+.cd .bk .m{font-weight:700;font-size:1.05rem;font-family:'Noto Sans KR'}
+.cd .bk .x{font-size:.9rem;color:var(--sub);margin-top:3px;line-height:1.35;padding:0 8px}
+.cd .bk .x b{color:var(--cd)}
+.cd .bk .m,.cd .bk .x{display:none}
+.cd.open .bk .m,.cd.open .bk .x{display:block}.cd.open .bk .tap{display:none}
+.cd.open{background:var(--cl)}
+.cg.mini .cd{border-width:2px;border-radius:14px;box-shadow:0 4px 0 var(--cd)}
+.cg.mini .cd .w{font-size:1.15rem;padding:10px 8px 0}
+.cg.mini .cd .bk{min-height:48px;padding:2px 8px 10px}
+.cg.mini .cd .bk .m{font-size:.92rem}
+.cg.mini .cd .pr{font-size:.78rem}
+.cnt-line{text-align:center;color:var(--sub);font-size:.9rem;margin-top:18px}
+
+/* info */
+.info h3{font-family:'Jua';font-weight:400;font-size:1.25rem;display:flex;align-items:center;gap:10px;margin:26px 0 12px}
+.info h3:first-child{margin-top:0}
+.fm{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.fm span{font:600 1.25rem 'Fredoka','Jua';color:#fff;border-radius:12px;padding:3px 18px}
+.fm .b1{background:#7C5CFC}.fm .b2{background:#FF6B4A}.fm .b3{background:#12A594}.fm .b4{background:#2D7FF9}
+.fm i{font-style:normal;font-weight:800;color:var(--sub);font-size:1.2rem}
+.fm em{font-style:normal;font-family:'Jua';font-size:1.15rem;color:var(--cd);margin-left:10px;background:var(--cl);padding:2px 16px;border-radius:99px}
+.exs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ex{display:flex;align-items:center;gap:10px;background:var(--cl);border-radius:16px;padding:10px 14px;font-weight:800;font-size:1.05rem;line-height:1.3}
+.ex small{display:block;font-family:'Noto Sans KR';font-weight:400;font-size:.8rem;color:var(--sub)}
+.ex b{color:var(--cd)}
+.warn{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.warn div{border-radius:14px;padding:8px 16px;font-weight:800;font-size:1.05rem}
+.warn .x{background:var(--nol);border:2px solid var(--no);color:#a52328}
+.warn .o{background:var(--okl);border:2px solid var(--ok);color:#14703d}
+.warn small{display:block;font-family:'Noto Sans KR';font-weight:400;font-size:.8rem;color:var(--sub)}
+.tb{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tb div{background:var(--cl);border-radius:12px;padding:8px;text-align:center;font-size:.9rem;display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap}
+.tb b{font-family:'Fredoka';font-weight:500;font-size:1.15rem;background:#fff;border:2px solid var(--c);border-radius:9px;padding:0 10px}
+.tb b.p{background:var(--c);color:#fff}
+.tb small{display:block;width:100%;font-size:.8rem;color:var(--sub);line-height:1.2}
+.tb small i{font-style:normal;color:var(--c);font-weight:500}
+
+/* read */
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.rd{border:2px solid var(--line);border-radius:18px;overflow:hidden}
+.ln{display:grid;grid-template-columns:70px 1fr 330px;align-items:center;border-top:1.5px solid var(--line);padding:4px 10px 4px 0}
+.ln:first-child{border-top:0}
+.ln.dan{background:#FFFAF7}.ln.alt{background:#F7FAFF}
+.ln .spk{text-align:center}
+.ln .spk b{font:600 .8rem 'Fredoka';color:#fff;border-radius:99px;padding:2px 11px}
+.ln .spk b.t{background:#2D7FF9}.ln .spk b.d{background:#FF6B4A}.ln .spk b.p{background:var(--c);display:inline-flex;width:30px;height:30px;padding:0;align-items:center;justify-content:center;font-size:1rem}
+.ln .spk span{font-family:'Jua';font-size:.78rem;color:var(--cd);display:block;line-height:1.2;margin-top:2px}
+.ln .e{font-size:1.2rem;font-weight:700;line-height:1.35;padding:7px 12px 7px 8px}
+.ln .e i{font-style:normal;color:#b3bdd6;font-weight:400;margin:0 2px}
+.ln .e b{color:var(--cd);font-weight:800}
+.ln .e u{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:3px;text-underline-offset:4px}
+.ln .k{font-family:'Noto Sans KR','Malgun Gothic';font-size:.9rem;color:#3d4a68;border-left:2px dotted var(--c);padding:7px 0 7px 14px;line-height:1.45}
+.hide-k .ln .k span,.hide-e .ln .e span{filter:blur(7px);cursor:pointer;user-select:none;transition:filter .15s}
+.hide-k .ln .k span.peek,.hide-e .ln .e span.peek{filter:none}
+.lg{display:flex;gap:18px;font-size:.8rem;color:var(--sub);flex-wrap:wrap;margin-top:12px}
+.lg b{color:var(--cd)}.lg u{text-decoration-color:var(--gold);text-decoration-thickness:3px;text-underline-offset:3px}
+
+/* talk */
+.tk{border:2px solid var(--line);border-radius:20px;padding:16px 18px;margin-bottom:18px}
+.tk h3{font-family:'Jua';font-weight:400;font-size:1.25rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tk h3 small{font-family:'Noto Sans KR';font-size:.8rem;color:var(--sub)}
+.tk .lv{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.tk .lv .btn.on{background:var(--c);border-color:var(--cd);color:#fff;box-shadow:0 4px 0 var(--cd)}
+.sm{display:grid;gap:10px}
+.sm.c5{grid-template-columns:repeat(5,1fr)}.sm.c3{grid-template-columns:repeat(3,1fr)}
+.st{border:3px solid var(--c);border-radius:18px;padding:10px 8px 12px;text-align:center;position:relative;background:#fff}
+.st .n{position:absolute;left:-6px;top:-8px;background:var(--c);color:#fff;font:700 .8rem 'Fredoka';width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.st .e{font-size:2.3rem;line-height:1.2}
+.st h5{font-family:'Jua';font-weight:400;font-size:1rem}
+.st .kw{display:flex;flex-direction:column;gap:5px;margin-top:6px}
+.st .kw span{font:500 .92rem 'Fredoka';background:var(--cl);border-radius:99px;padding:1px 8px;color:var(--cd)}
+.lv2 .st .kw,.lv3 .st .kw,.lv3 .st h5{visibility:hidden}
+.lv3 .st .e{filter:grayscale(1) opacity(.15)}
+.tk .ctl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.tk .watch{font:700 1.5rem 'Fredoka';background:#22304a;color:#FFE066;border-radius:12px;padding:2px 16px;min-width:110px;text-align:center}
+.tk .best{font-size:.85rem;color:var(--sub)}
+.tk .sp{flex:1}
+.tk.ok{border-color:var(--ok);background:#FAFFFC}
+
+/* interview */
+.iv{display:flex;flex-direction:column;gap:18px}
+.iv .qq{display:flex;align-items:center;gap:10px;font-size:1.25rem;font-weight:800;color:var(--cd)}
+.iv .qq .n{font:700 .85rem 'Fredoka';background:var(--c);color:#fff;border-radius:50%;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.iv .qq small{font-family:'Noto Sans KR';font-weight:400;font-size:.85rem;color:var(--sub)}
+.iv .sm2{font-size:.88rem;color:var(--sub);margin:4px 0 0 40px}
+.iv .sm2 button{font-weight:700;color:var(--ink);background:var(--cl);border-radius:99px;padding:1px 12px;margin:2px 3px 2px 0;font-size:.88rem}
+.iv input{width:calc(100% - 40px);margin:8px 0 0 40px;border:3px solid #c3cfe8;border-radius:14px;padding:10px 16px;font-size:1.15rem;font-weight:700;outline:none;background:#FAFCFF}
+.iv input:focus{border-color:var(--c)}
+
+/* crossword */
+.cww{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start}
+.cwg{display:grid;gap:0;width:max-content}
+.cwc{width:42px;height:42px;position:relative;box-shadow:inset 0 0 0 1.2px #22304a,0 0 0 1.2px #22304a;background:#fff}
+.cwc sup{position:absolute;left:3px;top:2px;font:600 .58rem 'Fredoka';color:var(--cd);line-height:1;pointer-events:none;z-index:2}
+.cwc input{width:100%;height:100%;border:none;background:transparent;text-align:center;font:600 1.35rem 'Fredoka';text-transform:uppercase;outline:none;padding:6px 0 0;caret-color:var(--c);border-radius:0}
+.cwc.hl{background:var(--cl)}
+.cwc.at{background:#FFE9A8}
+.cwc.ok{background:var(--okl)}.cwc.ok input{color:#14703d}
+.cwc.no{background:var(--nol)}
+.cwx{width:42px;height:42px}
+.cl h4{font-family:'Jua';font-weight:400;font-size:1.05rem;color:var(--cd);margin:0 0 6px}
+.cl ol{list-style:none;margin-bottom:14px}
+.cl li{display:flex;gap:8px;font-size:.92rem;font-weight:700;line-height:1.3;padding:5px 8px;border-radius:10px;cursor:pointer}
+.cl li b{font-family:'Fredoka';font-weight:600;color:var(--cd);min-width:22px;text-align:right}
+.cl li i{font-style:normal;font-weight:400;color:var(--sub);font-size:.8rem}
+.cl li.hl{background:#FFE9A8}
+.cl li.ok{color:#14703d;text-decoration:line-through;text-decoration-color:rgba(31,166,90,.5);opacity:.7}
+
+/* wordsearch */
+.wsw{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start}
+.wsg{display:grid;grid-template-columns:repeat(12,44px);border:3px solid var(--c);border-radius:14px;overflow:hidden;width:max-content}
+.wsg button{width:44px;height:44px;font:500 1.3rem 'Fredoka';border:1px solid #e6ebf5;background:#fff}
+.wsg button.first{background:var(--c);color:#fff}
+.wsg button.fd{background:#FFE08A}
+.wsl{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
+.wsl li{display:flex;align-items:center;gap:7px;font-size:.92rem;padding:4px 8px;border-radius:10px}
+.wsl .e{width:26px;text-align:center}
+.wsl b{font-family:'Fredoka';font-weight:600;color:#aab3c9;margin-left:auto;letter-spacing:2px}
+.wsl li.ok{background:var(--okl)}.wsl li.ok b{color:#14703d;letter-spacing:0}
+
+/* memory */
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:820px;margin:0 auto}
+.mm{height:96px;border-radius:16px;border:3px solid var(--cd);background:var(--c);color:#fff;font-size:1.7rem;box-shadow:0 5px 0 var(--cd);font-weight:800;line-height:1.25;padding:4px 8px;transition:transform .12s}
+.mm.up{background:#fff;color:var(--ink);font-size:1.05rem}
+.mm.up.en{font-family:'Fredoka';font-weight:500;font-size:1.2rem;color:var(--cd)}
+.mm.ok{background:var(--okl);border-color:var(--ok);box-shadow:none;transform:translateY(5px);color:#14703d;pointer-events:none}
+.mtry{text-align:center;color:var(--sub);margin-top:14px;font-size:.9rem}
+
+.say{border:0;background:var(--cl);border-radius:99px;font-size:1rem;padding:3px 8px;cursor:pointer;vertical-align:middle}
+.say.big{display:block;margin:6px auto 14px;font:800 1.25rem 'Nunito','Noto Sans KR',sans-serif;padding:14px 28px;background:var(--c);color:#fff;box-shadow:0 5px 0 var(--cd)}
+.say:active{transform:translateY(2px)}
+/* result */
+#fx{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden}
+#fx i{position:absolute;top:-20px;width:11px;height:16px;border-radius:3px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.modal{position:fixed;inset:0;background:rgba(20,32,60,.55);z-index:80;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal .box{background:#fff;border-radius:30px;padding:30px 40px 32px;text-align:center;max-width:520px;width:100%;border:4px solid var(--c);box-shadow:0 10px 0 var(--cd);animation:pop .35s}
+.modal .big{font-size:3.4rem;letter-spacing:8px;color:#d3d9e8;line-height:1.2}
+.modal .big b{color:var(--gold);font-weight:400;display:inline-block;animation:pop .5s backwards}
+.modal h2{font-family:'Jua';font-weight:400;font-size:1.8rem;margin-top:4px}
+.modal p{color:var(--sub);margin-top:4px}
+.modal .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+@media (max-width:900px){
+  html{font-size:16px}.map{grid-template-columns:repeat(2,1fr)}.ln{grid-template-columns:62px 1fr 250px}
+  .cg{grid-template-columns:repeat(2,1fr)}.cg.mini{grid-template-columns:repeat(3,1fr)}
+  .cww,.wsw{grid-template-columns:1fr}.hero svg{width:110px;right:24px}.hero h1{font-size:2.7rem}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="drop" viewBox="0 0 100 120">
+    <path d="M50 5C50 5 12 52 12 78a38 38 0 0 0 76 0C88 52 50 5 50 5Z" fill="#4CC9F0" stroke="#1B6CA8" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M30 47q-8 12-8 24" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".75"/>
+    <circle cx="38" cy="74" r="6.5" fill="#1b2a49"/><circle cx="64" cy="74" r="6.5" fill="#1b2a49"/>
+    <circle cx="40.3" cy="71.8" r="2.2" fill="#fff"/><circle cx="66.3" cy="71.8" r="2.2" fill="#fff"/>
+    <path d="M39 90q12 12 24 0" fill="none" stroke="#1b2a49" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="27" cy="87" rx="5.5" ry="3.2" fill="#ff9fb2"/><ellipse cx="75" cy="87" rx="5.5" ry="3.2" fill="#ff9fb2"/>
+  </symbol>
+</svg>
+<div id="app"></div>
+<div id="fx"></div>
+<script src="../progress.js"></script>
+<script>
+"use strict";
+const IMG = "영어_미션북_Unit7-8/";
+const PUZ = {"A": {"w": 14, "h": 14, "words": [{"word": "SCULPTURE", "y": 6, "x": 0, "d": "H", "clue": "Art made from stone or metal. It is not flat.", "num": 9}, {"word": "PHOTOGRAPH", "y": 0, "x": 7, "d": "V", "clue": "A picture you take with a camera.", "num": 2}, {"word": "PAINTING", "y": 2, "x": 5, "d": "V", "clue": "A picture made with a brush and colors.", "num": 6}, {"word": "STORIES", "y": 0, "x": 0, "d": "V", "clue": "You read these in books. Once upon a time ...", "num": 1}, {"word": "JEWELRY", "y": 2, "x": 3, "d": "V", "clue": "Rings and necklaces.", "num": 5}, {"word": "COOKIES", "y": 6, "x": 1, "d": "V", "clue": "Small, sweet, round snacks. You bake them.", "num": 10}, {"word": "NEIGHBOR", "y": 11, "x": 0, "d": "H", "clue": "A person who lives next to your house.", "num": 16}, {"word": "PLAYED", "y": 8, "x": 7, "d": "H", "clue": "play ➜ ____", "num": 13}, {"word": "DESIGN", "y": 8, "x": 12, "d": "V", "clue": "To draw a plan for new clothes.", "num": 14}, {"word": "PAINT", "y": 7, "x": 9, "d": "V", "clue": "To make a picture with a brush and colors.", "num": 12}, {"word": "SING", "y": 13, "x": 10, "d": "H", "clue": "To make music with your voice.", "num": 18}, {"word": "SCARF", "y": 0, "x": 0, "d": "H", "clue": "You wear it around your neck in winter.", "num": 1}, {"word": "MADE", "y": 5, "x": 11, "d": "V", "clue": "make ➜ ____", "num": 8}, {"word": "COOK", "y": 10, "x": 6, "d": "V", "clue": "To make food hot and ready to eat.", "num": 15}, {"word": "BAKED", "y": 13, "x": 4, "d": "H", "clue": "bake ➜ ____", "num": 17}, {"word": "THEM", "y": 3, "x": 7, "d": "H", "clue": "they ➜ ____ (I made a card for ____.)", "num": 7}, {"word": "MODELS", "y": 0, "x": 9, "d": "V", "clue": "Small copies of cars, planes, or ships.", "num": 3}, {"word": "CARD", "y": 6, "x": 10, "d": "H", "clue": "You write 'Happy Birthday' on it.", "num": 11}, {"word": "MUSIC", "y": 0, "x": 9, "d": "H", "clue": "You listen to it. You can play it on the piano.", "num": 3}, {"word": "CARRY", "y": 0, "x": 13, "d": "V", "clue": "To hold something and take it to another place.", "num": 4}]}};
+
+/* ================= helpers ================= */
+function h(tag, props, ...kids) {
+  const el = document.createElement(tag);
+  if (props) for (const k in props) {
+    const v = props[k];
+    if (v == null || v === false) continue;
+    if (k === "class") el.className = v;
+    else if (k === "html") el.innerHTML = v;
+    else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else if (k === "style" && typeof v === "object") { for (const s in v) s.startsWith("--") ? el.style.setProperty(s, v[s]) : (el.style[s] = v[s]); }
+    else el.setAttribute(k, v === true ? "" : v);
+  }
+  for (const c of kids.flat(9)) {
+    if (c == null || c === false) continue;
+    el.append(c.nodeType ? c : document.createTextNode(c));
+  }
+  return el;
+}
+function shuffle(a) {
+  a = a.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+function mixed(a) {            // 원래 순서와 다르게 섞기
+  if (a.length < 2) return a.slice();
+  for (let t = 0; t < 30; t++) { const s = shuffle(a); if (s.some((v, i) => v !== a[i])) return s; }
+  return a.slice().reverse();
+}
+const mark = s => s.replace(/\[\[/g, "<b>").replace(/\]\]/g, "</b>").replace(/\{\{/g, "<u>").replace(/\}\}/g, "</u>").replace(/ \/ /g, " <i>/</i> ");
+const plain = s => s.replace(/\[\[|\]\]|\{\{|\}\}/g, "").replace(/ \/ /g, " ");
+const gapHtml = s => s.replace(/____/g, '<span class="gap">&nbsp;</span>');
+const later = (fn, ms) => { const r = RUN; setTimeout(() => { if (r === RUN) fn(); }, ms); };
+
+/* ================= state ================= */
+const KEY = "jh-ls6-v1";
+const S = { stars: {}, sound: true, notes: {}, best: {} };
+// 기기 + 서버 저장 (../progress.js). 다른 기기에서 별이 늘었으면 미션을 푸는 중이 아닐 때만 다시 그린다.
+const SYNC = KidsProgress("juhyun-ls6", KEY, S, () => { if (!location.hash.includes("/")) render(); }, () => totalStars() + "/" + MAXSTARS);
+function save() { SYNC.save(); }
+let RUN = 0;
+
+/* ================= sound & voice ================= */
+let AC = null;
+function tone(f, t0, d, type, g) {
+  if (!S.sound) return;
+  try {
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    const o = AC.createOscillator(), gn = AC.createGain();
+    o.type = type || "sine"; o.frequency.value = f; o.connect(gn); gn.connect(AC.destination);
+    const t = AC.currentTime + t0;
+    gn.gain.setValueAtTime(g || .12, t); gn.gain.exponentialRampToValueAtTime(.001, t + d);
+    o.start(t); o.stop(t + d);
+  } catch (e) {}
+}
+const sfx = {
+  ok() { tone(660, 0, .12); tone(880, .1, .2); },
+  no() { tone(190, 0, .22, "square", .05); },
+  tap() { tone(520, 0, .05, "sine", .06); },
+  win() { [523, 659, 784, 1047].forEach((f, i) => tone(f, i * .12, .3)); }
+};
+/* ================= content ================= */
+// 단원 페이지 공통 도우미 (Create/juhyun_units/common.js). 단원별 내용은 u_*.js.
+// 단어 한 줄: [영어, 읽는 법, 우리말 뜻, 그림, 예문, 예문 뜻]
+const tf = (q, a, why) => ({ q, opts: ["True ⭕", "False ❌"], a: a ? 0 : 1, fixed: true, why });
+const wcard = a => ({ em: a[3], en: a[0], pr: a[1], ko: a[2], x: a[4] ? a[4] + "<br>" + a[5] : "" });
+const mini = a => ({ en: a[0], ko: a[2], pr: a[1] });
+// 그림과 우리말 뜻을 보고 영어 고르기
+const pickQuiz = list => () => list.map(a => ({ q: a[3] + " " + a[2], sub: "영어로는?", opts: [a[0]].concat(shuffle(list.filter(o => o[0] !== a[0] && o[2] !== a[2])).slice(0, 3).map(o => o[0])) }));
+// 영어를 보고 우리말 뜻 고르기
+const koQuiz = list => () => list.map(a => ({ q: a[0], sub: "무슨 뜻일까요?", opts: [a[2]].concat(shuffle(list.filter(o => o[0] !== a[0] && o[2] !== a[2])).slice(0, 3).map(o => o[2])) }));
+// 철자 조립용: [영어 한 단어, 우리말 뜻, 그림]
+const spell = list => list.map(a => ({ answer: a[0], ko: a[1], e: a[2] }));
+const G = {
+  cards: "읽는 법을 보고 소리 내어 읽기 · 카드를 눌러 뜻 확인",
+  letters: "우리말 뜻을 보고, 글자를 <b>순서대로</b> 눌러 단어를 완성해요.",
+  words: "우리말 뜻을 보고, 단어 블록을 <b>순서대로</b> 눌러 문장을 만들어요.",
+  cw: "힌트를 누르면 그 칸으로 이동해요. 한 단어를 다 쓰면 바로 채점돼요.",
+  cloze: "아래 단어를 눌러 빈칸을 <b>순서대로</b> 채워요. 함정 단어도 섞여 있어요!",
+  type: "우리말을 보고 영어 문장을 써요. <b>대문자</b>로 시작하고 끝에 <b>. ? !</b> 를 잊지 않기!",
+  iv: "<b>내 이야기</b>로 대답을 써요. 예시를 누르면 칸에 들어가요. 다 쓴 다음에는 안 보고 말해 보기!"
+};
+const book = (p, t) => `<p class="guide">📖 먼저 <b>교재 ${p}쪽</b> ${t}을(를) 읽고 와서 풀어요. 책을 펴 놓고 찾아보며 풀어도 좋아요.</p>`;
+const COL = [
+  { c: "#FF6B4A", cl: "#FFF1EC", cd: "#C03F1F" }, { c: "#7C5CFC", cl: "#F2EEFF", cd: "#5034C4" },
+  { c: "#2D7FF9", cl: "#EAF2FF", cd: "#1A57B8" }, { c: "#E0457B", cl: "#FFEEF4", cd: "#A3224F" }
+];
+COL.push({ c: "#12A594", cl: "#E5F7F4", cd: "#0A7568" });
+// 읽어 주기: 기기에 들어 있는 영어 음성(브라우저 기능)으로 단어·문장을 읽는다.
+function say(t, btn) {
+  try {
+    const u = new SpeechSynthesisUtterance(t.replace(/<[^>]+>/g, "").replace(/’/g, "'"));
+    u.lang = "en-US"; u.rate = .85;
+    const vs = speechSynthesis.getVoices().filter(v => /^en[-_]US/i.test(v.lang));
+    const v = vs.find(v => /Samantha|Google US English|Aria|Jenny|Ava/i.test(v.name)) || vs[0];
+    if (v) u.voice = v;
+    // 소리를 낼 수 없는 기기에서는 글자로 보여 준다
+    u.onerror = e => { if (btn && !/interrupted|canceled/.test(e.error)) btn.textContent = "🔇 " + u.text; };
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  } catch (e) { if (btn) btn.textContent = "🔇 " + t; }
+}
+try { speechSynthesis.getVoices(); } catch (e) {}
+function sayBtn(t, big) {
+  const b = h("button", { class: "say" + (big ? " big" : ""), type: "button", title: "소리 듣기", onclick: e => { e.stopPropagation(); say(t, big && b); } }, big ? "🔊 다시 듣기" : "🔊");
+  if (big) say(t, b);
+  return b;
+}
+// 소리를 듣고 뜻 고르기 / 소리를 듣고 영어 고르기
+const hearKo = list => () => list.map(a => ({ say: a[0], q: "잘 듣고 뜻을 골라요", opts: [a[3] + " " + a[2]].concat(shuffle(list.filter(o => o[0] !== a[0] && o[2] !== a[2])).slice(0, 3).map(o => o[3] + " " + o[2])) }));
+// 질문을 듣고 대답 고르기: [들려줄 말, 정답, 오답, 오답]
+const hearQA = rows => rows.map(r => ({ say: r[0], q: "잘 듣고 알맞은 대답을 골라요", opts: r.slice(1) }));
+const dict = rows => rows.map(r => ({ say: r[0], answer: r[0], ko: "🎧 들은 문장을 그대로 써요" }));
+G.dict = "🔊 소리를 듣고 들은 문장을 그대로 써요. 몇 번이든 다시 들어도 돼요. <b>대문자</b>와 <b>. ?</b> 도 잊지 않기!";
+// 듣기말하기 Unit 6 Being Creative (교재 60~69쪽)
+const W1 = [
+  ["sing songs", "싱 송즈", "노래를 부르다", "🎤", "She likes to <b>sing songs</b>.", "그 애는 노래 부르는 걸 좋아해."],
+  ["make movies", "메이크 무비즈", "영화를 만들다", "🎬", "He likes to <b>make movies</b>.", "그 애는 영화 만드는 걸 좋아해."],
+  ["write stories", "라이트 스토리즈", "이야기를 쓰다", "📝", "I like to <b>write stories</b>.", "나는 이야기 쓰는 걸 좋아해."],
+  ["design clothes", "디자인 클로즈", "옷을 디자인하다", "👗", "She likes to <b>design clothes</b>.", "그 애는 옷 디자인하는 걸 좋아해."],
+  ["paint pictures", "페인트 픽처즈", "그림을 그리다 (물감으로)", "🎨", "He likes to <b>paint pictures</b>.", "그 애는 그림 그리는 걸 좋아해."],
+  ["make models", "메이크 마들즈", "모형을 만들다", "🚗", "He likes to <b>make models</b>.", "그 애는 모형 만드는 걸 좋아해."]
+];
+const W2 = [
+  ["cook dinner", "쿡 디너", "저녁을 요리하다", "🍳", "He <b>cooked dinner</b> for her.", "그는 그녀에게 저녁을 요리해 줬어."],
+  ["bake cookies", "베이크 쿠키즈", "쿠키를 굽다", "🍪", "They <b>baked cookies</b> for him.", "그들은 그에게 쿠키를 구워 줬어."],
+  ["make jewelry", "메이크 주얼리", "장신구를 만들다", "📿", "They <b>made jewelry</b> for her.", "그들은 그녀에게 장신구를 만들어 줬어."],
+  ["make a card", "메이크 어 카드", "카드를 만들다", "💌", "I <b>made a card</b> for her.", "나는 그녀에게 카드를 만들어 줬어."],
+  ["knit a scarf", "닛 어 스카프", "목도리를 뜨다", "🧣", "She <b>knitted a scarf</b> for him.", "그녀는 그에게 목도리를 떠 줬어."],
+  ["play music", "플레이 뮤직", "음악을 연주하다", "🎻", "She <b>played music</b> for them.", "그녀는 그들에게 음악을 연주해 줬어."]
+];
+const W4 = [
+  ["painting", "페인팅", "그림 (물감으로 그린)", "🖼️", "a <b>painting</b> of a bedroom", "침실을 그린 그림"],
+  ["photograph", "포토그래프", "사진", "📷", "a black and white <b>photograph</b>", "흑백 사진"],
+  ["mosaic", "모제이익", "모자이크 (작은 조각을 붙인 그림)", "🔷", "a <b>mosaic</b> with many colors", "여러 색의 모자이크"],
+  ["sculpture", "스컬프처", "조각 작품", "🗿", "a metal <b>sculpture</b>", "금속 조각 작품"]
+];
+const W5 = [
+  ["free time", "프리 타임", "자유 시간, 여가", "⏰"], ["creative", "크리에이티브", "창의적인", "💡"], ["neighbor", "네이버", "이웃", "🏡"], ["broke her leg", "브로크 허 레그", "다리가 부러졌다", "🩼"],
+  ["carry", "캐리", "들어 나르다", "🛍️"], ["heavy", "헤비", "무거운", "🏋️"], ["sweep", "스위프", "(빗자루로) 쓸다", "🧹"], ["take out the garbage", "테이크 아웃 더 가비지", "쓰레기를 내다 버리다", "🗑️"],
+  ["necklace", "네클리스", "목걸이", "📿"], ["art museum", "아트 뮤지엄", "미술관", "🏛️"]
+];
+const ALLW = W1.concat(W2, W4);
+const STAGES = [
+  { id: "s1", no: "STAGE 1", name: "단어", en: "Word Hunter", icon: "🔎", ...COL[0], desc: "여가 활동 · 만들어 주기 · 미술 단어를 내 것으로!", acts: [
+    { id: "s1a", title: "단어 카드 ① 여가와 만들기", kind: "학습", e: "🎨", d: G.cards, steps: [{ type: "cards", groups: [
+      { title: "Lesson 1 · Free Time", items: W1.map(wcard) }, { title: "Lesson 2 · Making Things", items: W2.map(wcard) }] }] },
+    { id: "s1b", title: "단어 카드 ② 미술과 이야기", kind: "학습", e: "🖼️", d: G.cards, steps: [{ type: "cards", groups: [
+      { title: "Lesson 4 · Types of Art", items: W4.map(wcard) }, { title: "이야기 속 단어", mini: true, items: W5.map(mini) }] }] },
+    { id: "s1c", title: "뜻 보고 고르기", kind: "게임", e: "🖼️", d: "그림과 우리말 뜻을 보고 영어 고르기", steps: [{ type: "mcq", gen: pickQuiz(ALLW), cols: 2 }] },
+    { id: "s1d", title: "철자 조립", kind: "게임", e: "🔤", d: "뜻을 보고 글자를 순서대로 눌러 단어 완성", steps: [{ type: "build", mode: "letters", guide: G.letters, pick: 10, items: spell([
+      ["movies", "영화", "🎬"], ["stories", "이야기", "📝"], ["design", "디자인하다", "👗"], ["paint", "(물감으로) 그리다", "🎨"], ["models", "모형", "🚗"], ["dinner", "저녁 식사", "🍳"], ["cookies", "쿠키", "🍪"],
+      ["jewelry", "장신구", "📿"], ["scarf", "목도리", "🧣"], ["music", "음악", "🎻"], ["painting", "그림", "🖼️"], ["photograph", "사진", "📷"], ["mosaic", "모자이크", "🔷"], ["sculpture", "조각 작품", "🗿"]]) }] },
+    { id: "s1e", title: "변신! 과거형과 him · her · them", kind: "게임", e: "🎩", d: "지난 일은 동사가 변신 · ‘~에게’는 him, her, them", steps: [
+      { type: "info", title: "변신 카드 살펴보기", html: `<p class="guide">지난 일을 말할 때는 동사가 변신해요. 그리고 <b>누구에게</b> 해 줬는지는 <b>for + him / her / them</b>으로 말해요.</p>
+        <h3><span class="tg">+ed</span>꼬리 달기 변신</h3><div class="tb"><div><b>cook</b>➜<b class="p">cooked</b><small><i>[쿡트]</i> 요리했다</small></div><div><b>bake</b>➜<b class="p">baked</b><small><i>[베이크트]</i> 구웠다</small></div><div><b>play</b>➜<b class="p">played</b><small><i>[플레이드]</i> 연주했다</small></div><div><b>knit</b>➜<b class="p">knitted</b><small><i>[니티드]</i> 떴다 (t를 한 번 더!)</small></div></div>
+        <h3><span class="tg">!</span>깜짝 변신</h3><div class="tb"><div><b>make</b>➜<b class="p">made</b><small><i>[메이드]</i> 만들었다</small></div></div>
+        <h3><span class="tg">for</span>누구에게?</h3><div class="tb"><div><b>he</b>➜<b class="p">him</b><small>그에게</small></div><div><b>she</b>➜<b class="p">her</b><small>그녀에게</small></div><div><b>they</b>➜<b class="p">them</b><small>그들에게</small></div></div>`, btn: "외웠어요! 게임 시작 ▶" },
+      { type: "mcq", title: "알맞은 모양 고르기", cols: 3, items: [
+        { q: "He ____ dinner for her.", hint: "cook", opts: ["cooked", "cook", "cooking"] },
+        { q: "They ____ cookies for him.", hint: "bake", opts: ["baked", "bakeed", "bakes"] },
+        { q: "I ____ a card for my mother.", hint: "make", opts: ["made", "maked", "makes"] },
+        { q: "She ____ a scarf for him.", hint: "knit", opts: ["knitted", "knited", "knits"] },
+        { q: "She ____ music for them.", hint: "play", opts: ["played", "plaied", "playing"] },
+        { q: "What did he ____ for her?", hint: "cook", opts: ["cook", "cooked", "cooks"], why: "did 뒤에는 변신 전 원래 모양!" },
+        { q: "She made a card for ____.", hint: "he", opts: ["him", "he", "his"], why: "for 뒤에는 him" },
+        { q: "He baked cookies for ____.", hint: "she", opts: ["her", "she", "hers"], why: "for 뒤에는 her" },
+        { q: "I played music for ____.", hint: "they", opts: ["them", "they", "their"], why: "for 뒤에는 them" }] }] },
+    { id: "s1f", title: "크로스워드", kind: "게임", e: "🧩", d: "영어 힌트를 읽고 단어를 추리해서 채우기", steps: [{ type: "crossword", puz: "A", guide: G.cw }] }
+  ] },
+  { id: "s2", no: "STAGE 2", name: "표현", en: "Talk Star", icon: "💬", ...COL[1], desc: "좋아하는 것 · 해 준 일 · 부탁하기!", acts: [
+    { id: "s2a", title: "패턴 익히기", kind: "학습", e: "📘", d: "like to ~ · Does he ~? · for him · Could you ~?", steps: [{ type: "info", html: `
+      <h3><span class="tg">PATTERN 1</span>여가에 무엇을 좋아하는지</h3>
+      <div class="fm"><span class="b2">He / She</span><i>+</i><span class="b1">likes to</span><i>+</i><span class="b3">동사 원래 모양</span><em>그 애는 ~하는 걸 좋아해</em></div>
+      <div class="exs"><div class="ex"><span>What does he like to do in his free time?<small>그 애는 여가에 뭘 하는 걸 좋아해?</small></span></div>
+      <div class="ex"><span>He <b>likes to</b> sing songs.<small>노래 부르는 걸 좋아해.</small></span></div>
+      <div class="ex"><span>he ➜ <b>his</b> free time · she ➜ <b>her</b> free time<small>누구의 자유 시간인지 맞춰요</small></span></div></div>
+      <div class="warn"><div class="x">✗ He <u>like</u> to sing songs.<small>He / She 뒤에는 s를 붙여요</small></div><div class="o">✓ He <u>likes</u> to sing songs.<small>likes → 맞아요</small></div></div>
+      <h3><span class="tg">PATTERN 2</span>좋아하는지 물어볼 때</h3>
+      <div class="fm"><span class="b1">Does</span><i>+</i><span class="b2">he / she</span><i>+</i><span class="b3">like to ~</span><i>?</i><em>그 애는 ~하는 걸 좋아하니?</em></div>
+      <div class="exs"><div class="ex"><span>Does she like to sing songs in her free time?<small>그 애는 여가에 노래 부르는 걸 좋아해?</small></span></div>
+      <div class="ex"><span>Yes, she <b>does</b>. / No, she <b>doesn’t</b>. She likes to make movies.<small>응, 좋아해. / 아니. 그 애는 영화 만드는 걸 좋아해.</small></span></div></div>
+      <h3><span class="tg">PATTERN 3</span>누구에게 무엇을 해 줬는지</h3>
+      <div class="fm"><span class="b2">He / She</span><i>+</i><span class="b3">변신한 동사 ~</span><i>+</i><span class="b1">for him / her / them</span><em>~에게 ~해 줬어</em></div>
+      <div class="exs"><div class="ex"><span>What did he cook for her? — He cooked dinner <b>for her</b>.<small>그는 그녀에게 뭘 요리해 줬어? — 저녁을 요리해 줬어.</small></span></div>
+      <div class="ex"><span>What did you do for your mother? — I made a card <b>for her</b>.<small>엄마에게 뭘 해 드렸어? — 카드를 만들어 드렸어.</small></span></div></div>
+      <h3><span class="tg">PATTERN 4</span>부탁하기 · 작품 소개하기</h3>
+      <div class="exs"><div class="ex"><span><b>Could you</b> carry these bags for me? — Sure. No problem.<small>이 가방들 좀 들어 줄래? — 그럼. 문제없어.</small></span></div>
+      <div class="ex"><span>This is a painting <b>of</b> a bedroom.<small>이것은 침실을 그린 그림이야.</small></span></div></div>`, btn: "다 읽었어요 ✓" }] },
+    { id: "s2b", title: "문장 탐정", kind: "게임", e: "🕵️", d: "둘 중 맞는 말을 찾아내기", steps: [{ type: "mcq", cols: 2, items: [
+      { q: "What ____ she like to do in her free time?", opts: ["does", "do"], why: "he / she에는 does" },
+      { q: "He ____ to make models.", opts: ["likes", "like"], why: "He 뒤에는 likes" },
+      { q: "What does he like to do in ____ free time?", opts: ["his", "her"], why: "he ➜ his" },
+      { q: "Does she like to paint pictures? — Yes, she ____.", opts: ["does", "is"], why: "Does로 물으면 does로 대답" },
+      { q: "Does he like to sing songs? — No, he ____.", opts: ["doesn’t", "don’t"], why: "he에는 doesn’t" },
+      { q: "She likes to ____ clothes.", opts: ["design", "designs"], why: "to 뒤에는 동사 원래 모양" },
+      { q: "What did she knit for ____?", sub: "(그에게)", opts: ["him", "he"], why: "for 뒤에는 him" },
+      { q: "They ____ jewelry for her.", sub: "지난 일", opts: ["made", "make"], why: "make ➜ made" },
+      { q: "____ you carry these bags for me?", opts: ["Could", "Does"], why: "부탁할 때는 Could you ~?" },
+      { q: "This is a photograph ____ a boy.", opts: ["of", "for"], why: "~을 찍은 사진: a photograph of ~" }] }] },
+    { id: "s2c", title: "문장 만들기", kind: "게임", e: "🧱", d: "우리말을 보고 단어 블록을 순서대로 쌓기", steps: [{ type: "build", mode: "words", guide: G.words, items: [
+      { answer: "He likes to make models.", ko: "그 애(남자)는 모형 만드는 걸 좋아해." },
+      { answer: "What does she like to do in her free time?", ko: "그 애(여자)는 여가에 뭘 하는 걸 좋아하니?" },
+      { answer: "Does he like to write stories?", ko: "그 애(남자)는 이야기 쓰는 걸 좋아하니?" },
+      { answer: "She cooked dinner for them.", ko: "그녀는 그들에게 저녁을 요리해 줬어." },
+      { answer: "What did he make for her?", ko: "그는 그녀에게 무엇을 만들어 줬니?" },
+      { answer: "I made a card for her.", ko: "나는 그녀에게 카드를 만들어 줬어." },
+      { answer: "Could you carry these bags for me?", ko: "이 가방들 좀 들어 줄래?" },
+      { answer: "This is a painting of a bedroom.", ko: "이것은 침실을 그린 그림이야." }] }] },
+    { id: "s2d", title: "알맞은 대답", kind: "게임", e: "🙋", d: "질문을 잘 읽고 어울리는 대답 고르기", steps: [{ type: "mcq", cols: 1, items: [
+      { q: "What does Mike like to do in his free time?", sub: "🚗 모형", opts: ["He likes to make models.", "He like to make models.", "She likes to make models."], why: "Mike는 남자 ➜ He likes" },
+      { q: "Does she like to sing songs in her free time?", sub: "🎤 ⭕", opts: ["Yes, she does.", "Yes, she is.", "Yes, he does."], why: "Does ~? ➜ Yes, she does." },
+      { q: "Does he like to paint pictures?", sub: "🎨 ❌ → 🎬", opts: ["No, he doesn’t. He likes to make movies.", "No, he isn’t. He likes to make movies.", "Yes, he does. He likes to make movies."], why: "아니라고 한 뒤 진짜 좋아하는 것을 말해요" },
+      { q: "What did she knit for him?", sub: "🧣", opts: ["She knitted a scarf for him.", "She knitted a scarf for her.", "She knits a scarf for him."], why: "지난 일 ➜ knitted, 그에게 ➜ for him" },
+      { q: "What did you do for your mother?", sub: "(친구가 나에게) 💌", opts: ["I made a card for her.", "I made a card for him.", "She made a card for me."], why: "mother ➜ her" },
+      { q: "Could you open the door for me?", sub: "🚪", opts: ["Sure. No problem.", "Yes, she does.", "I like to open doors."], why: "부탁을 들어줄 때: Sure. No problem." }] }] }
+  ] },
+  { id: "s3", no: "STAGE 3", name: "이야기", en: "Story Detective", icon: "🕵️", ...COL[2], desc: "교재의 이야기와 글을 읽고 내용 알아맞히기!", acts: [
+    { id: "s3a", title: "이야기 퀴즈 · Good Neighbors", kind: "게임", e: "🏡", d: "교재 64쪽 이야기를 읽고 풀기", steps: [
+      { type: "info", title: "먼저 읽어요", html: book(64, "이야기 <b>Good Neighbors</b>") + `<div class="exs"><div class="ex"><span>broke her leg<small>다리가 부러졌다</small></span></div><div class="ex"><span>How can we help you?<small>어떻게 도와 드릴까요?</small></span></div><div class="ex"><span>This is heavy!<small>이거 무거워!</small></span></div><div class="ex"><span>later that afternoon<small>그날 오후 늦게</small></span></div></div>`, btn: "읽고 왔어요 ▶" },
+      { type: "mcq", title: "True or False", cols: 2, keep: true, items: [
+        tf("Mrs. Brown broke her leg.", true, "지난주에 다리가 부러졌어요."), tf("The boys helped Mrs. Brown.", true, "하루 종일 도와 드렸어요."),
+        tf("The boys washed Mrs. Brown’s car.", false, "개 산책, 쓸기, 쓰레기 버리기를 했어요."), tf("Mrs. Brown made dinner for the boys.", false, "저녁이 아니라 쿠키를 구워 줬어요.")] },
+      { type: "order", title: "일어난 순서대로 누르기", guide: "먼저 일어난 일부터 <b>차례대로</b> 눌러요.", items: [
+        ["The boys carried her bags.", 2], ["Mrs. Brown baked cookies for the boys.", 4], ["Mrs. Brown broke her leg.", 1], ["The boys walked her dog and took out the garbage.", 3]] },
+      { type: "mcq", title: "질문에 답하기", cols: 1, keep: true, items: [
+        { q: "What did Mrs. Brown ask?", sub: "브라운 아주머니가 한 부탁은?", opts: ["Could you carry these bags for me?", "Could you bake cookies for me?", "Could you open the door for me?"] },
+        { q: "What did the boys say?", opts: ["Sure. No problem.", "No, we can’t.", "This is my bag."] },
+        { q: "What did Mrs. Brown bake for them?", opts: ["cookies", "dinner", "a scarf"] },
+        { q: "The boys are ____.", sub: "이 이야기가 알려 주는 것", opts: ["helpful", "heavy", "creative"], why: "Value: Be helpful. (잘 도와주자)" }] }] },
+    { id: "s3b", title: "읽기 퀴즈 · Types of Art", kind: "게임", e: "🖼️", d: "교재 66쪽 미술 글을 읽고 풀기", steps: [
+      { type: "info", title: "먼저 읽어요", html: book(66, "미술 글") + `<div class="exs"><div class="ex"><span>type of art<small>미술의 종류</small></span></div><div class="ex"><span>art museum<small>미술관</small></span></div><div class="ex"><span>colors and shapes<small>색과 모양</small></span></div><div class="ex"><span>metal<small>금속</small></span></div></div>`, btn: "읽고 왔어요 ▶" },
+      { type: "mcq", title: "True or False", cols: 2, keep: true, items: [
+        tf("The painting shows a girl.", false, "침실(bedroom)을 그린 그림이에요."), tf("The photograph shows a bedroom.", false, "소년(a boy)을 찍은 사진이에요."),
+        tf("The mosaic has many colors.", true, "색과 모양이 많아요."), tf("The sculpture shows a girl and a rabbit.", true, "이야기 속 소녀와 토끼가 있어요.")] },
+      { type: "mcq", title: "어떤 미술 작품일까?", cols: 2, items: [
+        { q: "It shows a bedroom with chairs, a table, and a bed.", opts: ["painting", "photograph", "mosaic", "sculpture"] },
+        { q: "It shows a boy. His clothes have many colors.", opts: ["photograph", "painting", "mosaic", "sculpture"] },
+        { q: "Many small parts make one beautiful picture.", opts: ["mosaic", "painting", "photograph", "sculpture"] },
+        { q: "It is made of metal. It shows a girl from a story.", opts: ["sculpture", "painting", "photograph", "mosaic"] }] }] },
+    { id: "s3c", title: "읽기 퀴즈 · My Creative Cousin", kind: "게임", e: "📿", d: "교재 69쪽 글을 읽고 풀기", steps: [
+      { type: "info", title: "먼저 읽어요", html: book(69, "글 <b>My Creative Cousin</b>") + `<div class="exs"><div class="ex"><span>cousin<small>사촌</small></span></div><div class="ex"><span>creative<small>창의적인</small></span></div><div class="ex"><span>necklace<small>목걸이</small></span></div><div class="ex"><span>together<small>함께</small></span></div></div>`, btn: "읽고 왔어요 ▶" },
+      { type: "mcq", title: "질문에 답하기", cols: 1, keep: true, items: [
+        { q: "What does Alicia like to do in her free time?", opts: ["She likes to make jewelry.", "She likes to make movies.", "She likes to write stories."] },
+        { q: "Did she make a card for her mother?", opts: ["No, she didn’t. She made a necklace.", "Yes, she did.", "No, she didn’t. She knitted a scarf."] },
+        { q: "What did she paint for her mother?", opts: ["a picture of some flowers", "a picture of a bedroom", "a picture of her cousin"] },
+        { q: "What did Alicia and her mother do together?", opts: ["They baked cookies.", "They cooked dinner.", "They played music."] }] },
+      { type: "cloze", title: "정리하기", guide: G.cloze, text: "Alicia is very {creative}. She likes to make {jewelry} in her free time. Last week was her mother’s birthday. Alicia {made} a necklace for her. Then they {baked} cookies together.", x: ["knitted", "movies"] }] }
+  ] },
+  { id: "s5", no: "STAGE 4", name: "듣기", en: "Good Listener", icon: "🎧", ...COL[4], desc: "소리를 듣고 고르고, 받아쓰기!", acts: [
+    { id: "s5a", title: "듣고 뜻 고르기", kind: "듣기", e: "👂", d: "단어를 듣고 알맞은 뜻 고르기", steps: [{ type: "mcq", gen: hearKo(ALLW), cols: 2 }] },
+    { id: "s5b", title: "듣고 대답 고르기", kind: "듣기", e: "💬", d: "질문을 듣고 어울리는 대답 고르기", steps: [{ type: "mcq", cols: 1, items: hearQA([
+      ["What does he like to do in his free time?", "He likes to paint pictures.", "He cooked dinner.", "Yes, he does."],
+      ["Does she like to sing songs?", "Yes, she does.", "She likes to.", "Sure. No problem."],
+      ["Does he like to make models?", "No, he doesn’t.", "No, he isn’t.", "He made a card."],
+      ["What did she bake for them?", "She baked cookies for them.", "She likes to bake cookies.", "She baked cookies for him."],
+      ["What did you do for your mother?", "I made a card for her.", "I like to make cards.", "Yes, I did."],
+      ["Could you carry these bags for me?", "Sure. No problem.", "Yes, she does.", "It’s a painting."],
+      ["What is it?", "It’s a black and white photograph.", "He likes to paint.", "For her."]]) }] },
+    { id: "s5c", title: "받아쓰기", kind: "듣기", e: "✍️", d: "문장을 듣고 그대로 쓰기", steps: [{ type: "type", guide: G.dict, items: dict([
+      ["She likes to sing songs."], ["He likes to make models."], ["Does she like to paint pictures?"],
+      ["He cooked dinner for her."], ["I made a card for them."], ["Could you open the door?"]]) }] }
+  ] },
+  { id: "s4", no: "FINAL", name: "실전", en: "Final Mission", icon: "🏁", ...COL[3], desc: "직접 쓰고, 내 이야기로 말하기!", acts: [
+    { id: "s4a", title: "실전 쓰기", kind: "게임", e: "✍️", d: "핵심 문장 8개 · 대문자와 문장 부호까지 정확하게", steps: [{ type: "type", guide: G.type, items: [
+      { ko: "그 애(남자)는 여가에 무엇을 하는 걸 좋아하니?", answer: "What does he like to do in his free time?" },
+      { ko: "그 애(남자)는 이야기 쓰는 걸 좋아해.", answer: "He likes to write stories." },
+      { ko: "그 애(여자)는 노래 부르는 걸 좋아하니?", answer: "Does she like to sing songs?" },
+      { ko: "응, 좋아해. (여자)", answer: "Yes, she does." },
+      { ko: "그녀는 그에게 목도리를 떠 줬어.", answer: "She knitted a scarf for him." },
+      { ko: "그들은 그녀에게 쿠키를 구워 줬어.", answer: "They baked cookies for her." },
+      { ko: "이 가방들 좀 들어 줄래?", answer: "Could you carry these bags for me?" },
+      { ko: "이것은 모자이크야.", answer: "This is a mosaic." }] }] },
+    { id: "s4b", title: "About You 인터뷰", kind: "말하기", e: "🎤", d: "내 이야기로 대답을 쓰고 소리 내어 말하기", steps: [{ type: "interview", guide: G.iv, items: [
+      { q: "What do you like to do in your free time?", ko: "여가에 뭘 하는 걸 좋아해?", ex: ["I like to sing songs.", "I like to paint pictures.", "I like to write stories."] },
+      { q: "What does your dad like to do in his free time?", ko: "아빠는 여가에 뭘 좋아하셔?", ex: ["He likes to play music.", "He likes to cook dinner.", "He likes to make models."] },
+      { q: "What did you do for your family last weekend?", ko: "지난 주말에 가족에게 뭘 해 줬어?", ex: ["I made a card for them.", "I baked cookies for them.", "I played music for them."] },
+      { q: "What type of art do you like?", ko: "어떤 종류의 미술을 좋아해?", ex: ["I like paintings.", "I like photographs.", "I like sculptures."] }] }] }
+  ] }
+];
+
+const ALLACTS = STAGES.flatMap(s => s.acts);
+const MAXSTARS = ALLACTS.length * 3;
+const starsOf = st => st.acts.reduce((n, a) => n + (S.stars[a.id] || 0), 0);
+const totalStars = () => STAGES.reduce((n, s) => n + starsOf(s), 0);
+const starRow = n => h("span", { class: "stars", html: "<b>★</b>".repeat(n) + "★".repeat(3 - n) });
+
+/* ================= engines ================= */
+const ENG = {};
+function progress(host, n) {
+  const fill = h("div", { class: "prog-in" }), lab = h("span", { class: "prog-lab" });
+  host.append(h("div", { class: "prog-wrap" }, h("div", { class: "prog" }, fill), lab));
+  return { set(i) { fill.style.width = (i / n * 100) + "%"; lab.textContent = Math.min(i + 1, n) + " / " + n; } };
+}
+function doneBar(host, label, fn) {
+  host.append(h("div", { class: "donebar" }, h("button", { class: "btn pri big", type: "button", onclick: fn }, label)));
+}
+
+ENG.mcq = (host, cfg, done) => {
+  let items = cfg.gen ? cfg.gen() : cfg.items.slice();
+  if (!cfg.keep) items = shuffle(items);
+  if (cfg.pick) items = items.slice(0, cfg.pick);
+  let i = 0, miss = 0;
+  const bar = progress(host, items.length), box = h("div", { class: "q" });
+  host.append(box);
+  function show() {
+    if (i >= items.length) return done(miss, items.length);
+    bar.set(i);
+    const it = items[i];
+    box.innerHTML = "";
+    if (it.pic) box.append(h("div", { class: "picq" }, h("img", { src: IMG + it.pic, alt: "" })));
+    if (it.ring) box.append(h("div", { class: "ring" }, it.ring));
+    if (it.say) box.append(sayBtn(it.say, true));
+    const qt = h("div", { class: "qt", html: gapHtml(it.q) });
+    if (it.hint) qt.append(h("span", { class: "hintv" }, it.hint));
+    box.append(qt);
+    if (it.sub) box.append(h("div", { class: "qs", html: it.sub }));
+    const right = it.a == null ? [0] : [].concat(it.a);
+    let opts = it.opts.map((t, k) => ({ t, k }));
+    if (!it.fixed) opts = shuffle(opts);
+    const cols = it.cols || cfg.cols || 2;
+    const grid = h("div", { class: "opts", style: { gridTemplateColumns: `repeat(${cols},1fr)`, maxWidth: cols === 1 ? "680px" : "", margin: cols === 1 ? "20px auto 0" : "" } });
+    const fb = h("div");
+    const win = () => {
+      grid.querySelectorAll(".opt").forEach(b => b.disabled = true);
+      sfx.ok();
+      fb.innerHTML = "";
+      const next = () => { i++; show(); };
+      if (it.why) fb.append(h("div", { class: "fb ok" }, "정답! ", it.why, h("span", { class: "sp" }), h("button", { class: "btn pri", type: "button", onclick: next }, "다음 ▶")));
+      else { fb.append(h("div", { class: "fb ok" }, "정답! 🎉")); later(next, 950); }
+    };
+    if (it.multi) {
+      const picked = new Set();
+      opts.forEach(o => {
+        const b = h("button", { class: "opt", type: "button", html: o.t, onclick: () => { b.classList.remove("no"); picked.has(o.k) ? picked.delete(o.k) : picked.add(o.k); b.classList.toggle("sel", picked.has(o.k)); sfx.tap(); } });
+        b.dataset.k = o.k;
+        grid.append(b);
+      });
+      box.append(grid, h("div", { class: "donebar" }, h("button", { class: "btn pri big", type: "button", onclick: () => {
+        const okAll = right.length === picked.size && right.every(k => picked.has(k));
+        if (okAll) { grid.querySelectorAll(".opt").forEach(b => { b.classList.remove("sel"); if (picked.has(+b.dataset.k)) b.classList.add("ok"); }); win(); }
+        else {
+          miss++; sfx.no();
+          const wrong = [...picked].filter(k => !right.includes(k)).length, lack = right.filter(k => !picked.has(k)).length;
+          grid.classList.remove("shake"); void grid.offsetWidth; grid.classList.add("shake");
+          fb.innerHTML = "";
+          fb.append(h("div", { class: "fb no" }, (wrong ? `본문에 없는 것을 ${wrong}개 골랐어요. ` : "") + (lack ? `아직 ${lack}개를 더 찾아야 해요.` : "")));
+        }
+      } }, "확인")), fb);
+    } else {
+      opts.forEach(o => {
+        const b = h("button", { class: "opt", type: "button", html: o.t, onclick: () => {
+          if (right.includes(o.k)) { b.classList.add("ok", "pop"); win(); }
+          else { b.classList.add("no", "shake"); b.disabled = true; miss++; sfx.no(); }
+        } });
+        grid.append(b);
+      });
+      box.append(grid, fb);
+    }
+  }
+  show();
+};
+
+ENG.match = (host, cfg, done) => {
+  const per = cfg.per || 6;
+  let pairs = shuffle(cfg.pairs);
+  if (cfg.pick) pairs = pairs.slice(0, cfg.pick);
+  const rounds = [];
+  for (let k = 0; k < pairs.length; k += per) rounds.push(pairs.slice(k, k + per));
+  let r = 0, miss = 0;
+  const bar = progress(host, rounds.length), box = h("div", { class: "match" });
+  host.append(box);
+  function round() {
+    if (r >= rounds.length) return done(miss, pairs.length);
+    bar.set(r);
+    box.innerHTML = "";
+    const sel = { l: null, r: null };
+    let left = rounds[r].length;
+    const cols = { l: h("div", { class: "col" }), r: h("div", { class: "col" }) };
+    const mk = (o, side) => {
+      const b = h("button", { class: "mcard " + side, type: "button", html: o.t });
+      b.onclick = () => {
+        if (sel[side]) sel[side].b.classList.remove("sel");
+        sel[side] = { o, b }; b.classList.add("sel"); sfx.tap();
+        if (!sel.l || !sel.r) return;
+        const a = sel.l, c = sel.r;
+        sel.l = sel.r = null;
+        [a.b, c.b].forEach(x => x.classList.remove("sel"));
+        if (a.o.k === c.o.k) {
+          [a.b, c.b].forEach(x => x.classList.add("ok"));
+          sfx.ok(); left--;
+          if (!left) later(() => { r++; round(); }, 750);
+        } else {
+          miss++; sfx.no();
+          [a.b, c.b].forEach(x => { x.classList.add("no", "shake"); setTimeout(() => x.classList.remove("no", "shake"), 450); });
+        }
+      };
+      return b;
+    };
+    rounds[r].map((p, k) => ({ k, t: p[0] })).forEach(o => cols.l.append(mk(o, "l")));
+    mixed(rounds[r].map((p, k) => ({ k, t: p[1] }))).forEach(o => cols.r.append(mk(o, "r")));
+    box.append(cols.l, cols.r);
+  }
+  round();
+};
+
+ENG.build = (host, cfg, done) => {
+  let items = shuffle(cfg.items);
+  if (cfg.mode === "words") items = cfg.items.slice();
+  if (cfg.pick) items = items.slice(0, cfg.pick);
+  const words = cfg.mode === "words";
+  let i = 0, miss = 0;
+  const bar = progress(host, items.length), box = h("div", { class: "bd" });
+  host.append(box);
+  function show() {
+    if (i >= items.length) return done(miss, items.length * 3);
+    bar.set(i);
+    const it = items[i];
+    const toks = words ? it.answer.split(" ") : it.answer.replace(/ /g, "").split("");
+    const gapAt = words ? -1 : it.answer.indexOf(" ");
+    let pos = 0;
+    box.innerHTML = "";
+    if (it.e) box.append(h("div", { class: "pe" }, it.e));
+    box.append(h("div", { class: "pk" }, it.ko));
+    if (gapAt > 0) box.append(h("div", { class: "ps" }, "두 단어예요"));
+    const slots = toks.map(() => h("span", { class: "slot" + (words ? " w" : "") }));
+    const row = h("div", { class: "slots" });
+    slots.forEach((s, k) => { if (k === gapAt) row.append(h("span", { class: "slot gap" })); row.append(s); });
+    slots[0].classList.add("cur");
+    const pool = h("div", { class: "pool" });
+    mixed(toks.map((t, k) => ({ t, k }))).forEach(o => {
+      const b = h("button", { class: "tok" + (words ? " w" : ""), type: "button" }, o.t);
+      b.onclick = () => {
+        if (o.t !== toks[pos]) {
+          miss++; sfx.no();
+          b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake");
+          return;
+        }
+        slots[pos].textContent = o.t; slots[pos].classList.remove("cur"); slots[pos].classList.add("fill");
+        b.classList.add("used"); b.disabled = true; pos++;
+        if (pos < toks.length) { slots[pos].classList.add("cur"); sfx.tap(); return; }
+        sfx.ok();
+        row.classList.add("pop");
+        later(() => { i++; show(); }, words ? 1900 : 1300);
+      };
+      pool.append(b);
+    });
+    box.append(row, pool);
+  }
+  show();
+};
+
+ENG.order = (host, cfg, done) => {
+  let miss = 0, seq = [];
+  const list = h("div", { class: "ord" }), fb = h("div");
+  const btns = cfg.items.map((it, k) => {
+    const n = h("i"), b = h("button", { type: "button" }, n, h("span", null, it[0]));
+    b.onclick = () => {
+      if (seq.includes(k)) return;
+      seq.push(k); n.textContent = seq.length; b.classList.add("on"); sfx.tap();
+      if (seq.length < cfg.items.length) return;
+      const good = seq.every((kk, idx) => cfg.items[kk][1] === idx + 1);
+      btns.forEach((x, kk) => x.classList.add(cfg.items[kk][1] === seq.indexOf(kk) + 1 ? "ok" : "no"));
+      fb.innerHTML = "";
+      if (good) { sfx.ok(); fb.append(h("div", { class: "fb ok" }, "순서를 정확히 맞혔어요! 🎉")); later(() => done(miss, 2), 1300); }
+      else {
+        miss++; sfx.no();
+        fb.append(h("div", { class: "fb no" }, "빨간 칸의 순서가 달라요. 본문을 떠올리며 다시 해 봐요!"));
+        later(reset, 1700);
+      }
+    };
+    return b;
+  });
+  function reset() { seq = []; fb.innerHTML = ""; btns.forEach(b => { b.className = ""; b.firstChild.textContent = ""; }); }
+  btns.forEach(b => list.append(b));
+  host.append(list, fb, h("div", { class: "donebar" }, h("button", { class: "btn", type: "button", onclick: reset }, "↺ 처음부터 다시 누르기")));
+};
+
+function clozeBox(box, text, extra, onDone, onMiss, one) {
+  const blanks = [];
+  const p = h("div", { class: "cz" + (one ? " one" : "") });
+  text.split(/\{([^}]+)\}/).forEach((part, idx) => {
+    if (idx % 2 === 0) { p.append(part); return; }
+    const el = h("button", { class: "blk", type: "button" }, String(blanks.length + 1));
+    const bl = { ans: part, el, done: false };
+    el.onclick = () => { if (!bl.done) setCur(blanks.indexOf(bl)); };
+    blanks.push(bl); p.append(el);
+  });
+  let cur = 0;
+  function setCur(k) { cur = k; blanks.forEach((b, n) => b.el.classList.toggle("cur", n === k && !b.done)); }
+  const bank = h("div", { class: "bank" });
+  shuffle(blanks.map(b => b.ans).concat(extra || [])).forEach(t => {
+    const b = h("button", { class: "tok w", type: "button" }, t);
+    b.onclick = () => {
+      const bl = blanks[cur];
+      if (!bl || bl.done) return;
+      if (t !== bl.ans) { onMiss(); sfx.no(); b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake"); return; }
+      bl.done = true; bl.el.textContent = t; bl.el.classList.add("fill"); bl.el.classList.remove("cur");
+      b.classList.add("used"); b.disabled = true;
+      const nx = blanks.findIndex(x => !x.done);
+      if (nx < 0) { sfx.ok(); onDone(); } else { sfx.tap(); setCur(nx); }
+    };
+    bank.append(b);
+  });
+  setCur(0);
+  box.append(p, bank);
+  return blanks.length;
+}
+ENG.cloze = (host, cfg, done) => {
+  let miss = 0;
+  if (cfg.text) {
+    const box = h("div");
+    host.append(box);
+    const n = clozeBox(box, cfg.text, cfg.x, () => later(() => done(miss, n), 1200), () => miss++, false);
+    return;
+  }
+  const items = cfg.items.slice();
+  let i = 0, total = 0;
+  const bar = progress(host, items.length), box = h("div");
+  host.append(box);
+  function show() {
+    if (i >= items.length) return done(miss, total);
+    bar.set(i);
+    const it = items[i];
+    box.innerHTML = "";
+    box.append(h("div", { class: "czko", style: { fontSize: "1.15rem", marginBottom: "10px" } }, "“" + it.ko + "”"));
+    total += clozeBox(box, it.t, it.x, () => later(() => { i++; show(); }, 1500), () => miss++, true);
+  }
+  show();
+};
+
+const norm = s => s.trim().replace(/[’‘`´]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, " ");
+const loose = s => norm(s).toLowerCase().replace(/[.?!,"]/g, "").trim();
+ENG.type = (host, cfg, done) => {
+  const items = cfg.items.slice();
+  let i = 0, miss = 0;
+  const bar = progress(host, items.length), box = h("div", { class: "ty" });
+  host.append(box);
+  function show() {
+    if (i >= items.length) return done(miss, items.length);
+    bar.set(i);
+    const it = items[i];
+    let tries = 0;
+    box.innerHTML = "";
+    const first = it.answer.split(" ")[0];
+    const hint = h("div", { class: "hint", html: `첫 단어 힌트: <b>${first}</b> · 단어 ${it.answer.split(" ").length}개` });
+    const inp = h("input", { type: "text", autocomplete: "off", autocapitalize: "off", autocorrect: "off", spellcheck: "false", placeholder: "여기에 영어 문장을 써요" });
+    const fb = h("div");
+    const check = () => {
+      const v = inp.value;
+      if (!v.trim()) { inp.focus(); return; }
+      fb.innerHTML = "";
+      if (norm(v) === norm(it.answer)) {
+        inp.className = "ok"; inp.disabled = true; sfx.ok();
+        fb.append(h("div", { class: "fb ok" }, "완벽해요! ", h("b", null, it.answer), h("span", { class: "sp" }), h("button", { class: "btn pri", type: "button", onclick: () => { i++; show(); } }, "다음 ▶")));
+        return;
+      }
+      miss++; tries++; sfx.no(); inp.className = "no shake"; setTimeout(() => inp.classList.remove("shake"), 400);
+      if (loose(v) === loose(it.answer)) fb.append(h("div", { class: "fb no" }, "단어는 다 맞았어요! 대문자와 문장 부호( . ? ! ’ )를 확인해요."));
+      else {
+        const a = loose(it.answer).split(" "), b = loose(v).split(" ");
+        let k = 0;
+        while (k < a.length && a[k] === b[k]) k++;
+        fb.append(h("div", { class: "fb no" }, k ? `앞에서 ${k}번째 단어까지는 맞았어요. 그 다음을 다시 봐요.` : "첫 단어부터 다시 확인해 봐요."));
+      }
+      if (tries >= 3) hint.innerHTML = `정답을 보고 똑같이 따라 써 봐요: <b>${it.answer}</b>`;
+      else if (tries === 2) hint.innerHTML = "힌트: <b>" + it.answer.split(" ").map(w => w[0] + "_".repeat(Math.max(0, w.replace(/[.?!]/g, "").length - 1))).join(" ") + "</b>";
+      inp.focus();
+    };
+    inp.addEventListener("keydown", e => { if (e.key === "Enter") check(); });
+    inp.addEventListener("input", () => inp.className = "");
+    if (it.say) box.append(sayBtn(it.say, true));
+    box.append(h("div", { class: "ko" }, it.ko), hint, inp, h("div", { class: "row" }, h("button", { class: "btn pri big", type: "button", onclick: check }, "확인")), fb);
+    inp.focus();
+  }
+  show();
+};
+
+ENG.cards = (host, cfg, done) => {
+  let total = 0;
+  const seen = new Set(), line = h("div", { class: "cnt-line" });
+  const upd = () => line.textContent = `뜻을 확인한 카드 ${seen.size} / ${total}`;
+  cfg.groups.forEach(g => {
+    host.append(h("div", { class: "grp" }, g.title));
+    const grid = h("div", { class: "cg" + (g.mini ? " mini" : "") });
+    g.items.forEach(it => {
+      const id = total++;
+      const card = h("div", { class: "cd", role: "button", tabindex: "0" },
+        it.img && h("div", { class: "im" }, h("img", { src: IMG + it.img, alt: it.en, loading: "lazy" })),
+        it.em && h("div", { class: "em" }, it.em),
+        h("div", { class: "w" }, it.en, " ", sayBtn(it.en.replace(/ ↔ /g, ", "))),
+        it.pr && h("div", { class: "pr" }, "[" + it.pr + "]"),
+        h("div", { class: "bk" }, h("div", { class: "tap" }, "👆 눌러서 뜻 보기"), h("div", { class: "m" }, it.ko), it.x && h("div", { class: "x", html: it.x })));
+      const flip = () => { card.classList.toggle("open"); seen.add(id); upd(); sfx.tap(); };
+      card.addEventListener("click", flip);
+      card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); } });
+      grid.append(card);
+    });
+    host.append(grid);
+  });
+  upd();
+  host.append(line);
+  doneBar(host, "다 봤어요 ✓", () => done(0, 1));
+};
+
+ENG.info = (host, cfg, done) => {
+  const box = h("div", { class: "info", html: cfg.html });
+  host.append(box);
+  doneBar(host, cfg.btn || "다 읽었어요 ✓", () => done(0, 0));
+};
+
+ENG.read = (host, cfg, done) => {
+  const wrap = h("div"), list = h("div", { class: "rd" });
+  const rows = cfg.lines.map(l => {
+    const tag = l[0];
+    let spk = "";
+    if (tag === "Tom") spk = h("b", { class: "t" }, "Tom");
+    else if (tag === "Dan") spk = h("b", { class: "d" }, "Dan");
+    else if (tag) { const p = tag.split("|"); spk = [h("b", { class: "p" }, p[0]), h("span", null, p[1])]; }
+    const row = h("div", { class: "ln" }, h("div", { class: "spk" }, spk),
+      h("div", { class: "e" }, h("span", { html: mark(l[1]), onclick: e => e.currentTarget.classList.toggle("peek") })),
+      h("div", { class: "k" }, h("span", { onclick: e => e.currentTarget.classList.toggle("peek") }, l[2])));
+    list.append(row);
+    return row;
+  });
+  // 말하는 사람/문단별 배경
+  let who = "", alt = false;
+  cfg.lines.forEach((l, idx) => { if (l[0]) { who = l[0]; alt = !alt; } rows[idx].classList.toggle(cfg.dialog ? "dan" : "alt", cfg.dialog ? who === "Dan" : !alt); });
+  const tog = (cls, on, off) => {
+    const b = h("button", { class: "btn", type: "button" }, on);
+    b.onclick = () => { const v = wrap.classList.toggle(cls); b.textContent = v ? off : on; wrap.querySelectorAll(".peek").forEach(x => x.classList.remove("peek")); sfx.tap(); };
+    return b;
+  };
+  wrap.append(h("div", { class: "tools" }, tog("hide-k", "🙈 우리말 가리기", "👀 우리말 보기"), tog("hide-e", "🙈 영어 가리기", "👀 영어 보기")),
+    h("p", { class: "guide", html: cfg.song ? "노래는 <b>교재 음원(TR 20)</b>을 틀고 따라 불러요. 한쪽을 가리고 가사를 떠올려 본 다음, 가린 글자를 눌러 확인해요." :
+      "한 줄씩 <b>소리 내어 읽어요</b>. 한쪽을 가리고 말해 본 다음, 가린 글자를 눌러 확인해요." }), list,
+    h("div", { class: "lg", html: '<span><b>굵은 색 글씨</b> = New Words</span><span><u>노란 밑줄</u> = 숙어·핵심 표현</span><span>/ = 끊어 읽는 곳</span>' }));
+  host.append(wrap);
+  doneBar(host, "다 읽었어요 ✓", () => done(0, 0));
+};
+
+ENG.talk = (host, cfg, done) => {
+  const okSet = new Set();
+  const fin = h("button", { class: "btn pri big", type: "button", disabled: true }, "두 이야기 모두 말했어요 ✓");
+  fin.onclick = () => done(0, 0);
+  cfg.maps.forEach(m => {
+    const panel = h("div", { class: "tk lv1" });
+    const lvBtns = ["Lv.1 힌트 보고", "Lv.2 그림만 보고", "Lv.3 아무것도 안 보고"].map((t, k) => {
+      const b = h("button", { class: "btn" + (k === 0 ? " on" : ""), type: "button" }, t);
+      b.onclick = () => { panel.classList.remove("lv1", "lv2", "lv3"); panel.classList.add("lv" + (k + 1)); lvBtns.forEach(x => x.classList.remove("on")); b.classList.add("on"); sfx.tap(); };
+      return b;
+    });
+    const grid = h("div", { class: "sm c" + m.cols }, m.steps.map((s, k) =>
+      h("div", { class: "st" }, h("span", { class: "n" }, k + 1), h("div", { class: "e" }, s.e), s.t && h("h5", null, s.t), h("div", { class: "kw" }, s.kw.map(w => h("span", null, w))))));
+    let t0 = 0, timer = null;
+    const watch = h("span", { class: "watch" }, "0.0초"), best = h("span", { class: "best" });
+    const showBest = () => best.textContent = S.best[m.id] ? `내 최고 기록 ${S.best[m.id].toFixed(1)}초` : "";
+    const go = h("button", { class: "btn pri", type: "button" }, "⏱ 말하기 시작");
+    go.onclick = () => {
+      if (timer) {
+        clearInterval(timer); timer = null;
+        const sec = (performance.now() - t0) / 1000;
+        watch.textContent = sec.toFixed(1) + "초";
+        go.textContent = "⏱ 다시 도전";
+        if (sec >= 5) {
+          if (!S.best[m.id] || sec < S.best[m.id]) { S.best[m.id] = sec; save(); }
+          okSet.add(m.id); panel.classList.add("ok"); sfx.ok(); showBest();
+          fin.disabled = okSet.size < cfg.maps.length;
+        }
+        return;
+      }
+      t0 = performance.now(); go.textContent = "⏹ 다 말했어요!"; sfx.tap();
+      timer = setInterval(() => { if (!document.body.contains(watch)) { clearInterval(timer); return; } watch.textContent = ((performance.now() - t0) / 1000).toFixed(1) + "초"; }, 100);
+    };
+    showBest();
+    panel.append(h("h3", null, h("span", { class: "tg" }, "STORY MAP"), m.title, h("small", null, m.sub)), h("div", { class: "lv" }, lvBtns), grid,
+      h("div", { class: "ctl" }, go, watch, best));
+    host.append(panel);
+  });
+  host.append(h("div", { class: "donebar" }, fin));
+};
+
+ENG.interview = (host, cfg, done, act) => {
+  const box = h("div", { class: "iv" });
+  const fin = h("button", { class: "btn pri big", type: "button" }, "다 쓰고 말했어요 ✓");
+  const inputs = cfg.items.map((it, k) => {
+    const key = act.id + ":" + k;
+    const inp = h("input", { type: "text", autocomplete: "off", autocapitalize: "off", spellcheck: "false", placeholder: "내 대답을 영어로 써요", value: S.notes[key] || "" });
+    const upd = () => { S.notes[key] = inp.value; save(); fin.disabled = !inputs.every(x => x.value.trim().length > 2); };
+    inp.addEventListener("input", upd);
+    box.append(h("div", null,
+      h("div", { class: "qq" }, h("span", { class: "n" }, k + 1), h("span", null, it.q, " ", h("small", null, it.ko))),
+      h("div", { class: "sm2" }, "예시 ", it.ex.map(t => h("button", { type: "button", onclick: () => { inp.value = t; upd(); } }, t))),
+      inp));
+    return inp;
+  });
+  fin.disabled = !inputs.every(x => x.value.trim().length > 2);
+  fin.onclick = () => done(0, 0);
+  host.append(box, h("div", { class: "donebar" }, fin));
+};
+
+ENG.crossword = (host, cfg, done) => {
+  const cw = PUZ[cfg.puz], cell = {};
+  const keyOf = (y, x) => y + "," + x;
+  const cellsOf = w => Array.from(w.word, (ch, i) => cell[keyOf(w.y + (w.d === "V" ? i : 0), w.x + (w.d === "H" ? i : 0))]);
+  cw.words.forEach(w => {
+    w.okd = false;
+    Array.from(w.word).forEach((ch, i) => {
+      const y = w.y + (w.d === "V" ? i : 0), x = w.x + (w.d === "H" ? i : 0), k = keyOf(y, x);
+      (cell[k] = cell[k] || { ch, y, x, ws: [], lock: false }).ws.push(w);
+      if (i === 0) cell[k].num = w.num;
+    });
+  });
+  let cur = null, miss = 0, solved = 0;
+  const grid = h("div", { class: "cwg", style: { gridTemplateColumns: `repeat(${cw.w},42px)` } });
+  function paint(at) {
+    Object.values(cell).forEach(c => { c.el.classList.toggle("hl", !!cur && c.ws.includes(cur) && !c.lock); c.el.classList.toggle("at", c === at && !c.lock); });
+    cw.words.forEach(w => w.li.classList.toggle("hl", w === cur && !w.okd));
+  }
+  function focusCell(c) { if (c) { c.inp.focus(); paint(c); } }
+  function pick(w, c) {
+    cur = w;
+    const cs = cellsOf(w);
+    focusCell(c || cs.find(x => !x.inp.value) || cs[0]);
+  }
+  function judge(w) {
+    const cs = cellsOf(w);
+    if (w.okd || cs.some(c => !c.inp.value)) return;
+    if (cs.every(c => c.inp.value.toUpperCase() === c.ch)) {
+      w.okd = true; solved++;
+      cs.forEach(c => { c.lock = true; c.inp.readOnly = true; c.el.classList.remove("no", "hl", "at"); c.el.classList.add("ok"); });
+      w.li.classList.add("ok"); sfx.ok();
+      if (solved === cw.words.length) later(() => done(miss, cw.words.length), 900);
+    } else {
+      miss++; sfx.no();
+      cs.forEach(c => { if (!c.lock && c.inp.value.toUpperCase() !== c.ch) { c.el.classList.add("no", "shake"); setTimeout(() => c.el.classList.remove("shake"), 400); } });
+    }
+  }
+  for (let y = 0; y < cw.h; y++) for (let x = 0; x < cw.w; x++) {
+    const c = cell[keyOf(y, x)];
+    if (!c) { grid.append(h("div", { class: "cwx" })); continue; }
+    c.inp = h("input", { type: "text", maxlength: "2", autocomplete: "off", autocapitalize: "characters", autocorrect: "off", spellcheck: "false", inputmode: "text", "aria-label": `${y + 1}행 ${x + 1}열` });
+    c.el = h("div", { class: "cwc" }, c.num && h("sup", null, c.num), c.inp);
+    const step = d => {
+      if (!cur) return null;
+      const cs = cellsOf(cur), k = cs.indexOf(c);
+      for (let n = k + d; n >= 0 && n < cs.length; n += d) if (!cs[n].lock) return cs[n];
+      return null;
+    };
+    c.inp.addEventListener("focus", () => { if (!cur || !c.ws.includes(cur)) cur = c.ws.find(w => !w.okd) || c.ws[0]; paint(c); });
+    c.inp.addEventListener("mousedown", () => { if (document.activeElement === c.inp && c.ws.length > 1) { cur = c.ws.find(w => w !== cur) || cur; paint(c); } });
+    c.inp.addEventListener("input", () => {
+      if (c.lock) { c.inp.value = c.ch; return; }
+      const v = c.inp.value.replace(/[^a-zA-Z]/g, "").slice(-1).toUpperCase();
+      c.inp.value = v; c.el.classList.remove("no");
+      if (!v) return;
+      sfx.tap();
+      const words = c.ws.slice();
+      words.forEach(judge);
+      if (!cur || cur.okd) { const nw = c.ws.find(w => !w.okd) || cw.words.find(w => !w.okd); if (nw && nw !== cur) { if (c.ws.includes(nw)) cur = nw; else return pick(nw); } }
+      const nx = step(1);
+      if (nx) focusCell(nx); else paint(c);
+    });
+    c.inp.addEventListener("keydown", e => {
+      if (e.key === "Backspace" && !c.inp.value) { const pv = step(-1); if (pv) { pv.inp.value = ""; pv.el.classList.remove("no"); focusCell(pv); e.preventDefault(); } }
+      const mv = { ArrowLeft: [0, -1], ArrowRight: [0, 1], ArrowUp: [-1, 0], ArrowDown: [1, 0] }[e.key];
+      if (mv) { const t = cell[keyOf(c.y + mv[0], c.x + mv[1])]; if (t) { const want = mv[0] ? "V" : "H"; cur = t.ws.find(w => w.d === want) || t.ws[0]; focusCell(t); } e.preventDefault(); }
+    });
+    grid.append(c.el);
+  }
+  const lists = h("div", { class: "cl" });
+  [["H", "➡ Across (가로)"], ["V", "⬇ Down (세로)"]].forEach(([d, t]) => {
+    const ol = h("ol");
+    cw.words.filter(w => w.d === d).sort((a, b) => a.num - b.num).forEach(w => {
+      w.li = h("li", { onclick: () => { if (!w.okd) pick(w); } }, h("b", null, w.num), h("span", null, w.clue, " ", h("i", null, `(${w.word.length})`)));
+      ol.append(w.li);
+    });
+    lists.append(h("h4", null, t), ol);
+  });
+  const hintBtn = h("button", { class: "btn", type: "button", onclick: () => {
+    if (!cur || cur.okd) return;
+    const c = cellsOf(cur).find(x => !x.lock && x.inp.value.toUpperCase() !== x.ch);
+    if (!c) return;
+    miss++; c.inp.value = c.ch; c.el.classList.remove("no");
+    c.ws.slice().forEach(judge);
+    paint(c);
+  } }, "💡 글자 힌트 (별이 줄어요)");
+  host.append(h("div", { class: "cww" }, h("div", null, grid, h("div", { style: { marginTop: "14px" } }, hintBtn)), lists));
+};
+
+ENG.wordsearch = (host, cfg, done) => {
+  const G = PUZ.grid, N = G.length;
+  const words = PUZ.ws_list.map(w => Object.assign({ found: false }, w));
+  let first = null, left = words.length;
+  const btn = {}, grid = h("div", { class: "wsg", style: { gridTemplateColumns: `repeat(${N},44px)` } });
+  const list = h("ul", { class: "wsl" });
+  words.forEach(w => {
+    w.b = h("b", null, "_".repeat(w.real.replace(" ", "").length));
+    w.li = h("li", null, h("span", { class: "e" }, w.emoji), h("span", null, w.ko), w.b);
+    list.append(w.li);
+  });
+  const msg = h("p", { class: "guide", style: { marginTop: "12px" } }, `남은 단어 ${left}개`);
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+    const b = h("button", { type: "button" }, G[y][x]);
+    btn[y + "," + x] = b;
+    b.onclick = () => {
+      if (!first) { first = [y, x]; b.classList.add("first"); sfx.tap(); return; }
+      const [ay, ax] = first;
+      btn[ay + "," + ax].classList.remove("first");
+      first = null;
+      const dy = y - ay, dx = x - ax, len = Math.max(Math.abs(dy), Math.abs(dx)) + 1;
+      if (len < 2 || !(dy === 0 || dx === 0 || Math.abs(dy) === Math.abs(dx))) { sfx.no(); return; }
+      const sy = Math.sign(dy), sx = Math.sign(dx), cells = [];
+      for (let i = 0; i < len; i++) cells.push([ay + sy * i, ax + sx * i]);
+      const str = cells.map(c => G[c[0]][c[1]]).join(""), rev = str.split("").reverse().join("");
+      const w = words.find(w => !w.found && (w.w === str || w.w === rev));
+      if (!w) { sfx.no(); cells.forEach(c => { const e = btn[c.join(",")]; e.classList.add("shake"); setTimeout(() => e.classList.remove("shake"), 400); }); return; }
+      w.found = true; left--;
+      cells.forEach(c => btn[c.join(",")].classList.add("fd"));
+      w.li.classList.add("ok"); w.b.textContent = w.real + " ✓";
+      msg.textContent = left ? `남은 단어 ${left}개` : "모두 찾았어요!";
+      sfx.ok();
+      if (!left) later(() => done(0, words.length), 1100);
+    };
+    grid.append(b);
+  }
+  host.append(h("div", { class: "wsw" }, grid, h("div", null, list, msg)));
+};
+
+/* ================= screens ================= */
+const app = document.getElementById("app");
+function theme(st) {
+  const r = document.documentElement.style;
+  r.setProperty("--c", st ? st.c : "#2D7FF9"); r.setProperty("--cl", st ? st.cl : "#EAF2FF"); r.setProperty("--cd", st ? st.cd : "#1A57B8");
+}
+function topbar(st) {
+  const snd = h("button", { class: "snd", type: "button", title: "효과음 켜기/끄기", onclick: () => { S.sound = !S.sound; save(); snd.textContent = S.sound ? "🔔" : "🔕"; sfx.tap(); } }, S.sound ? "🔔" : "🔕");
+  return h("div", { class: "bar" },
+    h("a", { class: "btn home", href: "#" }, "🏠 미션 지도"),
+    h("div", { class: "nav" }, STAGES.map(s => h("a", { href: "#" + s.id, class: st && s.id === st.id ? "on" : "", style: { "--nc": s.c } }, s.icon, " ", s.name))),
+    h("span", { class: "sp" }), h("span", { class: "tot" }, `⭐ ${totalStars()} / ${MAXSTARS}`), snd);
+}
+function home() {
+  theme(null);
+  const tot = totalStars(), all = ALLACTS.every(a => S.stars[a.id]);
+  let armed = false;
+  const reset = h("button", { class: "btn ghost", type: "button" }, "↺ 별 초기화");
+  reset.onclick = () => {
+    if (!armed) { armed = true; reset.textContent = "정말 별을 지울까요? 한 번 더 누르면 지워져요"; setTimeout(() => { armed = false; reset.textContent = "↺ 별 초기화"; }, 4000); return; }
+    if (!confirm("별과 기록이 서버에서도 모두 지워져요. 정말 지울까요?")) return;
+    SYNC.reset().then(render, () => alert("인터넷에 연결된 상태에서만 지울 수 있어요."));
+  };
+  app.append(...[
+    h("div", { class: "hero" },
+      h("div", { class: "tags" }, h("b", null, "Listening"), h("b", null, "Speaking"), h("span", { class: "j" }, "듣기말하기")),
+      h("div", { class: "who" }, "주현이의"),
+      h("h1", { html: "Unit 6<br><span>Being Creative</span>" }),
+      h("div", { class: "units" }, h("div", { html: "<b>Lesson 1</b>Free Time" }), h("div", { html: "<b>Lesson 2</b>Making Things" }), h("div", { html: "<b>Lesson 4</b>Types of Art" })),
+      h("div", { html: '<svg viewBox="0 0 100 120"><use href="#drop"/></svg>' }).firstChild),
+    h("div", { class: "meter" }, h("span", { class: "lab" }, "모은 별"), h("div", { class: "track" }, h("div", { class: "fill", style: { width: (tot / MAXSTARS * 100) + "%" } })), h("span", { class: "num" }, `⭐ ${tot} / ${MAXSTARS}`)),
+    all && h("div", { class: "clear" }, h("h2", null, "🏆 MISSION CLEAR 🏆"), h("p", null, `모든 미션을 끝까지 해냈어요! 별 ${tot}개를 모았어요. 별 3개가 아닌 게임에 다시 도전해 볼까요?`)),
+    h("div", { class: "map" }, STAGES.map(s => {
+      const got = s.acts.filter(a => S.stars[a.id]).length;
+      return h("a", { class: "mp", href: "#" + s.id, style: { "--c": s.c, "--cl": s.cl, "--cd": s.cd } },
+        got === s.acts.length && h("span", { class: "done" }, "CLEAR!"),
+        h("div", { class: "ico" }, s.icon), h("span", { class: "tg" }, s.no), h("h3", null, s.name), h("div", { class: "nk" }, s.en), h("p", null, s.desc),
+        h("div", { class: "pg" }, h("i", { style: { width: (got / s.acts.length * 100) + "%" } })), h("div", { class: "cnt" }, `미션 ${got} / ${s.acts.length} · ⭐ ${starsOf(s)}`));
+    })),
+    h("div", { class: "foot" },
+      h("a", { class: "btn", href: "../주현이.html" }, "← 주현이 페이지"), h("a", { class: "btn ghost", href: "../../index.html" }, "사이트 홈"),
+      h("span", { class: "sp" }), reset)].filter(Boolean));
+}
+function stage(st) {
+  theme(st);
+  app.append(topbar(st),
+    h("div", { class: "sth" }, h("div", { class: "ico" }, st.icon), h("div", null, h("h1", null, st.no + " · " + st.name, h("em", null, st.en)), h("p", null, st.desc))),
+    h("div", { class: "acts" }, st.acts.map((a, k) =>
+      h("a", { class: "ac", href: `#${st.id}/${k + 1}` }, h("span", { class: "no" }, k + 1), h("span", { class: "e" }, a.e),
+        h("span", { class: "t" }, h("b", null, a.title, h("span", { class: "k" }, a.kind)), h("span", null, a.d)), starRow(S.stars[a.id] || 0)))),
+    h("div", { class: "foot" }, h("a", { class: "btn home", href: "#", style: { background: "#22304a", color: "#fff", borderColor: "#0f1a30", boxShadow: "0 4px 0 #0f1a30" } }, "🏠 미션 지도로 돌아가기")));
+}
+function confetti() {
+  const fx = document.getElementById("fx"), col = ["#FF6B4A", "#12A594", "#7C5CFC", "#2D7FF9", "#FFB020", "#E0457B"];
+  for (let i = 0; i < 70; i++) {
+    const p = h("i", { style: { left: Math.random() * 100 + "%", background: col[i % col.length], animationDuration: 1.6 + Math.random() * 1.8 + "s", animationDelay: Math.random() * .4 + "s", transform: `rotate(${Math.random() * 360}deg)` } });
+    fx.append(p);
+    setTimeout(() => p.remove(), 4200);
+  }
+}
+function activity(st, ai) {
+  theme(st);
+  const act = st.acts[ai], run = RUN;
+  const play = h("div", { class: "play" });
+  app.append(topbar(st),
+    h("div", { class: "crumb" }, h("a", { class: "btn", href: "#" + st.id }, `← ${st.no} ${st.name}`), h("h1", null, act.e + " " + act.title), h("span", { class: "tg" }, act.kind)),
+    play);
+  let miss = 0, total = 0, si = 0;
+  function step() {
+    if (run !== RUN) return;
+    if (si >= act.steps.length) return finish();
+    const sc = act.steps[si];
+    play.innerHTML = "";
+    if (act.steps.length > 1 || sc.title) play.append(h("div", { class: "step-h" }, act.steps.length > 1 && h("span", { class: "tg" }, `${si + 1} / ${act.steps.length}`), sc.title || ""));
+    if (sc.guide) play.append(h("p", { class: "guide", html: sc.guide }));
+    const body = h("div");
+    play.append(body);
+    if (si) window.scrollTo({ top: 0 });
+    ENG[sc.type](body, sc, (m, t) => { if (run !== RUN) return; miss += m || 0; total += t || 0; si++; step(); }, act);
+  }
+  function finish() {
+    const game = act.kind === "게임";
+    const stars = !game || miss === 0 ? 3 : miss <= Math.max(2, Math.round(total * .25)) ? 2 : 1;
+    S.stars[act.id] = Math.max(S.stars[act.id] || 0, stars);
+    save();
+    sfx.win(); confetti();
+    const last = ai === st.acts.length - 1;
+    const close = () => modal.remove();
+    const modal = h("div", { class: "modal" }, h("div", { class: "box", style: { "--c": st.c, "--cd": st.cd } },
+      h("div", { class: "big", html: Array.from({ length: 3 }, (_, k) => k < stars ? `<b style="animation-delay:${k * .18}s">★</b>` : "★").join("") }),
+      h("h2", null, stars === 3 ? "완벽해요!" : stars === 2 ? "잘했어요!" : "끝까지 해냈어요!"),
+      h("p", null, game ? (miss ? `실수 ${miss}번 · 다시 하면 별을 더 모을 수 있어요` : "한 번도 틀리지 않았어요") : "미션 완료"),
+      h("div", { class: "row" },
+        h("button", { class: "btn", type: "button", onclick: () => { close(); render(); } }, "↺ 다시 하기"),
+        last ? h("a", { class: "btn pri", href: "#" + st.id, onclick: close }, "스테이지 목록 ▶") : h("a", { class: "btn pri", href: `#${st.id}/${ai + 2}`, onclick: close }, "다음 미션 ▶"),
+        h("a", { class: "btn", href: "#", onclick: close }, "🏠 미션 지도"))));
+    document.body.append(modal);
+  }
+  step();
+}
+function render() {
+  RUN++;
+  document.querySelectorAll(".modal").forEach(m => m.remove());
+  app.innerHTML = "";
+  const m = location.hash.replace(/^#/, "").split("/");
+  const st = STAGES.find(s => s.id === m[0]);
+  if (!st) home();
+  else if (m[1] && st.acts[m[1] - 1]) activity(st, m[1] - 1);
+  else stage(st);
+  window.scrollTo({ top: 0 });
+}
+window.addEventListener("hashchange", render);
+window.MB = { STAGES, S, PUZ };
+render();
+</script>
+</body>
+</html>
