@@ -517,11 +517,11 @@ const STAGES = [
     { id: "u8a", title: "단어·숙어 카드", kind: "학습", e: "🃏", d: "읽는 법(음독)과 뜻 확인 · 🔊 소리 듣기", steps: [{ type: "cards", groups: [
       { title: "숙어 (방학에 할 일 · 타고 가요)", mini: true, items: PH.map(wdCard) }, { title: "단어", mini: true, items: WD.map(wdCard) },
       { title: "불규칙동사 (원형 – 과거 – 과거분사)", mini: true, items: IRR.map(a => ({ en: `${a[0]} – ${a[1]} – ${a[2]}`, pr: a[3], ko: a[4] })) }] }] },
-    { id: "u8b", title: "크로스워드 ① 숙어·불규칙동사", kind: "게임", e: "🧩", d: "뜻을 보고 숙어 속 단어와 과거형 철자 채우기", steps: [{ type: "crossword", cw: PUZ.cw1, guide: "힌트를 누르면 그 칸으로 이동해요. 한 단어를 다 쓰면 바로 채점돼요." }] },
-    { id: "u8c", title: "크로스워드 ② 단어", kind: "게임", e: "🧩", d: "뜻(영어 설명 포함)을 보고 단어 철자 채우기", steps: [{ type: "crossword", cw: PUZ.cw2, guide: "힌트를 누르면 그 칸으로 이동해요. 영어 설명이 있는 단어는 시험에 설명이 나올 수 있어요!" }] },
+    { id: "u8c", title: "크로스워드 ① 단어", kind: "게임", e: "🧩", d: "뜻(영어 설명 포함)을 보고 단어 철자 채우기", steps: [{ type: "crossword", cw: PUZ.cw2, guide: "힌트를 누르면 그 칸으로 이동해요. 영어 설명이 있는 단어는 시험에 설명이 나올 수 있어요!" }] },
     { id: "u8d", title: "단어·숙어 암기", kind: "암기", e: "🧠", d: "가리고 떠올리기 · 외운 것에 체크", steps: [{ type: "memo", guide: "<b>우리말 가리기</b>로 뜻을 떠올리고, <b>영어 가리기</b>로 영어를 말해 봐요. 가린 글자는 누르면 잠깐 보여요. 외운 것은 ✔ 체크!", items: PH.concat(WD).map(a => ({ en: a[0], pr: a[1], ko: a[2] })) }] },
     { id: "u8e", title: "뜻 짝 맞추기", kind: "게임", e: "🧲", d: "영어 단어·숙어와 우리말 뜻을 짝지어요", steps: [{ type: "match", guide: "왼쪽 영어와 오른쪽 뜻을 하나씩 눌러 짝을 지어요.", pairs: PH.concat(WD).filter(a => a[0] !== "tent").map(a => [a[0], kOnly(a[2])]), pick: 18, per: 6 }] },
     { id: "u8f", title: "철자 조립", kind: "게임", e: "🔤", d: "뜻을 보고 글자를 순서대로 눌러 단어 완성", steps: [{ type: "build", mode: "letters", guide: "우리말 뜻을 보고, 글자를 <b>순서대로</b> 눌러 단어를 완성해요.", items: SPELL, pick: 12 }] },
+    { id: "u8b", title: "크로스워드 ② 숙어·불규칙동사", kind: "게임", e: "🧩", d: "뜻을 보고 숙어 속 단어와 과거형 철자 채우기", steps: [{ type: "crossword", cw: PUZ.cw1, guide: "힌트를 누르면 그 칸으로 이동해요. 한 단어를 다 쓰면 바로 채점돼요." }] },
     { id: "u8g", title: "골라! am · is · are going to", kind: "게임", e: "🎯", d: "앞으로 할 일을 말하는 문장 완성하기", steps: [{ type: "mcq", cols: 3, items: [
       pick3("I ____ going to ride a horse.", "나는 말을 탈 거예요.", ["am", "is", "are"], "I 다음에는 am"),
       pick3("He ____ going to stay in a hotel.", "그는 호텔에 머무를 거예요.", ["is", "am", "are"], "he · she 다음에는 is"),
