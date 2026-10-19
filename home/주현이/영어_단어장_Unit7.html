@@ -348,6 +348,21 @@ input,textarea{font:inherit;color:inherit}
 
 .say{border:0;background:var(--cl);border-radius:99px;font-size:1rem;padding:3px 8px;cursor:pointer;vertical-align:middle;margin-left:4px}
 .say:active{transform:translateY(2px)}
+/* riddle */
+.rdl .rq{font-family:'Jua';font-size:1.6rem;color:var(--cd)}
+.rhl{list-style:none;display:flex;flex-direction:column;gap:8px;margin:14px 0 4px;text-align:left}
+.rhl li{background:var(--cl);border-radius:14px;padding:10px 16px;font-weight:700;font-size:1.12rem;line-height:1.4;display:flex;gap:12px;align-items:baseline}
+.rhl li b{font-family:'Jua';font-weight:400;color:#fff;background:var(--c);border-radius:99px;padding:0 10px;font-size:.85rem;white-space:nowrap}
+.rhl li.new{animation:pop .3s}
+/* boss */
+.btop{display:flex;align-items:center;gap:16px;margin-bottom:18px;background:#22304a;border-radius:20px;padding:12px 18px;color:#fff}
+.bface{font-size:3rem;line-height:1}.bface.hit{animation:shake .35s}
+.bhp-w{flex:1}.bhp{height:16px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden}
+.bhp-in{height:100%;background:linear-gradient(90deg,#FF6B4A,#E5484D);transition:width .5s}
+.bhp-lab{font:600 .85rem 'Fredoka','Jua',sans-serif;color:#FFE066}
+.bht{font-size:1.5rem;letter-spacing:2px;white-space:nowrap}
+.bq{font-family:'Jua';font-size:1.05rem;color:var(--sub);margin-bottom:6px}
+.bgap{display:inline-block;min-width:90px;border-bottom:4px solid var(--c);color:var(--c);margin:0 4px}
 /* result */
 #fx{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden}
 #fx i{position:absolute;top:-20px;width:11px;height:16px;border-radius:3px;animation:fall linear forwards}
@@ -511,6 +526,32 @@ const SPELL = [["actor", "배우", "🎭"], ["artist", "화가", "👩‍🎨"],
   ["helicopter", "헬리콥터", "🚁"], ["jungle", "정글", "🌴"], ["future", "미래", "🔮"], ["patient", "참을성 있는", "⏳"], ["career", "직업, 직장생활", "💼"], ["Earth", "지구", "🌍"],
   ["noisy", "시끄러운", "📢"], ["weight", "무게, 체중", "⚖️"], ["museum", "박물관", "🏛️"], ["friendly", "친절한", "😊"]]
   .map(a => ({ answer: a[0], ko: a[1], e: a[2] }));
+const RIDDLE = [ // 스무고개 [정답, 우리말, 힌트1, 힌트2]
+  ["actor", "배우", "I work in movies and plays.", "I pretend to be another person on the stage."],
+  ["artist", "화가", "I use brushes and many colors.", "a person who paints, draws, or makes sculptures"],
+  ["musician", "음악가", "I play the piano or the guitar.", "a person who writes, sings, or plays music"],
+  ["journalist", "기자", "I ask people many questions.", "I write the news for newspapers and TV."],
+  ["scientist", "과학자", "I work in a lab.", "I do experiments and study the world."],
+  ["astronaut", "우주 비행사", "I wear a big, white space suit.", "someone who travels into space"],
+  ["teacher", "선생님", "I work at a school.", "I help students learn every day."],
+  ["future", "미래", "It is not yesterday. It is not today.", "the period of time that will come after the present time"],
+  ["museum", "박물관", "You can see old and special things here.", "a building in which interesting and valuable things are collected and shown to the public"],
+  ["friendly", "친절한", "This person smiles and says hello to everyone.", "behaving in a pleasant, kind way towards someone"],
+  ["patient", "참을성 있는", "This person can wait for a long time.", "This person does not get angry when waiting."],
+  ["noisy", "시끄러운", "It is not quiet.", "There are a lot of loud sounds."],
+  ["Earth", "지구", "We live on this planet.", "It looks blue and green from space."],
+  ["helicopter", "헬리콥터", "It flies in the sky, but it has no wings.", "It has big blades on top. A pilot can fly it."],
+  ["weight", "무게, 체중", "You check this on a scale.", "How heavy are you?"],
+  ["jungle", "정글", "It is hot and has many tall trees.", "Monkeys and tigers live here. You can explore it."]
+].map(a => ({ answer: a[0], ko: a[1], hints: [a[2], a[3]] }));
+const BSEN = [ // 보스전 문장 빈칸 [문장({정답}), 뜻]
+  ["What do you want to be when you {grow} up?", "당신은 자라서 무엇이 되고 싶습니까?"], ["She {wants} to be a professor.", "그녀는 교수가 되고 싶어 합니다."],
+  ["What does that sign {mean}?", "저 표지판의 의미는 무엇입니까?"], ["It means you can’t take {pictures} here.", "‘여기서는 사진을 찍으면 안 된다’는 뜻입니다."],
+  ["They {have} to take the space shuttle to get to the space station.", "그들은 우주 정거장에 가기 위해서 우주 왕복선을 타야 합니다."],
+  ["Astronauts don’t have to wear a space {suit} in the space station.", "우주 비행사들은 우주 정거장에서 우주복을 입을 필요가 없습니다."],
+  ["When she is in space, she is very {light}.", "그녀가 우주에 있을 때, 그녀는 매우 가볍습니다."], ["They can live in the space station for {months}.", "그들은 몇 개월 동안 우주 정거장에서 살 수 있습니다."],
+  ["He wants to play {concerts}.", "그는 콘서트(공연)를 하고 싶어 합니다."]
+];
 const pick3 = (q, sub, opts, why) => ({ q, sub, opts, why });
 const STAGES = [
   { id: "s1", no: "UNIT 7", name: "Things to Be", en: "Word Mission", icon: "🚀", c: "#7C5CFC", cl: "#F1EDFF", cd: "#5236C9", desc: "단어 시험에 나올 단어·숙어·문장을 게임으로!", acts: [
@@ -520,7 +561,7 @@ const STAGES = [
       { title: "불규칙동사 (원형 – 과거 – 과거분사)", mini: true, items: IRR.map(a => ({ en: `${a[0]} – ${a[1]} – ${a[2]}`, pr: a[3], ko: a[4], say: a[5] })) }] }] },
     { id: "u7c", title: "크로스워드 ① 단어", kind: "게임", e: "🧩", d: "뜻(영어 설명 포함)을 보고 단어 철자 채우기", steps: [{ type: "crossword", cw: PUZ.cw2, guide: "힌트를 누르면 그 칸으로 이동해요. 영어 설명이 있는 단어는 시험에 설명이 나올 수 있어요!" }] },
     { id: "u7d", title: "단어·숙어 암기", kind: "암기", e: "🧠", d: "가리고 떠올리기 · 외운 것에 체크", steps: [{ type: "memo", guide: "<b>우리말 가리기</b>로 뜻을 떠올리고, <b>영어 가리기</b>로 영어를 말해 봐요. 가린 글자는 누르면 잠깐 보여요. 외운 것은 ✔ 체크!", items: JOB.concat(PH, WD).map(a => ({ en: a[0], pr: a[1], ko: a[2] })) }] },
-    { id: "u7e", title: "뜻 짝 맞추기", kind: "게임", e: "🧲", d: "영어 단어·숙어와 우리말 뜻을 짝지어요", steps: [{ type: "match", guide: "왼쪽 영어와 오른쪽 뜻을 하나씩 눌러 짝을 지어요.", pairs: JOB.concat(PH, WD).filter(a => a[0] !== "game designer").map(a => [a[0], kOnly(a[2])]), pick: 18, per: 6 }] },
+    { id: "u7k", title: "스무고개 수수께끼", kind: "게임", e: "🕵️", d: "영어 힌트를 보고 단어 맞히기 · 힌트를 적게 볼수록 별이 많아요", steps: [{ type: "riddle", pick: 10, guide: "힌트를 읽고 <b>정답 단어를 영어로</b> 써요. 모르겠으면 💡 힌트를 하나 더 열어요. 마지막 힌트는 우리말 뜻이에요.", items: RIDDLE }] },
     { id: "u7f", title: "철자 조립", kind: "게임", e: "🔤", d: "뜻을 보고 글자를 순서대로 눌러 단어 완성", steps: [{ type: "build", mode: "letters", guide: "우리말 뜻을 보고, 글자를 <b>순서대로</b> 눌러 단어를 완성해요.", items: SPELL, pick: 12 }] },
     { id: "u7b", title: "크로스워드 ② 직업·하는 일", kind: "게임", e: "🧩", d: "뜻을 보고 직업과 동사 철자 채우기", steps: [{ type: "crossword", cw: PUZ.cw1, guide: "힌트를 누르면 그 칸으로 이동해요. 한 단어를 다 쓰면 바로 채점돼요." }] },
     { id: "u7g", title: "골라! want · wants · have to", kind: "게임", e: "🎯", d: "문장에 꼭 맞는 말 고르기", steps: [{ type: "mcq", cols: 3, items: [
@@ -543,7 +584,7 @@ const STAGES = [
       { answer: "She wants to be a professor.", ko: "그녀는 교수가 되고 싶어 합니다." }, { answer: "What does he want to do when he is older?", ko: "그는 나이가 더 들면 무엇을 하고 싶어 합니까?" },
       { answer: "What does that sign mean?", ko: "저 표지판의 의미는 무엇입니까?" }, { answer: "It means you can’t take pictures here.", ko: "‘여기서는 사진을 찍으면 안 된다’는 뜻입니다." },
       { answer: "When she is in space, she is very light.", ko: "그녀가 우주에 있을 때, 그녀는 매우 가볍습니다." }, { answer: "They can live in the space station for months.", ko: "그들은 몇 개월 동안 우주 정거장에서 살 수 있습니다." }] }] },
-    { id: "u7j", title: "실전 쓰기", kind: "게임", e: "✍️", d: "우리말을 보고 영어 단어·숙어를 직접 쓰기", steps: [{ type: "type", nohint: true, guide: "우리말을 보고 영어로 써요. 철자를 정확하게!", items: JOB.slice(0, 7).concat(PH.slice(0, 8)).map(a => ({ ko: kOnly(a[2]), answer: a[0] })) }] }
+    { id: "u7l", title: "보스전! 실전 모의시험", kind: "시험", e: "👾", boss: true, d: "진짜 시험처럼 10문제 · 하트 3개로 보스를 물리쳐요", steps: [{ type: "boss", boss: "👾", guide: "단어 시험처럼 <b>철자를 정확하게</b> 써요. 맞히면 보스 체력이 줄고, 틀리면 하트가 하나 줄어요. 하트가 남아 있으면 클리어! 남은 하트 수만큼 별을 받아요.", gen: () => makeBoss(JOB.concat(PH, WD), BSEN) }] }
   ] }
 ];
 const ALLACTS = STAGES.flatMap(s => s.acts);
@@ -1123,6 +1164,117 @@ ENG.memo = (host, cfg, done, act) => {
   doneBar(host, "다 외웠어요 ✓", () => done(got.size === cfg.items.length ? 0 : 3, 3));
 };
 
+// 스무고개 수수께끼: 힌트가 하나씩 열리고, 적게 보고 맞힐수록 별이 많다.
+ENG.riddle = (host, cfg, done) => {
+  const items = shuffle(cfg.items).slice(0, cfg.pick || cfg.items.length);
+  let i = 0, miss = 0;
+  const bar = progress(host, items.length), box = h("div", { class: "ty rdl" });
+  host.append(box);
+  function show() {
+    if (i >= items.length) return done(miss, items.length * 2);
+    bar.set(i);
+    const it = items[i], hints = it.hints.concat([`우리말 뜻: ${it.ko} (${it.answer.replace(/ /g, "").length}글자)`]);
+    let open = 1, wrong = 0;
+    box.innerHTML = "";
+    const list = h("ol", { class: "rhl" });
+    const inp = h("input", { type: "text", autocomplete: "off", autocapitalize: "off", autocorrect: "off", spellcheck: "false", placeholder: "정답 단어를 영어로 써요" });
+    const fb = h("div"), more = h("button", { class: "btn", type: "button" }, "💡 힌트 하나 더 (별이 줄어요)");
+    const draw = () => {
+      list.innerHTML = "";
+      hints.slice(0, open).forEach((t, k) => list.append(h("li", { class: k === open - 1 ? "new" : "" }, h("b", null, "힌트 " + (k + 1)), h("span", null, t))));
+      more.disabled = open >= hints.length;
+      more.style.display = open >= hints.length ? "none" : "";
+    };
+    const reveal = () => { if (open < hints.length) { open++; miss++; draw(); sfx.tap(); } };
+    more.onclick = () => { reveal(); inp.focus(); };
+    const check = () => {
+      if (!inp.value.trim()) { inp.focus(); return; }
+      fb.innerHTML = "";
+      if (loose(inp.value) === loose(it.answer)) {
+        inp.className = "ok"; inp.disabled = true; sfx.ok();
+        open = hints.length; draw();
+        fb.append(h("div", { class: "fb ok" }, "정답! ", h("b", null, it.answer), " ", sayBtn(it.answer), h("span", { class: "sp" }), h("button", { class: "btn pri", type: "button", onclick: () => { i++; show(); } }, "다음 ▶")));
+        return;
+      }
+      wrong++; miss++; sfx.no(); inp.className = "no shake"; setTimeout(() => inp.classList.remove("shake"), 400);
+      if (open < hints.length) { open++; draw(); fb.append(h("div", { class: "fb no" }, "아니에요! 힌트가 하나 더 열렸어요.")); }
+      else if (wrong < 4) fb.append(h("div", { class: "fb no", html: "첫 글자 힌트: <b>" + it.answer.split(" ").map(w => w[0] + " _".repeat(w.length - 1)).join("&nbsp;&nbsp;&nbsp;") + "</b>" }));
+      else fb.append(h("div", { class: "fb no", html: `정답은 <b>${it.answer}</b> — 똑같이 써 봐요.` }));
+      inp.focus();
+    };
+    inp.addEventListener("keydown", e => { if (e.key === "Enter") check(); });
+    inp.addEventListener("input", () => inp.className = "");
+    draw();
+    box.append(h("div", { class: "rq" }, "❓ 나는 누구일까요?"), list, inp,
+      h("div", { class: "row" }, more, h("button", { class: "btn pri big", type: "button", onclick: check }, "확인")), fb);
+    inp.focus();
+  }
+  show();
+};
+
+// 보스전 모의시험: 실제 단어 시험처럼 10문제. 하트 3개, 틀리면 하나씩 줄고 정답을 보여 준다. 하트가 다 없어지면 다시 도전.
+ENG.boss = (host, cfg, done) => {
+  const qs = cfg.gen();
+  let i = 0, hearts = 3, miss = 0;
+  const hp = h("div", { class: "bhp-in" }), hpLab = h("span", { class: "bhp-lab" });
+  const hrt = h("span", { class: "bht" }), face = h("div", { class: "bface" }, cfg.boss);
+  const top = h("div", { class: "btop" }, face, h("div", { class: "bhp-w" }, h("div", { class: "bhp" }, hp), hpLab), hrt);
+  const box = h("div", { class: "ty" });
+  host.append(top, box);
+  const stat = () => {
+    hp.style.width = ((qs.length - i) / qs.length * 100) + "%";
+    hpLab.textContent = `보스 체력 ${qs.length - i} / ${qs.length}`;
+    hrt.textContent = "❤️".repeat(hearts) + "🤍".repeat(3 - hearts);
+  };
+  function show() {
+    stat();
+    if (i >= qs.length) {
+      face.textContent = "💥"; face.classList.add("pop");
+      box.innerHTML = "";
+      box.append(h("div", { class: "fb ok", style: { justifyContent: "center", fontSize: "1.3rem" } }, "🏆 보스 클리어! 시험 준비 끝!"));
+      return later(() => done(miss, 0), 1400);
+    }
+    const q = qs[i];
+    box.innerHTML = "";
+    const inp = h("input", { type: "text", autocomplete: "off", autocapitalize: "off", autocorrect: "off", spellcheck: "false", placeholder: "정답을 영어로 써요" });
+    const fb = h("div"), go = h("button", { class: "btn pri big", type: "button" }, "확인");
+    const next = () => { i++; show(); };
+    const check = () => {
+      if (!inp.value.trim()) { inp.focus(); return; }
+      inp.disabled = true; go.disabled = true; fb.innerHTML = "";
+      if (loose(inp.value) === loose(q.answer)) {
+        inp.className = "ok"; sfx.ok();
+        face.classList.remove("hit"); void face.offsetWidth; face.classList.add("hit");
+        fb.append(h("div", { class: "fb ok" }, "정답! 보스에게 한 방! ", h("b", null, q.answer)));
+        return later(next, 1100);
+      }
+      hearts--; miss++; sfx.no(); inp.className = "no shake";
+      stat();
+      if (hearts <= 0) {
+        fb.append(h("div", { class: "fb no" }, "정답은 ", h("b", null, q.answer), " · 하트를 다 썼어요. 보스가 이겼어요!", h("span", { class: "sp" }),
+          h("button", { class: "btn pri", type: "button", onclick: () => render() }, "↺ 새 문제로 다시 도전")));
+        return;
+      }
+      fb.append(h("div", { class: "fb no" }, "아쉬워요! 정답은 ", h("b", null, q.answer), h("span", { class: "sp" }), h("button", { class: "btn pri", type: "button", onclick: next }, "다음 ▶")));
+    };
+    inp.addEventListener("keydown", e => { if (e.key === "Enter" && !go.disabled) check(); });
+    go.onclick = check;
+    box.append(h("div", { class: "bq" }, h("span", { class: "tg" }, `${i + 1}번`), " ", q.kind),
+      h("div", { class: "ko", html: q.show }), q.sub ? h("div", { class: "hint" }, q.sub) : "", inp, h("div", { class: "row" }, go), fb);
+    inp.focus();
+  }
+  show();
+};
+
+// 보스전 문제 만들기: 영어 설명 → 단어 3, 우리말 → 영어 4, 문장 빈칸 3 (실제 시험 순서처럼)
+function makeBoss(pool, sens) {
+  const defs = shuffle(pool.filter(a => a[2].includes(" — "))).slice(0, 3);
+  const kor = shuffle(pool.filter(a => !defs.includes(a) && !a[0].includes("~"))).slice(0, 4);
+  return kor.map(a => ({ kind: "우리말을 영어로 쓰세요", show: kOnly(a[2]), answer: a[0] }))
+    .concat(defs.map(a => ({ kind: "영어 설명을 보고 단어를 쓰세요", show: a[2].split(" — ")[1], answer: a[0] })))
+    .concat(shuffle(sens).slice(0, 3).map(s => ({ kind: "빈칸에 알맞은 단어를 쓰세요", show: s[0].replace(/\{[^}]+\}/, '<span class="bgap">?</span>'), sub: s[1], answer: s[0].match(/\{([^}]+)\}/)[1] })));
+}
+
 /* ================= screens ================= */
 const app = document.getElementById("app");
 function theme(st) {
@@ -1201,7 +1353,7 @@ function activity(st, ai) {
   }
   function finish() {
     const game = act.kind !== "학습";
-    const stars = !game || miss === 0 ? 3 : miss <= Math.max(2, Math.round(total * .25)) ? 2 : 1;
+    const stars = act.boss ? 3 - miss : !game || miss === 0 ? 3 : miss <= Math.max(2, Math.round(total * .25)) ? 2 : 1;
     S.stars[act.id] = Math.max(S.stars[act.id] || 0, stars);
     save();
     sfx.win(); confetti();
