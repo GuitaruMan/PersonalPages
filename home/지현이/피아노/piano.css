@@ -1,0 +1,151 @@
+/* 피아노 1~3차시 공통 모양. 한 줄로 내려가는 활동 카드들, 위에 활동 단추 띠 */
+:root{--ink:#2a2440;--sub:#6a6385;--line:#e4dcf5;--bg1:#EEE7FF;--bg2:#FBF9FF;--c:#6D4AE0;--cl:#F1ECFF;--cd:#4B2FB0;--gr:#D3C6F2;
+  --ok:#1FA65A;--okl:#E3F7EB;--no:#E5484D;--nol:#FFECEE;--gold:#FFB020;
+  --ivory:#FFFDF8;--ebony:#211d2b;--skin:#FFE3CC;--skinl:#E8B793;
+  --do:#FF5A5F;--re:#FF9A1F;--mi:#FFD23F;--fa:#3BC46B;--sol:#2EB4F0;--la:#4C6EF5;--si:#A35BE8}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{font-size:17px}
+body{font-family:'Nunito','Noto Sans KR','Malgun Gothic',sans-serif;color:var(--ink);min-height:100vh;line-height:1.55;
+  background:linear-gradient(180deg,var(--bg1),var(--bg2) 420px) no-repeat,var(--bg2);-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
+button:focus-visible,a:focus-visible{outline:3px solid var(--c);outline-offset:2px}
+#app{max-width:980px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-right,0px)) 80px max(16px,env(safe-area-inset-left,0px))}
+.j{font-family:'Jua','Malgun Gothic',sans-serif;font-weight:400}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 17px;border-radius:14px;background:#fff;font-weight:800;font-size:.95rem;
+  border:2px solid var(--gr);box-shadow:0 4px 0 var(--gr);transition:transform .08s,box-shadow .08s;text-decoration:none;color:var(--ink);white-space:nowrap}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--gr)}
+.btn.pri{background:var(--c);border-color:var(--cd);color:#fff;box-shadow:0 4px 0 var(--cd)}
+.btn.pri:active{box-shadow:0 1px 0 var(--cd)}
+.btn.big{font-size:1.1rem;padding:13px 26px;border-radius:18px}
+.btn.ghost{background:transparent;border-color:transparent;box-shadow:none;color:var(--sub);font-weight:700}
+.btn.on{background:var(--cl);border-color:var(--c);box-shadow:0 4px 0 var(--c)}
+.btn[disabled]{opacity:.45;pointer-events:none}
+
+/* 위 띠 */
+.bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:30;padding:12px 0 10px;
+  background:linear-gradient(var(--bg1) 80%,rgba(238,231,255,0))}
+.bar .home{background:var(--ink);border-color:#14101f;color:#fff;box-shadow:0 4px 0 #14101f}
+.bar .nav{display:flex;gap:6px;flex-wrap:wrap}
+.bar .nav a{display:inline-flex;align-items:center;gap:4px;text-decoration:none;color:var(--ink);font-weight:800;font-size:.85rem;padding:6px 11px;border-radius:12px;
+  background:#fff;border:2px solid var(--gr);box-shadow:0 3px 0 var(--gr)}
+.bar .nav a b{font-family:'Jua';font-weight:400;color:var(--c)}
+.bar .total{margin-left:auto;font-weight:800;color:var(--sub);font-size:.9rem}
+
+/* 머리 */
+.hero{padding:18px 0 8px;display:grid;gap:14px}
+.hero h1{font-family:'Jua';font-weight:400;font-size:2.4rem;line-height:1.15;text-wrap:balance}
+.hero p{color:var(--sub);font-size:1.02rem;max-width:36em}
+.strip{display:flex;height:54px;border-radius:12px;overflow:hidden;border:3px solid var(--ebony);background:var(--ivory);position:relative;max-width:520px}
+.strip i{flex:1;border-right:2px solid #d9d2e6}
+.strip i:last-child{border-right:none}
+.strip b{position:absolute;top:0;height:58%;width:6.4%;background:var(--ebony);border-radius:0 0 4px 4px;transform:translateX(-50%)}
+details.guide{background:#fff;border:2px solid var(--line);border-radius:16px;padding:12px 16px;max-width:640px}
+details.guide summary{cursor:pointer;font-weight:800;color:var(--cd)}
+details.guide ul{margin:8px 0 0 1.2em;display:grid;gap:4px;color:var(--sub);font-size:.95rem}
+
+/* 수업 */
+.lesson{background:#fff;border-radius:24px;padding:22px 22px 26px;margin-top:22px;box-shadow:0 4px 16px rgba(60,40,120,.08);scroll-margin-top:70px}
+.lh{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.lh .no{font-family:'Jua';font-size:1.05rem;background:var(--c);color:#fff;border-radius:99px;min-width:36px;height:36px;display:grid;place-items:center}
+.lh h2{font-family:'Jua';font-weight:400;font-size:1.6rem;text-wrap:balance}
+.lh .st{margin-left:auto;font-size:1.25rem;letter-spacing:2px;color:var(--gold)}
+.lh .st .off{color:#ddd5ee}
+.lead{color:var(--sub);margin-bottom:14px;max-width:40em}
+.real{margin-top:16px;background:var(--cl);border-radius:16px;padding:12px 16px;display:grid;gap:4px}
+.real b{font-family:'Jua';font-weight:400;color:var(--cd);font-size:1.05rem}
+.say{font-family:'Jua';font-size:1.35rem;min-height:1.6em;text-align:center;margin:10px 0}
+.say.ok{color:var(--ok)}.say.no{color:var(--no)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row.c{justify-content:center}
+
+/* 1. 자세 */
+.checks{display:grid;gap:10px}
+.chk{display:flex;gap:12px;align-items:center;text-align:left;background:var(--bg2);border:2px solid var(--line);border-radius:16px;padding:12px 14px;width:100%}
+.chk .bx{flex:none;width:34px;height:34px;border-radius:10px;border:3px solid var(--gr);display:grid;place-items:center;font-size:1.2rem;background:#fff}
+.chk .tx{min-width:0}
+.chk .tx b{display:block;font-size:1.05rem}
+.chk .tx span{color:var(--sub);font-size:.92rem}
+.chk.done{background:var(--okl);border-color:#9fdcb8}
+.chk.done .bx{border-color:var(--ok);background:var(--ok);color:#fff}
+
+/* 2. 손 */
+.hands{display:flex;justify-content:center;gap:4%;flex-wrap:wrap}
+.hand{width:min(260px,46%);text-align:center}
+.hand svg{width:100%;height:auto;display:block}
+.hand .nm{font-family:'Jua';font-size:1.2rem;color:var(--sub)}
+.fg{cursor:pointer}
+.fg rect,.palm{fill:var(--skin);stroke:var(--skinl);stroke-width:3}
+.fg circle{fill:#fff;stroke:var(--c);stroke-width:3}
+.fg text{font-family:'Jua';font-size:17px;fill:var(--c);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.fg.lit rect{fill:#FFC99E}
+.fg.lit circle{fill:var(--c)}
+.fg.lit text{fill:#fff}
+.fg.ask circle{fill:var(--gold);stroke:#c98500}
+.fg.ask text{fill:var(--gold)}
+.nums{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.nums .btn{font-family:'Jua';font-size:1.5rem;width:58px;height:58px;padding:0;border-radius:50%}
+
+/* 건반 */
+.kbwrap{overflow-x:auto;padding:4px 2px 10px;-webkit-overflow-scrolling:touch}
+.kb{position:relative;display:flex;height:190px;min-width:var(--minw,0);user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.wk{flex:1;position:relative;background:var(--ivory);border:2px solid var(--ebony);border-left-width:0;border-radius:0 0 10px 10px;
+  display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;padding-bottom:10px;transition:background .1s}
+.wk:first-child{border-left-width:2px}
+.wk.col{background:linear-gradient(180deg,var(--ivory) 55%,var(--kc) 55%)}
+.wk .lab{font-family:'Jua';font-size:1.05rem;line-height:1}
+.wk.col .lab{color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.wk .fn,.bk .fn{font-family:'Jua';font-size:.9rem;width:24px;height:24px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center}
+.bk{position:absolute;top:0;height:60%;transform:translateX(-50%);background:var(--ebony);border-radius:0 0 7px 7px;z-index:2;
+  box-shadow:inset 0 -6px 0 #3b3549;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px}
+.wk.down{background:#e9e2f7}
+.wk.col.down{background:linear-gradient(180deg,#e9e2f7 55%,var(--kc) 55%)}
+.bk.down{background:#4a4358}
+.wk.glow{background:linear-gradient(180deg,#FFF1C2 55%,var(--kc,#FFE08A) 55%);box-shadow:inset 0 0 0 4px var(--gold)}
+.wk.glow:not(.col){background:#FFE9A8}
+.bk.glow{background:var(--gold);box-shadow:inset 0 -6px 0 #c98500}
+.wk.found{background:linear-gradient(180deg,var(--ivory) 45%,var(--do) 45%)}
+.wk.found .lab{color:#fff}
+.wk.bad,.bk.bad{animation:shake .3s}
+@keyframes shake{25%{translate:-4px 0}75%{translate:4px 0}}
+@media (max-width:560px){.kb{height:150px}.wk .lab{font-size:.9rem}}
+
+.pick{display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;margin:6px 0 4px}
+.dot{display:inline-grid;place-items:center;width:62px;height:62px;border-radius:50%;font-family:'Jua';font-size:1.6rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+
+/* 노래 */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.song .hint{color:var(--sub);margin-bottom:10px}
+.lines{display:grid;gap:12px;margin:12px 0;max-height:340px;overflow-y:auto;padding:4px;border:2px solid var(--line);border-radius:16px}
+.ln{display:flex;flex-wrap:wrap;gap:4px 16px}
+.grp{display:flex;gap:4px}
+.nt{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;border-radius:12px;padding:4px 2px;min-width:40px}
+.nt .ly{font-size:.85rem;color:var(--sub);font-weight:700;min-height:1.3em}
+.nt .ci{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-family:'Jua';font-size:1.05rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.nt.long .ci{width:56px;border-radius:19px}
+.nt .fn{font-family:'Jua';font-size:.85rem;color:var(--c)}
+.nt.now{background:#FFF1C2;box-shadow:0 0 0 3px var(--gold)}
+.nt.past{opacity:.45}
+.now-big{display:flex;align-items:center;justify-content:center;gap:14px;min-height:76px;margin:6px 0}
+.now-big .ci{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;font-family:'Jua';font-size:2rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.now-big .tx{font-family:'Jua';font-size:1.4rem}
+.now-big .tx small{display:block;font-family:'Nunito','Noto Sans KR';font-size:.9rem;color:var(--sub);font-weight:700}
+.slow{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--sub)}
+.slow input{width:20px;height:20px;accent-color:var(--c)}
+.donebox{margin-top:14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center;text-align:center}
+.foot{margin-top:28px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+@media (max-width:560px){.hero h1{font-size:1.9rem}.lesson{padding:18px 14px 22px}.lh h2{font-size:1.35rem}
+  .bar{flex-wrap:nowrap}.bar .home{padding:7px 11px}.bar .nav{flex-wrap:nowrap;overflow-x:auto;min-width:0;padding-bottom:3px}
+  .bar .nav a{flex:none}.bar .total{flex:none;font-size:.8rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* 차시 표시 · 낮은/높은 소리 · 아주 긴 음 */
+.sess{justify-self:start;font-family:'Jua';font-size:.95rem;background:var(--c);color:#fff;border-radius:99px;padding:3px 14px}
+.hl{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:520px;margin:0 auto}
+.hlb{display:flex;flex-direction:column;align-items:center;gap:2px;padding:18px 8px;border-radius:22px;border:3px solid var(--gr);box-shadow:0 5px 0 var(--gr);background:var(--bg2)}
+.hlb:active{transform:translateY(4px);box-shadow:0 1px 0 var(--gr)}
+.hlb .em{font-size:3.2rem;line-height:1.1}
+.hlb .j{font-size:1.4rem}
+.hlb small{color:var(--sub);font-weight:700}
+.nt.xlong .ci{width:84px}

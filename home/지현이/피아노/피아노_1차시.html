@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>피아노 1차시 - My Presentations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="piano.css">
+</head>
+<body>
+<div id="app">
+  <div class="bar">
+    <a class="btn home" href="../../지현이.html">← 지현이</a>
+    <nav class="nav" aria-label="활동으로 가기">
+      <a href="#a1"><b>1</b>앉기</a><a href="#a2"><b>2</b>손가락</a><a href="#a3"><b>3</b>높은 소리</a><a href="#a4"><b>4</b>도 찾기</a>
+    </nav>
+    <span class="total" id="total">⭐ 0 / 12</span>
+  </div>
+
+  <header class="hero">
+    <div class="strip" aria-hidden="true" id="strip"></div>
+    <span class="sess">1차시 / 3</span>
+    <h1>피아노와 친해지기</h1>
+    <p>오늘은 바르게 앉고, 손가락 번호를 알고, 피아노에서 '도'를 찾아요. 하나씩 차례대로 하고 별을 모아요.</p>
+    <details class="guide">
+      <summary>어른이 먼저 읽어 주세요</summary>
+      <ul>
+        <li>태블릿이나 휴대폰을 피아노 보면대에 세워 두고 아이 옆에 함께 앉아 주세요.</li>
+        <li>한 차시는 15~20분이에요. 오늘 다 못 하면 다음 날 이어서 해도 돼요. 별은 저장돼요.</li>
+        <li>화면 건반을 누르면 소리가 나요. 소리가 안 나면 휴대폰 무음 스위치를 확인해 주세요.</li>
+        <li>파란 상자 <b>진짜 피아노에서 해 보기</b>가 가장 중요해요. 화면보다 진짜 건반을 더 많이 만지게 해 주세요.</li>
+      </ul>
+    </details>
+  </header>
+
+  <section class="lesson" id="a1">
+    <div class="lh"><span class="no">1</span><h2>피아노 앞에 바르게 앉기</h2><span class="st" data-st="sit"></span></div>
+    <p class="lead">진짜 피아노 앞에 앉아서 하나씩 해 보고, 다 했으면 눌러요.</p>
+    <div class="checks" id="checks"></div>
+  </section>
+
+  <section class="lesson" id="a2">
+    <div class="lh"><span class="no">2</span><h2>손가락에도 번호가 있어요</h2><span class="st" data-st="finger"></span></div>
+    <p class="lead">양손 다 <b>엄지가 1번</b>, 새끼손가락이 5번이에요. 손가락을 눌러 보세요.</p>
+    <div class="hands" id="hands"></div>
+    <div class="say" id="fsay">손가락을 눌러 보세요</div>
+    <div class="row c" id="fstartrow"><button class="btn pri big" id="fstart">퀴즈 풀기 (5문제)</button></div>
+    <div class="nums" id="fnums" hidden></div>
+    <div class="real"><b>진짜 손으로 해 보기</b>
+      <span>어른이 "오른손 3번!" 하고 부르면 그 손가락을 들어 흔들어요. 왼손도 해 봐요.</span>
+      <span>책상 위에서 1-2-3-4-5, 5-4-3-2-1 차례로 톡톡 두드려 봐요.</span>
+    </div>
+  </section>
+
+  <section class="lesson" id="a3">
+    <div class="lh"><span class="no">3</span><h2>낮은 소리, 높은 소리</h2><span class="st" data-st="highlow"></span></div>
+    <p class="lead">피아노는 <b>왼쪽으로 갈수록 낮은 소리</b>, <b>오른쪽으로 갈수록 높은 소리</b>가 나요. 곰은 낮게 "웅~", 새는 높게 "삐~".</p>
+    <div class="hl">
+      <button class="hlb" data-hl="low"><span class="em">🐻</span><span class="j">낮은 소리</span><small>왼쪽</small></button>
+      <button class="hlb" data-hl="high"><span class="em">🐦</span><span class="j">높은 소리</span><small>오른쪽</small></button>
+    </div>
+    <div class="row c" style="margin-top:14px" id="hlstartrow"><button class="btn pri big" id="hlstart">소리 맞히기 (5문제)</button></div>
+    <div class="row c" id="hlagainrow" hidden><button class="btn" id="hlagain">🔊 한 번 더 듣기</button></div>
+    <div class="say" id="hlsay">곰과 새를 눌러서 소리를 들어 보세요</div>
+    <div class="real"><b>진짜 피아노에서 해 보기</b>
+      <span>제일 왼쪽 건반과 제일 오른쪽 건반을 눌러 봐요. 어느 쪽이 곰 소리인가요?</span>
+      <span>어른이 눈을 감고 아무 건반이나 치면, 지현이가 "곰!" "새!" 하고 맞혀 봐요. 바꿔서도 해 봐요.</span>
+    </div>
+  </section>
+
+  <section class="lesson" id="a4">
+    <div class="lh"><span class="no">4</span><h2>검은 건반 2개, 3개로 '도' 찾기</h2><span class="st" data-st="map"></span></div>
+    <p class="lead">검은 건반은 <b>2개 묶음</b>과 <b>3개 묶음</b>이 번갈아 있어요. <b>2개 묶음 바로 왼쪽 흰 건반이 '도'</b>예요.</p>
+    <div class="row c">
+      <button class="btn" id="m2">2개 묶음 보기</button>
+      <button class="btn" id="m3">3개 묶음 보기</button>
+      <button class="btn pri" id="mdo">도 찾기 놀이</button>
+    </div>
+    <div class="say" id="msay">검은 건반을 눌러 보세요</div>
+    <div class="kbwrap"><div id="kbmap"></div></div>
+    <div class="real"><b>진짜 피아노에서 해 보기</b>
+      <span>2개 묶음을 찾을 때마다 손가락 두 개로 톡톡, 3개 묶음은 세 개로 톡톡톡 쳐 봐요.</span>
+      <span>피아노에 '도'가 몇 개 있는지 어른이랑 세어 봐요. 피아노 이름이 쓰인 곳 아래쯤 있는 도가 <b>가운데 도</b>예요.</span>
+    </div>
+  </section>
+
+  <div class="foot">
+    <a class="btn pri big" href="피아노_2차시.html">2차시: 도레미 이름 알기 →</a>
+  </div>
+  <div class="foot">
+    <a class="btn" href="../../지현이.html">← 지현이 페이지</a>
+    <a class="btn ghost" href="../../../index.html">사이트 홈</a>
+  </div>
+</div>
+
+<script src="../../progress.js"></script>
+<script src="piano.js"></script>
+<script>
+"use strict";
+const { $, isWhite, nameOf, tone, Keyboard } = Piano;
+const P = Piano.stars("jihyun-piano1", ["sit", "finger", "highlow", "map"], () => drawChecks());
+const S = P.S;
+Piano.strip();
+
+// ───── 1. 바르게 앉기 (notes.sit에 "101..." 식으로 기록) ─────
+const CHECKS = [
+  ["의자 가운데에 앉아요", "배꼽이 피아노 한가운데, 가운데 도 앞에 오게 앉아요."],
+  ["의자 앞쪽에 반만 앉아요", "엉덩이를 깊숙이 넣지 말고 앞쪽 절반에 걸쳐요. 허리는 쭉!"],
+  ["발은 바닥에 꾹", "발이 바닥에 안 닿으면 발 밑에 상자나 발판을 놓아요."],
+  ["팔꿈치를 건반 높이에", "팔꿈치가 너무 낮으면 의자 위에 방석을 깔아요. 어깨는 힘을 빼요."],
+  ["손은 동그랗게", "귤 하나를 살짝 쥔 것처럼 손을 둥글게 해요. 손가락 끝으로 건반을 눌러요."],
+  ["손톱은 짧게", "손톱이 길면 건반에 딸깍 닿아요. 어른이 확인해 주세요."]
+];
+function drawChecks() {
+  const got = (S.notes.sit || "").split("");
+  $("checks").innerHTML = CHECKS.map((c, i) =>
+    '<button class="chk' + (got[i] === "1" ? " done" : "") + '" data-i="' + i + '"><span class="bx">' + (got[i] === "1" ? "✓" : "") + '</span>' +
+    '<span class="tx"><b>' + c[0] + "</b><span>" + c[1] + "</span></span></button>").join("");
+}
+$("checks").addEventListener("click", e => {
+  const b = e.target.closest(".chk"); if (!b) return;
+  const got = (S.notes.sit || "").padEnd(CHECKS.length, "0").split("");
+  got[+b.dataset.i] = got[+b.dataset.i] === "1" ? "0" : "1";
+  S.notes.sit = got.join(""); P.save(); drawChecks();
+  if (!got.includes("0")) P.give("sit", 3);
+});
+
+// ───── 2. 손가락 번호 ─────
+const FNAME = { 1: "엄지손가락", 2: "집게손가락", 3: "가운데손가락", 4: "약손가락", 5: "새끼손가락" };
+// 오른손 기준 모양(손등이 보이게, 엄지가 왼쪽). 왼손은 좌우를 뒤집어 그린다.
+const FING = [{ n: 2, x: 58, y: 40, w: 26, h: 100 }, { n: 3, x: 88, y: 22, w: 26, h: 118 }, { n: 4, x: 118, y: 34, w: 26, h: 106 }, { n: 5, x: 148, y: 64, w: 24, h: 80 }];
+function handSVG(side) {
+  const R = side === "R", mx = (x, w) => (R ? x : 200 - x - w);
+  let s = '<svg viewBox="-28 10 256 215" role="img" aria-label="' + (R ? "오른손" : "왼손") + '">';
+  s += '<rect class="palm" x="' + mx(52, 128) + '" y="105" width="128" height="112" rx="44"/>';
+  FING.forEach(f => {
+    const x = mx(f.x, f.w), cx = x + f.w / 2;
+    s += '<g class="fg" data-side="' + side + '" data-n="' + f.n + '"><rect x="' + x + '" y="' + f.y + '" width="' + f.w + '" height="' + f.h + '" rx="13"/>' +
+      '<circle cx="' + cx + '" cy="' + (f.y + 17) + '" r="13"/><text x="' + cx + '" y="' + (f.y + 18) + '">' + f.n + "</text></g>";
+  });
+  const bx = R ? 52 : 148, deg = R ? -36 : 36, a = deg * Math.PI / 180, L = 84, tip = L - 17;
+  const tx = bx + tip * Math.sin(a), ty = 192 - tip * Math.cos(a);
+  s += '<g class="fg" data-side="' + side + '" data-n="1"><rect x="' + (bx - 14) + '" y="' + (192 - L) + '" width="28" height="' + L + '" rx="14" transform="rotate(' + deg + " " + bx + ' 192)"/>' +
+    '<circle cx="' + tx.toFixed(1) + '" cy="' + ty.toFixed(1) + '" r="13"/><text x="' + tx.toFixed(1) + '" y="' + (ty + 1).toFixed(1) + '">1</text></g>';
+  return s + "</svg>";
+}
+$("hands").innerHTML = '<div class="hand">' + handSVG("L") + '<div class="nm">왼손</div></div><div class="hand">' + handSVG("R") + '<div class="nm">오른손</div></div>';
+const fq = { on: false, ans: null, right: 0 };
+function litFinger(side, n, cls) {
+  document.querySelectorAll(".fg").forEach(g => g.classList.remove(cls));
+  if (side) document.querySelector('.fg[data-side="' + side + '"][data-n="' + n + '"]').classList.add(cls);
+}
+$("hands").addEventListener("click", e => {
+  const g = e.target.closest(".fg"); if (!g || fq.on) return;
+  const side = g.dataset.side, n = +g.dataset.n;
+  litFinger(side, n, "lit");
+  $("fsay").className = "say";
+  $("fsay").textContent = (side === "R" ? "오른손 " : "왼손 ") + n + "번 · " + FNAME[n];
+});
+function fAsk() {
+  let side, n;
+  do { side = Math.random() < 0.5 ? "L" : "R"; n = 1 + Math.floor(Math.random() * 5); } while (fq.ans && fq.ans[0] === side && fq.ans[1] === n);
+  fq.ans = [side, n];
+  litFinger(null, 0, "lit"); litFinger(side, n, "ask");
+  $("fsay").className = "say";
+  $("fsay").textContent = (fq.right + 1) + "번째 문제: 노랗게 빛나는 손가락은 몇 번?";
+}
+$("fnums").innerHTML = [1, 2, 3, 4, 5].map(n => '<button class="btn" data-n="' + n + '">' + n + "</button>").join("");
+$("fstart").addEventListener("click", () => {
+  fq.on = true; fq.right = 0; fq.ans = null;
+  $("fstartrow").hidden = true; $("fnums").hidden = false; fAsk();
+});
+$("fnums").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b || !fq.on) return;
+  const say = $("fsay");
+  if (+b.dataset.n === fq.ans[1]) {
+    fq.right++;
+    if (fq.right >= 5) {
+      fq.on = false; litFinger(null, 0, "ask");
+      say.className = "say ok"; say.textContent = "5문제 다 맞혔어요! ⭐⭐⭐";
+      $("fnums").hidden = true; $("fstartrow").hidden = false; $("fstart").textContent = "한 번 더 하기";
+      P.give("finger", 3);
+    } else { say.className = "say ok"; say.textContent = "딩동댕!"; setTimeout(fAsk, 700); }
+  } else { say.className = "say no"; say.textContent = "다시 세어 봐요. 엄지가 1번이에요."; }
+});
+
+// ───── 3. 낮은 소리, 높은 소리 ─────
+const LOWS = [31, 33, 36, 38, 40, 43], HIGHS = [84, 86, 88, 91, 93, 96];
+const pickOf = a => a[Math.floor(Math.random() * a.length)];
+const hq = { on: false, ans: "", m: 0, right: 0 };
+function hlPlay() { tone(hq.m, 1.2); }
+function hlAsk() {
+  hq.ans = Math.random() < 0.5 ? "low" : "high";
+  hq.m = pickOf(hq.ans === "low" ? LOWS : HIGHS);
+  $("hlsay").className = "say"; $("hlsay").textContent = (hq.right + 1) + "번째 소리: 곰일까, 새일까?";
+  hlPlay();
+}
+document.querySelectorAll(".hlb").forEach(b => b.addEventListener("click", () => {
+  const kind = b.dataset.hl;
+  if (!hq.on) { tone(pickOf(kind === "low" ? LOWS : HIGHS), 1.2); $("hlsay").className = "say"; $("hlsay").textContent = kind === "low" ? "웅~ 낮은 소리" : "삐~ 높은 소리"; return; }
+  if (kind === hq.ans) {
+    hq.right++;
+    if (hq.right >= 5) {
+      hq.on = false; $("hlsay").className = "say ok"; $("hlsay").textContent = "5문제 다 맞혔어요! ⭐⭐⭐";
+      $("hlagainrow").hidden = true; $("hlstartrow").hidden = false; $("hlstart").textContent = "한 번 더 하기";
+      P.give("highlow", 3);
+    } else { $("hlsay").className = "say ok"; $("hlsay").textContent = "딩동댕!"; setTimeout(hlAsk, 900); }
+  } else { $("hlsay").className = "say no"; $("hlsay").textContent = "다시 들어 봐요."; setTimeout(hlPlay, 500); }
+}));
+$("hlstart").addEventListener("click", () => {
+  hq.on = true; hq.right = 0;
+  $("hlstartrow").hidden = true; $("hlagainrow").hidden = false; hlAsk();
+});
+$("hlagain").addEventListener("click", hlPlay);
+
+// ───── 4. 건반 지도: 도 찾기 ─────
+const mapState = { mode: "", found: new Set() };
+const DOS = [48, 60, 72];
+const kbMap = Keyboard($("kbmap"), 48, 72, {
+  onPress(m, b) {
+    const say = $("msay");
+    if (mapState.mode !== "do") {
+      say.className = "say";
+      if (!isWhite(m)) {
+        const pc = m % 12, two = pc === 1 || pc === 3;
+        say.textContent = two ? "검은 건반 2개 묶음이에요" : "검은 건반 3개 묶음이에요";
+        kbMap.glow(two ? [m - pc + 1, m - pc + 3] : [m - pc + 6, m - pc + 8, m - pc + 10]);
+      } else say.textContent = "흰 건반이에요. 옆에 검은 건반이 몇 개 있나요?";
+      return;
+    }
+    if (m % 12 === 0) {
+      if (!mapState.found.has(m)) { mapState.found.add(m); b.classList.add("found"); b.querySelector(".lab").textContent = "도"; }
+      if (mapState.found.size === DOS.length) {
+        say.className = "say ok"; say.textContent = "도 " + DOS.length + "개를 다 찾았어요! ⭐⭐⭐";
+        mapState.mode = ""; P.give("map", 3);
+      } else { say.className = "say ok"; say.textContent = "찾았다! " + mapState.found.size + " / " + DOS.length; }
+    } else {
+      kbMap.bad(m); say.className = "say no";
+      say.textContent = "아니에요. 검은 건반 2개 묶음 바로 왼쪽을 봐요.";
+    }
+  }
+});
+function mapShow(ms, text) { mapState.mode = ""; kbMap.glow(ms); $("msay").className = "say"; $("msay").textContent = text; }
+$("m2").addEventListener("click", () => mapShow([49, 51, 61, 63], "검은 건반 2개 묶음이에요"));
+$("m3").addEventListener("click", () => mapShow([54, 56, 58, 66, 68, 70], "검은 건반 3개 묶음이에요"));
+$("mdo").addEventListener("click", () => {
+  mapState.mode = "do"; mapState.found.clear(); kbMap.glow([]); kbMap.clear("found");
+  Object.values(kbMap.keys).forEach(k => { const l = k.querySelector(".lab"); if (l) l.textContent = ""; });
+  $("msay").className = "say"; $("msay").textContent = "'도'를 모두 찾아 눌러요 (" + DOS.length + "개)";
+});
+
+drawChecks(); P.draw();
+</script>
+</body>
+</html>
