@@ -2,7 +2,7 @@
 :root{--ink:#2a2440;--sub:#6a6385;--line:#e4dcf5;--bg1:#EEE7FF;--bg2:#FBF9FF;--c:#6D4AE0;--cl:#F1ECFF;--cd:#4B2FB0;--gr:#D3C6F2;
   --ok:#1FA65A;--okl:#E3F7EB;--no:#E5484D;--nol:#FFECEE;--gold:#FFB020;
   --ivory:#FFFDF8;--ebony:#211d2b;--skin:#FFE3CC;--skinl:#E8B793;
-  --do:#FF5A5F;--re:#FF9A1F;--mi:#FFD23F;--fa:#3BC46B;--sol:#2EB4F0;--la:#4C6EF5;--si:#A35BE8}
+  --do:#FF5A5F;--re:#B5651D;--mi:#FFD23F;--fa:#3BC46B;--sol:#2EB4F0;--la:#4C6EF5;--si:#A35BE8}
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
 html{font-size:17px}
@@ -102,8 +102,9 @@ details.guide ul{margin:8px 0 0 1.2em;display:grid;gap:4px;color:var(--sub);font
 .wk.down{background:#e9e2f7}
 .wk.col.down{background:linear-gradient(180deg,#e9e2f7 55%,var(--kc) 55%)}
 .bk.down{background:#4a4358}
-.wk.glow{background:linear-gradient(180deg,#FFF1C2 55%,var(--kc,#FFE08A) 55%);box-shadow:inset 0 0 0 4px var(--gold)}
-.wk.glow:not(.col){background:#FFE9A8}
+/* 칠 건반 표시: 금색은 노란 '미'와 겹쳐서, 흰 건반은 흰색 그대로 두고 회색 음영 + 진한 테두리로 */
+.wk.glow{background:linear-gradient(180deg,#B8B2C8 0%,#E4E0EE 55%,var(--kc,#E4E0EE) 55%);box-shadow:inset 0 0 0 4px var(--ink),inset 0 0 20px 3px rgba(42,36,64,.4)}
+.wk.glow:not(.col){background:linear-gradient(180deg,#B8B2C8,#E4E0EE)}
 .bk.glow{background:var(--gold);box-shadow:inset 0 -6px 0 #c98500}
 .wk.found{background:linear-gradient(180deg,var(--ivory) 45%,var(--do) 45%)}
 .wk.found .lab{color:#fff}
@@ -117,7 +118,7 @@ details.guide ul{margin:8px 0 0 1.2em;display:grid;gap:4px;color:var(--sub);font
 /* 노래 */
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
 .song .hint{color:var(--sub);margin-bottom:10px}
-.lines{display:grid;gap:12px;margin:12px 0;max-height:340px;overflow-y:auto;padding:4px;border:2px solid var(--line);border-radius:16px}
+.lines{display:grid;gap:12px;margin:12px 0;padding:8px 6px;border:2px solid var(--line);border-radius:16px}
 .ln{display:flex;flex-wrap:wrap;gap:4px 16px}
 .grp{display:flex;gap:4px}
 .nt{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;border-radius:12px;padding:4px 2px;min-width:40px}
@@ -129,6 +130,8 @@ details.guide ul{margin:8px 0 0 1.2em;display:grid;gap:4px;color:var(--sub);font
 .nt.past{opacity:.45}
 .now-big{display:flex;align-items:center;justify-content:center;gap:14px;min-height:76px;margin:6px 0}
 .now-big .ci{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;font-family:'Jua';font-size:2rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.now-big .cnt{font-family:'Jua';font-size:4.2rem;line-height:1;color:var(--c);min-width:2ch;text-align:center;animation:cnt .5s ease-out}
+@keyframes cnt{from{transform:scale(1.6);opacity:.2}}
 .now-big .tx{font-family:'Jua';font-size:1.4rem}
 .now-big .tx small{display:block;font-family:'Nunito','Noto Sans KR';font-size:.9rem;color:var(--sub);font-weight:700}
 .slow{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--sub)}

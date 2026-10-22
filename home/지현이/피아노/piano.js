@@ -18,11 +18,15 @@
 
   // ───── 소리 (피아노 비슷한 합성음) ─────
   let AC = null;
-  function tone(m, len = 1) {
+  function audio() {                       // 소리 장치를 만들고 깨운다 (깨어난 뒤에 풀리는 약속)
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    return AC.state === "running" ? Promise.resolve(AC) : AC.resume().then(() => AC, () => AC);
+  }
+  function tone(m, len = 1, at = 0) {
     try {
       AC = AC || new (window.AudioContext || window.webkitAudioContext)();
       if (AC.state === "suspended") AC.resume();
-      const t = AC.currentTime, f = 440 * Math.pow(2, (m - 69) / 12);
+      const t = AC.currentTime + at, f = 440 * Math.pow(2, (m - 69) / 12);
       const out = AC.createGain(), lp = AC.createBiquadFilter();
       lp.type = "lowpass"; lp.frequency.value = 2600;
       out.gain.setValueAtTime(0, t);
@@ -30,11 +34,13 @@
       out.gain.exponentialRampToValueAtTime(0.12, t + 0.25);
       out.gain.exponentialRampToValueAtTime(0.0008, t + 0.6 + len);
       lp.connect(out); out.connect(AC.destination);
+      const kill = () => { try { out.gain.cancelScheduledValues(0); out.gain.setValueAtTime(0, AC.currentTime); out.disconnect(); } catch (e) {} };
       [[1, 1], [2, 0.45], [3, 0.22], [4, 0.1], [5, 0.05]].forEach(([k, a]) => {
         const o = AC.createOscillator(), g = AC.createGain();
         o.frequency.value = f * k; g.gain.value = a;
         o.connect(g); g.connect(lp); o.start(t); o.stop(t + 0.7 + len);
       });
+      return kill;
     } catch (e) { /* 소리를 못 내는 기기 */ }
   }
 
@@ -134,7 +140,7 @@
       '<div class="donebox"><button class="btn pri big" data-a="done">' + (song.doneLabel || "진짜 피아노로 끝까지 쳤어요") + '</button><span class="j" data-msg style="font-size:1.1rem;color:var(--sub)"></span></div></div>';
     const q = s => host.querySelector(s);
     const ntEls = [...host.querySelectorAll(".nt")];
-    let idx = -1, mode = "", timers = [];
+    let idx = -1, mode = "", timers = [], listenRun = null, voices = [];
     const kb = song.noKeys ? null : Keyboard(q("[data-kb]"), 60, 72, { label: true, color: true, fingers, onPress(m) {
       if (mode === "step" && notes[idx] && m === notes[idx].m) setTimeout(() => go(idx + 1), 220);
     } });
@@ -154,18 +160,31 @@
       } else big.hidden = true;
     }
     function stop() {
-      timers.forEach(clearTimeout); timers = []; mode = ""; idx = -1; mark(-1);
+      timers.forEach(clearTimeout); timers = []; voices.forEach(k => k && k()); voices = []; mode = ""; idx = -1; listenRun = null; mark(-1);
       q('[data-a="stop"]').hidden = true; q("[data-stepbar]").hidden = true;
       host.querySelectorAll('[data-a="listen"],[data-a="step"]').forEach(b => b.classList.remove("on"));
     }
     function listen() {
       stop(); mode = "listen"; q('[data-a="stop"]').hidden = false; q('[data-a="listen"]').classList.add("on");
-      let t = 0; const b = beat();
-      notes.forEach((n, i) => {
-        timers.push(setTimeout(() => { idx = i; mark(i); tone(n.m, n.d * b); }, t * 1000));
-        t += n.d * b;
+      // 시작 전에 3 · 2 · 1 을 센다 (박자에 맞춰 연습할 틈).
+      // 소리는 전부 오디오 시계로 미리 예약하고 화면은 같은 때에 맞춘다 — 타이머로 그때그때 내면 기기에 따라 간격이 들쭉날쭉해진다.
+      const run = {}; listenRun = run;
+      audio().then(() => {
+        if (listenRun !== run || mode !== "listen") return;          // 그 사이 멈춤을 눌렀다
+        const b = beat(), big = q(".now-big"), gap = 0.12;           // gap: 소리 예약이 늦지 않게 두는 여유
+        const at = (sec, fn) => timers.push(setTimeout(fn, (sec + gap) * 1000));
+        [3, 2, 1].forEach((c, k) => {
+          voices.push(tone(c === 1 ? 84 : 79, 0.1, gap + k * b));
+          at(k * b, () => { big.hidden = false; big.innerHTML = '<span class="cnt">' + c + "</span>"; });
+        });
+        let t = 3.4 * b;                                              // 1 다음에는 한 박자보다 조금 더 쉬었다가 시작 (손 올릴 틈)
+        notes.forEach((n, i) => {
+          voices.push(tone(n.m, n.d * b, gap + t));
+          at(t, () => { idx = i; mark(i); });
+          t += n.d * b;
+        });
+        at(t + 0.3, stop);
       });
-      timers.push(setTimeout(stop, t * 1000 + 300));
     }
     function go(i) {
       if (mode !== "step") return;
@@ -175,6 +194,7 @@
       }
       idx = Math.max(0, i); mark(idx);
     }
+    host._stop = stop;                           // 탭을 바꿀 때 Tabs 가 불러서 재생을 멈춘다
     host.addEventListener("click", e => {
       const b = e.target.closest("[data-a]"), nt = e.target.closest(".nt");
       if (nt) { const n = notes[+nt.dataset.i]; tone(n.m); if (mode === "step") go(+nt.dataset.i); return; }
@@ -191,9 +211,15 @@
 
   function Tabs(host, list, make) {
     host.innerHTML = '<div class="tabs" data-tabs></div><div data-body></div>';
-    const tabs = host.querySelector("[data-tabs]"), body = host.querySelector("[data-body]");
+    const tabs = host.querySelector("[data-tabs]");
+    let body = host.querySelector("[data-body]");
     tabs.innerHTML = list.map((s, i) => '<button class="btn' + (i ? "" : " on") + '" data-i="' + i + '">' + s.title + "</button>").join("");
-    const open = i => { tabs.querySelectorAll(".btn").forEach((t, k) => t.classList.toggle("on", k === i)); make(body, list[i]); };
+    // 탭을 바꾸면 몸통을 새로 만든다: 옛 몸통에 달린 단추 반응이 남아 한 번 눌러도 곡이 여러 번 나오던 것을 막는다.
+    const open = i => {
+      [body, ...body.querySelectorAll("*")].forEach(e => e._stop && e._stop());
+      const nb = document.createElement("div"); nb.dataset.body = ""; body.replaceWith(nb); body = nb;
+      tabs.querySelectorAll(".btn").forEach((t, k) => t.classList.toggle("on", k === i)); make(body, list[i]);
+    };
     tabs.addEventListener("click", e => { const b = e.target.closest(".btn"); if (b) open(+b.dataset.i); });
     open(0);
   }
