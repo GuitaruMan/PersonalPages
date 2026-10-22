@@ -135,8 +135,9 @@
       '<button class="btn ghost" data-a="stop" hidden>■ 멈춤</button><label class="slow"><input type="checkbox" data-a="slow"> 천천히</label></div>' +
       '<div class="now-big" hidden></div>' +
       '<div class="row c" data-stepbar hidden><button class="btn" data-a="prev">◀ 앞으로</button><button class="btn pri big" data-a="next">다음 ▶</button></div>' +
-      (song.noKeys ? "" : '<div class="kbwrap"><div data-kb></div></div>') +
-      '<div class="lines">' + linesHTML + "</div>" +
+      '<div class="cdhost">' + (song.noKeys ? "" : '<div class="kbwrap"><div data-kb></div></div>') +
+      (song.noKeys ? '<div class="lines">' + linesHTML + "</div>" : "") + '<div class="cd" hidden></div></div>' +
+      (song.noKeys ? "" : '<div class="lines">' + linesHTML + "</div>") +
       '<div class="donebox"><button class="btn pri big" data-a="done">' + (song.doneLabel || "진짜 피아노로 끝까지 쳤어요") + '</button><span class="j" data-msg style="font-size:1.1rem;color:var(--sub)"></span></div></div>';
     const q = s => host.querySelector(s);
     const ntEls = [...host.querySelectorAll(".nt")];
@@ -160,7 +161,7 @@
       } else big.hidden = true;
     }
     function stop() {
-      timers.forEach(clearTimeout); timers = []; voices.forEach(k => k && k()); voices = []; mode = ""; idx = -1; listenRun = null; mark(-1);
+      timers.forEach(clearTimeout); timers = []; voices.forEach(k => k && k()); voices = []; mode = ""; idx = -1; listenRun = null; q(".cd").hidden = true; mark(-1);
       q('[data-a="stop"]').hidden = true; q("[data-stepbar]").hidden = true;
       host.querySelectorAll('[data-a="listen"],[data-a="step"]').forEach(b => b.classList.remove("on"));
     }
@@ -171,16 +172,16 @@
       const run = {}; listenRun = run;
       audio().then(() => {
         if (listenRun !== run || mode !== "listen") return;          // 그 사이 멈춤을 눌렀다
-        const b = beat(), big = q(".now-big"), gap = 0.12;           // gap: 소리 예약이 늦지 않게 두는 여유
+        const b = beat(), cd = q(".cd"), gap = 0.12;           // gap: 소리 예약이 늦지 않게 두는 여유
         const at = (sec, fn) => timers.push(setTimeout(fn, (sec + gap) * 1000));
         [3, 2, 1].forEach((c, k) => {
           voices.push(tone(c === 1 ? 84 : 79, 0.1, gap + k * b));
-          at(k * b, () => { big.hidden = false; big.innerHTML = '<span class="cnt">' + c + "</span>"; });
+          at(k * b, () => { cd.hidden = false; cd.innerHTML = '<span class="cnt">' + c + "</span>"; });
         });
         let t = 3.4 * b;                                              // 1 다음에는 한 박자보다 조금 더 쉬었다가 시작 (손 올릴 틈)
         notes.forEach((n, i) => {
           voices.push(tone(n.m, n.d * b, gap + t));
-          at(t, () => { idx = i; mark(i); });
+          at(t, () => { cd.hidden = true; idx = i; mark(i); });
           t += n.d * b;
         });
         at(t + 0.3, stop);
