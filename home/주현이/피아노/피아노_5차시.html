@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>피아노 5차시 - My Presentations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="piano.css">
+</head>
+<body>
+<div id="app">
+  <div class="bar">
+    <a class="btn home" href="../../주현이.html">← 주현이</a>
+    <nav class="nav" aria-label="활동으로 가기">
+      <a href="#a1"><b>1</b>박자 세기</a><a href="#a2"><b>2</b>주고받기</a><a href="#a3"><b>3</b>번갈아 노래</a><a href="#a4"><b>4</b>환희의 송가</a>
+    </nav>
+    <span class="total" id="total">⭐ 0 / 15</span>
+  </div>
+
+  <header class="hero">
+    <div class="strip" aria-hidden="true" id="strip"></div>
+    <span class="sess">5차시 / 6</span>
+    <h1>두 손이 번갈아</h1>
+    <p>박자를 소리 내어 세면서 치고, 오른손과 왼손이 노래를 주고받아요. 두 손은 아직 따로따로!</p>
+    <details class="guide">
+      <summary>어른이 먼저 읽어 주세요</summary>
+      <ul>
+        <li>미국 교재 Faber도, 독일 교재 Piano Kids도 두 손을 같이 치기 전에 <b>한 손씩 번갈아</b> 치는 곡을 많이 해요. 쉬는 손도 건반 위 도 자리에 그대로 올려 두는 게 핵심이에요.</li>
+        <li>박자는 "하나 둘 셋 넷"을 소리 내어 세게 해 주세요(미국 교재 Alfred가 특히 강조해요). 손뼉으로 먼저, 그다음 건반으로.</li>
+        <li>손을 바꾸는 곳에서 멈칫하면 <b>천천히</b>를 켜요. 틀린 곳만 따로 서너 번 치고 나서 다시 처음부터 해요.</li>
+        <li>환희의 송가 넷째 마디는 원래 '미이-레 레'(앞이 조금 긴 박자)인데, 아직 안 배운 박자라서 '미 레 레~'로 쉽게 바꿨어요.</li>
+      </ul>
+    </details>
+  </header>
+
+  <section class="lesson" id="a1">
+    <div class="lh"><span class="no">1</span><h2>소리 내어 박자 세기</h2><span class="st" data-st="count"></span></div>
+    <p class="lead">손뼉을 치면서 동그라미 아래 글자를 <b>소리 내어</b> 세요. 길쭉이는 "하나 둘", 아주 긴 건 "하나 둘 셋 넷"까지 손을 떼지 않고 기다려요.</p>
+    <div id="clap"></div>
+  </section>
+
+  <section class="lesson" id="a2">
+    <div class="lh"><span class="no">2</span><h2>두 손 주고받기</h2><span class="st" data-st="alt"></span></div>
+    <p class="lead">두 손을 모두 도 자리에 올려 두고, 차례가 된 손만 쳐요. 쉬는 손은 건반 위에 가만히. 까만 테두리가 왼손이에요.</p>
+    <div class="legend"><span><i style="background:var(--ink)">5</i>왼손 손가락</span><span><i style="background:var(--c)">1</i>오른손 손가락</span></div>
+    <div id="ex"></div>
+  </section>
+
+  <section class="lesson" id="a3">
+    <div class="lh"><span class="no">3</span><h2>번갈아 치는 노래</h2></div>
+    <p class="lead">한 줄은 오른손, 다음 줄은 왼손이 노래해요. 손을 바꾸는 곳에서 서두르지 말고 한 박 쉬어도 괜찮아요.</p>
+    <div id="songs"></div>
+  </section>
+
+  <section class="lesson" id="a4">
+    <div class="lh"><span class="no">4</span><h2>환희의 송가 (오른손)</h2><span class="st" data-st="joyr"></span></div>
+    <p class="lead">베토벤이 만든 유명한 노래예요. 오른손 도 자리 다섯 손가락으로 다 칠 수 있어요. 다음 시간에는 여기에 왼손을 더해요.</p>
+    <div id="joy"></div>
+  </section>
+
+  <div class="foot">
+    <a class="btn" href="피아노_4차시.html">← 4차시</a>
+    <a class="btn pri big" href="피아노_6차시.html">6차시: 두 손 같이 →</a>
+  </div>
+  <div class="foot">
+    <a class="btn" href="../../주현이.html">← 주현이 페이지</a>
+    <a class="btn ghost" href="../../../index.html">사이트 홈</a>
+  </div>
+</div>
+
+<script src="../../progress.js"></script>
+<script src="piano.js"></script>
+<script>
+"use strict";
+const { $, C_POS } = Piano;
+const P = Piano.stars("juhyun-piano5", ["count", "alt", "altplane", "altbutterfly", "joyr"]);
+const S = P.S;
+Piano.strip();
+
+// 탭 묶음 하나(연습 세 개)를 할 때마다 별 하나: notes[act]에 "101" 식으로 기록
+function tabStars(act, list, what) {
+  return (body, item) => Piano.Player(body, item, msg => {
+    const got = (S.notes[act] || "").padEnd(3, "0").split("");
+    got[list.indexOf(item)] = "1"; S.notes[act] = got.join(""); P.save();
+    const n = got.filter(x => x === "1").length; P.give(act, n);
+    msg.textContent = n >= 3 ? what + " 3개를 다 했어요! ⭐⭐⭐" : "잘했어요! ⭐ " + n + " / 3 — 다른 " + what + "도 해 봐요.";
+  });
+}
+// 노래 하나: 칠 때마다 별 하나, 최대 3개
+function songStars(body, song) {
+  body.innerHTML = '<div class="lh" style="margin-bottom:0"><h3 class="j" style="font-size:1.35rem">' + song.title + '</h3><span class="st" data-st="' + song.id + '"></span></div><div data-p></div>';
+  Piano.Player(body.querySelector("[data-p]"), song, msg => {
+    const n = Math.min(3, (S.stars[song.id] || 0) + 1); P.give(song.id, n);
+    msg.textContent = n >= 3 ? "별 3개 다 모았어요!" : "⭐ " + n + " / 3 — 한 번 더 치면 별이 하나 더!";
+  });
+  P.draw();
+}
+
+// ───── 1. 박자 세기 ─────
+const CLAPS = [
+  { title: "넷까지 세기", hint: "짧게 넷 → 길게 둘 → 아주 길게 하나. 모두 '하나 둘 셋 넷' 한 마디예요.", noKeys: true, doneLabel: "세면서 손뼉 쳤어요",
+    lines: [["솔솔솔솔 솔솔 솔", "짝짝짝짝 짝짝 짝", "1111 22 4"]] },
+  { title: "비행기 박자", hint: "'떴다떴다 비행기' — 마지막 '기'는 하나 둘까지.", noKeys: true, doneLabel: "세면서 손뼉 쳤어요",
+    lines: [["솔솔솔솔 솔솔솔", "떴다떴다 비행기", "1111 112"]] },
+  { title: "환희의 송가 박자", hint: "짧게 넷이 세 번, 마지막은 짧게 둘 길게 하나.", noKeys: true, doneLabel: "세면서 손뼉 쳤어요",
+    lines: [["솔솔솔솔 솔솔솔솔 솔솔솔솔 솔솔솔", "짝짝짝짝 짝짝짝짝 짝짝짝짝 짝짝짝", "1111 1111 1111 112"]] }
+];
+Piano.Tabs($("clap"), CLAPS, tabStars("count", CLAPS, "박자"));
+
+// ───── 2. 두 손 주고받기 ─────
+const EXERCISES = [
+  { title: "계단 올라가기", hint: "왼손 5-4-3-2-1로 올라가고, 이어서 오른손 1-2-3-4-5로 더 올라가요.", fingers: C_POS,
+    lines: [["도레미파솔 도레미파솔", "", "11111 11112", "LLLLL RRRRR"]] },
+  { title: "계단 내려오기", hint: "오른손 5번부터 내려오고, 이어서 왼손 1번부터 내려와요.", fingers: C_POS,
+    lines: [["솔파미레도 솔파미레도", "", "11111 11112", "RRRRR LLLLL"]] },
+  { title: "주고받기", hint: "오른손이 '도레미' 하면 왼손이 '도레미' 하고 대답해요.", fingers: C_POS,
+    lines: [["도레미 도레미 미레도 미레도", "", "112 112 112 112", "RRR LLL RRR LLL"]] }
+];
+Piano.Tabs($("ex"), EXERCISES, tabStars("alt", EXERCISES, "연습"));
+
+// ───── 3. 번갈아 치는 노래 ─────
+const SONGS = [
+  { id: "altplane", title: "떴다 떴다 비행기", hint: "1·3째 줄은 오른손, 2·4째 줄은 왼손.", fingers: C_POS,
+    lines: [["미레도레 미미미", "떴다떴다 비행기", "1111 112", "RRRR RRR"], ["레레레 미미미", "날아라 날아라", "112 112", "LLL LLL"],
+            ["미레도레 미미미", "높이높이 날아라", "1111 112", "RRRR RRR"], ["레레미레도", "우리비행기", "11114", "LLLLL"]] },
+  { id: "altbutterfly", title: "나비야", hint: "1·3째 줄은 오른손, 2·4째 줄은 왼손.", fingers: C_POS,
+    lines: [["솔미미 파레레 도레미파 솔솔솔", "나비야 나비야 이리날아 오너라", "112 112 1111 112", "RRR RRR RRRR RRR"],
+            ["솔미미미 파레레 도미솔솔 미미미", "노랑나비 흰나비 춤을추며 오너라", "1111 112 1111 112", "LLLL LLL LLLL LLL"],
+            ["레레레레 레미파 미미미미 미파솔", "봄바람에 꽃잎도 방긋방긋 웃으며", "1111 112 1111 112", "RRRR RRR RRRR RRR"],
+            ["솔미미 파레레 도미솔솔 미미미", "참새도 짹짹짹 노래하며 춤춘다", "112 112 1111 112", "LLL LLL LLLL LLL"]] }
+];
+Piano.Tabs($("songs"), SONGS, songStars);
+
+// ───── 4. 환희의 송가 오른손 (원곡의 '미이-레' 부분은 쉽게 '미 레 레~'로 바꿈) ─────
+const JOY = { id: "joyr", title: "환희의 송가", hint: "오른손 엄지는 가운데 도. 넷째 마디 끝 '레~'는 하나 둘까지 길게.", fingers: C_POS,
+  lines: [["미미파솔 솔파미레 도도레미 미레레", "", "1111 1111 1111 112"],
+          ["미미파솔 솔파미레 도도레미 레도도", "", "1111 1111 1111 112"]] };
+Piano.Player($("joy"), JOY, msg => {
+  const n = Math.min(3, (S.stars.joyr || 0) + 1); P.give("joyr", n);
+  msg.textContent = n >= 3 ? "별 3개 다 모았어요! 6차시에서 왼손을 더해 봐요." : "⭐ " + n + " / 3 — 한 번 더 치면 별이 하나 더!";
+});
+
+P.draw();
+</script>
+</body>
+</html>

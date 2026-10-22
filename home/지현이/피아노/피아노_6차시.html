@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>피아노 6차시 - My Presentations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="piano.css">
+</head>
+<body>
+<div id="app">
+  <div class="bar">
+    <a class="btn home" href="../../지현이.html">← 지현이</a>
+    <nav class="nav" aria-label="활동으로 가기">
+      <a href="#a1"><b>1</b>준비 운동</a><a href="#a2"><b>2</b>두 손 노래</a>
+    </nav>
+    <span class="total" id="total">⭐ 0 / 12</span>
+  </div>
+
+  <header class="hero">
+    <div class="strip" aria-hidden="true" id="strip"></div>
+    <span class="sess">6차시 / 6</span>
+    <h1>두 손 같이 치기</h1>
+    <p>드디어 두 손을 같이 써요. 오른손은 노래를 치고, 왼손은 한 음을 꾹 눌러 받쳐 줘요.</p>
+    <details class="guide">
+      <summary>어른이 먼저 읽어 주세요</summary>
+      <ul>
+        <li>처음 두 손 같이 치기는 <b>오른손은 노래, 왼손은 마디 첫 박에 한 음을 꾹</b> 누르는 방식이 가장 쉬워요. 미국 교재 Faber의 첫 두 손 곡도 이렇게 시작해요. 왼손은 도(5번)와 솔(1번)만 써요.</li>
+        <li>순서: ① 오른손만 ② 왼손 음만(하나 둘 셋 넷 세며 마디마다 꾹) ③ 두 손 같이 <b>천천히</b>. 두 손이 어려우면 ①②를 더 해요.</li>
+        <li>왼손 음은 다음 왼손 음이 나올 때까지 누르고 있어요. 손목이 굳어 올라가면 잠깐 손을 털고 쉬었다 해요.</li>
+        <li>노래의 왼손 음(도·솔)은 교재 악보를 옮긴 게 아니라 노래의 기본 화음에 맞춰 붙인 거예요. 들어보기로 먼저 들어 보세요.</li>
+      </ul>
+    </details>
+  </header>
+
+  <section class="lesson" id="a1">
+    <div class="lh"><span class="no">1</span><h2>준비 운동: 왼손은 꾹, 오른손은 노래</h2><span class="st" data-st="ready"></span></div>
+    <p class="lead">동그라미 아래 <b>까만 테두리 작은 동그라미</b>가 왼손이에요. 그 음이 나오는 곳에서 오른손과 <b>같이</b> 누르고, 다음 왼손 음이 나올 때까지 손을 떼지 않아요.</p>
+    <div class="legend"><span><i style="background:var(--ink)">5</i>왼손 손가락</span><span><i style="background:var(--c)">1</i>오른손 손가락</span></div>
+    <div id="ex"></div>
+  </section>
+
+  <section class="lesson" id="a2">
+    <div class="lh"><span class="no">2</span><h2>두 손으로 노래 치기</h2></div>
+    <p class="lead">왼손은 <b>도(5번)</b>와 <b>솔(1번)</b> 두 개만 써요. 노래마다 끝까지 치면 별 하나, 세 번이면 별 3개!</p>
+    <div id="songs"></div>
+  </section>
+
+  <div class="foot">
+    <a class="btn" href="피아노_5차시.html">← 5차시</a>
+    <a class="btn" href="피아노_1차시.html">1차시</a>
+  </div>
+  <div class="foot">
+    <a class="btn" href="../../지현이.html">← 지현이 페이지</a>
+    <a class="btn ghost" href="../../../index.html">사이트 홈</a>
+  </div>
+</div>
+
+<script src="../../progress.js"></script>
+<script src="piano.js"></script>
+<script>
+"use strict";
+const { $, C_POS } = Piano;
+const P = Piano.stars("jihyun-piano6", ["ready", "twoplane", "twobutterfly", "twojoy"]);
+const S = P.S;
+Piano.strip();
+
+// 줄 = [계이름, 가사, 박자, 손(비우면 모두 오른손), 왼손 받침음("-"는 그대로 누르고 있기)]
+// ───── 1. 준비 운동 세 개: 하나 칠 때마다 별 하나 (notes.ready에 "101" 식으로 기록) ─────
+const EXERCISES = [
+  { title: "왼손 도 꾹", hint: "왼손 5번으로 도를 누르고, 오른손이 올라갔다 내려와요. 마디마다 왼손 도를 다시 눌러요.", fingers: C_POS,
+    lines: [["도레미파 솔파미레 도", "", "1111 1111 4", "", "도--- 도--- 도"]] },
+  { title: "왼손 솔 꾹", hint: "이번엔 왼손 1번 엄지로 솔을 눌러요.", fingers: C_POS,
+    lines: [["솔파미레 레미파솔 솔", "", "1111 1111 4", "", "솔--- 솔--- 솔"]] },
+  { title: "도·솔 바꾸기", hint: "왼손이 도 → 솔 → 도로 바뀌어요. 새끼손가락, 엄지, 새끼손가락!", fingers: C_POS,
+    lines: [["도레미파 솔파미레 도", "", "1111 1111 4", "", "도--- 솔--- 도"]] }
+];
+Piano.Tabs($("ex"), EXERCISES, (body, ex) => Piano.Player(body, ex, msg => {
+  const got = (S.notes.ready || "").padEnd(3, "0").split("");
+  got[EXERCISES.indexOf(ex)] = "1"; S.notes.ready = got.join(""); P.save();
+  const n = got.filter(x => x === "1").length; P.give("ready", n);
+  msg.textContent = n >= 3 ? "준비 운동 3개를 다 했어요! ⭐⭐⭐" : "잘했어요! ⭐ " + n + " / 3 — 다른 준비 운동도 해 봐요.";
+}));
+
+// ───── 2. 두 손 노래: 칠 때마다 별 하나, 노래마다 최대 3개 ─────
+const SONGS = [
+  { id: "twoplane", title: "떴다 떴다 비행기", hint: "왼손은 거의 도. 첫 번째 '날아라'와 '우리비행'에서만 솔로 바꿔요.", fingers: C_POS,
+    lines: [["미레도레 미미미", "떴다떴다 비행기", "1111 112", "", "도--- 도--"], ["레레레 미미미", "날아라 날아라", "112 112", "", "솔-- 도--"],
+            ["미레도레 미미미", "높이높이 날아라", "1111 112", "", "도--- 도--"], ["레레미레도", "우리비행기", "11114", "", "솔---도"]] },
+  { id: "twobutterfly", title: "나비야", hint: "'파레레'가 나오면 왼손은 솔, 나머지는 도예요.", fingers: C_POS,
+    lines: [["솔미미 파레레 도레미파 솔솔솔", "나비야 나비야 이리날아 오너라", "112 112 1111 112", "", "도-- 솔-- 도--- 도--"],
+            ["솔미미미 파레레 도미솔솔 미미미", "노랑나비 흰나비 춤을추며 오너라", "1111 112 1111 112", "", "도--- 솔-- 도--- 도--"],
+            ["레레레레 레미파 미미미미 미파솔", "봄바람에 꽃잎도 방긋방긋 웃으며", "1111 112 1111 112", "", "솔--- 솔-- 도--- 도--"],
+            ["솔미미 파레레 도미솔솔 미미미", "참새도 짹짹짹 노래하며 춤춘다", "112 112 1111 112", "", "도-- 솔-- 도--- 도--"]] },
+  { id: "twojoy", title: "환희의 송가", hint: "왼손이 마디마다 도 → 솔 → 도 → 솔로 바뀌어요.", fingers: C_POS,
+    lines: [["미미파솔 솔파미레 도도레미 미레레", "", "1111 1111 1111 112", "", "도--- 솔--- 도--- 솔--"],
+            ["미미파솔 솔파미레 도도레미 레도도", "", "1111 1111 1111 112", "", "도--- 솔--- 도--- 솔-도"]] }
+];
+Piano.Tabs($("songs"), SONGS, (body, song) => {
+  body.innerHTML = '<div class="lh" style="margin-bottom:0"><h3 class="j" style="font-size:1.35rem">' + song.title + '</h3><span class="st" data-st="' + song.id + '"></span></div><div data-p></div>';
+  Piano.Player(body.querySelector("[data-p]"), song, msg => {
+    const n = Math.min(3, (S.stars[song.id] || 0) + 1); P.give(song.id, n);
+    msg.textContent = n >= 3 ? "별 3개 다 모았어요! 다음 노래로 가 봐요." : "⭐ " + n + " / 3 — 한 번 더 치면 별이 하나 더!";
+  });
+  P.draw();
+});
+
+P.draw();
+</script>
+</body>
+</html>

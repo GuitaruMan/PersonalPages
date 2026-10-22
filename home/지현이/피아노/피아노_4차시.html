@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>피아노 4차시 - My Presentations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="piano.css">
+</head>
+<body>
+<div id="app">
+  <div class="bar">
+    <a class="btn home" href="../../지현이.html">← 지현이</a>
+    <nav class="nav" aria-label="활동으로 가기">
+      <a href="#a1"><b>1</b>왼손 자리</a><a href="#a2"><b>2</b>왼손 연습</a><a href="#a3"><b>3</b>메아리</a><a href="#a4"><b>4</b>왼손 노래</a>
+    </nav>
+    <span class="total" id="total">⭐ 0 / 12</span>
+  </div>
+
+  <header class="hero">
+    <div class="strip" aria-hidden="true" id="strip"></div>
+    <span class="sess">4차시 / 6</span>
+    <h1>왼손 만나기</h1>
+    <p>지금까지는 오른손만 썼어요. 오늘은 왼손을 '도 자리'에 올리고, 왼손으로 노래를 쳐요.</p>
+    <details class="guide">
+      <summary>어른이 먼저 읽어 주세요</summary>
+      <ul>
+        <li>4~6차시는 미국 교재(Faber 'Piano Adventures', Alfred)와 독일 교재(Heumann 'Piano Kids')가 공통으로 따르는 순서예요: <b>왼손 따로 → 두 손 번갈아 → 두 손 같이</b>.</li>
+        <li>오늘은 왼손만 써요. 왼손은 5번 새끼손가락이 '낮은 도'에 놓여서 오른손과 번호 순서가 거꾸로예요. 헷갈려하면 "도는 5번, 솔은 엄지" 두 개만 먼저 기억하게 해 주세요.</li>
+        <li>치면서 계이름이나 손가락 번호를 <b>소리 내어</b> 말하게 해 주세요. 미국 교재가 권하는 방법이에요.</li>
+        <li>손 모양: 작은 돌을 손안에 쥔 것처럼 동그랗게, 손끝은 단단하게. 엄지와 손끝으로 'O'를 만들어 보면 확인돼요.</li>
+        <li>하루 10~15분이면 충분해요. 길게 한 번보다 짧게 두 번이 더 좋아요. 끝날 때 한 곡을 어른에게 '선물'로 쳐 주고 마무리해요.</li>
+      </ul>
+    </details>
+  </header>
+
+  <section class="lesson" id="a1">
+    <div class="lh"><span class="no">1</span><h2>왼손 도 자리</h2></div>
+    <p class="lead">왼손도 <b>엄지가 1번</b>이에요. 그런데 왼손은 거울처럼 거꾸로 놓여요. 가운데 도에서 <b>한 칸 아래 도</b>(왼쪽으로 도를 하나 더 찾아요)에 왼손 <b>5번 새끼손가락</b>을 올리면, 4번은 레, 3번은 미, 2번은 파, 1번 엄지는 솔에 놓여요.</p>
+    <div class="legend"><span><i style="background:var(--ink)">5</i>왼손 손가락</span><span><i style="background:var(--c)">1</i>오른손 손가락</span></div>
+    <div class="kbwrap"><div id="kbpos"></div></div>
+    <div class="row c"><button class="btn" id="showl">왼손 자리 소리 듣기</button><button class="btn" id="showb">두 손 자리 소리 듣기</button></div>
+    <div class="real"><b>진짜 피아노에서 해 보기</b>
+      <span>가운데 도를 찾고, 왼쪽으로 가서 다음 도를 찾아요. 거기에 왼손 새끼손가락!</span>
+      <span>오른손은 지난번처럼 엄지를 가운데 도에. 두 손 사이에 흰 건반 두 개(라·시)가 비어 있으면 맞게 놓은 거예요.</span>
+      <span>손은 달걀을 살짝 쥔 것처럼 동그랗게. 손목은 건반과 같은 높이로 쭉!</span>
+    </div>
+  </section>
+
+  <section class="lesson" id="a2">
+    <div class="lh"><span class="no">2</span><h2>왼손 연습</h2><span class="st" data-st="lhex"></span></div>
+    <p class="lead">왼손은 <b>5번부터 올라가요</b>: 5-4-3-2-1 하면 도-레-미-파-솔. 오른손과 순서가 거꾸로예요. 연습 하나 할 때마다 별 하나.</p>
+    <div id="ex"></div>
+  </section>
+
+  <section class="lesson" id="a3">
+    <div class="lh"><span class="no">3</span><h2>왼손 메아리</h2><span class="st" data-st="lhecho"></span></div>
+    <p class="lead">피아노가 먼저 치면 왼손으로 똑같이 따라 쳐요. 소리가 지난번보다 낮아요. 6개를 다 따라 하면 별 3개.</p>
+    <div class="pick" id="epick"><button class="btn pri big" id="estart">시작</button></div>
+    <div class="say" id="esay"></div>
+    <div class="kbwrap"><div id="kbecho"></div></div>
+    <div class="real"><b>진짜 피아노에서 해 보기</b>
+      <span>어른이 왼손 도 자리 안에서 세 음을 치면 지현이가 왼손으로 따라 쳐요. 바꿔서 지현이가 내고 어른이 따라 해도 좋아요.</span>
+    </div>
+  </section>
+
+  <section class="lesson" id="a4">
+    <div class="lh"><span class="no">4</span><h2>왼손으로 노래 치기</h2></div>
+    <p class="lead">3차시에 오른손으로 친 노래를 이번엔 <b>왼손으로만</b> 쳐요. 까만 테두리 동그라미는 왼손 음이에요. 손가락 번호가 오른손과 달라요!</p>
+    <div id="songs"></div>
+  </section>
+
+  <div class="foot">
+    <a class="btn" href="피아노_3차시.html">← 3차시</a>
+    <a class="btn pri big" href="피아노_5차시.html">5차시: 두 손이 번갈아 →</a>
+  </div>
+  <div class="foot">
+    <a class="btn" href="../../지현이.html">← 지현이 페이지</a>
+    <a class="btn ghost" href="../../../index.html">사이트 홈</a>
+  </div>
+</div>
+
+<script src="../../progress.js"></script>
+<script src="piano.js"></script>
+<script>
+"use strict";
+const { $, tone, Keyboard, C_POS, L_POS } = Piano;
+const P = Piano.stars("jihyun-piano4", ["lhex", "lhecho", "lhplane", "lhbutterfly"]);
+const S = P.S;
+Piano.strip();
+const sayIt = (id, cls, text) => { $(id).className = "say" + (cls ? " " + cls : ""); $(id).textContent = text; };
+
+// ───── 1. 왼손 도 자리 보기 ─────
+const kbPos = Keyboard($("kbpos"), 48, 72, { label: true, color: true, fingers: C_POS, lfingers: L_POS });
+function playSeq(seq, kb) {
+  seq.forEach((m, i) => setTimeout(() => { tone(m, 0.5); kb.glow(m); if (i === seq.length - 1) setTimeout(() => kb.glow([]), 500); }, i * 420));
+}
+$("showl").onclick = () => playSeq([48, 50, 52, 53, 55], kbPos);
+$("showb").onclick = () => playSeq([48, 50, 52, 53, 55, 60, 62, 64, 65, 67], kbPos);
+
+// ───── 2. 왼손 연습 세 개: 하나 칠 때마다 별 하나 (notes.lhex에 "101" 식으로 기록) ─────
+const EXERCISES = [
+  { title: "올라가기", hint: "5번 새끼손가락부터 5-4-3-2-1. 도레미파솔!", lines: [["도레미파솔", "", "11112", "LLLLL"]] },
+  { title: "내려가기", hint: "1번 엄지부터 1-2-3-4-5. 솔파미레도!", lines: [["솔파미레도", "", "11112", "LLLLL"]] },
+  { title: "올라갔다 내려오기", hint: "산을 넘듯이. 손가락 하나만 움직이고 나머지는 건반 위에서 쉬어요.", lines: [["도레미파솔파미레도", "", "111111112", "LLLLLLLLL"]] }
+];
+Piano.Tabs($("ex"), EXERCISES, (body, ex) => Piano.Player(body, ex, msg => {
+  const got = (S.notes.lhex || "").padEnd(3, "0").split("");
+  got[EXERCISES.indexOf(ex)] = "1"; S.notes.lhex = got.join(""); P.save();
+  const n = got.filter(x => x === "1").length; P.give("lhex", n);
+  msg.textContent = n >= 3 ? "왼손 연습 3개를 다 했어요! ⭐⭐⭐" : "잘했어요! ⭐ 연습 " + n + " / 3 — 다른 연습도 해 봐요.";
+}));
+
+// ───── 3. 왼손 메아리: 2차시 메아리 놀이를 한 옥타브 아래에서 ─────
+const PATTERNS = [[48, 50, 52], [52, 50, 48], [48, 52, 55], [55, 53, 52], [48, 48, 55, 55], [52, 53, 55, 53, 52]];
+const eg = { i: 0, k: 0, on: false, busy: false };
+const kbEcho = Keyboard($("kbecho"), 48, 60, { label: true, color: true, lfingers: L_POS, onPress(m) {
+  if (!eg.on || eg.busy) return;
+  const pat = PATTERNS[eg.i];
+  if (m !== pat[eg.k]) { kbEcho.bad(m); sayIt("esay", "no", "처음부터 다시! 🔊 단추로 한 번 더 들어 봐요."); eg.k = 0; return; }
+  eg.k++;
+  if (eg.k < pat.length) { sayIt("esay", "", eg.k + " / " + pat.length); return; }
+  eg.i++;
+  if (eg.i >= PATTERNS.length) {
+    eg.on = false; sayIt("esay", "ok", "6개 다 따라 했어요! ⭐⭐⭐");
+    $("epick").innerHTML = '<button class="btn pri big" id="estart">한 번 더 하기</button>'; $("estart").onclick = startEcho;
+    P.give("lhecho", 3);
+  } else { sayIt("esay", "ok", "똑같아요!"); eg.busy = true; setTimeout(playEcho, 900); }
+} });
+function playEcho() {
+  const pat = PATTERNS[eg.i];
+  eg.k = 0; eg.busy = true;
+  $("epick").innerHTML = '<span class="j" style="font-size:1.3rem">' + (eg.i + 1) + ' / ' + PATTERNS.length + '</span><button class="btn" id="eagain">🔊 다시 듣기</button>';
+  $("eagain").onclick = () => { if (!eg.busy) playEcho(); };
+  sayIt("esay", "", "잘 들어요…");
+  pat.forEach((m, j) => setTimeout(() => { tone(m, 0.5); kbEcho.glow(m); }, j * 600));
+  setTimeout(() => { kbEcho.glow([]); eg.busy = false; sayIt("esay", "", "이제 왼손으로 따라 쳐요!"); }, pat.length * 600 + 200);
+}
+function startEcho() { eg.i = 0; eg.on = true; playEcho(); }
+$("estart").onclick = startEcho;
+
+// ───── 4. 왼손 노래: 칠 때마다 별 하나, 노래마다 최대 3개 ─────
+const SONGS = [
+  { id: "lhplane", title: "떴다 떴다 비행기 (왼손)", hint: "왼손 3번이 미, 4번이 레, 5번이 도예요.",
+    lines: [["미레도레 미미미", "떴다떴다 비행기", "1111 112", "LLLL LLL"], ["레레레 미미미", "날아라 날아라", "112 112", "LLL LLL"],
+            ["미레도레 미미미", "높이높이 날아라", "1111 112", "LLLL LLL"], ["레레미레도", "우리비행기", "11114", "LLLLL"]] },
+  { id: "lhbutterfly", title: "나비야 (왼손)", hint: "왼손 다섯 손가락을 다 써요. 솔은 엄지(1번)!",
+    lines: [["솔미미 파레레 도레미파 솔솔솔", "나비야 나비야 이리날아 오너라", "112 112 1111 112", "LLL LLL LLLL LLL"],
+            ["솔미미미 파레레 도미솔솔 미미미", "노랑나비 흰나비 춤을추며 오너라", "1111 112 1111 112", "LLLL LLL LLLL LLL"],
+            ["레레레레 레미파 미미미미 미파솔", "봄바람에 꽃잎도 방긋방긋 웃으며", "1111 112 1111 112", "LLLL LLL LLLL LLL"],
+            ["솔미미 파레레 도미솔솔 미미미", "참새도 짹짹짹 노래하며 춤춘다", "112 112 1111 112", "LLL LLL LLLL LLL"]] }
+];
+Piano.Tabs($("songs"), SONGS, (body, song) => {
+  body.innerHTML = '<div class="lh" style="margin-bottom:0"><h3 class="j" style="font-size:1.35rem">' + song.title + '</h3><span class="st" data-st="' + song.id + '"></span></div><div data-p></div>';
+  Piano.Player(body.querySelector("[data-p]"), song, msg => {
+    const n = Math.min(3, (S.stars[song.id] || 0) + 1); P.give(song.id, n);
+    msg.textContent = n >= 3 ? "별 3개 다 모았어요! 다음 노래로 가 봐요." : "⭐ " + n + " / 3 — 한 번 더 치면 별이 하나 더!";
+  });
+  P.draw();
+});
+
+P.draw();
+</script>
+</body>
+</html>

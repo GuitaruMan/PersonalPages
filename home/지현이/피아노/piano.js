@@ -1,4 +1,4 @@
-/* 피아노 1~3차시 공통: 소리 · 건반 · 따라 치기 · 별 저장
+/* 피아노 1~6차시 공통: 소리 · 건반 · 따라 치기 · 별 저장
    사용: const P = Piano.stars("서버 이름표", ["활동 id", ...], 서버 기록이 바뀌었을 때 할 일);
          P.S(기록) · P.give(활동, 별 수) · P.draw()
          Piano.Keyboard(자리, 낮은 음, 높은 음, {label, color, fingers, onPress})
@@ -15,6 +15,7 @@
   const nameOf = m => NAMES[m % 12];
   const colorOf = m => COLORS[m % 12];
   const C_POS = { 60: 1, 62: 2, 64: 3, 65: 4, 67: 5 };   // 도 자리: 오른손 1번이 가운데 도
+  const L_POS = { 48: 5, 50: 4, 52: 3, 53: 2, 55: 1 };   // 왼손 도 자리: 왼손 5번이 한 옥타브 아래 도, 1번(엄지)이 솔
 
   // ───── 소리 (피아노 비슷한 합성음) ─────
   let AC = null;
@@ -79,6 +80,7 @@
       b.setAttribute("aria-label", nameOf(m));
       if (opt.color) b.style.setProperty("--kc", colorOf(m));
       if (opt.fingers && opt.fingers[m]) b.insertAdjacentHTML("beforeend", '<span class="fn">' + opt.fingers[m] + "</span>");
+      if (opt.lfingers && opt.lfingers[m]) b.insertAdjacentHTML("beforeend", '<span class="fn l">' + opt.lfingers[m] + "</span>");
       b.insertAdjacentHTML("beforeend", '<span class="lab">' + (opt.label ? nameOf(m) : "") + "</span>");
       kb.append(b); keys[m] = b;
     });
@@ -116,19 +118,33 @@
   // ───── 따라 치기 (연습곡·노래·손뼉 박자가 같은 틀을 쓴다) ─────
   // song.lines: 줄마다 [계이름, 가사, 박자]를 글자 하나씩 맞춰 적는다. 띄어쓰기는 낱말 묶음.
   // song.noKeys: 건반·손가락 없이 박자만 (손뼉)
+  // 왼손(4~6차시): 줄에 네 번째 칸 [손]을 같은 자리에 맞춰 적는다. "L"이면 왼손 — 한 옥타브 아래 음, song.lh 손가락 번호.
+  //   다섯 번째 칸 [왼손 받침]: 그 음과 같이 왼손이 누르기 시작하는 음 이름, 아니면 "-". 다음 받침음이 나올 때까지 누르고 있는다.
   function Player(host, song, onDone) {
-    const notes = [], fingers = song.fingers || {};
-    const linesHTML = song.lines.map(([ns, ly, du]) => {
+    const notes = [], fingers = song.fingers || {}, lh = song.lh || L_POS;
+    const twoHands = song.lines.some(l => l[3] || l[4]), withBass = song.lines.some(l => l[4]);
+    let bassNow = null;
+    const fingerOf = n => n.hand === "L" ? lh[n.m] : fingers[n.m];
+    const linesHTML = song.lines.map(([ns, ly, du, hs, bs]) => {
       const g1 = ns.split(" "), g2 = ly ? ly.split(" ") : g1.map(() => ""), g3 = du.split(" ");
+      const g4 = hs ? hs.split(" ") : [], g5 = bs ? bs.split(" ") : [];
       return '<div class="ln">' + g1.map((g, gi) => '<div class="grp">' + [...g].map((nm, k) => {
-        const m = MIDI[nm], i = notes.length, d = +g3[gi][k];
-        notes.push({ m, d, ly: (g2[gi] || "")[k] || "" });
+        const hand = (g4[gi] || "")[k] === "L" ? "L" : "R", bn = (g5[gi] || "")[k];
+        const m = MIDI[nm] - (hand === "L" ? 12 : 0), i = notes.length, d = +g3[gi][k];
+        const bass = bn && MIDI[bn] ? MIDI[bn] - 12 : null;
+        if (bass) bassNow = bass;
+        notes.push({ m, d, hand, bass, bassNow, ly: (g2[gi] || "")[k] || "" });
         const face = song.noKeys ? notes[i].ly : nm;
-        return '<div class="nt' + (d >= 2 ? " long" : "") + (d >= 4 ? " xlong" : "") + '" data-i="' + i + '"><span class="ly">' + (song.noKeys ? "" : notes[i].ly) + '</span>' +
+        return '<div class="nt' + (d >= 2 ? " long" : "") + (d >= 4 ? " xlong" : "") + (hand === "L" ? " lh" : "") + '" data-i="' + i + '"><span class="ly">' + (song.noKeys ? "" : notes[i].ly) + '</span>' +
           '<span class="ci" style="background:' + (song.noKeys ? "var(--c)" : colorOf(m)) + '">' + face + '</span><span class="fn">' +
-          (song.noKeys ? (d >= 2 ? "하나" + "둘셋넷".slice(0, d - 1) : "하나") : (fingers[m] || "")) + "</span></div>";
+          (song.noKeys ? (d >= 2 ? "하나" + "둘셋넷".slice(0, d - 1) : "하나") : (fingerOf(notes[i]) || "")) + "</span>" +
+          (withBass ? (bass ? '<span class="bs" style="background:' + colorOf(bass) + '">' + nameOf(bass) + '</span><span class="fn l">' + (lh[bass] || "") + "</span>"
+                            : '<span class="bs none"></span><span class="fn l"></span>') : "") + "</div>";
       }).join("") + "</div>").join("") + "</div>";
     }).join("");
+    // 받침음 길이: 다음 받침음이 시작할 때까지 (마지막은 곡 끝까지)
+    let acc = 0; notes.forEach(n => { n.t = acc; acc += n.d; });
+    notes.forEach((n, i) => { if (n.bass) { const nx = notes.slice(i + 1).find(x => x.bass); n.bassLen = (nx ? nx.t : acc) - n.t; } });
     host.innerHTML =
       '<div class="song"><p class="hint">' + song.hint + "</p>" +
       '<div class="row"><button class="btn pri" data-a="listen">▶ 들어보기</button>' + (song.noKeys ? "" : '<button class="btn" data-a="step">👆 한 음씩</button>') +
@@ -142,18 +158,21 @@
     const q = s => host.querySelector(s);
     const ntEls = [...host.querySelectorAll(".nt")];
     let idx = -1, mode = "", timers = [], listenRun = null, voices = [];
-    const kb = song.noKeys ? null : Keyboard(q("[data-kb]"), 60, 72, { label: true, color: true, fingers, onPress(m) {
+    const kb = song.noKeys ? null : Keyboard(q("[data-kb]"), twoHands ? 48 : 60, 72, { label: true, color: true, fingers, lfingers: twoHands ? lh : null, onPress(m) {
       if (mode === "step" && notes[idx] && m === notes[idx].m) setTimeout(() => go(idx + 1), 220);
     } });
     const beat = () => (q('[data-a="slow"]').checked ? 0.85 : 0.55);
+    const handWord = n => twoHands ? (n.hand === "L" ? "왼손 " : "오른손 ") : "";
     function mark(i) {
       ntEls.forEach((el, k) => { el.classList.toggle("now", k === i); el.classList.toggle("past", i >= 0 && k < i); });
-      if (kb) kb.glow(i >= 0 && notes[i] ? notes[i].m : []);
+      if (kb) kb.glow(i >= 0 && notes[i] ? [notes[i].m].concat(notes[i].bassNow || []) : []);
       const big = q(".now-big");
       if (mode === "step" && notes[i]) {
         const n = notes[i];
+        const bassTx = n.bass ? "<small class=\"bsx\">왼손 " + nameOf(n.bass) + "(" + (lh[n.bass] || "") + "번)도 같이 눌러요</small>"
+                     : n.bassNow ? "<small>왼손 " + nameOf(n.bassNow) + (n.bassNow % 12 === 7 ? "은" : "는") + " 계속 누르고 있어요</small>" : "";
         big.hidden = false;
-        big.innerHTML = '<span class="ci" style="background:' + colorOf(n.m) + '">' + nameOf(n.m) + '</span><span class="tx">' + (fingers[n.m] || "") + "번 손가락" +
+        big.innerHTML = '<span class="ci" style="background:' + colorOf(n.m) + '">' + nameOf(n.m) + '</span><span class="tx">' + handWord(n) + (fingerOf(n) || "") + "번 손가락" + bassTx +
           "<small>" + (n.ly ? "가사 '" + n.ly + "' · " : "") + (i + 1) + " / " + notes.length + "</small></span>";
         // 노래 상자 안에서만 굴린다 (화면 전체가 움직이면 건반이 밀려 나간다)
         const box = q(".lines"), d = ntEls[i].getBoundingClientRect().top - box.getBoundingClientRect().top;
@@ -181,6 +200,7 @@
         let t = 3.4 * b;                                              // 1 다음에는 한 박자보다 조금 더 쉬었다가 시작 (손 올릴 틈)
         notes.forEach((n, i) => {
           voices.push(tone(n.m, n.d * b, gap + t));
+          if (n.bass) voices.push(tone(n.bass, n.bassLen * b, gap + t));
           at(t, () => { cd.hidden = true; idx = i; mark(i); });
           t += n.d * b;
         });
@@ -198,13 +218,13 @@
     host._stop = stop;                           // 탭을 바꿀 때 Tabs 가 불러서 재생을 멈춘다
     host.addEventListener("click", e => {
       const b = e.target.closest("[data-a]"), nt = e.target.closest(".nt");
-      if (nt) { const n = notes[+nt.dataset.i]; tone(n.m); if (mode === "step") go(+nt.dataset.i); return; }
+      if (nt) { const n = notes[+nt.dataset.i]; tone(n.m); if (n.bass) tone(n.bass); if (mode === "step") go(+nt.dataset.i); return; }
       if (!b) return;
       const a = b.dataset.a;
       if (a === "listen") listen();
       else if (a === "stop") stop();
       else if (a === "step") { stop(); mode = "step"; q("[data-stepbar]").hidden = false; q('[data-a="stop"]').hidden = false; b.classList.add("on"); q("[data-msg]").textContent = ""; go(0); }
-      else if (a === "next") { tone(notes[idx].m); go(idx + 1); }
+      else if (a === "next") { tone(notes[idx].m); if (notes[idx].bass) tone(notes[idx].bass); go(idx + 1); }
       else if (a === "prev") go(idx - 1);
       else if (a === "done") onDone(q("[data-msg]"));
     });
@@ -233,5 +253,5 @@
     [1, 2, 4, 5, 6, 8, 9, 11, 12, 13].forEach(i => s.insertAdjacentHTML("beforeend", '<b style="left:' + (i / n * 100) + '%"></b>'));
   }
 
-  window.Piano = { $, NAMES, MIDI, C_POS, isWhite, nameOf, colorOf, tone, stars, Keyboard, Player, Tabs, strip };
+  window.Piano = { $, NAMES, MIDI, C_POS, L_POS, isWhite, nameOf, colorOf, tone, stars, Keyboard, Player, Tabs, strip };
 })();

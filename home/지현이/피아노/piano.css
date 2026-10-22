@@ -1,4 +1,4 @@
-/* 피아노 1~3차시 공통 모양. 한 줄로 내려가는 활동 카드들, 위에 활동 단추 띠 */
+/* 피아노 1~6차시 공통 모양. 한 줄로 내려가는 활동 카드들, 위에 활동 단추 띠 */
 :root{--ink:#2a2440;--sub:#6a6385;--line:#e4dcf5;--bg1:#EEE7FF;--bg2:#FBF9FF;--c:#6D4AE0;--cl:#F1ECFF;--cd:#4B2FB0;--gr:#D3C6F2;
   --ok:#1FA65A;--okl:#E3F7EB;--no:#E5484D;--nol:#FFECEE;--gold:#FFB020;
   --ivory:#FFFDF8;--ebony:#211d2b;--skin:#FFE3CC;--skinl:#E8B793;
@@ -154,3 +154,13 @@ details.guide ul{margin:8px 0 0 1.2em;display:grid;gap:4px;color:var(--sub);font
 .hlb .j{font-size:1.4rem}
 .hlb small{color:var(--sub);font-weight:700}
 .nt.xlong .ci{width:84px}
+
+/* 4~6차시 왼손: 왼손 손가락 번호는 까만 동그라미, 왼손 음은 까만 테두리 */
+.wk .fn.l,.bk .fn.l{background:var(--ink)}
+.nt.lh .ci{box-shadow:0 0 0 3px var(--ink)}
+.nt .fn.l,.nt.lh .fn{color:var(--ink)}
+.nt .bs{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-family:'Jua';font-size:.85rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.3);box-shadow:0 0 0 3px var(--ink);margin-top:4px}
+.nt .bs.none{visibility:hidden}
+.now-big .tx small.bsx{color:var(--ink);font-family:'Jua';font-size:1.1rem;font-weight:400}
+.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--sub);font-weight:700;font-size:.92rem;margin:4px 0 8px}
+.legend i{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;color:#fff;font-style:normal;font-family:'Jua';font-size:.8rem;vertical-align:-5px;margin-right:4px}

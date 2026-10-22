@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>피아노 2차시 - My Presentations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="piano.css">
+</head>
+<body>
+<div id="app">
+  <div class="bar">
+    <a class="btn home" href="../../주현이.html">← 주현이</a>
+    <nav class="nav" aria-label="활동으로 가기">
+      <a href="#a1"><b>1</b>도레미</a><a href="#a2"><b>2</b>이름 찾기</a><a href="#a3"><b>3</b>손 놓기</a><a href="#a4"><b>4</b>메아리</a>
+    </nav>
+    <span class="total" id="total">⭐ 0 / 9</span>
+  </div>
+
+  <header class="hero">
+    <div class="strip" aria-hidden="true" id="strip"></div>
+    <span class="sess">2차시 / 6</span>
+    <h1>도레미 이름 알기</h1>
+    <p>지난 시간에 찾은 '도'에서 출발해요. 흰 건반의 이름을 알고, 도 자리에 손을 올려 쳐 봐요.</p>
+    <details class="guide">
+      <summary>어른이 먼저 읽어 주세요</summary>
+      <ul>
+        <li>시작 전에 1차시의 '도 찾기'를 진짜 피아노에서 한 번 해 보면 좋아요.</li>
+        <li>계이름(도레미)을 소리 내어 부르면서 치게 해 주세요. 손과 이름이 같이 기억돼요.</li>
+        <li><b>한 음씩</b> 모드에서는 아이가 진짜 피아노를 치고, 어른이 <b>다음</b>을 눌러 주면 편해요.</li>
+      </ul>
+    </details>
+  </header>
+
+  <section class="lesson" id="a1">
+    <div class="lh"><span class="no">1</span><h2>무지개 도레미</h2></div>
+    <p class="lead">도에서 오른쪽으로 한 칸씩 가면 도 레 미 파 솔 라 시, 그리고 다시 도예요. 눌러서 소리를 들어 보세요.</p>
+    <div class="kbwrap"><div id="kbrain"></div></div>
+    <div class="row c"><button class="btn" id="scale">계단 소리 듣기</button></div>
+    <div class="real"><b>찾는 요령</b>
+      <span><b>레</b>는 검은 건반 2개 사이, <b>미</b>는 2개 묶음 오른쪽이에요.</span>
+      <span><b>파</b>는 3개 묶음 바로 왼쪽, <b>시</b>는 3개 묶음 오른쪽이에요.</span>
+      <span>진짜 피아노에서 "도 레 미 파 솔 라 시 도" 노래하면서 한 칸씩 올라가 봐요.</span>
+    </div>
+  </section>
+
+  <section class="lesson" id="a2">
+    <div class="lh"><span class="no">2</span><h2>이름표 없이 찾기</h2><span class="st" data-st="names"></span></div>
+    <p class="lead">이번엔 건반에 이름표가 없어요. 검은 건반 묶음을 보고 찾아요. 7문제!</p>
+    <div class="pick" id="qpick"><button class="btn pri big" id="qstart">시작</button></div>
+    <div class="say" id="qsay"></div>
+    <div class="kbwrap"><div id="kbquiz"></div></div>
+  </section>
+
+  <section class="lesson" id="a3">
+    <div class="lh"><span class="no">3</span><h2>도 자리에 손 놓기</h2><span class="st" data-st="pos"></span></div>
+    <p class="lead">오른손 <b>1번(엄지)을 가운데 도</b>에 올려요. 그러면 2번은 레, 3번은 미, 4번은 파, 5번은 솔에 저절로 놓여요. 손은 동그랗게!</p>
+    <div id="ex"></div>
+  </section>
+
+  <section class="lesson" id="a4">
+    <div class="lh"><span class="no">4</span><h2>메아리 놀이</h2><span class="st" data-st="echo"></span></div>
+    <p class="lead">피아노가 먼저 치면, 똑같이 따라 쳐요. 손은 도 자리에 그대로! 6개를 다 따라 하면 별 3개.</p>
+    <div class="pick" id="epick"><button class="btn pri big" id="estart">시작</button></div>
+    <div class="say" id="esay"></div>
+    <div class="kbwrap"><div id="kbecho"></div></div>
+    <div class="real"><b>진짜 피아노에서 해 보기</b>
+      <span>화면 대신 진짜 피아노로 따라 쳐도 돼요. 맞게 쳤으면 어른이 화면 건반을 대신 눌러 주세요.</span>
+      <span>어른이 진짜 피아노로 도~솔 사이에서 세 음을 치고, 주현이가 따라 치는 놀이로도 해 봐요.</span>
+    </div>
+  </section>
+
+  <div class="foot">
+    <a class="btn" href="피아노_1차시.html">← 1차시</a>
+    <a class="btn pri big" href="피아노_3차시.html">3차시: 노래 쳐 보기 →</a>
+  </div>
+  <div class="foot">
+    <a class="btn" href="../../주현이.html">← 주현이 페이지</a>
+    <a class="btn ghost" href="../../../index.html">사이트 홈</a>
+  </div>
+</div>
+
+<script src="../../progress.js"></script>
+<script src="piano.js"></script>
+<script>
+"use strict";
+const { $, isWhite, nameOf, colorOf, tone, Keyboard, C_POS } = Piano;
+const P = Piano.stars("juhyun-piano2", ["names", "pos", "echo"]);
+const S = P.S;
+Piano.strip();
+const sayIt = (id, cls, text) => { $(id).className = "say" + (cls ? " " + cls : ""); $(id).textContent = text; };
+
+// ───── 1. 무지개 도레미 ─────
+const kbRain = Keyboard($("kbrain"), 60, 72, { label: true, color: true });
+$("scale").addEventListener("click", () => {
+  const seq = [60, 62, 64, 65, 67, 69, 71, 72, 71, 69, 67, 65, 64, 62, 60];
+  seq.forEach((m, i) => setTimeout(() => {
+    tone(m, 0.5); kbRain.glow(m);
+    if (i === seq.length - 1) setTimeout(() => kbRain.glow([]), 500);
+  }, i * 380));
+});
+
+// ───── 2. 이름표 없이 찾기 ─────
+const nq = { list: [], i: 0, on: false };
+const kbQuiz = Keyboard($("kbquiz"), 60, 71, {
+  onPress(m, b) {
+    if (!nq.on) return;
+    if (m === nq.list[nq.i]) {
+      nq.i++;
+      b.classList.add("col"); b.style.setProperty("--kc", colorOf(m)); b.querySelector(".lab").textContent = nameOf(m);
+      if (nq.i >= nq.list.length) {
+        nq.on = false; sayIt("qsay", "ok", "7개 다 찾았어요! ⭐⭐⭐");
+        $("qpick").innerHTML = '<button class="btn pri big" id="qstart">한 번 더 하기</button>'; $("qstart").onclick = startNames;
+        P.give("names", 3);
+      } else { sayIt("qsay", "ok", "맞았어요!"); setTimeout(askName, 600); }
+    } else {
+      kbQuiz.bad(m);
+      sayIt("qsay", "no", isWhite(m) ? "그건 '" + nameOf(m) + "'예요. 다시 찾아봐요." : "흰 건반에서 찾아요.");
+    }
+  }
+});
+function askName() {
+  const m = nq.list[nq.i];
+  $("qpick").innerHTML = '<span class="dot" style="background:' + colorOf(m) + '">' + nameOf(m) + '</span><span class="j" style="font-size:1.3rem">를 찾아 눌러요 (' + (nq.i + 1) + " / 7)</span>";
+  sayIt("qsay", "", "");
+}
+function startNames() {
+  nq.list = [60, 62, 64, 65, 67, 69, 71].sort(() => Math.random() - 0.5); nq.i = 0; nq.on = true;
+  Object.values(kbQuiz.keys).forEach(k => { k.classList.remove("col"); const l = k.querySelector(".lab"); if (l) l.textContent = ""; });
+  askName();
+}
+$("qstart").onclick = startNames;
+
+// ───── 3. 도 자리 연습 세 개: 하나 칠 때마다 별 하나 (notes.pos에 "101" 식으로 기록) ─────
+const EXERCISES = [
+  { title: "올라가기", hint: "1-2-3-4-5 차례로. 손가락 하나씩만 움직여요.", fingers: C_POS, lines: [["도레미파솔", "", "11112"]] },
+  { title: "내려가기", hint: "5번 새끼손가락부터 5-4-3-2-1.", fingers: C_POS, lines: [["솔파미레도", "", "11112"]] },
+  { title: "올라갔다 내려오기", hint: "산을 넘듯이 올라갔다가 내려와요.", fingers: C_POS, lines: [["도레미파솔파미레도", "", "111111112"]] }
+];
+Piano.Tabs($("ex"), EXERCISES, (body, ex) => Piano.Player(body, ex, msg => {
+  const got = (S.notes.pos || "").padEnd(3, "0").split("");
+  got[EXERCISES.indexOf(ex)] = "1"; S.notes.pos = got.join(""); P.save();
+  const n = got.filter(x => x === "1").length; P.give("pos", n);
+  msg.textContent = n >= 3 ? "연습 3개를 다 했어요! ⭐⭐⭐" : "잘했어요! ⭐ 연습 " + n + " / 3 — 다른 연습도 해 봐요.";
+}));
+
+// ───── 4. 메아리 놀이: 들려준 음을 차례대로 따라 친다 ─────
+const PATTERNS = [[60, 62, 64], [64, 62, 60], [60, 64, 67], [67, 65, 64], [60, 60, 67, 67], [64, 65, 67, 65, 64]];
+const eg = { i: 0, k: 0, on: false, busy: false };
+const kbEcho = Keyboard($("kbecho"), 60, 72, { label: true, color: true, fingers: C_POS, onPress(m) {
+  if (!eg.on || eg.busy) return;
+  const pat = PATTERNS[eg.i];
+  if (m !== pat[eg.k]) { kbEcho.bad(m); sayIt("esay", "no", "처음부터 다시! 🔊 단추로 한 번 더 들어 봐요."); eg.k = 0; return; }
+  eg.k++;
+  if (eg.k < pat.length) { sayIt("esay", "", eg.k + " / " + pat.length); return; }
+  eg.i++;
+  if (eg.i >= PATTERNS.length) {
+    eg.on = false; sayIt("esay", "ok", "6개 다 따라 했어요! ⭐⭐⭐");
+    $("epick").innerHTML = '<button class="btn pri big" id="estart">한 번 더 하기</button>'; $("estart").onclick = startEcho;
+    P.give("echo", 3);
+  } else { sayIt("esay", "ok", "똑같아요!"); eg.busy = true; setTimeout(playEcho, 900); }
+} });
+function playEcho() {
+  const pat = PATTERNS[eg.i];
+  eg.k = 0; eg.busy = true;
+  $("epick").innerHTML = '<span class="j" style="font-size:1.3rem">' + (eg.i + 1) + ' / ' + PATTERNS.length + '</span><button class="btn" id="eagain">🔊 다시 듣기</button>';
+  $("eagain").onclick = () => { if (!eg.busy) playEcho(); };
+  sayIt("esay", "", "잘 들어요…");
+  pat.forEach((m, j) => setTimeout(() => { tone(m, 0.5); kbEcho.glow(m); }, j * 600));
+  setTimeout(() => { kbEcho.glow([]); eg.busy = false; sayIt("esay", "", "이제 따라 쳐요!"); }, pat.length * 600 + 200);
+}
+function startEcho() { eg.i = 0; eg.on = true; playEcho(); }
+$("estart").onclick = startEcho;
+
+P.draw();
+</script>
+</body>
+</html>
