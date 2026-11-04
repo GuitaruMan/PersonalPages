@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>If I… Ep1 폼페이 수형도</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* 레이아웃: 왼쪽 선택에서 오른쪽 엔딩까지 영향이 흐르는 지도. 노드를 누르면 그 선택이 무엇을 거쳐 어디에 닿는지만 남는다. 아래는 분기 카드·판정기·구현 명세·안배·판정. */
+:root{
+  --bg:#eceeed; --surface:#f8f8f6; --ink:#1d2124; --muted:#5b6267; --line:#c6cbcd; --faint:#dfe2e2;
+  --red:#9b2d20; --ochre:#9a6a12; --soft:#f1e6e2; --blue:#2f5d8a;
+  --e1:#2d6c70; --e2:#566070; --e3:#b0502a;
+  --display:"Gowun Batang","Noto Serif KR",serif;
+  --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141618; --surface:#1d2023; --ink:#e5e6e3; --muted:#9aa1a6; --line:#3a3f44; --faint:#2a2e32;
+  --red:#d4654f; --ochre:#d9a440; --soft:#2a201e; --blue:#7fa8d4;
+  --e1:#62b4b6; --e2:#9ea7b6; --e3:#e27b4c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141618; --surface:#1d2023; --ink:#e5e6e3; --muted:#9aa1a6; --line:#3a3f44; --faint:#2a2e32;
+  --red:#d4654f; --ochre:#d9a440; --soft:#2a201e; --blue:#7fa8d4;
+  --e1:#62b4b6; --e2:#9ea7b6; --e3:#e27b4c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+h1,h2,h3{font-family:var(--display);font-weight:700;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.2}
+h2{font-size:24px;line-height:1.3}
+h3{font-size:17px}
+p{margin:0}
+.lede{color:var(--muted);max-width:70ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--red);text-transform:uppercase}
+header{display:flex;flex-direction:column;gap:12px}
+nav{display:flex;flex-wrap:wrap;gap:8px}
+nav a{font-size:13px;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:var(--surface)}
+nav a:hover,nav a:focus-visible{border-color:var(--red);outline:none}
+section{display:flex;flex-direction:column;gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}
+@media (max-width:900px){.mapgrid{grid-template-columns:minmax(0,1fr)}}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+svg text{font-family:var(--body)}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke:var(--red);stroke-width:3}
+.colhead{font-family:var(--mono);font-size:11px;letter-spacing:.06em;fill:var(--muted)}
+.detail h3{font-size:18px}
+.detail .where{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.detail ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.detail .k{font-size:12px;color:var(--muted);font-weight:600;margin-top:4px}
+.meter{display:flex;align-items:center;gap:8px;font-size:13px}
+.meter .track{flex:1;height:8px;border-radius:4px;background:var(--faint);overflow:hidden}
+.meter .track i{display:block;height:100%;background:var(--red)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:14px;border-radius:3px;display:inline-block;border:1.5px solid var(--ink);background:var(--surface)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card .id{font-family:var(--mono);font-size:12px;color:var(--red)}
+.card h3{font-size:16px}
+.card dl{margin:0;display:grid;grid-template-columns:76px minmax(0,1fr);gap:4px 10px;font-size:13.5px}
+.card dt{color:var(--muted);font-weight:600}
+.card dd{margin:0}
+.card .pending{color:var(--muted);font-style:italic}
+.sim{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+@media (max-width:760px){.sim{grid-template-columns:minmax(0,1fr)}}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+legend{font-weight:600;font-size:14px;padding:0;margin-bottom:2px}
+legend small{font-family:var(--mono);color:var(--muted);font-weight:400;margin-left:6px}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opts label{display:inline-flex;align-items:center;gap:6px;font-size:13px;border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer;background:var(--bg)}
+.opts input{accent-color:var(--red);margin:0}
+.opts label:has(input:checked){border-color:var(--red);background:var(--soft)}
+.opts label:has(input:focus-visible){outline:2px solid var(--red);outline-offset:1px}
+.presets{display:flex;flex-wrap:wrap;gap:8px}
+button{font-family:var(--body);font-size:13px;border:1px solid var(--ink);background:var(--surface);color:var(--ink);border-radius:6px;padding:5px 12px;cursor:pointer}
+button:hover,button:focus-visible{background:var(--soft);outline:none;border-color:var(--red)}
+.trace{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:st}
+.trace li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;font-size:14px}
+.trace li::before{counter-increment:st;content:counter(st);font-family:var(--mono);font-size:12px;width:24px;height:24px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted)}
+.trace b{font-weight:600}
+.calc{font-family:var(--mono);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.result{border-radius:8px;padding:14px;border:2px solid var(--ink);display:flex;flex-direction:column;gap:6px}
+.result .name{font-family:var(--display);font-size:20px;font-weight:700}
+.r1{border-color:var(--e1)} .r1 .name{color:var(--e1)}
+.r2{border-color:var(--e2)} .r2 .name{color:var(--e2)}
+.r3{border-color:var(--e3)} .r3 .name{color:var(--e3)}
+.bar{display:flex;height:14px;border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%}
+pre{margin:0;font-family:var(--mono);font-size:12.5px;line-height:1.65;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px;overflow-x:auto;white-space:pre}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;vertical-align:top;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{font-weight:600;color:var(--muted);font-size:12.5px;white-space:nowrap}
+td.id,td.size{font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+tr.part td{background:var(--bg);font-family:var(--display);font-weight:700;font-size:15px;padding-top:12px}
+.chip{display:inline-block;font-size:11.5px;border-radius:4px;padding:1px 7px;border:1px solid var(--line);white-space:nowrap}
+.c-main{border-color:var(--ink)} .c-req{border-color:var(--red);color:var(--red)}
+.c-free{border-style:dashed} .c-side{border-style:dashed;color:var(--muted)} .c-ev{border-color:var(--ochre);color:var(--ochre)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media (max-width:760px){.grid2{grid-template-columns:minmax(0,1fr)}}
+ul.plain{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.tag{font-family:var(--mono);font-size:11.5px;padding:1px 6px;border-radius:4px;margin-right:6px;border:1px solid var(--line)}
+.t-both{border-color:var(--red);color:var(--red)} .t-one{border-color:var(--ochre);color:var(--ochre)} .t-ok{border-color:var(--e1);color:var(--e1)}
+footer{font-size:12.5px;color:var(--muted)}
+/* 판정 지도: 가로로 긴 모니터에서 화면 폭을 다 쓰고, 높이도 한 화면 안에 맞춘다 */
+.wide{position:relative;left:50%;transform:translateX(-50%);width:min(1880px,calc(100vw - 48px))}
+.wide .mapgrid{grid-template-columns:minmax(0,1fr) 340px}
+#map-svg{display:block;width:100%;height:auto;max-height:calc(100vh - 120px)}
+@media (max-width:1100px){.wide{position:static;transform:none;width:auto}#map-svg{min-width:920px;max-height:none}}
+@media (max-width:900px){.wide .mapgrid{grid-template-columns:minmax(0,1fr)}}
+.srcbar{display:flex;flex-wrap:wrap;gap:6px}
+.srcbar button{font-size:12.5px;padding:4px 10px;border-color:var(--line)}
+.srcbar button[aria-pressed="true"]{border-color:var(--red);background:var(--soft);font-weight:600}
+.srcbar .grp{font-size:12px;color:var(--muted);align-self:center;margin:0 2px 0 6px}
+.syn{font-size:14.5px;line-height:1.7}
+.arcs li{font-size:13.5px}
+.arcs .kind{font-family:var(--mono);font-size:11px;margin-right:6px}
+</style>
+
+<style>body{margin:0}</style>
+</head>
+<body>
+<p style="max-width:1120px;margin:0 auto 14px;font-size:14px"><a href="../게임.html" style="color:var(--muted);text-decoration:none">&larr; 게임</a></p>
+<div class="wrap">
+<header>
+  <p class="eyebrow">If I… · Ep1 폼페이 — 재난과 구원</p>
+  <h1>폼페이 수형도</h1>
+  <p class="lede">이야기 줄기는 하나이고, 선택은 값을 바꿔 뒤의 장면과 엔딩에 영향을 줍니다. 영향 지도에서 선택을 누르면 그 선택이 어떤 값을 거쳐 어느 판정과 엔딩에 닿는지만 남습니다. 게임을 코딩할 에이전트는 「구현 명세」의 식을 그대로 쓰면 됩니다.</p>
+  <nav aria-label="쪽 안 이동">
+    <a href="#flow">이야기 흐름</a><a href="#map">판정 지도</a><a href="#cards">분기 카드</a><a href="#sim">판정기</a><a href="#spec">구현 명세</a><a href="#plan">퀘스트 안배</a><a href="#verdict">판정</a><a href="#ask">정한 것</a>
+  </nav>
+</header>
+
+<section id="flow" aria-labelledby="h-flow">
+  <h2 id="h-flow">이야기 흐름</h2>
+  <p class="lede">위에서 아래로 공통 이야기가 흐릅니다. 장면을 누르면 줄거리가, 선택을 누르면 그 선택이 뒤의 어느 장면에 닿는지가 오른쪽에 화살표로 나옵니다. 빨간 실선은 판정에 주는 영향, 황토색 점선은 장면에 남는 작은 흔적입니다.</p>
+  <div class="legend">
+    <span><i class="sw"></i>공통 장면</span>
+    <span><i class="sw" style="border-color:var(--red)"></i>분기(갈라졌다가 다시 모임)</span>
+    <span><i class="sw" style="border-color:var(--ochre)"></i>NPC 이벤트·믿음 +1</span>
+    <span><i class="sw" style="border-style:dashed"></i>곁가지·자유 구경</span>
+  </div>
+  <div class="srcbar" id="srcbar" role="group" aria-label="영향을 볼 선택"></div>
+  <div class="mapgrid">
+    <div class="scroll"><svg id="flow-svg" role="img" aria-label="공통 이야기 줄기와 분기, 영향 화살표"></svg></div>
+    <aside class="panel detail" id="flow-detail" aria-live="polite"></aside>
+  </div>
+</section>
+
+<section id="map" class="wide" aria-labelledby="h-map">
+  <h2 id="h-map">판정 지도</h2>
+  <p class="lede">이야기 흐름의 선택들이 어떤 값을 거쳐 엔딩을 정하는지 계산 구조만 뽑아 그린 지도입니다.</p>
+  <div class="legend">
+    <span><i class="sw" style="border-color:var(--red)"></i>플레이어의 선택</span>
+    <span><i class="sw"></i>저장되는 값</span>
+    <span><i class="sw" style="border-color:var(--blue)"></i>계산되는 값</span>
+    <span><i class="sw" style="border-color:var(--ochre)"></i>리비아의 하루(판정 순서)</span>
+    <span>선을 따라 왼쪽에서 오른쪽으로 영향이 흐릅니다</span>
+  </div>
+  <div class="mapgrid">
+    <div class="scroll"><svg id="map-svg" role="img" aria-label="선택에서 엔딩까지 영향이 흐르는 지도"></svg></div>
+    <aside class="panel detail" id="detail" aria-live="polite"></aside>
+  </div>
+</section>
+
+<section id="cards" aria-labelledby="h-cards">
+  <h2 id="h-cards">분기 카드</h2>
+  <p class="lede">분기마다 어디서 고르고, 그 자리에서 무엇이 바뀌고, 뒤에서 무엇에 영향을 주는지 적었습니다. '영향력'은 다른 선택을 모두 그대로 두고 이 선택만 바꿨을 때 엔딩이 달라지는 경우의 비율입니다. 뒤의 장면에 남는 작은 흔적(대사·태도·소품·컷)은 모두 88개이고, 전부 수형도.json의 traces에 있습니다.</p>
+  <div class="cards" id="cardgrid"></div>
+</section>
+
+<section id="sim" aria-labelledby="h-sim">
+  <h2 id="h-sim">판정기</h2>
+  <p class="lede">선택을 고르면 구현 명세의 식대로 계산하고, 영향 지도에도 지금 값이 표시됩니다. 숫자 문턱(믿음 3, 여유 1)은 대장이 확정한 값입니다.</p>
+  <div class="sim">
+    <form class="panel" id="form" onsubmit="return false">
+      <div class="presets"><button type="button" data-p="1">엔딩 1 예시</button><button type="button" data-p="2">엔딩 2 예시</button><button type="button" data-p="3">엔딩 3 예시</button></div>
+      <fieldset><legend>B01 해적 두목 드라콘<small>1부 Q06</small></legend>
+        <div class="opts"><label><input type="radio" name="F01" value="석방" id="f01a" checked>살려 보낸다</label><label><input type="radio" name="F01" value="인도" id="f01b">관리에게 넘긴다</label></div></fieldset>
+      <fieldset><legend>리비아의 믿음 +1<small>1~2부, 3 이상이면 축제 밤 약속</small></legend>
+        <div class="opts">
+          <label><input type="checkbox" name="T" value="Q07" id="t1">Q07 솔직한 대답</label>
+          <label><input type="checkbox" name="T" value="V01" id="t2">V01 카밀라에게 묻는다</label>
+          <label><input type="checkbox" name="T" value="Q10" id="t3">Q10 별 보는 밤</label>
+          <label><input type="checkbox" name="T" value="Q16" id="t4">Q16 리비아의 마음을 묻는다</label>
+          <label><input type="checkbox" name="T" value="V03" id="t5">V03 항아리를 사 준다</label>
+        </div></fieldset>
+      <fieldset><legend>B02 리비아에게 추근대는 귀족을<small>2부 Q18</small></legend>
+        <div class="opts"><label><input type="radio" name="F02" value="작음" id="f02a" checked>정중하게 말린다</label><label><input type="radio" name="F02" value="큼" id="f02b">망신을 준다</label></div></fieldset>
+      <fieldset><legend>B03 섬사람 설득<small>4부 Q19</small></legend>
+        <div class="opts"><label><input type="radio" name="F03" value="둘다실패" id="f03a" checked>둘 다 실패</label><label><input type="radio" name="F03" value="세르기우스만" id="f03b">세르기우스만</label><label><input type="radio" name="F03" value="프리마만" id="f03c">프리마만</label><label><input type="radio" name="F03" value="둘다성공" id="f03d">둘 다 성공</label></div></fieldset>
+      <fieldset><legend>B05 폭발 직후 누구부터 찾나<small>5부 Q26</small></legend>
+        <div class="opts"><label><input type="radio" name="F05" value="다른사람" id="f05a" checked>다른 사람부터</label><label><input type="radio" name="F05" value="리비아" id="f05b">리비아부터</label></div></fieldset>
+      <fieldset><legend>B06 귀족의 퀘스트<small>5부 Q27</small></legend>
+        <div class="opts"><label><input type="radio" name="F06" value="이행" id="f06a" checked>들어준다</label><label><input type="radio" name="F06" value="거절" id="f06b">거절한다</label><label><input type="radio" name="F06" value="불성실" id="f06c">대충 한다</label><label><input type="radio" name="F06" value="자극" id="f06d">심기를 건드린다</label></div></fieldset>
+    </form>
+    <div class="panel" aria-live="polite">
+      <h3>판정 과정</h3>
+      <ol class="trace" id="trace"></ol>
+      <div class="result" id="result"></div>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:13px">
+        <p><b>모든 조합의 분포</b> <span class="calc">입력 768개(믿음 0~5 포함), 공지 22 반영</span></p>
+        <div class="bar" aria-hidden="true"><i style="width:14.1%;background:var(--e1)"></i><i style="width:46.1%;background:var(--e2)"></i><i style="width:39.8%;background:var(--e3)"></i></div>
+        <p class="calc">엔딩 1 108 (14.1%) · 엔딩 2 354 (46.1%) · 엔딩 3 306 (39.8%) — 주인공이 엔딩을 고르는 순간은 없다</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="spec" aria-labelledby="h-spec">
+  <h2 id="h-spec">구현 명세</h2>
+  <p class="lede">엔딩 판정에 쓰는 값은 아래 8개뿐입니다. 연출 전용 기록(경주 승패, 다프네의 호의·동행, 곁가지 수행, 도시 설득 성공·실패 등)은 장면의 대사·컷만 바꾸고 이 판정에는 절대 쓰지 않습니다. 장면 연결 전체는 <span class="calc">worker-02/tasks/IfI_Ep1_스토리구성/수형도.json</span>(82노드·127간선)에 있습니다.</p>
+  <pre id="spec-code"></pre>
+</section>
+
+<section id="plan" aria-labelledby="h-plan">
+  <h2 id="h-plan">퀘스트 안배</h2>
+  <p class="lede">위에서부터 플레이 순서입니다. <span class="chip c-main">본선</span> 은 반드시 지나고, <span class="chip c-req">본선 필수</span> 는 엔딩·에필로그가 기대는 장면이라 곁가지에서 올린 것입니다. <span class="chip c-free">자유 구경</span> 과 <span class="chip c-side">곁가지</span> 는 하지 않아도 본선이 그대로 갑니다.</p>
+  <div class="scroll"><table id="plantab"><thead><tr><th>ID</th><th>이름</th><th>구분</th><th>플레이 방식</th><th>바꾸는 값</th><th>규모</th></tr></thead><tbody></tbody></table></div>
+  <p class="calc" id="sizesum"></p>
+</section>
+
+<section id="verdict" aria-labelledby="h-verdict">
+  <h2 id="h-verdict">판정</h2>
+  <div class="grid2">
+    <div class="panel"><h3>충돌 검토</h3><ul class="plain" id="conflicts"></ul></div>
+    <div class="panel"><h3>분량·구조</h3><ul class="plain" id="structure"></ul></div>
+  </div>
+  <div class="panel"><h3>흥미 판정</h3>
+    <div class="scroll" style="border:0"><table id="funtab"><thead><tr><th>항목</th><th>판정</th><th>근거와 조치</th></tr></thead><tbody></tbody></table></div>
+  </div>
+</section>
+
+<section id="ask" aria-labelledby="h-ask">
+  <h2 id="h-ask">정한 것</h2>
+  <p class="lede">대장이 근거를 들어 정해 둔 것입니다. 전체를 보시고 바꾸고 싶은 것만 말씀해 주세요.</p>
+  <div class="panel"><ul class="plain" id="asks"></ul></div>
+</section>
+
+<footer>근거: 원문 <span class="calc">IfI_Ep1_폼페이_스토리.hwpx</span>, worker-01(이야기·NPC·퀘스트 Q01~Q19·엔딩), worker-02(분기·변수·수형도 데이터·퀘스트 Q21~Q29), 대장 지침 공지 1~19. 새로 만든 인물·장면은 모두 제안이며 확정은 책임자가 합니다.</footer>
+</div>
+
+<script>
+/* ===== 영향 지도 데이터 ===== */
+const COLS=[{x:20,label:'플레이어의 선택'},{x:228,label:'저장되는 값'},{x:452,label:'계산되는 값'},{x:660,label:'리비아의 하루 (판정 순서)'},{x:888,label:'엔딩'}];
+const NW=[176,190,178,196,150];
+const N={
+ // 선택
+ cB01:{c:0,y:60, t:'B01 드라콘 처분', s:'1부 Q06 해적 물리치기', k:'choice'},
+ cT:  {c:0,y:130,t:'믿음 +1 다섯 곳', s:'1~2부 Q07·V01·Q10·Q16·V03', k:'choice'},
+ cB02:{c:0,y:200,t:'B02 귀족을 막는 방식', s:'2부 Q18 추근댐', k:'choice'},
+ cB03:{c:0,y:290,t:'B03 섬사람 설득', s:'4부 Q19', k:'choice'},
+ cB05:{c:0,y:390,t:'B05 누구부터 찾나', s:'5부 Q26 낮', k:'choice'},
+ cB06:{c:0,y:460,t:'B06 귀족의 퀘스트', s:'5부 Q27 밤', k:'choice'},
+ // 저장값
+ vF01:{c:1,y:60, t:'F01 드라콘', s:'석방 / 인도', k:'var'},
+ vF04:{c:1,y:130,t:'F04 리비아의 믿음', s:'0 ~ 5', k:'var'},
+ vF02:{c:1,y:200,t:'F02 귀족 원한', s:'작음 / 큼', k:'var'},
+ vS:  {c:1,y:268,t:'세르기우스 설득', s:'F03에서 읽음', k:'var'},
+ vP:  {c:1,y:320,t:'프리마 설득', s:'F03에서 읽음', k:'var'},
+ vF05:{c:1,y:390,t:'F05 첫 수색', s:'리비아 / 다른 사람', k:'var'},
+ vF06:{c:1,y:460,t:'F06 귀족 퀘스트', s:'이행·거절·대충·자극', k:'var'},
+ // 계산값
+ dP:{c:2,y:130,t:'약속', s:'믿음 ≥ 3', k:'calc'},
+ dB:{c:2,y:236,t:'배 확보', s:'둘 중 하나라도', k:'calc'},
+ dY:{c:2,y:340,t:'여유', s:'더하고 빼서 합계', k:'calc'},
+ // 리비아의 하루
+ s1:{c:3,y:150,t:'① 낮 수색', s:'곁에 있음 / 행방불명', k:'stage'},
+ s2:{c:3,y:300,t:'② 밤 귀족', s:'자극이면 리비아 부상', k:'stage'},
+ s3:{c:3,y:420,t:'③ 새벽 판정', s:'배·여유를 따진다', k:'stage'},
+ s4:{c:3,y:540,t:'④ 갇힘·부상이면', s:'아이들을 맡길 배가 있나', k:'stage'},
+ // 엔딩
+ E1:{c:4,y:300,t:'엔딩 1', s:'모두를 구하다', k:'end1'},
+ E2:{c:4,y:440,t:'엔딩 2', s:'그녀를 잃다', k:'end2'},
+ E3:{c:4,y:580,t:'엔딩 3', s:'그녀 곁에 남다', k:'end3'},
+};
+const E=[
+ ['cB01','vF01',''],['cT','vF04',''],['cB02','vF02',''],['cB03','vS',''],['cB03','vP',''],['cB05','vF05',''],['cB06','vF06',''],
+ ['vF01','dB','석방이면 드라콘의 배'],['vF01','dY','석방 +1'],
+ ['vF04','dP','3 이상이면 약속'],
+ ['vF02','dY','큼이면 −1'],
+ ['vS','dB','성공이면 세르기우스의 배'],
+ ['vP','dY','성공 +1'],['vP','s1','약속이 없어도 곁에'],
+ ['dP','dY','약속 +1'],['dP','s1','약속하면 곁에(다른 사람부터 찾을 때)'],
+ ['vF05','s1','리비아부터면 행방불명'],
+ ['vF06','dY','이행(길이 열림) +1 · 거절·대충 −1'],['vF06','s2','자극이면 곁의 리비아 부상'],
+ ['s1','s2','상태가 넘어감'],['s2','s3','상태가 넘어감'],
+ ['dB','s3','엔딩 1에 필요'],['dY','s3','엔딩 1은 1 이상, 재탐색도 1 이상'],
+ ['s3','E1','곁에 있음 + 배 + 여유 ≥ 1'],['s3','E2','행방불명 + 여유 ≤ 0'],['s3','s4','그 밖'],
+ ['dB','s4','배가 있으면 아이들을 맡길 수 있음'],['s4','E2','배 없음 → 아이들을 이끌고 떠남'],['s4','E3','배 있음 → 리비아 곁에 남음'],
+];
+const INFO={
+ cB01:{w:'1부 Q06 해적 물리치기 끝',now:'살려 보내면 드라콘이 “이 빚은 잊지 않는다”며 떠나는 컷, 넘기면 마을이 관리에게 인계하는 컷. 이어서 같은 귀갓길 장면으로 합류.',eff:['5부 Q28에서 드라콘의 배가 나타난다(배 확보)','해적 배는 성 밖에 바로 대므로 새벽 여유 +1','배가 있으면 리비아가 갇혔을 때 아이들을 맡기고 곁에 남을 수 있다(엔딩 3)'],sens:[68,128]},
+ cT:{w:'1부 Q07 · V01 · Q10(곁가지) · 2부 Q16 · V03',now:'각 장면에서 리비아의 반응 한 줄이 달라진다.',eff:['합계 3 이상이면 4부 축제의 밤에 리비아가 “곁에 있을게요”라고 약속','약속하면 폭발 낮에(리비아부터 찾지 않는 한) 리비아가 곁에 있고, 여유 +1'],sens:[43,128],note:'영향력은 약속을 받느냐 못 받느냐 기준'},
+ cB02:{w:'2부 Q18 추근대는 셈프로니우스',now:'광장의 반응(정적 / 웃음)이 다른 컷 하나. 이어서 “또 너냐”로 합류.',eff:['망신을 주면 귀족 원한 큼 → 새벽 여유 −1','5부 귀족 장면의 분위기가 험해진다(연출)'],sens:[28,128]},
+ cB03:{w:'4부 Q19 여관 마당, 도시에서 경고를 마친 밤',now:'같은 마무리 장면의 변형 4개(아무도 / 세르기우스만 / 프리마만 / 둘 다).',eff:['세르기우스 성공 → 배를 성 밖 포구로 옮겨 둔다(배 확보)','프리마 성공 → 아이들을 찾는 시간이 줄어 여유 +1, 약속이 없어도 낮에 리비아를 함께 찾는다'],sens:[39,64]},
+ cB05:{w:'5부 Q26, 8월 24일 낮 폭발 직후',now:'리비아부터 가면 리비아가 “애들부터 가야죠!” 하며 뛰어든다. 다른 사람부터 가면 구조 순서가 다르게 보인다. 어느 쪽이든 목욕탕 아이들 구출로 합류.',eff:['리비아부터 → 리비아 행방불명, 엔딩 1은 닫힌다(사용자 확정)','다른 사람부터 → 약속이나 프리마 설득이 있으면 리비아가 곁에 있다'],sens:[56,128]},
+ cB06:{w:'5부 Q27 항구 앞 저택가, 밤',now:'들어주면 상자 나르기와 다프네 이벤트(V04), 거절·대충은 먼 길, 자극은 하인의 보복. 모두 같은 위험 장면으로 합류.',eff:['들어준다 → 귀족이 항구 길만 터 줌, 여유 +1 (배는 아니다)','거절·대충 → 먼 길로 돌아 여유 −1','심기를 건드린다 → 곁의 리비아가 화살을 막다 부상(갇힘·부상). 리비아가 없으면 마르쿠스가 막는다'],sens:[37,64]},
+ vF01:{w:'저장값',now:'석방 / 인도',eff:['배 확보','여유 +1']},
+ vF04:{w:'저장값',now:'0~5, 다섯 곳에서 +1, 깎이지 않음',eff:['약속']},
+ vF02:{w:'저장값',now:'작음 / 큼',eff:['여유 −1(큼)']},
+ vS:{w:'F03 섬사람 설득에서 읽는 값',now:'세르기우스만·둘 다 성공이면 참',eff:['배 확보']},
+ vP:{w:'F03 섬사람 설득에서 읽는 값',now:'프리마만·둘 다 성공이면 참',eff:['여유 +1','낮 수색에서 리비아를 함께 찾음']},
+ vF05:{w:'저장값',now:'리비아 / 다른 사람',eff:['낮 수색의 리비아 상태']},
+ vF06:{w:'저장값',now:'이행 / 거절 / 불성실(대충) / 자극',eff:['여유 +1(이행, 길만 열림) 또는 −1','밤 귀족의 리비아 부상(자극)']},
+ dP:{w:'계산값, 축제의 밤(8월 23일)',now:'믿음이 3 이상이면 참',eff:['여유 +1','낮 수색에서 리비아가 곁에']},
+ dB:{w:'계산값',now:'세르기우스 설득 · 드라콘 석방 중 하나라도 있으면 참. 귀족 퀘스트는 길만 열고 배를 주지 않는다. 하나도 없으면 먼 길 끝의 마지막 피난선을 탄다.',eff:['새벽 판정에서 엔딩 1의 조건','④ 리비아가 갇혔을 때 아이들을 맡길 수 있으면 엔딩 3, 없으면 엔딩 2']},
+ dY:{w:'계산값',now:'약속 +1 · 프리마 +1 · 드라콘 석방 +1 · 귀족 이행 +1 / 거절·대충 −1 · 원한 큼 −1 의 합계',eff:['새벽 판정: 엔딩 1은 1 이상','행방불명일 때 1 이상이면 새벽에 다시 찾아냄']},
+ s1:{w:'5부 낮, B05 직후',now:'리비아부터 → 행방불명. 다른 사람부터 + (약속 또는 프리마) → 곁에 있음. 그 밖 → 행방불명.',eff:['② 밤 귀족으로 넘어감']},
+ s2:{w:'5부 밤, B06 직후. 마르쿠스는 모든 경우 이 밤에 죽는다',now:'자극이고 리비아가 곁에 있으면 갇힘·부상. 나머지는 상태 그대로.',eff:['③ 새벽 판정으로 넘어감']},
+ s3:{w:'5부 25일 새벽, Q29 새벽 재탐색이 결과를 장면으로 보여 줌',now:'곁에 있음: 배와 여유 ≥ 1이면 엔딩 1, 아니면 뒤처진 사람을 데리러 갔다가 갇힘·부상. 행방불명: 여유 ≥ 1이면 찾았지만 늦어 갇힘·부상, 아니면 엔딩 2.',eff:['엔딩 1','엔딩 2','④ 갇힘·부상']},
+ s4:{w:'갇힘·부상일 때. 주인공이 고르지 않는다',now:'배가 확보되어 있으면 세르기우스·프리마가 아이들을 배수로로 데려가고 주인공은 리비아 곁에 남는다. 배가 없으면 아이들을 마지막 피난선까지 이끌 사람이 주인공뿐이라 리비아를 두고 떠난다.',eff:['엔딩 3(배 있음)','엔딩 2(배 없음)']},
+ E1:{w:'엔딩',now:'섬사람을 모두 데리고 바다로. 리비아는 고백을 받아들이지 않는다. 목걸이는 루키우스에게, 주인공은 어디론가 떠난다.',eff:['공통 에필로그'],share:'768개 조합 중 108 (14.1%)'},
+ E2:{w:'엔딩',now:'리비아를 끝내 찾지 못했거나, 찾았어도 아이들을 데려갈 사람이 자기뿐이었다. 리비아가 없는 배. 루키우스에게 목걸이를 건네고 처음으로 운다. 다음 날 떠난다.',eff:['공통 에필로그'],share:'768개 조합 중 354 (46.1%)'},
+ E3:{w:'엔딩',now:'아이들을 맡길 배가 있어, 아이들을 배수로로 보내고 리비아 곁에 남는다. “알아요. 바보. 진작 말하지.”',eff:['공통 에필로그'],share:'768개 조합 중 306 (39.8%)'},
+};
+
+/* ===== 영향 지도 그리기 ===== */
+const NS='http://www.w3.org/2000/svg';
+const svg=document.getElementById('map-svg');
+const mk=(n,a={},p=svg)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const NH=44, W=1060, H=630;
+const strokeOf=k=>({choice:'var(--red)',var:'var(--ink)',calc:'var(--blue)',stage:'var(--ochre)',end1:'var(--e1)',end2:'var(--e2)',end3:'var(--e3)'}[k]);
+const pos=id=>{const n=N[id];return {x:COLS[n.c].x,y:n.y,w:NW[n.c]};};
+const elN={}, elE=[], badge={};
+function drawMap(){
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  COLS.forEach((c,i)=>{const t=mk('text',{x:c.x,y:22,class:'colhead'});t.textContent=c.label;});
+  const gE=mk('g'), gL=mk('g'), gN=mk('g');
+  E.forEach(([a,b,lab],i)=>{
+    const A=pos(a),B=pos(b);
+    let x1=A.x+A.w, y1=A.y+NH/2, x2=B.x, y2=B.y+NH/2;
+    if(N[a].c===N[b].c){ x1=A.x+A.w/2; y1=A.y+NH; x2=B.x+B.w/2; y2=B.y; }
+    const d = N[a].c===N[b].c ? `M${x1} ${y1} L${x2} ${y2}` : `M${x1} ${y1} C${x1+60} ${y1}, ${x2-60} ${y2}, ${x2} ${y2}`;
+    const p=mk('path',{d,fill:'none',stroke:'var(--line)','stroke-width':1.6},gE);
+    let lg=null;
+    if(lab){
+      const mx=N[a].c===N[b].c? x1+8 : (x1+x2)/2, my=N[a].c===N[b].c? (y1+y2)/2+4 : (y1+y2)/2-4;
+      lg=mk('g',{},gL); lg.style.display='none';
+      const tx=mk('text',{x:mx,y:my,'font-size':11.5,'text-anchor':N[a].c===N[b].c?'start':'middle',fill:'var(--ink)'},lg); tx.textContent=lab;
+      const bb=tx.getBBox(); const r=mk('rect',{x:bb.x-4,y:bb.y-2,width:bb.width+8,height:bb.height+4,rx:4,fill:'var(--surface)',stroke:'var(--line)'},lg); lg.insertBefore(r,tx);
+    }
+    elE.push({a,b,p,lg});
+  });
+  for(const id in N){
+    const n=N[id], P=pos(id);
+    const g=mk('g',{class:'node',tabindex:0,role:'button','aria-label':n.t+' — '+n.s},gN);
+    const r=mk('rect',{x:P.x,y:P.y,width:P.w,height:NH,rx:n.k==='choice'?22:8,fill:'var(--surface)',stroke:strokeOf(n.k),'stroke-width':n.k.startsWith('end')?2.4:1.6},g);
+    const t1=mk('text',{x:P.x+12,y:P.y+18,'font-size':13,'font-weight':600,fill:'var(--ink)'},g); t1.textContent=n.t;
+    const t2=mk('text',{x:P.x+12,y:P.y+35,'font-size':11,fill:'var(--muted)'},g); t2.textContent=n.s;
+    const bd=mk('text',{x:P.x+P.w-10,y:P.y+18,'font-size':11.5,'font-weight':600,'text-anchor':'end',fill:'var(--red)','font-family':'var(--mono)'},g); badge[id]=bd;
+    g.addEventListener('click',ev=>{ev.stopPropagation();select(current===id?null:id);});
+    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(current===id?null:id);} if(e.key==='Escape') select(null);});
+    elN[id]={g,r};
+  }
+}
+function reach(id,dir){const seen=new Set([id]);const q=[id];while(q.length){const x=q.shift();E.forEach(([a,b])=>{const [f,t]=dir>0?[a,b]:[b,a];if(f===x&&!seen.has(t)){seen.add(t);q.push(t);}});}return seen;}
+let current=null;
+function select(id){
+  current=id;
+  if(!id){
+    for(const k in elN){ elN[k].g.style.opacity=1; elN[k].r.style.fill=''; }
+    elE.forEach(e=>{ e.p.style.stroke=''; e.p.style.strokeWidth=''; if(e.lg) e.lg.style.display='none'; });
+    document.getElementById('detail').innerHTML=`<p class="where">판정 지도</p><h3>노드를 눌러 보세요</h3><p style="font-size:14px">선택을 누르면 그 선택이 어떤 값을 거쳐 어느 엔딩에 닿는지만 남고, 선 위에 효과가 적힙니다. 엔딩을 누르면 거꾸로 그 엔딩에 영향을 주는 선택이 모두 보입니다.</p><p class="calc">같은 노드를 다시 누르거나 빈 곳을 누르거나 Esc를 누르면 선택이 풀립니다.</p>`;
+    return;
+  }
+  const down=reach(id,1), up=reach(id,-1), on=new Set([...down,...up]);
+  for(const k in elN){ elN[k].g.style.opacity=on.has(k)?1:.22; elN[k].r.style.fill=k===id?'var(--soft)':''; }
+  elE.forEach(e=>{const act=(down.has(e.a)&&down.has(e.b))||(up.has(e.a)&&up.has(e.b));
+    e.p.style.stroke=act?'var(--red)':'var(--faint)'; e.p.style.strokeWidth=act?2.6:1.2; if(e.lg) e.lg.style.display=act?'':'none';});
+  const n=N[id], I=INFO[id]||{};
+  const downs=[...down].filter(x=>x!==id&&N[x]).map(x=>N[x].t);
+  let h=`<p class="where">${I.w||''}</p><h3>${n.t}</h3>`;
+  if(I.now) h+=`<p class="k">${n.k==='choice'?'그 자리에서 달라지는 것':'정의'}</p><p style="font-size:14px">${I.now}</p>`;
+  if(I.eff) h+=`<p class="k">뒤에 주는 영향</p><ul>${I.eff.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+  if(downs.length) h+=`<p class="k">닿는 곳</p><p style="font-size:13.5px">${downs.join(' → ')}</p>`;
+  if(I.sens){const pct=Math.round(I.sens[0]/I.sens[1]*100);h+=`<p class="k">영향력${I.note?' ('+I.note+')':''}</p><div class="meter"><div class="track"><i style="width:${pct}%"></i></div><span class="calc">${I.sens[1]>1?I.sens[0]+'/'+I.sens[1]+' · ':''}${pct}%</span></div>`;}
+  if(I.share) h+=`<p class="k">도달</p><p class="calc">${I.share}</p>`;
+  h+=`<p class="calc" style="margin-top:6px">다른 노드를 누르면 그 노드의 경로로 바뀝니다. 같은 노드를 다시 누르거나 빈 곳·Esc로 선택을 풉니다.</p><button type="button" id="map-clear">선택 풀기</button>`;
+  document.getElementById('detail').innerHTML=h;
+  document.getElementById('map-clear').addEventListener('click',()=>select(null));
+}
+
+/* ===== 분기 카드 ===== */
+const CARDS=[
+ ['B01','드라콘을 살려 보낼까, 넘길까','1부 Q06 끝','살려 보낸다 / 관리에게 넘긴다','떠나는 배 컷 / 인계 컷 → 같은 귀갓길','F01','석방이면 배 확보 + 여유 +1','cB01','2부 부두 수평선의 낯익은 돛 · 4부 마르쿠스의 꼬집음 · 엔딩 출항 때 그 돛'],
+ ['믿음 +1','리비아와 쌓는 믿음','Q07 · V01 · Q10 · Q16 · V03','장면마다 다가가는 선택 / 지나치는 선택','리비아의 반응 한 줄','F04(0~5)','3 이상이면 축제 밤 약속 → 다른 사람부터 찾으면 낮에 곁에, 여유 +1','cT','리비아가 서는 거리 · 소매를 잡은 손 · 폭발 날의 물병 · 고백을 거절하는 눈빛'],
+ ['B02','추근대는 귀족을 어떻게 막나','2부 Q18','정중하게 말린다 / 망신을 준다','광장의 반응 컷 → “또 너냐”','F02','망신이면 여유 −1, 5부 귀족 장면이 험해짐','cB02','3부 수군대는 군중 · 4부 군중 속 하인들 · 5부 더 차가운 눈빛'],
+ ['B03','섬사람을 설득했나','4부 Q19','두 사람에게 각각 한 번씩 고르는 대화','마무리 컷 변형 4개 → 축제의 밤','F03','세르기우스 → 배 확보 / 프리마 → 여유 +1, 낮에 리비아를 함께 찾음','cB03','폭발 낮의 빈손·배 방향 가늠 · 항구 길의 포구 손짓·묶어 둔 짐'],
+ ['B04','축제의 밤 약속 (자동)','4부 축제의 밤','고르지 않음: 믿음 3 이상이면 약속','“곁에 있을게요” / “내일 얘기해요”','약속(계산)','다른 사람부터 찾으면 낮에 곁에, 여유 +1','dP','귀족 앞에서 약속을 떠올리며 쥐는 손 · 새벽 성벽 쪽 시선'],
+ ['B05','폭발 직후 누구부터 찾나','5부 Q26','리비아부터 / 다른 사람부터','리비아가 뛰어드는 컷 → 목욕탕 구출','F05','리비아부터면 행방불명, 엔딩 1 닫힘','cB05','항구 길에서 달려간 방향을 돌아봄 · 새벽의 후회'],
+ ['B06','귀족의 굴욕적인 퀘스트','5부 Q27','들어준다 / 거절 / 대충 / 심기를 건드림','상자 나르기·먼 길·보복 → 같은 위험 장면','F06','이행: 길만 열려 여유 +1 / 거절·대충: 여유 −1 / 자극: 곁의 리비아 부상','cB06','새벽 소매의 상자 먼지 · 먼 길을 돌아봄 · 보복을 경계하던 손'],
+ ['자동','엔딩 2와 3은 누가 정하나','5부 새벽, 리비아가 갇힘·부상일 때','고르지 않음: 배가 있으면 남고, 없으면 떠난다','—','배 확보(계산)','배 있음 → 엔딩 3 / 배 없음 → 엔딩 2','s4','갇힌 자리·상처 컷을 새벽 재탐색과 엔딩이 함께 씀'],
+];
+document.getElementById('cardgrid').innerHTML=CARDS.map(c=>{
+  const I=INFO[c[7]]||{}; const s=I.sens?`${Math.round(I.sens[0]/I.sens[1]*100)}%`:'—';
+  return `<article class="card"><span class="id">${c[0]}</span><h3>${c[1]}</h3><dl>
+  <dt>어디서</dt><dd>${c[2]}</dd><dt>선택지</dt><dd>${c[3]}</dd><dt>바로 변화</dt><dd>${c[4]}</dd>
+  <dt>바꾸는 값</dt><dd>${c[5]}</dd><dt>뒤의 영향</dt><dd>${c[6]}</dd><dt>영향력</dt><dd>${s}</dd>
+  <dt>남는 흔적</dt><dd>${c[8]||'—'}</dd></dl>
+  <button type="button" data-sel="${c[7]}">영향 지도에서 보기</button></article>`;}).join('');
+document.querySelectorAll('[data-sel]').forEach(b=>b.addEventListener('click',()=>{select(b.dataset.sel);document.getElementById('map').scrollIntoView({behavior:'smooth'});}));
+
+/* ===== 판정 규칙 ===== */
+function judge(s){
+  const steps=[]; const trust=s.T.length; const promise=trust>=3;
+  const serg=s.F03==='세르기우스만'||s.F03==='둘다성공', prima=s.F03==='프리마만'||s.F03==='둘다성공';
+  steps.push(['축제의 밤',`리비아의 믿음 ${trust} → ${promise?'약속한다':'약속하지 않는다'}`]);
+  let st;
+  if(s.F05==='리비아'){st='행방불명';steps.push(['① 낮 수색','리비아부터 찾으러 갔다 → 리비아는 아이들에게 뛰어간다. <b>행방불명</b>, 엔딩 1은 닫힌다.']);}
+  else if(promise){st='곁';steps.push(['① 낮 수색','약속대로 시장에서 기다리던 리비아와 함께 찾는다. <b>곁에 있음</b>.']);}
+  else if(prima){st='곁';steps.push(['① 낮 수색','프리마를 설득해 둔 덕에 목욕탕에서 리비아를 함께 찾는다. <b>곁에 있음</b>.']);}
+  else {st='행방불명';steps.push(['① 낮 수색','혼자 사라진 리비아를 놓친다. <b>행방불명</b>.']);}
+  if(s.F06==='자극'){
+    if(st==='곁'){st='갇힘';steps.push(['② 밤 귀족','하인의 보복. 마르쿠스는 칼을, 리비아는 화살을 막는다. 리비아 <b>갇힘·부상</b>, 마르쿠스는 죽는다.']);}
+    else steps.push(['② 밤 귀족','하인의 칼 앞을 마르쿠스가 막아서고 쓰러진다.']);
+  } else steps.push(['② 밤 귀족',{이행:'무릎 꿇고 상자를 끝까지 나른다. 귀족이 길을 터 준다.',거절:'거절한다. 먼 길로 돌아간다.',불성실:'나르는 척만 한다. 먼 길로 돌아간다.'}[s.F06]+' 마르쿠스는 이 밤에 죽는다.']);
+  const parts=[]; let yeo=0;
+  if(promise){yeo++;parts.push('약속 +1');}
+  if(prima){yeo++;parts.push('프리마 +1');}
+  if(s.F01==='석방'){yeo++;parts.push('드라콘 +1');}
+  if(s.F06==='이행'){yeo++;parts.push('귀족 이행 +1');}
+  if(s.F06==='거절'||s.F06==='불성실'){yeo--;parts.push('귀족 '+(s.F06==='불성실'?'대충':'거절')+' −1');}
+  if(s.F02==='큼'){yeo--;parts.push('원한 큼 −1');}
+  const boats=[]; if(serg)boats.push('세르기우스의 배'); if(s.F01==='석방')boats.push('드라콘의 배');
+  const boat=boats.length>0;
+  steps.push(['계산',`<span class="calc">여유 = ${parts.length?parts.join(' '):'0'} = ${yeo} · 배 확보 = ${boat?boats.join(', '):'없음(마지막 피난선)'}</span>`]);
+  let end,b07=false;
+  if(st==='곁'){
+    if(boat&&yeo>=1){end=1;steps.push(['③ 새벽 판정','곁에 있음 + 배 + 여유 ≥ 1 → <b>엔딩 1</b>.']);}
+    else {st='갇힘';steps.push(['③ 새벽 판정',(!boat?'배가 없다':'시간이 모자라다')+'. 뒤처진 사람을 데리러 간 리비아가 갇힌다. <b>갇힘·부상</b>.']);}
+  } else if(st==='행방불명'){
+    if(yeo>=1){st='갇힘';steps.push(['③ 새벽 판정','여유가 남아 새벽에 리비아를 다시 찾았지만 늦었다. <b>갇힘·부상</b>.']);}
+    else {end=2;steps.push(['③ 새벽 판정','다시 찾을 여유가 없다 → 선택 없이 <b>엔딩 2</b>.']);}
+  }
+  if(!end&&st==='갇힘'){b07=true;end=boat?3:2;steps.push(['④ 갇힘·부상',boat?'아이들을 태울 배가 있다. 세르기우스·프리마가 아이들을 배수로로 데려가고, 주인공은 리비아 곁에 남는다 → <b>엔딩 3</b>.':'배가 없다. 아이들을 마지막 피난선까지 이끌 사람은 주인공뿐이라 리비아를 두고 떠난다 → <b>엔딩 2</b>.']);}
+  return {steps,end,b07,trust,promise,yeo,boat,st0:steps[1]?.[1]};
+}
+const ENDS={1:{n:'엔딩 1 · 모두를 구하다',d:INFO.E1.now},2:{n:'엔딩 2 · 그녀를 잃다',d:INFO.E2.now},3:{n:'엔딩 3 · 그녀 곁에 남다',d:INFO.E3.now}};
+function readForm(){const f=document.getElementById('form');const g=n=>f.querySelector(`input[name="${n}"]:checked`)?.value;
+  return {F01:g('F01'),F02:g('F02'),F03:g('F03'),F05:g('F05'),F06:g('F06'),T:[...f.querySelectorAll('input[name="T"]:checked')].map(i=>i.value)};}
+function run(){
+  const s=readForm(); const r=judge(s);
+  document.getElementById('trace').innerHTML=r.steps.map(([h,t])=>`<li><div><b>${h}</b><br>${t}</div></li>`).join('');
+  const box=document.getElementById('result'); box.className='result r'+r.end; box.innerHTML=`<span class="name">${ENDS[r.end].n}</span><p>${ENDS[r.end].d}</p>`;
+  // 지도에 지금 값
+  const B={vF01:s.F01,vF04:String(r.trust),vF02:s.F02,vS:(s.F03==='세르기우스만'||s.F03==='둘다성공')?'성공':'실패',vP:(s.F03==='프리마만'||s.F03==='둘다성공')?'성공':'실패',vF05:s.F05==='리비아'?'리비아':'다른',vF06:{이행:'이행',거절:'거절',불성실:'대충',자극:'자극'}[s.F06],
+    dP:r.promise?'참':'거짓',dB:r.boat?'있음':'없음',dY:String(r.yeo)};
+  for(const k in badge) badge[k].textContent=B[k]||'';
+  ['E1','E2','E3'].forEach((k,i)=>{elN[k].r.style.strokeWidth=(r.end===i+1)?4:2.4;});
+}
+const PRESETS={1:{F01:'석방',F02:'작음',F03:'세르기우스만',F05:'다른사람',F06:'이행',T:['Q07','V01','Q16']},
+ 2:{F01:'인도',F02:'큼',F03:'둘다실패',F05:'리비아',F06:'거절',T:['Q07']},
+ 3:{F01:'인도',F02:'작음',F03:'둘다성공',F05:'다른사람',F06:'자극',T:['Q07','Q10','Q16','V03']}};
+document.querySelectorAll('[data-p]').forEach(b=>b.addEventListener('click',()=>{const p=PRESETS[b.dataset.p];const f=document.getElementById('form');
+  ['F01','F02','F03','F05','F06'].forEach(k=>{const i=f.querySelector(`input[name="${k}"][value="${p[k]}"]`);if(i){i.disabled=false;i.checked=true;}});
+  f.querySelectorAll('input[name="T"]').forEach(i=>i.checked=p.T.includes(i.value)); run();}));
+document.getElementById('form').addEventListener('change',run);
+
+/* ===== 구현 명세 ===== */
+document.getElementById('spec-code').textContent=
+`// 저장 변수 7개 (엔딩 판정에는 이것만 쓴다). 엔딩을 고르는 플레이어 선택은 없다.
+F01 드라콘 처분   : 석방 | 인도                                    ← B01, 1부 Q06
+F02 귀족 원한     : 작음 | 큼                                      ← B02, 2부 Q18
+F03 섬사람 설득   : 둘다실패 | 세르기우스만 | 프리마만 | 둘다성공  ← B03, 4부 Q19
+F04 리비아의 믿음 : 0~5, 처음 0. +1 지점: Q07 · V01 · Q10 · Q16 · V03 (−1 없음)
+F05 첫 수색       : 리비아 | 다른사람                              ← B05, 5부 Q26
+F06 귀족 퀘스트   : 이행 | 거절 | 불성실 | 자극                    ← B06, 5부 Q27
+F07 리비아 상태   : 곁 | 갇힘부상 | 행방불명                       ← 아래 계산으로만 정해진다
+
+// 계산값 (저장하지 않는다)
+약속       = F04 >= 3                                   // 문턱 3 (대장 결정)
+세르기우스 = F03 in {세르기우스만, 둘다성공}
+프리마     = F03 in {프리마만, 둘다성공}
+배확보     = 세르기우스 or F01 == 석방        // 귀족 퀘스트(이행)는 길만 열고 배가 아니다
+여유       = (약속 ? 1 : 0) + (프리마 ? 1 : 0) + (F01 == 석방 ? 1 : 0)
+           + (F06 == 이행 ? 1 : (F06 in {거절, 불성실} ? -1 : 0))
+           - (F02 == 큼 ? 1 : 0)
+
+// ① 낮 수색 (B05 직후)
+if F05 == 리비아:            F07 = 행방불명        // 엔딩 1은 이 순간 닫힌다 (사용자 확정)
+else if 약속 or 프리마:      F07 = 곁
+else:                        F07 = 행방불명
+
+// ② 밤 귀족 (B06 직후) — 마르쿠스는 어느 경우든 이 밤에 죽는다
+if F06 == 자극 and F07 == 곁: F07 = 갇힘부상       // 마르쿠스는 칼, 리비아는 화살을 막는 한 장면
+
+// ③ 새벽 판정 (Q29 새벽 재탐색이 결과를 장면으로 보여 준다)
+if F07 == 곁:
+    if 배확보 and 여유 >= 1:  return 엔딩1          // 문턱 1 (대장 결정)
+    else:                     F07 = 갇힘부상        // 뒤처진 사람을 데리러 갔다가 갇힘
+if F07 == 행방불명:
+    if 여유 >= 1:             F07 = 갇힘부상        // 찾았지만 늦었다
+    else:                     return 엔딩2          // 선택 없이
+
+// ④ F07 == 갇힘부상 — 주인공이 고르지 않는다. 앞에서 확보한 배가 정한다
+if 배확보: return 엔딩3    // 세르기우스·프리마가 아이들을 배수로로 데려가고 주인공은 리비아 곁에 남는다
+else:      return 엔딩2    // 아이들을 마지막 피난선까지 이끌 사람이 주인공뿐이라 리비아를 두고 떠난다
+
+// 모든 엔딩 뒤: 목걸이는 루키우스에게, 공통 에필로그
+// 배가 없으면 타는 것은 '마지막 피난선'. 가는 길은 F06 == 이행이면 귀족이 터 준 길(빠름), 아니면 먼 길
+// 행방불명 + 여유 <= 0의 엔딩 2는 배가 있어도 나온다(리비아를 끝내 찾지 못하고 확보한 배로 떠난다)
+// 연출 전용 기록(경주 승패, 다프네 호의·동행, 곁가지 수행, 도시 설득 성패, 목욕탕 구경)은
+// 대사·컷만 바꾸고 위 판정에는 쓰지 않는다.`;
+
+/* ===== 퀘스트 안배 ===== */
+const PLAN=[
+ ['프롤로그'],['P1·P2','아버지의 목걸이 · 낯선 바닷가','main','연출·탐색','—','중'],
+ ['1부 · 섬 생활'],
+ ['Q01','산 사냥','main','전투 튜토리얼','—','중'],['Q02','섬 탐색하기','main','탐험·달리기 경주','— (경주 승패 연출)','대'],
+ ['Q03','사라진 아이 찾기','main','사람 찾기(시간 제한 없음)','—','중'],['Q08','아이에게 글자 가르치기','req','대화·따라 쓰기','— (에필로그 바위 글자)','소'],
+ ['Q04','상인의 거짓말 간파하기','main','추리(셈 한 판, 암산)','—','소'],['Q05','도둑 잡기','main','잠입 첫 단계','—','중'],
+ ['Q06','해적 물리치기','main','잠입+보스 전투','B01 드라콘 처분','대'],['V02','리쿠스의 뱃길 이야기','ev','대화(정보)','— (성 밖 포구를 안다)','소'],
+ ['Q09','마르쿠스와의 사냥 대결','side','사냥 재사용','—','소'],['Q10','별 보는 밤','side','대화','믿음 +1','소'],
+ ['Q07','축제 준비','main','가룸 미니게임','믿음 +1(솔직한 대답)','중'],['V01','카밀라의 약초 주머니','ev','대화','믿음 +1(묻는다)','소'],
+ ['2부 · 폼페이의 즐거운 시간'],
+ ['—','바다를 건너다 · 성문 앞 “폼페이”','main','연출','—','소'],['Q11','시장 장사 (코린나 첫 만남)','main','흥정(Q04 셈 화면 재사용)','—','중'],
+ ['Q12','목욕탕','free','탐험(5부 수색 지도)','— (5부 길 안내 한 줄)','중'],['Q13','길거리 음식점','free','식사 연출','—','소'],
+ ['Q14','원형경기장과 주사위','free','주사위 미니게임','—','중'],['Q15','벽 낙서','free','읽기 선택','—','소'],
+ ['Q18①','목걸이를 거절하다 (다프네 첫 컷)','main','대화','—','—'],['Q16','리비아와의 저녁','main','대화·구경','믿음 +1(마음을 묻는다)','소'],
+ ['Q17','아이들의 숨바꼭질','req','사람 찾기 재사용','— (엔딩 3 배수로)','소'],['Q18②','추근대는 귀족을 막아서다','main','대화·선택','B02 귀족 원한','대'],
+ ['V03','다프네의 항아리','ev','선택','믿음 +1(사 준다)','소'],['S06','부두의 마르쿠스','main','연출','—','소'],
+ ['3부 · 지진과 깨달음'],
+ ['—','흔들리는 땅 · 여기가 그 폼페이','main','연출','—','소'],['Q21','징후 탐색 (마이아)','main','관찰·단서 모으기','—','중'],
+ ['4부 · 설득'],
+ ['Q22','관리 설득 (네 곳 순서 자유, 2곳 이상)','main','단서 제시 퍼즐(후보 5개 중 정답 1개)','—','중'],['Q23','사제 설득','main','대화 선택','—','소'],
+ ['Q24','상인 설득 (코린나)','main','흥정(Q04 셈 화면 재사용)','—','소'],['Q25','군중 설득','main','달리기 재사용·벽에 경고 쓰기','—','중'],
+ ['—','귀족 하인의 보고 (공통 컷)','main','연출','—','소'],['Q19','섬사람 설득','main','대화(세르기우스·프리마)','B03 설득 결과','중'],
+ ['—','불의 신 축제의 밤','main','대화','약속(믿음 ≥ 3)','소'],
+ ['5부 · 폭발과 구조'],
+ ['Q26','사람 찾기','main','사람 찾기+시간 제한','B05 첫 수색','중'],['Q28','밤의 항구·탈출 배','main','잠입','— (배 확보 파생)','중'],
+ ['Q27','귀족과 다시 만나다 (V04 다프네)','main','선택·상자 나르기','B06 귀족 퀘스트','중'],['—','마르쿠스의 죽음','main','연출(변형 컷 2)','—','중'],
+ ['Q29','새벽 재탐색','main','짧은 사람 찾기','— (리비아 상태를 보여 줌)','소'],['—','25일 새벽 판정','main','연출','— (앞선 값으로 엔딩이 정해짐)','소'],
+ ['엔딩'],['END1','모두를 구하다','main','연출','—','대'],['END2','그녀를 잃다','main','연출','—','중'],['END3','그녀 곁에 남다','main','연출','—','중'],['—','공통 에필로그','main','연출','—','중'],
+];
+const KIND={main:['본선','c-main'],req:['본선 필수','c-req'],free:['자유 구경','c-free'],side:['곁가지','c-side'],ev:['NPC 이벤트','c-ev']};
+(function(){const tb=document.querySelector('#plantab tbody');const cnt={대:0,중:0,소:0};
+ tb.innerHTML=PLAN.map(r=>{if(r.length===1)return `<tr class="part"><td colspan="6">${r[0]}</td></tr>`;if(cnt[r[5]]!==undefined)cnt[r[5]]++;const k=KIND[r[2]];
+ return `<tr><td class="id">${r[0]}</td><td>${r[1]}</td><td><span class="chip ${k[1]}">${k[0]}</span></td><td>${r[3]}</td><td>${r[4]}</td><td class="size">${r[5]}</td></tr>`;}).join('');
+ document.getElementById('sizesum').textContent=`제작 규모 합계: 대 ${cnt.대} · 중 ${cnt.중} · 소 ${cnt.소}`;})();
+
+/* ===== 판정 ===== */
+const L=(arr,id)=>document.getElementById(id).innerHTML=arr.map(([c,t,x])=>`<li><span class="tag ${c}">${t}</span>${x}</li>`).join('');
+L([
+ ['t-both','둘 다','다프네 이벤트(V04)가 귀족 원한을 바꾸면 새벽의 여유가 달라져 엔딩까지 흔들린다. → V04는 어떤 값도 바꾸지 않게 했다.'],
+ ['t-one','한쪽','섬사람 설득 퀘스트가 비어 있었다(B03의 근원). → Q19를 새로 썼다.'],
+ ['t-one','한쪽','4부 군중 설득에서 원문의 돌멩이·“미친놈”·하인 보고가 빠졌다. → 되살리고 하인 보고는 공통 컷으로 뺐다.'],
+ ['t-one','한쪽','4부 네 설득이 같은 틀로 반복됐다. → 퍼즐·대화·흥정·달리기로 나누고 작은 성취를 따로 줬다.'],
+ ['t-one','한쪽','“새벽에 찾았지만 늦었다”를 보여 줄 장면이 없었다. → Q29 새벽 재탐색.'],
+ ['t-one','한쪽','심기를 건드렸을 때 리비아의 화살과 마르쿠스의 죽음이 겹쳤다. → 한 보복 장면으로.'],
+ ['t-one','대장','드라콘 처분이 엔딩을 거의 못 바꿨다(128개 중 2개). → 석방 시 여유 +1(책임자 지시)로 38개.'],
+ ['t-ok','결정','리비아·티로를 세르기우스·프리마의 자녀로 쓴 것은 임시 결정이다. 확인할 것 참조.'],
+],'conflicts');
+L([
+ ['t-ok','통과','핵심 분기점 6개(B01~B06), 판정에 쓰는 저장 변수 7개. 엔딩을 고르는 선택은 없고, 나머지 선택은 연출 전용이다.'],
+ ['t-ok','통과','줄기는 하나다. 분기는 변형 장면 1개 이내 뒤 같은 장면으로 모인다. 따로 만드는 분량은 엔딩 3벌과 공통 에필로그.'],
+ ['t-ok','통과','고정 사항: 리비아부터 찾으면 엔딩 1 없음 · 엔딩 3은 갇힘·부상이고 배가 있을 때만 · 마르쿠스는 모든 갈래에서 5부 밤에 죽음 · 목걸이는 모든 엔딩에서 루키우스에게.'],
+ ['t-ok','통과','두 작업자와 대장이 판정 식을 따로 구현해 768개 조합의 분포가 일치했다. 수형도 데이터는 82노드·127간선, 끊긴 길·막다른 길 없음.'],
+ ['t-one','검토','1부가 본선 9개로 가장 길다. 플레이 시간을 잰 뒤 Q04·Q05 병합을 정하자.'],
+],'structure');
+document.querySelector('#funtab tbody').innerHTML=[
+ ['1 초반 고리','좋음','목걸이·낯선 섬·리비아의 냉담에 누명과 해적이 이어진다.'],
+ ['2 페이싱','검토','1부가 길다. 2부는 자유 구경, 4부는 순서 자유로 연속 피로를 줄였다.'],
+ ['3 퀘스트 다양성','좋음','같은 유형이 연달아 오지 않고, 4부도 네 방식으로 나눴다.'],
+ ['4 감정선','좋음','마르쿠스(경주·의심·빚·부두·희생), 리비아(첫마디·웃음·머리끈·축제 밤), 루키우스(용기·글자·벽 경고).'],
+ ['5 주도감','좋음','모든 핵심 분기가 엔딩을 실제로 바꾼다(영향력 22~61%). 엔딩을 마지막에 고르게 하지 않고 앞의 선택이 정하게 해, 선택의 무게가 앞쪽에 실린다. 믿음은 리비아의 반응으로 티를 내야 한다. 뒤 장면의 작은 흔적은 작성 중.'],
+ ['6 복선 회수','좋음','포도 산·동굴·배수로·목걸이·글자·머리끈·마르쿠스의 빚·같은 별·벽 경고.'],
+ ['7 4부 설득','보강함','실패해도 작은 성취가 보이고, 섬사람 설득은 배와 시간으로 돌아온다.'],
+ ['8 5부와 엔딩','좋음','시간 압박과 굴욕의 무게. 엔딩 1 쓰라린 안도, 2 상실, 3 고요. 엔딩 1은 조합의 14.1%.'],
+ ['9 곁가지 보상','좋음','별 보는 밤 믿음 +1, 사냥 대결 마르쿠스의 정, 목욕탕 길 안내.'],
+].map(([a,b,c])=>`<tr><td style="white-space:nowrap">${a}</td><td><span class="tag ${b==='검토'?'t-one':'t-ok'}">${b}</span></td><td>${c}</td></tr>`).join('');
+document.getElementById('asks').innerHTML=[
+ '<b>가족 관계</b>: 리비아와 티로는 세르기우스·프리마의 딸과 아들. 원문에서 티로가 리비아를 “누나”, 세르기우스를 “아빠”라 부른다. 리비아를 잃는 엔딩이 두 사람에게는 딸을 잃는 일이 된다.',
+ '<b>도시 설득</b>: 네 곳 중 2곳 이상 하면 섬사람 설득으로. 네 곳을 모두 강제하면 좌절 구간이 길어지고, 1곳이면 설득의 헛수고가 전해지지 않는다.',
+ '<b>숫자 문턱</b>: 약속은 믿음 3 이상(다섯 곳 중 세 곳), 엔딩 1은 여유 1 이상. 엔딩 1은 조합의 14.1%로 잘 해야 닿는 최선 엔딩이 된다.',
+ '<b>Q04 상인의 속임수</b>: 셈(바꾸는 값을 복잡하게 불러 헷갈리게 하는 것을 암산으로 바로잡음). 새 모델이 필요 없고 Q11 장사·Q24 상인 설득이 같은 화면을 다시 쓴다.',
+ '<b>귀족이 목걸이를 요구하는 갈래</b>: 뺀다. 귀족 퀘스트는 원문의 확정대로 ‘무릎 꿇고 사과 + 상자 나르기’만. 목걸이는 언제나 루키우스에게 간다.',
+ '<b>1부 길이</b>: Q04·Q05는 합치지 않고 Q04를 셈 한 판으로 짧게 한다. 두 퀘스트가 추리와 잠입으로 성격이 다르다.',
+ '<b>인물 이름</b>: 지금 이름을 확정(가칭 표시를 뗀다). 주인공의 섬 이름은 페레(페레그리누스, 이방인).',
+ '<b>타임슬립</b>: 원문 프롤로그대로 짧게. 목걸이를 걸고 잠든 귀에 먼 파도 소리, 그리고 낯선 바닷가.',
+ '<b>Ep2 연결</b>: 에필로그 마지막 컷에서 아이 하나가 목걸이를 만지며 다음을 묻고, 루키우스가 그 목걸이를 아이의 목에 걸어 준다. “좋은 건 다음 사람한테 건네는 거지”의 세 번째 되풀이. Ep2의 시대·장소는 다음 에피소드에서 정한다.',
+].map(x=>`<li>${x}</li>`).join('');
+
+drawMap(); select(null); run();
+svg.addEventListener('click',()=>select(null));
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ select(null); if(window.flowSelect) window.flowSelect(null);} });
+</script>
+<script>
+/* ===== 이야기 흐름: 공통 줄기 + 영향 화살표 ===== */
+(function(){
+const FLOW=[
+ {t:'part',label:'프롤로그'},
+ {t:'node',id:'P1',title:'아버지의 목걸이',sub:'기일 밤, 목걸이를 걸고 잠든다',syn:'서른 즈음의 직장인 주인공. 아버지 기일 밤, 18K 체인에 붉은 합성 루비가 달린 아버지의 목걸이를 걸고 잠든다. 병원에서 들은 말이 남아 있다. “좋은 건 혼자 쥐고 있는 게 아니야. 다음 사람한테 건네는 거지.”'},
+ {t:'node',id:'P2',title:'낯선 바닷가',sub:'세르기우스·프리마가 거둬 준다',syn:'눈을 뜨니 모래밭. 어부 세르기우스와 아내 프리마가 쓰러진 주인공을 거둬 준다. 멀찍이서 팔짱을 낀 리비아. 전기도 차도 없고, 섬사람들은 해를 숫자로 세지 않는다.'},
+ {t:'part',label:'1부 · 섬 생활'},
+ {t:'node',id:'Q01',title:'Q01 산 사냥',sub:'전투 익히기',syn:'세르기우스에게 창 쥐는 법, 바람을 등지는 법을 배워 산양을 잡는다. 저녁 국그릇을 놓으며 리비아가 첫마디를 한다. “고기 잡아 온 사람 몫이래요.”'},
+ {t:'node',id:'Q02',title:'Q02 섬 탐색',sub:'동굴·포도 산, 마르쿠스와 경주',syn:'아이들과 섬 지도를 채운다. 바위 사이의 해안 동굴, 그리고 바다 건너 포도밭으로 덮인 커다란 산. 섬사람들은 그냥 ‘건너편 산’이라 부른다. 내리막에서 마르쿠스가 달리기 경주를 건다.',side:[{id:'race',title:'경주 승패 (연출)'}]},
+ {t:'node',id:'Q03',title:'Q03 사라진 아이 찾기',sub:'티로 구출, 카밀라 첫 등장',syn:'해 질 녘 돌아오지 않은 티로를 루키우스와 함께 찾아 밀물 동굴에서 업어 나온다. 리비아가 처음으로 똑바로 보며 “고마워요.” 산파 카밀라가 상처를 돌본다.'},
+ {t:'node',id:'Q08',title:'Q08 글자 가르치기',sub:'본선 필수 · 루키우스',req:1,syn:'루키우스에게 글자를 가르친다. “기억하고 싶은 건 적어 두면 남아.” 아이는 그날부터 바위에 주인공의 이야기를 긁어 적는다. 에필로그의 바위 글자가 여기서 시작된다.'},
+ {t:'node',id:'Q04',title:'Q04 상인의 거짓말',sub:'추리 · 축제 소식',syn:'상인 테르티우스의 속임수를 잡아낸다. 리비아가 “당신은 이상해요, 아는 게 너무 많아요.” 떠나는 상인이 소식을 던진다. 건너편 도시에서 곧 불의 신 축제가 열린다.'},
+ {t:'node',id:'Q05',title:'Q05 도둑 잡기',sub:'잠입 · 목걸이가 보물임을 안다',syn:'창고가 털리고 마르쿠스가 이방인을 의심한다. 밤에 잠입해 도둑을 잡으니 해적 드라콘의 정찰꾼, 노린 것은 목걸이였다. 리비아가 처음 먼저 말을 건다.'},
+ {t:'choice',id:'B01',title:'Q06 해적 · 드라콘을',opts:[{v:'석방',l:'살려 보낸다'},{v:'인도',l:'관리에게 넘긴다'}],merge:'귀갓길 “빚졌다. 갚는다”',syn:'해적이 루키우스를 끌고 간다. 묶인 채로도 맞서는 아이. 마르쿠스와 동굴에 잠입해 드라콘을 쓰러뜨린다. 그리고 드라콘을 어떻게 할지 고른다. 돌아오는 길, 루키우스가 묻는다. “아저씨는 앞으로 무슨 일이 생기는지 알아?” 마르쿠스는 “빚졌다. 갚는다.”'},
+ {t:'node',id:'V02',title:'V02 리쿠스의 뱃길 이야기',sub:'성 밖 포구 정보',ev:1,side:[{id:'Q09',title:'Q09 사냥 대결'},{id:'Q10',title:'Q10 별 보는 밤 · 믿음+1',trust:1}],syn:'부서진 배를 고치며 옛 군선 노잡이 리쿠스가 들려준다. 큰 항구는 높은 사람 배부터 싣고, 성 밖 작은 포구는 큰 배가 못 들어와 병사도 지키지 않는다.'},
+ {t:'node',id:'Q07',title:'Q07 축제 준비',sub:'가룸 담그기 · 솔직한 대답 믿음+1',trust:1,syn:'리비아와 가룸을 담근다. 냄새에 코를 막는 주인공을 보고 리비아가 처음 소리 내어 웃는다. “돌아가고 싶어요?” 대답은 배를 다 고쳤다는 티로의 외침에 끊긴다.'},
+ {t:'node',id:'V01',title:'V01 카밀라의 약초 주머니',sub:'묻는다 → 믿음+1',ev:1,trust:1,syn:'출발 전날 밤, 카밀라가 리비아의 허리끈에 약초 주머니를 달아 준다. 왜 도시를 싫어하는지 물으면 “그 땅은 자주 운다”는 말만 남긴다. 끝내 도시 이름은 말하지 않는다.'},
+ {t:'part',label:'2부 · 폼페이의 즐거운 시간'},
+ {t:'node',id:'T1',title:'바다를 건너 성문으로',sub:'부두의 점심 · “폼페이”',syn:'세르기우스의 배로 바다를 건넌다. 부두에서 점심을 먹고 성문 앞에 서자 문지기가 말한다. “폼페이에 온 걸 환영하오.” 어디서 많이 들어 봤는데… 생각은 티로의 손에 끌려 흩어진다.'},
+ {t:'node',id:'Q11',title:'Q11 시장 장사',sub:'가룸 팔기 · 코린나 첫 만남',side:[{id:'Q12',title:'Q12 목욕탕'},{id:'Q13',title:'Q13 길거리 음식점'},{id:'Q14',title:'Q14 경기장 주사위'},{id:'Q15',title:'Q15 벽 낙서'}],sideLabel:'자유 구경',syn:'시장 한쪽에 자리를 잡고 생선과 가룸을 판다. 냄새는 지독해도 맛이 좋다며 금방 팔린다. 시장 일꾼 코린나가 항아리 손잡이에 천을 감아 준다. 장사가 끝나면 도시 구경.'},
+ {t:'node',id:'Q18a',title:'목걸이를 거절하다',sub:'셈프로니우스와의 악연 · 다프네',syn:'비단 옷의 귀족 셈프로니우스가 은화로 목걸이를 사겠다고 한다. “아버지 유품입니다.” 평생 거절당해 본 적 없는 그의 얼굴이 굳는다. 행렬 끝에서 짐을 진 노예 소녀 다프네가 목걸이를 힐끗 본다.'},
+ {t:'node',id:'Q16',title:'Q16 리비아와의 저녁',sub:'머리끈 · 마음을 물으면 믿음+1',trust:1,syn:'리비아와 시장 골목을 걷는다. 처음 보는 천과 향유 앞에서 오래 머무는 리비아. 남은 돈으로 작은 머리끈을 사 주자 손목에 묶는다. 데이트라 부를 수 있는 처음이자 마지막 저녁.'},
+ {t:'node',id:'Q17',title:'Q17 숨바꼭질',sub:'본선 필수 · 배수로 발견',req:1,syn:'숨바꼭질하다 사라진 아이들을 성벽 아래 낡은 배수로에서 찾는다. 성 밖 바닷가로 이어진 좁은 통로. 꾸짖으면서도 주인공은 그 길을 눈여겨본다. 엔딩 3의 비밀 통로다.'},
+ {t:'choice',id:'B02',title:'Q18 추근대는 귀족을',opts:[{v:'작음',l:'정중하게 말린다'},{v:'큼',l:'망신을 준다'}],merge:'“또 너냐”',syn:'축제 준비로 들뜬 광장. 취한 셈프로니우스가 리비아의 머리끈을 잡아채며 자기 집에서 일하라고 한다. 주인공이 둘 사이에 선다. 그는 목걸이를 거절한 그 섬 촌놈을 알아본다. “또 너냐.”'},
+ {t:'node',id:'V03',title:'V03 다프네의 항아리',sub:'사 준다 → 믿음+1',ev:1,trust:1,syn:'하인들이 떠난 뒤 다프네가 혼자 깨진 항아리 조각을 줍는다. 주인에게 맞을까 떤다. 같은 항아리를 사 주는 모습을 리비아가 본다.'},
+ {t:'node',id:'S06',title:'부두의 마르쿠스',sub:'리비아와 마르쿠스의 오랜 시간',syn:'주사위로 돈을 잃은 마르쿠스가 부두 말뚝에 앉아 있다. 리비아가 말없이 곁에 앉아 남은 빵을 나눠 준다. 고맙다는 말을 못 하는 마르쿠스. 주인공은 둘이 쌓아 온 시간을 본다.'},
+ {t:'part',label:'3부 · 지진과 깨달음'},
+ {t:'node',id:'R1',title:'흔들리는 땅',sub:'길거리 음식점의 지진',syn:'축제를 사흘쯤 앞둔 저녁, 음식점에서 바닥이 울리고 그릇이 쏟아진다. 주인은 대수롭지 않게 그릇을 줍는다. “폼페이는 원래 잘 흔들려.”'},
+ {t:'node',id:'R2',title:'여기가, 그 폼페이야?',sub:'포도 산이 베수비오였다',syn:'노을 속에 그 산이 서 있다. 섬에서 ‘멋진 산이네’ 하던 포도 산. 교과서 한 귀퉁이의 사진이 꿰어진다. 서기 79년, 베수비오. 주인공의 손에서 빵이 떨어진다.'},
+ {t:'node',id:'Q21',title:'Q21 징후 탐색',sub:'우물·냄새·짐승 · 마이아',syn:'잠들지 못하고 도시를 헤맨다. 공동 우물의 물이 줄고, 산 쪽 바람에 썩은 달걀 냄새, 밤새 짖는 개. 우물가에서 물을 나르는 마이아. 날짜는 모르지만 머지않았다.'},
+ {t:'part',label:'4부 · 설득'},
+ {t:'node',id:'Q22',title:'도시 설득 Q22~Q25',sub:'관리·사제·상인·군중, 순서 자유',syn:'관리는 자기 포도밭을 걱정하고, 사제는 불의 신을 모독한다며 화를 내고, 상인은 대목을 비우라는 말에 웃고, 군중은 돌을 던진다. 그래도 몰래 짐을 싸는 관리의 식구, 등불을 든 신전 시종, 일찍 접는 노점, 벽에 남긴 경고가 남는다.'},
+ {t:'node',id:'S63',title:'귀족 하인의 보고',sub:'공통 컷',syn:'셈프로니우스의 하인이 소동을 보고 주인에게 전한다. “그 섬 촌놈이 미쳐서 산이 터진다고 떠들고 다닙니다.” 셈프로니우스가 코웃음친다.'},
+ {t:'choice',id:'B03',title:'Q19 섬사람 설득',opts:[{v:'0',l:'둘 다 실패'},{v:'S',l:'세르기우스'},{v:'P',l:'프리마'},{v:'SP',l:'둘 다'}],merge:'불의 신 축제 준비',syn:'여관 마당. 제발 섬으로 돌아가자고 한다. 세르기우스는 산이 수백 년 서 있었다고 하고, 마르쿠스는 미쳤다고 비웃고, 루키우스만 “난 아저씨 믿어.” 세르기우스와 프리마에게 한 번씩 말할 기회가 있다.'},
+ {t:'gate',id:'B04',title:'축제의 밤 · 믿음 ≥ 3 ?',opts:[{v:'y',l:'“곁에 있을게요”'},{v:'n',l:'“내일 얘기해요”'}],merge:'8월 23일 밤이 지난다',syn:'8월 23일 불카날리아. 도시가 불의 신에게 모닥불을 피운다. 성벽 위의 두 사람. “나, 당신 말 믿고 싶어요. 정말로.” 사랑한다고 말할 뻔한 순간, 마르쿠스가 리비아를 부른다.'},
+ {t:'part',label:'5부 · 폭발과 구조'},
+ {t:'node',id:'X1',title:'8월 24일 낮, 산이 터지다',sub:'소나무 모양의 연기 기둥',syn:'축제 다음 날 한낮. 천둥 같은 소리, 산꼭대기에서 솟아 우산처럼 퍼지는 연기 기둥. 하늘이 어두워지고 하얀 경석이 비처럼 쏟아진다. 섬사람들은 도시 곳곳에 흩어져 있다.'},
+ {t:'choice',id:'B05',title:'Q26 누구부터 찾나',opts:[{v:'o',l:'다른 사람부터'},{v:'l',l:'리비아부터'}],merge:'목욕탕에서 아이들 구출',syn:'시간 제한이 붙은 사람 찾기. 누구부터 찾으러 가느냐에 따라 남은 시간이 줄어든다. 목욕탕에서 프리마와 아이들을 데리고 나오면 루키우스가 말한다. “아저씨가 말한 거, 진짜였네.”'},
+ {t:'node',id:'Q28',title:'Q28 밤의 항구',sub:'탈출할 배를 찾는다',syn:'경석이 무릎까지 쌓이고 지붕이 무너진다. 항구는 병사들이 막고 귀족과 재물부터 싣는다. 섬사람들을 데리고 골목과 무너진 집 사이로 배를 찾는다.'},
+ {t:'choice',id:'B06',title:'Q27 귀족의 퀘스트',opts:[{v:'이행',l:'들어준다'},{v:'거절',l:'거절'},{v:'불성실',l:'대충'},{v:'자극',l:'심기를 건드림'}],merge:'공통 위험 장면',syn:'항구 앞 저택가에서 셈프로니우스와 다시 만난다. “또 너냐.” 무릎을 꿇고 그 계집 앞에서 사과하고, 상자를 배까지 나르면 병사들에게 길을 터 주라고 하겠다는 퀘스트.'},
+ {t:'node',id:'M1',title:'마르쿠스의 죽음',sub:'모든 갈래 · “빚… 갚았다”',fixed:1,syn:'어느 갈래든 이 밤에 마르쿠스는 죽는다. 하인의 칼을 막거나 무너지는 회랑을 어깨로 받치며. “빚… 갚았다. 리비아를… 부탁한다. 난 한 번도 못 했는데.”'},
+ {t:'node',id:'Q29',title:'Q29 새벽 재탐색',sub:'정해진 리비아 상태를 장면으로',syn:'25일 새벽, 산 쪽에서 시커먼 화산재 흐름이 기어 온다. 마지막 배가 떠날 시간. 리비아를 찾는다. 곁에 있거나, 갇혀 있거나, 끝내 찾지 못하거나는 앞의 선택이 이미 정해 두었다.'},
+ {t:'final'}
+];
+const SRC=[
+ {g:'판정에 영향', items:[
+  {id:'B01',label:'B01 드라콘',origin:['B01'],arcs:[['Q28','판정','석방: 드라콘의 배가 나타난다(배 확보)'],['G','판정','석방: 새벽 여유 +1'],['B7','판정','석방: 배가 있어 갇힌 리비아 곁에 남을 수 있다'],['T1','흔적','석방: 수평선에 낯익은 돛 / 인도: 병사가 짐을 덜 뒤짐'],['B03','흔적','석방: 마르쿠스가 ‘놓아준 해적’으로 꼬집음'],['E1','흔적','석방: 출항 때 그 돛이 스친다'],['E2','흔적','석방: 출항 때 그 돛이 스친다']]},
+  {id:'trust',label:'리비아의 믿음 +1',origin:['Q07','V01','Q10','Q16','V03'],arcs:[['B04','판정','다섯 곳 합계 3 이상이면 약속'],['Q16','흔적','2 이상: 리비아가 먼저 곁에 선다'],['B02','흔적','3 이상: 소매를 잡은 손이 오래 남는다'],['B05','판정','약속하면 낮에 리비아가 곁에(리비아부터 찾으면 예외) · 4 이상이면 주인공 몫 물병'],['G','판정','약속 +1'],['E1','흔적','3 이상: 거절하는 눈빛에 망설임'],['E3','흔적','4 이상: 리비아가 먼저 손을 잡는다']]},
+  {id:'B02',label:'B02 귀족 막기',origin:['B02'],arcs:[['R1','흔적','망신: 일행을 힐끗대며 수군대는 군중'],['Q22','흔적','망신: 군중 속 하인들이 부추긴다'],['B06','흔적','망신: 셈프로니우스의 눈빛이 더 차갑다'],['G','판정','망신: 새벽 여유 −1']]},
+  {id:'B03',label:'B03 섬사람 설득',origin:['B03'],arcs:[['B05','판정','프리마: 목욕탕 앞에 모여 리비아를 함께 찾는다'],['Q28','판정','세르기우스: 배를 성 밖 포구에 옮겨 둔다(배 확보)'],['G','판정','프리마: 새벽 여유 +1'],['B7','판정','세르기우스: 배가 있어 아이들을 맡길 수 있다'],['Q28','흔적','세르기우스의 포구 손짓 / 프리마가 묶어 둔 짐 / 제각각인 짐']]},
+  {id:'B04',label:'축제 밤 약속',origin:['B04'],arcs:[['B05','판정','다른 사람부터 찾으면 시장에서 기다리던 리비아와 함께 찾는다'],['G','판정','약속 +1'],['B06','흔적','약속을 떠올리며 손을 쥐다 / 확신 못 한 대화에 주저'],['Q29','흔적','성벽 쪽 시선: 약속의 기억 / 답을 못 들은 불안']]},
+  {id:'B05',label:'B05 누구부터',origin:['B05'],arcs:[['G','판정','리비아부터: 리비아 행방불명, 엔딩 1 닫힘'],['Q29','판정','행방불명이면 새벽 재탐색에서 다시 찾는다(여유 1 이상)'],['Q28','흔적','리비아가 달려간 방향을 돌아본다 / 구조한 사람들을 확인']]},
+  {id:'B06',label:'B06 귀족 퀘스트',origin:['B06'],arcs:[['M1','판정','자극: 마르쿠스는 칼, 곁의 리비아는 화살을 막는다'],['G','판정','이행: 항구 길이 열려 여유 +1(배는 아님) · 거절·대충 −1'],['Q29','흔적','소매의 상자 먼지 / 먼 길을 돌아봄 / 보복을 경계하던 손']]},
+  {id:'auto4',label:'④ 엔딩 2·3 자동 판정',origin:['B7'],arcs:[['E2','판정','배 없음: 아이들을 이끌고 리비아를 두고 떠난다'],['E3','판정','배 있음: 아이들을 맡기고 리비아 곁에 남는다']]},
+ ]},
+ {g:'장면에만 흔적', items:[
+  {id:'V01s',label:'V01 약초 주머니',origin:['V01'],arcs:[['B05','흔적','리비아가 허리의 약초 주머니를 쥔다'],['E2','흔적','카밀라가 빈 허리끈 자리를 오래 본다']]},
+  {id:'Q10s',label:'Q10 별 보는 밤',origin:['Q10'],arcs:[['Q21','흔적','밤하늘에서 섬의 별을 떠올린다'],['B04','흔적','성벽 위에서 리비아가 별을 올려다본다']]},
+  {id:'V03s',label:'V03 다프네의 호의',origin:['V03'],arcs:[['Q22','흔적','짐을 지고 가던 다프네가 고개 숙여 인사'],['B06','흔적','상자 줄의 다프네가 먼저 알아본다']]},
+  {id:'V04s',label:'V04 다프네 동행',origin:['B06'],arcs:[['Q29','흔적','다프네가 파울라의 손을 잡고 걷는다'],['E1','흔적','카밀라가 맨발의 다프네에게 신을 내민다'],['E3','흔적','파울라가 다프네의 손도 끌고 통로로']]},
+  {id:'V02s',label:'V02 뱃길 이야기',origin:['V02'],arcs:[['Q28','흔적','병사를 피해 골목을 먼저 꺾는다'],['E2','흔적','성 밖 포구로 망설임 없이 걷는다']]},
+  {id:'mar',label:'마르쿠스와의 시간',origin:['race','Q09','Q14'],arcs:[['Q11','흔적','주사위판에서 비웃음이 누그러진다'],['R1','흔적','수프 속 고기를 덜어 준다'],['B03','흔적','비웃다가도 말끝이 짧아진다'],['M1','흔적','마지막 순간 섬의 경주·사냥이 스친다'],['E1','흔적','리비아가 마르쿠스의 달리기를 떠올린다'],['E2','흔적','꿈속에 달려 나가는 마르쿠스']]},
+  {id:'city',label:'도시 설득 성패',origin:['Q22'],arcs:[['B05','흔적','성공: 경고를 들은 시민이 짐을 들고 움직임 / 실패: 관리 가족·시종 등불·접힌 노점 천을 떠올림'],['Q28','흔적','항구 가는 길에 경고를 전해 들은 사람들·벽의 경고 낙서']]},
+  {id:'liv',label:'리비아의 상태',origin:['Q29'],arcs:[['E1','흔적','곁에 있음: 고백 직전 바다로 옮기는 시선'],['E2','흔적','갇힌 자리·상처 컷을 이어 씀 / 끝내 못 찾은 빈 골목'],['E3','흔적','갇힌 자리·상처 컷을 이어 쓰고 손이 머문다']]},
+  {id:'Q12s',label:'Q12 목욕탕 구경',origin:['Q12'],arcs:[['B05','흔적','5부 수색에 길 안내 한 줄'],['B03','흔적','프리마가 목욕탕 앞을 모일 곳으로 꼽는다'],['E1','흔적','아이들이 뜨거운 물 흉내를 내며 논다']]},
+ ]},
+];
+const NS='http://www.w3.org/2000/svg', svg=document.getElementById('flow-svg');
+const mk=(n,a={},p=svg)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const W=1040, CX=330, NW=240, NH=46, GAP=22;
+const A={}; // id -> {x,y (right anchor), el, cy}
+const syn={};
+let gArc;
+function pill(g,x,y,w,h,o){
+  const r=mk('rect',{x,y,width:w,height:h,rx:o.rx??8,fill:'var(--surface)',stroke:o.stroke||'var(--ink)','stroke-width':o.sw||1.4,'stroke-dasharray':o.dash||''},g);
+  const t=mk('text',{x:x+w/2,y:y+(o.sub?h/2-4:h/2+5),'text-anchor':'middle','font-size':o.fs||13.5,'font-weight':600,fill:'var(--ink)'},g);t.textContent=o.title;
+  if(o.sub){const t2=mk('text',{x:x+w/2,y:y+h/2+13,'text-anchor':'middle','font-size':11.5,fill:'var(--muted)'},g);t2.textContent=o.sub;}
+  return r;
+}
+const ln=(d,o={},p)=>mk('path',{d,fill:'none',stroke:o.s||'var(--line)','stroke-width':o.w||2,'stroke-dasharray':o.dash||''},p);
+function clickable(g,id){g.setAttribute('class','node');g.setAttribute('tabindex','0');g.setAttribute('role','button');
+  g.addEventListener('click',e=>{e.stopPropagation();onNode(id);});
+  g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();onNode(id);}});}
+function draw(){
+  let y=20, prev=null;
+  const gBase=mk('g');
+  const trunk=top=>{if(prev!==null) ln(`M${CX} ${prev} L${CX} ${top}`,{s:'var(--ink)'},gBase);};
+  for(const it of FLOW){
+    if(it.t==='part'){y+=10;mk('line',{x1:12,y1:y,x2:640,y2:y,stroke:'var(--line)'},gBase);const t=mk('text',{x:16,y:y+20,'font-size':15,'font-weight':700,fill:'var(--red)'},gBase);t.setAttribute('style','font-family:"Gowun Batang",serif');t.textContent=it.label;y+=34;continue;}
+    if(it.t==='node'){
+      trunk(y); const g=mk('g',{},gBase);
+      const st=it.ev?'var(--ochre)':it.req?'var(--red)':(it.trust?'var(--ochre)':'var(--ink)');
+      const r=pill(g,CX-NW/2,y,NW,NH,{title:it.title,sub:it.sub,stroke:st,sw:it.fixed?2.4:1.4});
+      A[it.id]={x:CX+NW/2,y:y+NH/2,el:r}; syn[it.id]=it; clickable(g,it.id);
+      if(it.side){const sx=12,sw=178;let sy=y+(NH-(it.side.length*28-4))/2;
+        if(it.sideLabel){const t=mk('text',{x:sx,y:sy-5,'font-size':11,fill:'var(--muted)'},gBase);t.textContent=it.sideLabel+' (안 해도 진행)';}
+        it.side.forEach(s=>{const gg=mk('g',{},gBase);const rr=pill(gg,sx,sy,sw,24,{title:s.title,dash:'5 4',stroke:s.trust?'var(--ochre)':'var(--muted)',fs:11.5,rx:12});
+          ln(`M${sx+sw} ${sy+12} L${CX-NW/2} ${y+NH/2}`,{dash:'4 4',w:1.1},gBase); A[s.id]={x:sx+sw,y:sy+12,el:rr}; sy+=28;});}
+      prev=y+NH; y+=NH+GAP; continue;
+    }
+    if(it.t==='choice'||it.t==='gate'){
+      trunk(y); const g=mk('g',{},gBase); const dw=NW, dh=40;
+      const d=mk('path',{d:`M${CX} ${y} L${CX+dw/2} ${y+dh/2} L${CX} ${y+dh} L${CX-dw/2} ${y+dh/2} Z`,fill:'var(--surface)',stroke:it.t==='gate'?'var(--ochre)':'var(--red)','stroke-width':2},g);
+      const tt=mk('text',{x:CX,y:y+dh/2+5,'text-anchor':'middle','font-size':12.5,'font-weight':600,fill:'var(--ink)'},g);tt.textContent=(it.t==='choice'?it.id+'  ':'')+it.title;
+      A[it.id]={x:CX+dw/2,y:y+dh/2,el:d}; syn[it.id]=it; clickable(g,it.id);
+      const oy=y+dh+26, n=it.opts.length, ow=n>2?128:170, span=Math.min(600,(ow+12)*n), x0=CX-span/2, mY=oy+30+26;
+      it.opts.forEach((o,i)=>{const ox=x0+i*(span/n)+(span/n-ow)/2;
+        ln(`M${CX} ${y+dh} C${CX} ${oy-12}, ${ox+ow/2} ${y+dh+8}, ${ox+ow/2} ${oy}`,{},gBase);
+        pill(mk('g',{},gBase),ox,oy,ow,30,{title:o.l,fs:12,rx:15,stroke:'var(--line)'});
+        ln(`M${ox+ow/2} ${oy+30} C${ox+ow/2} ${mY-6}, ${CX} ${oy+34}, ${CX} ${mY}`,{},gBase);});
+      pill(mk('g',{},gBase),CX-NW/2,mY,NW,30,{title:it.merge,fs:12.5});
+      prev=mY+30; y=mY+30+GAP; continue;
+    }
+    if(it.t==='final'){
+      trunk(y); const g=mk('g',{},gBase); const dw=280,dh=46;
+      const d=mk('path',{d:`M${CX} ${y} L${CX+dw/2} ${y+dh/2} L${CX} ${y+dh} L${CX-dw/2} ${y+dh/2} Z`,fill:'var(--surface)',stroke:'var(--ink)','stroke-width':2.2},g);
+      const t=mk('text',{x:CX,y:y+dh/2-2,'text-anchor':'middle','font-size':13,'font-weight':700,fill:'var(--ink)'},g);t.textContent='25일 새벽 판정';
+      const t2=mk('text',{x:CX,y:y+dh/2+14,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},g);t2.textContent='리비아 상태 · 배 확보 · 여유';
+      A.G={x:CX+dw/2,y:y+dh/2,el:d}; syn.G={title:'25일 새벽 판정',syn:'리비아가 곁에 있고 배와 여유가 있으면 엔딩 1. 곁에 있었어도 조건이 모자라면 뒤처진 사람을 데리러 갔다가 갇힌다. 행방불명이면 여유가 있을 때만 새벽에 다시 찾는다. 찾았지만 함께 떠날 수 없으면 마지막 선택이 열린다.'}; clickable(g,'G');
+      const ey=y+dh+66, E1x=110, E2x=550;
+      ln(`M${CX-50} ${y+dh-10} C${E1x} ${y+dh}, ${E1x} ${ey-30}, ${E1x} ${ey}`,{},gBase);
+      ln(`M${CX} ${y+dh} L${CX} ${ey}`,{},gBase);
+      ln(`M${CX+50} ${y+dh-10} C${E2x} ${y+dh}, ${E2x} ${ey-30}, ${E2x} ${ey}`,{},gBase);
+      const c1=mk('text',{x:E1x,y:y+dh+28,'font-size':11,fill:'var(--muted)','text-anchor':'middle'},gBase);c1.textContent='곁·배·여유≥1';
+      const c2=mk('text',{x:CX+6,y:y+dh+32,'font-size':11,fill:'var(--muted)'},gBase);c2.textContent='갇힘·부상';
+      const c3=mk('text',{x:E2x,y:y+dh+28,'font-size':11,fill:'var(--muted)','text-anchor':'middle'},gBase);c3.textContent='행방불명·여유≤0';
+      const g1=mk('g',{},gBase);const r1=pill(g1,E1x-85,ey,170,50,{title:'엔딩 1 모두를 구하다',sub:'고백은 거절당한다',stroke:'var(--e1)',sw:2.2});A.E1={x:E1x+85,y:ey+25,el:r1};
+      syn.E1={title:'엔딩 1 · 모두를 구하다',syn:'배가 바다로 나가고 시커먼 구름이 도시를 삼킨다. 며칠 뒤 바닷가에서 사랑한다고 말하지만 리비아는 고개를 젓는다. 마르쿠스가 재 속에 있으니까. 주인공은 루키우스에게 목걸이를 걸어 주고 어디론가 떠난다.'};clickable(g1,'E1');
+      const gb=mk('g',{},gBase);const bd=mk('path',{d:`M${CX} ${ey} L${CX+96} ${ey+24} L${CX} ${ey+48} L${CX-96} ${ey+24} Z`,fill:'var(--surface)',stroke:'var(--ochre)','stroke-width':2},gb);
+      const bt=mk('text',{x:CX,y:ey+29,'text-anchor':'middle','font-size':12,'font-weight':600,fill:'var(--ink)'},gb);bt.textContent='④ 아이들을 맡길 배가 있나';
+      A.B7={x:CX+96,y:ey+24,el:bd}; syn.B7={title:'④ 리비아가 갇힘·부상일 때',syn:'리비아가 무너진 집에 깔렸거나 화살을 맞아 함께 떠날 수 없다. 주인공이 고르는 순간은 없다. 앞에서 배를 확보해 두었으면 세르기우스·프리마가 아이들을 배수로로 데려가고 주인공은 리비아 곁에 남는다(엔딩 3). 배가 없으면 아이들을 마지막 피난선까지 이끌 사람이 주인공뿐이라 리비아를 두고 떠난다(엔딩 2).'};clickable(gb,'B7');
+      const g2=mk('g',{},gBase);const r2=pill(g2,E2x-85,ey,170,50,{title:'엔딩 2 그녀를 잃다',sub:'아이들과 배에 오른다',stroke:'var(--e2)',sw:2.2});A.E2={x:E2x+85,y:ey+25,el:r2};
+      syn.E2={title:'엔딩 2 · 그녀를 잃다',syn:'리비아가 없는 배가 멀어진다. 섬에서 밤마다 같은 꿈을 꾸던 주인공은 루키우스에게 목걸이를 건네고 처음으로 운다. 다음 날 아침 배를 타고 떠난다.'};clickable(g2,'E2');
+      const ry=ey+118;
+      ln(`M${CX+40} ${ey+40} C${E2x-40} ${ey+70}, ${E2x} ${ey+62}, ${E2x} ${ey+50}`,{},gBase);
+      const c4=mk('text',{x:CX+70,y:ey+78,'font-size':11,fill:'var(--muted)'},gBase);c4.textContent='배 없음';
+      ln(`M${CX} ${ey+48} L${CX} ${ry}`,{},gBase);
+      const c5=mk('text',{x:CX+8,y:ey+86,'font-size':11,fill:'var(--muted)'},gBase);c5.textContent='배 있음';
+      const g3=mk('g',{},gBase);const r3=pill(g3,CX-92,ry,184,50,{title:'엔딩 3 그녀 곁에 남다',sub:'아이들은 배수로로',stroke:'var(--e3)',sw:2.2});A.E3={x:CX+92,y:ry+25,el:r3};
+      syn.E3={title:'엔딩 3 · 그녀 곁에 남다',syn:'아이들에게 배수로 통로를 알려 주고, 루키우스에게 목걸이를 걸어 준다. 둘만 남은 골목에서 끝내 못 했던 말을 한다. “알아요. 바보. 진작 말하지.” 화면이 하얗게 바랜다.'};clickable(g3,'E3');
+      const epy=ry+96;
+      [[E1x,ey+50],[E2x,ey+50],[CX,ry+50]].forEach(([x,yy])=>ln(`M${x} ${yy} C${x} ${epy-30}, ${CX} ${yy+20}, ${CX} ${epy}`,{dash:'3 4',w:1.3},gBase));
+      const ge=mk('g',{},gBase);const re=pill(ge,CX-NW/2,epy,NW,44,{title:'공통 에필로그',sub:'어른이 된 루키우스와 붉은 돌'});A.EP={x:CX+NW/2,y:epy+22,el:re};
+      syn.EP={title:'공통 에필로그',syn:'여러 해가 지난 섬. 어른이 된 루키우스가 아이들에게 사라진 도시와 그것을 미리 알았던 이방인 이야기를 들려준다. 목에는 붉은 돌, 바위에는 어릴 적 긁어 적은 글자. 이야기는 다음 에피소드로 이어진다.'};clickable(ge,'EP');
+      y=epy+44+24;
+    }
+  }
+  gArc=mk('g');
+  svg.setAttribute('viewBox',`0 0 ${W} ${y}`); svg.style.display='block'; svg.style.width='100%'; svg.style.minWidth='880px'; svg.style.height='auto';
+}
+let cur=null;
+const srcById={}; SRC.forEach(gp=>gp.items.forEach(s=>srcById[s.id]=s));
+const originToSrc={B01:'B01',B02:'B02',B03:'B03',B04:'B04',B05:'B05',B06:'B06',B7:'auto4',V01:'V01s',Q10:'Q10s',V03:'V03s',V02:'V02s',race:'mar',Q09:'mar',Q14:'mar',Q12:'Q12s',Q07:'trust',Q16:'trust'};
+function clearArcs(){gArc.innerHTML='';for(const k in A){A[k].el.style.stroke='';A[k].el.style.strokeWidth='';A[k].el.style.fill='';}}
+function showSource(id){
+  clearArcs(); const s=srcById[id];
+  document.querySelectorAll('#srcbar button[data-src]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.src===id)));
+  if(!s) return;
+  s.origin.forEach(o=>{if(A[o]){A[o].el.style.stroke='var(--red)';A[o].el.style.strokeWidth=3;A[o].el.style.fill='var(--soft)';}});
+  const stack={}; let lane=0;
+  const o0=A[s.origin[s.origin.length-1]]||A[s.origin[0]];
+  s.arcs.forEach(([to,kind,text])=>{
+    const T=A[to]; if(!T) return;
+    const O=s.origin.length>1 ? (s.origin.map(o=>A[o]).filter(Boolean).sort((a,b)=>Math.abs(a.y-T.y)-Math.abs(b.y-T.y))[0]) : o0;
+    const rail=Math.max(O.x,T.x)+40+lane*16; lane++;
+    const col=kind==='판정'?'var(--red)':'var(--ochre)';
+    ln(`M${O.x} ${O.y} C${rail} ${O.y}, ${rail} ${T.y}, ${T.x+2} ${T.y}`,{s:col,w:2.2,dash:kind==='판정'?'':'6 4'},gArc);
+    mk('path',{d:`M${T.x+2} ${T.y} l9 -5 l0 10 z`,fill:col},gArc);
+    T.el.style.stroke=col; T.el.style.strokeWidth=2.8;
+    const k=to; stack[k]=(stack[k]||0); const ly=T.y+4+stack[k]*15; stack[k]++;
+    const tx=mk('text',{x:rail+8,y:ly,'font-size':11.5,fill:'var(--ink)'},gArc); tx.textContent=(kind==='판정'?'■ ':'◇ ')+text;
+    const bb=tx.getBBox(); const r=mk('rect',{x:bb.x-4,y:bb.y-2,width:bb.width+8,height:bb.height+4,rx:4,fill:'var(--surface)',stroke:col,'stroke-width':1},gArc); gArc.insertBefore(r,tx);
+  });
+}
+function panel(nodeId){
+  const box=document.getElementById('flow-detail');
+  if(!nodeId && !cur){box.innerHTML=`<p class="where">이야기 흐름</p><h3>장면이나 선택을 눌러 보세요</h3><p style="font-size:14px">장면을 누르면 줄거리가 여기 나옵니다. 위의 단추나 줄기의 분기(빨간 마름모)를 누르면, 그 선택이 뒤의 어느 장면에 닿는지 화살표가 그려집니다.</p><p class="calc">■ 빨간 실선 = 판정에 주는 영향 · ◇ 황토색 점선 = 장면에 남는 흔적. 같은 것을 다시 누르거나 빈 곳·Esc로 풉니다.</p>`;return;}
+  const it=syn[nodeId]; const s=cur?srcById[cur]:null;
+  let h='';
+  if(it){h+=`<p class="where">${it.id||''}</p><h3>${it.title}</h3><p class="syn">${it.syn||it.sub||''}</p>`;}
+  if(s){h+=`<p class="k">${s.label}이(가) 닿는 곳</p><ul class="arcs">${s.arcs.map(([to,k,t])=>`<li><span class="kind" style="color:${k==='판정'?'var(--red)':'var(--ochre)'}">${k}</span>${(syn[to]&&syn[to].title)||to} — ${t}</li>`).join('')}</ul>`;}
+  h+=`<button type="button" id="flow-clear">선택 풀기</button>`;
+  box.innerHTML=h; document.getElementById('flow-clear').addEventListener('click',()=>flowSelect(null));
+}
+let curNode=null;
+function onNode(id){
+  if(curNode===id){flowSelect(null);return;}
+  curNode=id; const src=originToSrc[id];
+  if(src){cur=src;showSource(src);} else {cur=null;clearArcs();document.querySelectorAll('#srcbar button[data-src]').forEach(b=>b.setAttribute('aria-pressed','false'));if(A[id]){A[id].el.style.fill='var(--soft)';}}
+  panel(id);
+}
+function flowSelect(src){
+  curNode=null;
+  if(!src||cur===src){cur=null;clearArcs();document.querySelectorAll('#srcbar button[data-src]').forEach(b=>b.setAttribute('aria-pressed','false'));panel(null);return;}
+  cur=src; showSource(src); const s=srcById[src]; panel(s.origin[0]==='race'?'Q02':s.origin[0]);
+}
+window.flowSelect=flowSelect;
+const bar=document.getElementById('srcbar');
+bar.innerHTML=SRC.map(gp=>`<span class="grp">${gp.g}</span>`+gp.items.map(s=>`<button type="button" data-src="${s.id}" aria-pressed="false">${s.label}</button>`).join('')).join('');
+bar.querySelectorAll('button[data-src]').forEach(b=>b.addEventListener('click',()=>flowSelect(b.dataset.src)));
+draw(); panel(null);
+svg.addEventListener('click',()=>flowSelect(null));
+})();
+</script>
+
+</body>
+</html>
